@@ -1,2 +1,0 @@
-:UltiSnipsAddFiletypes javascript
-:UltiSnipsAddFiletypes javascript-node
