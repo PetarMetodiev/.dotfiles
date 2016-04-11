@@ -1,20 +1,29 @@
-set nocompatible " Use Vim setting, rather than Vi settings (much better!)
+" Use Vim setting, rather than Vi settings (much better!)
+set nocompatible
 
-set backspace=indent,eol,start " Allow backspasing over everything in insert mode
+" Allow backspasing over everything in insert mode
+set backspace=indent,eol,start
 
-set history=1000 " Keep 1000 lines of command line history
+" Keep 1000 lines of command line history
+set history=1000
 
-set ruler " Show the cursor position all the time
+" Show the cursor position all the time
+set ruler
 
-set showcmd " Display incomplete commands
+" Display incomplete commands
+set showcmd
 
-set incsearch " Do incremental searching
+" Do incremental searching
+set incsearch
 
-set autoindent " Always set autoindenting on
+" Always set autoindenting on
+set autoindent
 
 " ---------- Vundle specific settings ----------
-set nocompatible              " be iMproved, required
-filetype off                  " required
+" be iMproved, required
+set nocompatible
+" required
+filetype off
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -27,31 +36,47 @@ Plugin 'VundleVim/Vundle.vim'
 
 " Keep Plugin commands between vundle#begin/end.
 
-Plugin 'tpope/vim-fugitive' " Git wrapper
+" Git wrapper
+Plugin 'tpope/vim-fugitive'
 
-Plugin 'scrooloose/nerdtree' " File explorer tree view
+" File explorer tree view
+Plugin 'scrooloose/nerdtree'
 
-Plugin 'raimondi/delimitmate' " Automatic closing of quotes, paranthesis, brackets, etc.
+" Automatic closing of quotes, paranthesis, brackets, etc.
+Plugin 'raimondi/delimitmate'
 
-Plugin 'bling/vim-airline' " Statusline enhancements
+" Statusline enhancements
+Plugin 'bling/vim-airline'
 
-Plugin 'easymotion/vim-easymotion' " Plugin for easier navigation
+" Plugin for easier navigation
+Plugin 'easymotion/vim-easymotion'
 
-Plugin 'tpope/vim-surround' " Wrap text in tags, braces, etc. or delete the surrounding tags, braces, tec .
+" Wrap text in tags, braces, etc. or delete the surrounding tags, braces, tec .
+Plugin 'tpope/vim-surround'
 
-Plugin 'SirVer/ultisnips' " Code snippets
+" Code snippets
+Plugin 'SirVer/ultisnips'
 
-Plugin 'honza/vim-snippets' " Snippet engine
+" Snippet engine
+Plugin 'honza/vim-snippets'
 
-Plugin 'digitaltoad/vim-pug' " Jade highlighting
+" Jade highlighting
+Plugin 'digitaltoad/vim-pug'
 
-Plugin 'tomtom/tcomment_vim' " Commenting
+" Commenting
+Plugin 'tomtom/tcomment_vim'
 
-Plugin 'Chiel92/vim-autoformat' " Vim autoformating, uses external formatters
+" Vim autoformating, uses external formatters
+Plugin 'Chiel92/vim-autoformat'
+
+" Concealing for JS
+Plugin 'pangloss/vim-javascript'
 
 " All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" required
+call vundle#end()
+" required
+filetype plugin indent on
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -67,67 +92,102 @@ filetype plugin indent on    " required
 
 " ---------- UI and UX settings ----------
 
-set rnu " Display relative line numbers
-set nu " Display absolute line numbers
+" Display relative line numbers
+set rnu
+" Display absolute line numbers
+set nu
 
-syntax enable " Turn on syntax highlighting
+" Turn on syntax highlighting
+syntax enable
 
-set hidden " Leave hidden buffers open
+" Leave hidden buffers open
+set hidden
 
-set history=100 "by default Vim saves your last 8 commands.  We can handle more
+"by default Vim saves your last 8 commands.  We can handle more
+set history=100
 
 set laststatus=2
 
 " set ttimeoutlen=50
 
-set showcmd " Displaying the command line which keys are pressed
+" Displaying the command line which keys are pressed
+set showcmd
 
 " No error bells
 set visualbell
 set t_vb=
 
-set splitbelow " Open new horizontal split to the bottom
-set splitright " Open new vertical split to the right
+" Open new horizontal split to the bottom
+set splitbelow
+" Open new vertical split to the right
+set splitright
 
-set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4 " Use tabs for identation instead of spaces, 1 tab = 4 spaces
+" Use tabs for identation instead of spaces, 1 tab = 4 spaces
+set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
-set listchars=tab:»\ ,eol:¬,trail:· " Set the appearance of whitespace characters
-set list " Turn on whitespace characters by default
+" Set the appearance of whitespace characters
+set listchars=tab:»\ ,eol:¬,trail:·
+" Turn on whitespace characters by default
+set list
 
-let NERDTreeShowLineNumbers=1 " Enable line numbers for NERDTree
-autocmd FileType nerdtree setlocal relativenumber " Use relative numbers for NERDTree
-
+" Enable line numbers for NERDTree
+let NERDTreeShowLineNumbers=1
+" Use relative numbers for NERDTree
+autocmd FileType nerdtree setlocal relativenumber
 
 set t_Co=256
 set background=dark
 colorscheme distinguished
-:highlight NonText ctermfg=8
+
+" Coloring for the whitespace characters
+highlight NonText ctermfg=8
+
+" Always show at least 2 visible lines above/below cursor
+set scrolloff=2
+
+" Show a list of suggestions above command line when pressing <Tab>
+set wildmenu
+
+" If a file is changed outside of Vim, it is automatically read again
+set autoread
 
 " ---------- Key mappings ----------
 
-:nnoremap <space> i<space><esc> " Insert empty space in normal mode
+" Insert empty space in normal mode
+nnoremap <space> i<space><esc>
 
-map <C-b> :NERDTreeToggle<CR> " Map Ctrl+b to open NERDTree. To close press <q>
+" Map Ctrl+b to open NERDTree. To close press <q>
+map <C-b> :NERDTreeToggle<CR>
 
-map <C-/> :TComment<CR> " Map Ctrl+/ to toggle comment
+" Map Ctrl+/ to toggle comment
+map <C-/> :TComment<CR>
 
-nnoremap {{ :tabprevious<CR> " Map {{ to move to previous tab
+" Map {{ to move to previous tab
+nnoremap {{ :tabprevious<CR>
 
-nnoremap }} :tabnext<CR> " Map }} to move to next tab
+" Map }} to move to next tab
+nnoremap }} :tabnext<CR>
 
-nnoremap {T :tabnew<CR> " Map {T to open new tab
+" Map {T to open new tab
+nnoremap {T :tabnew<CR>
 
-noremap <C-j> <C-w><C-j> " Move to lower split
+" Move to lower split
+noremap <C-j> <C-w><C-j>
 
-noremap <C-k> <C-w><C-k> " Move to upper split
+" Move to upper split
+noremap <C-k> <C-w><C-k>
 
-noremap <C-h> <C-w><C-h> " Move to left split
+" Move to left split
+noremap <C-h> <C-w><C-h>
 
-noremap <C-l> <C-w><C-l> " Move to right split
+" Move to right split
+noremap <C-l> <C-w><C-l>
 
-noremap <C-P> :Autoformat<CR> <bar> :update<CR> " Map Ctrl+Shift+p to format code
+" Map Ctrl+Shift+p to format code
+noremap <C-P> :Autoformat<CR><bar>:update<CR>
 
-nnoremap <leader>l :set list!<CR> " Map for toggling whitespace characters
+" Map for toggling whitespace characters
+nnoremap <leader>l :set list!<CR>
 
 " Trigger configuration. Do not use <tab> if you use YouCompleteMe
 let g:UltiSnipsExpandTrigger="<tab>"
