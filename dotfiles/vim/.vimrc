@@ -72,6 +72,9 @@ Plugin 'Chiel92/vim-autoformat'
 " Concealing for JS
 Plugin 'pangloss/vim-javascript'
 
+" Fuzzy file, buffer, mru, tag, etc. finder
+Plugin 'ctrlpvim/ctrlp.vim'
+
 " All of your Plugins must be added before the following line
 " required
 call vundle#end()
@@ -163,6 +166,22 @@ let g:formatters_html=['custom_html']
 " Customizing the CSS formatter
 let g:formatdef_custom_css='"css-beautify -f - -tN"'
 let g:formatters_css=['custom_css']
+
+" CtrlP configuration
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+" let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
+" let g:ctrlp_custom_ignore = {
+"   \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+"   \ 'file': '\v\.(exe|so|dll)$',
+"   \ 'link': 'some_bad_symbolic_links',
+"   \ }
+
+" Ignore files in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+" ---------- End of UI and UX settings ----------
 
 " ---------- Key mappings ----------
 
