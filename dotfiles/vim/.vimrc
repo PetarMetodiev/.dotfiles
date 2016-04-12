@@ -77,6 +77,7 @@ Plugin 'pangloss/vim-javascript'
 call vundle#end()
 " required
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -151,6 +152,18 @@ set wildmenu
 " If a file is changed outside of Vim, it is automatically read again
 set autoread
 
+" Customizing the JS formatter
+let g:formatdef_custom_js='"js-beautify -f - -tjaBC"'
+let g:formatters_javascript=['custom_js']
+
+" Customizing the HTML formatter
+let g:formatdef_custom_html='"html-beautify -f - -t -A=force "'
+let g:formatters_html=['custom_html']
+
+" Customizing the CSS formatter
+let g:formatdef_custom_css='"css-beautify -f - -tN"'
+let g:formatters_css=['custom_css']
+
 " ---------- Key mappings ----------
 
 " Insert empty space in normal mode
@@ -184,7 +197,7 @@ noremap <C-h> <C-w><C-h>
 noremap <C-l> <C-w><C-l>
 
 " Map Ctrl+Shift+p to format code
-noremap <C-P> :Autoformat<CR><bar>:update<CR>
+noremap <C-P> :Autoformat<CR><bar>:w<CR>
 
 " Map for toggling whitespace characters
 nnoremap <leader>l :set list!<CR>
