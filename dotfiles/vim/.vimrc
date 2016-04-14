@@ -80,7 +80,8 @@ Plugin 'ctrlpvim/ctrlp.vim'
 call vundle#end()
 " required
 filetype plugin indent on
-set omnifunc=syntaxcomplete#Complete
+set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 " To ignore plugin indent changes, instead use:
 "filetype plugin on
 "
@@ -95,6 +96,12 @@ set omnifunc=syntaxcomplete#Complete
 " ---------- End of Vundle specific settings ----------
 
 " ---------- UI and UX settings ----------
+
+set t_Co=256
+set background=dark
+colorscheme distinguished
+
+set encoding=utf-8
 
 " Display relative line numbers
 set rnu
@@ -138,10 +145,6 @@ set list
 let NERDTreeShowLineNumbers=1
 " Use relative numbers for NERDTree
 autocmd FileType nerdtree setlocal relativenumber
-
-set t_Co=256
-set background=dark
-colorscheme distinguished
 
 " Coloring for the whitespace characters
 highlight NonText ctermfg=8
@@ -216,7 +219,7 @@ noremap <C-h> <C-w><C-h>
 noremap <C-l> <C-w><C-l>
 
 " Map Ctrl+Shift+p to format code
-noremap <C-P> :Autoformat<CR><bar>:w<CR>
+noremap <C-F> :Autoformat<CR><bar>:w<CR>
 
 " Map for toggling whitespace characters
 nnoremap <leader>l :set list!<CR>
