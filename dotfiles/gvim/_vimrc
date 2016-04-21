@@ -1,0 +1,375 @@
+" Set encoding first in order to avoid any character mismatches further on
+set encoding=utf-8
+
+" Use Vim setting, rather than Vi settings (much better!)
+set nocompatible
+
+" Allow backspasing over everything in insert mode
+set backspace=indent,eol,start
+
+" Keep 1000 lines of command line history
+set history=1000
+
+" Show the cursor position all the time
+set ruler
+
+" Display incomplete commands
+set showcmd
+
+" Do incremental searching
+set incsearch
+
+" Search is case insensitive
+set ignorecase
+set smartcase
+
+" Always set autoindenting on
+set smartindent
+set autoindent
+set copyindent
+
+"Highlight searches
+set hlsearch
+
+" ---------- Vundle specific settings ----------
+
+" be iMproved, required
+set nocompatible
+
+" required
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=$HOME/vimfiles/bundle/Vundle.vim
+call vundle#begin('$HOME/vimfiles/bundle')
+call vundle#rc('$HOME/vimfiles/bundle')
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
+
+" Keep Plugin commands between vundle#begin/end.
+
+" Git wrapper
+Plugin 'tpope/vim-fugitive'
+
+" File explorer tree view
+Plugin 'scrooloose/nerdtree'
+
+" Automatic closing of quotes, paranthesis, brackets, etc.
+Plugin 'raimondi/delimitmate'
+
+" Statusline enhancements
+Plugin 'bling/vim-airline'
+
+" Plugin for easier navigation
+Plugin 'easymotion/vim-easymotion'
+
+" Wrap text in tags, braces, etc. or delete the surrounding tags, braces, tec .
+Plugin 'tpope/vim-surround'
+
+" Use tab for insert completion
+Plugin 'ervandew/supertab'
+
+" Code snippets
+Plugin 'SirVer/ultisnips'
+
+" Snippet engine. Requires Python 2.7.9!
+Plugin 'honza/vim-snippets'
+
+" Jade highlighting
+Plugin 'digitaltoad/vim-pug'
+
+" Commenting
+Plugin 'tomtom/tcomment_vim'
+
+" Vim autoformating, uses external formatters
+Plugin 'Chiel92/vim-autoformat'
+
+" Concealing for JS
+Plugin 'pangloss/vim-javascript'
+
+" Fuzzy file, buffer, mru, tag, etc. finder
+Plugin 'ctrlpvim/ctrlp.vim'
+
+" Airline themes
+Plugin 'vim-airline/vim-airline-themes'
+
+" Highlight enclosing html tags
+Plugin 'Valloric/MatchTagAlways'
+
+" Autocomplete for JS
+" Plugin 'ternjs/tern_for_vim'
+
+" Autocomplete
+" Plugin 'Valloric/YouCompleteMe'
+
+" All of your Plugins must be added before the following line
+" required
+call vundle#end()
+
+" required
+filetype plugin indent on
+
+" Autocompletion
+set omnifunc=syntaxcomplete#Complete
+set omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
+" Brief help
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
+" see :h vundle for more details or wiki for FAQ
+" Put your non-Plugin stuff after this line
+
+" ---------- End of Vundle specific settings ----------
+
+" ---------- UI and UX settings ----------
+
+set t_Co=256
+set background=dark
+colorscheme distinguished
+highlight NonText ctermfg=8 guifg=#4d4d4d
+
+
+" Display relative line numbers
+set rnu
+
+" Display absolute line numbers
+set nu
+
+" Turn on syntax highlighting
+syntax enable
+
+" Leave hidden buffers open
+set hidden
+
+"by default Vim saves your last 8 commands.  We can handle more
+set history=100
+
+" Status line is always shown
+set laststatus=2
+
+" Do not show the mode (-- INSERT --) at the bottom
+set noshowmode
+
+" set ttimeoutlen=50
+
+" Displaying the command line which keys are pressed
+set showcmd
+
+" No error bells
+set noerrorbells
+set t_vb=
+set visualbell t_vb=
+
+" Make search/replace global by default
+set gdefault
+
+" Open new horizontal split to the bottom
+set splitbelow
+" Open new vertical split to the right
+set splitright
+
+" Use tabs for identation instead of spaces, 1 tab = 4 spaces
+set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
+
+" Set the appearance of whitespace characters
+set listchars=tab:»\ ,eol:¬,trail:·
+" Turn on whitespace characters by default
+set list
+
+" Enable line numbers for NERDTree
+let NERDTreeShowLineNumbers=1
+" Use relative numbers for NERDTree
+autocmd FileType nerdtree setlocal relativenumber
+
+" Customizing html formatter - should use tabs instead of spaces and force
+" attributes on new lines
+let g:formatdef_custom_html = '"html-beautify -f - -t -A=force"'
+let g:formatters_html = ['custom_html']
+
+" Cusomizing js formatter - should use tabs instead of spaces, enable jslint
+" stricter mode, add space before function's parens, break chained method
+" calls, put commas at the beginning of new line instead of end
+let g:formatdef_custom_js = '"js-beautify -f - -tjaBC"'
+let g:formatters_javascript = ['custom_js']
+
+" Customizing the CSS formatter
+let g:formatdef_custom_css='"css-beautify -f - -tN"'
+let g:formatters_css=['custom_css']
+
+" CtrlP configuration
+set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
+
+" Ignore files in .gitignore
+let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+
+if has('gui_running')
+	" set font
+	" set guifont=DejaVu_Sans_Mono_for_Powerline:h9:cANSI
+	set guifont=Consolas_for_Powerline_FixedD:h11:cANSI
+	" remove menu bar
+	set guioptions-=m
+	" remove toolbar
+	set guioptions-=T
+	" remove right-hand scroll bar
+	set guioptions-=r
+	" remove left-hand scroll bar
+	set guioptions-=L
+endif
+
+" Always show at least 2 visible lines above/below cursor
+set scrolloff=2
+
+" Show a list of suggestions above command line when pressing <tab>
+set wildmenu
+
+" If a file is changed outside of Vim, it is automatically read again
+set autoread
+
+" Highlights the current line
+set cursorline
+
+" Display function signatures in the completion menu
+" set updatetime=500
+" let g:tern_show_argument_hints = 'on_move'
+let g:tern_show_signature_in_pum=1
+
+" Show shortened filename path in vim-airline -> \d\c\d\t\f\file.js
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Change the working directory to the currently open file
+set autochdir
+
+" Remember las position when reopening a file
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+endif
+
+" No error in airline for white spaces - something anyway useless and takes too much space
+let g:airline_section_warning = 0
+
+" Display open buffers in airline
+let g:airline#extensions#tabline#enabled = 1
+
+" if has('win32') || has('win64')
+	" set encoding=utf-8
+" endif
+
+let g:airline_powerline_fonts=1
+
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+
+" Unicode symbols
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⭠'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.space = "\ua0"
+
+" Airline symbols
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline_branch_prefix = '⭠'
+let g:airline_readonly_symbol = '⭤'
+let g:airline_linecolumn_prefix = '⭡'
+
+" ---------- End of UI and UX settings --------
+
+" ---------- Key mappings ----------
+
+" Open vimrc
+nnoremap <leader>e :e $MYVIMRC<CR>
+
+" Insert empty space in normal mode
+nnoremap <space> :
+
+" Map Ctrl+b to open NERDTree. To close press <q>
+map <C-b> :NERDTreeToggle<CR>
+
+" Map Ctrl+/ to toggle comment
+" map <C-/> :TComment<CR>
+
+" Map {{ to move to previous buffer
+nnoremap {{ :bprevious<CR>
+
+" Map }} to move to next buffer
+nnoremap }} :bnext<CR>
+
+" Map {T to open new buffer
+nnoremap {T :enew<CR>
+
+" Close the current buffer and move to the previous one
+" This repicates the idea of closing a tab
+nnoremap {X :w<bar>:bp<bar>bd #<CR>
+
+" Show all open buffers and their status
+nnoremap {} :ls<CR>
+
+" Move to lower split
+noremap <C-j> <C-w><C-j>
+
+" Move to upper split
+noremap <C-k> <C-w><C-k>
+
+" Move to left split
+noremap <C-h> <C-w><C-h>
+
+" Move to right split
+noremap <C-l> <C-w><C-l>
+
+" Map Ctrl+Shift+p to format code; No spacing between the lines because it adds spaces
+noremap <C-F> :Autoformat<CR><bar>:w<CR>
+
+" Map for toggling whitespace characters
+nnoremap <leader>l :set list!<CR>
+
+" Insert new line without entering insert mode
+nnoremap <S-Enter> O<Esc>
+nnoremap <CR> o<Esc>
+
+" Reselect visual block after indent/outdent
+vnoremap < <gv
+vnoremap > >gv
+
+" No need to switch back to English in normal mode
+set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
+
+"Bubble single lines (kicks butt)
+"http://vimcasts.org/episodes/bubbling-text/
+nmap <C-Up> ddkP
+nmap <C-Down> ddp
+
+"Bubble multiple lines
+vmap <C-Up> xkP`[V`]
+vmap <C-Down> xp`[V`]
+
+" Use Ctrl+Tab to switch between last used buffer
+nnoremap <C-Tab> :b#<CR>
+
+" Trigger configuration. Do not use <tab> if you use YouCompleteMe
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" ---------- End of key mappings ------
+
