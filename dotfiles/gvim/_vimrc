@@ -112,25 +112,14 @@ call vundle#end()
 " required
 filetype plugin indent on
 
+" ---------- End of Vundle specific settings ----------
+
+" ---------- UI and UX settings ----------
+
 " Autocompletion
 set omnifunc=syntaxcomplete#Complete
 set omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
-"
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
-
-" ---------- End of Vundle specific settings ----------
-
-" ---------- UI and UX settings ----------
 
 set t_Co=256
 set background=dark
@@ -372,4 +361,3 @@ let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " ---------- End of key mappings ------
-
