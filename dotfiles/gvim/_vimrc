@@ -105,6 +105,9 @@ Plugin 'Valloric/MatchTagAlways'
 " Autocomplete
 " Plugin 'Valloric/YouCompleteMe'
 
+" Static code analysis
+Plugin 'scrooloose/syntastic'
+
 " All of your Plugins must be added before the following line
 " required
 call vundle#end()
@@ -176,6 +179,8 @@ set list
 
 " Enable line numbers for NERDTree
 let NERDTreeShowLineNumbers=1
+" NERDTree file sorting
+let g:NERDTreeSortOrder=['\/$', '\.html$', '\.js$', '*',  '\~$']
 " Use relative numbers for NERDTree
 autocmd FileType nerdtree setlocal relativenumber
 
@@ -282,9 +287,28 @@ let g:airline_branch_prefix = '⭠'
 let g:airline_readonly_symbol = '⭤'
 let g:airline_linecolumn_prefix = '⭡'
 
+" NERDTree symbols
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+
+" Syntastic default settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
 " ---------- End of UI and UX settings --------
 
 " ---------- Key mappings ----------
+
+" Quick error navigation
+nnoremap <leader>n :lnext<CR>
+nnoremap <leader>p :lprevious<CR>
+nnoremap <leader>c :lclose<CR>
 
 " Open vimrc
 nnoremap <leader>e :e $MYVIMRC<CR>
