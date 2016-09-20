@@ -99,6 +99,9 @@ Plugin 'Chiel92/vim-autoformat'
 " Concealing for JS
 Plugin 'pangloss/vim-javascript'
 
+" JS syntax highlighting
+" Plugin 'jelera/vim-javascript-syntax'
+
 " Fuzzy file, buffer, mru, tag, etc. finder
 Plugin 'ctrlpvim/ctrlp.vim'
 
@@ -116,6 +119,12 @@ Plugin 'Valloric/MatchTagAlways'
 
 " Static code analysis
 Plugin 'scrooloose/syntastic'
+
+" Search tool wrapper
+Plugin 'mileszs/ack.vim'
+
+" Scrollbar
+" Plugin 'lornix/vim-scrollbar'
 
 " All of your Plugins must be added before the following line
 " required
@@ -228,8 +237,8 @@ if has('gui_running')
 	set guioptions-=L
 endif
 
-" Always show at least 2 visible lines above/below cursor
-set scrolloff=2
+" Always show at least 10 visible lines above/below cursor
+set scrolloff=10
 
 " Show a list of suggestions above command line when pressing <tab>
 set wildmenu
@@ -243,7 +252,7 @@ set cursorline
 " Display function signatures in the completion menu
 " set updatetime=500
 " let g:tern_show_argument_hints = 'on_move'
-let g:tern_show_signature_in_pum=1
+" let g:tern_show_signature_in_pum=1
 
 " Show shortened filename path in vim-airline -> \d\c\d\t\f\file.js
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -297,6 +306,9 @@ let g:airline_branch_prefix = '⭠'
 let g:airline_readonly_symbol = '⭤'
 let g:airline_linecolumn_prefix = '⭡'
 
+" Airline theme
+let g:airline_theme='papercolor'
+
 " NERDTree symbols
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
@@ -310,6 +322,16 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+" the_silver_searcher (Ag) integration with ack
+let g:ackprg = 'ag --vimgrep'
+
+" Folding based on the syntax of the used language
+" set foldmethod=syntax
+" Start at some unfolded position
+" set foldlevelstart=4
+" Disable folding
+set nofoldenable
 
 " ---------- End of UI and UX settings --------
 
