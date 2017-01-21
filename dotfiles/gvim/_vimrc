@@ -40,6 +40,10 @@ set backupdir=$HOME/vimfiles/backup//
 " Tell vim where to put swap files
 set dir=$HOME/vimfiles/backup//
 
+" persist undos
+set undofile
+set undodir=$HOME/vimfiles/undo//
+
 " ---------- Vundle specific settings ----------
 
 " be iMproved, required
@@ -100,7 +104,7 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'pangloss/vim-javascript'
 
 " JS syntax highlighting
-" Plugin 'jelera/vim-javascript-syntax'
+Plugin 'jelera/vim-javascript-syntax'
 
 " Fuzzy file, buffer, mru, tag, etc. finder
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -111,9 +115,6 @@ Plugin 'vim-airline/vim-airline-themes'
 " Highlight enclosing html tags
 Plugin 'Valloric/MatchTagAlways'
 
-" Autocomplete for JS
-" Plugin 'ternjs/tern_for_vim'
-
 " Autocomplete
 " Plugin 'Valloric/YouCompleteMe'
 
@@ -123,8 +124,53 @@ Plugin 'scrooloose/syntastic'
 " Search tool wrapper
 Plugin 'mileszs/ack.vim'
 
+" Insert or delete brackets, automatically add new lines between brackets
+Plugin 'jiangmiao/auto-pairs'
+
+" Typescript syntax
+Plugin 'leafgarland/typescript-vim'
+
+" Highlighting HTML templates inside typescript and javascript
+Plugin 'Quramy/vim-js-pretty-template'
+
+" Interactive command execution
+Plugin 'Shougo/vimproc.vim'
+
+" Typescript IDE likeness
+Plugin 'Quramy/tsuquyomi'
+
 " Scrollbar
 " Plugin 'lornix/vim-scrollbar'
+
+" Omnicompletion with official support for windows
+Plugin 'Shougo/neocomplete.vim'
+
+" The vim source for neocomplete
+Plugin 'Shougo/neco-vim'
+
+" Multiple language identation and highlighting support
+Plugin 'sheerun/vim-polyglot'
+
+" Syntax support for JSON
+Plugin 'elzr/vim-json'
+
+" Syntax for different javascript libraries
+Plugin 'othree/javascript-libraries-syntax.vim'
+
+" Autocomplete for JS
+" Plugin 'ternjs/tern_for_vim'
+
+" Snippets for Angular 2. Works with snipmate only
+" Plugin 'mhartington/vim-angular2-snippets'
+
+" Local .vimrc file
+Plugin 'embear/vim-localvimrc'
+
+" Custom splash screen
+Plugin 'mhinz/vim-startify'
+
+" Color hex codes and color names
+Plugin 'chrisbra/Colorizer'
 
 " All of your Plugins must be added before the following line
 " required
@@ -138,9 +184,9 @@ filetype plugin indent on
 " ---------- UI and UX settings ----------
 
 " Autocompletion
-set omnifunc=syntaxcomplete#Complete
-set omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
+" set omnifunc=syntaxcomplete#Complete
+" set omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 set t_Co=256
 set background=dark
@@ -195,12 +241,20 @@ set listchars=tab:»\ ,eol:¬,trail:·
 " Turn on whitespace characters by default
 set list
 
+" Do not continue comment using o or O
+set formatoptions-=o
+
+" No // when joining commented lines
+set formatoptions+=j
+
 " Enable line numbers for NERDTree
 let NERDTreeShowLineNumbers=1
 " NERDTree file sorting
 let g:NERDTreeSortOrder=['\/$', '\.html$', '\.js$', '*',  '\~$']
 " Use relative numbers for NERDTree
 autocmd FileType nerdtree setlocal relativenumber
+" Show NERDTree bookmarks by default
+let g:NERDTreeShowBookmarks=1
 
 " Customizing html formatter - should use tabs instead of spaces and force
 " attributes on new lines
@@ -216,6 +270,10 @@ let g:formatters_javascript = ['custom_js']
 " Customizing the CSS formatter
 let g:formatdef_custom_css='"css-beautify -f - -tN"'
 let g:formatters_css=['custom_css']
+
+" Customizing the ts formatter
+let g:formatdef_custom_ts='"tsfmt"'
+let g:formatters_ts = ['custom_ts']
 
 " CtrlP configuration
 set wildignore+=*\\tmp\\*,*.swp,*.zip,*.exe  " Windows
@@ -262,7 +320,7 @@ set autochdir
 
 " Remember las position when reopening a file
 if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
 " No error in airline for white spaces - something anyway useless and takes too much space
@@ -272,14 +330,14 @@ let g:airline_section_warning = 0
 let g:airline#extensions#tabline#enabled = 1
 
 " if has('win32') || has('win64')
-	" set encoding=utf-8
+" set encoding=utf-8
 " endif
 
 " Use Airline special symbols
 let g:airline_powerline_fonts=1
 
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+	let g:airline_symbols = {}
 endif
 
 " Unicode symbols
@@ -333,6 +391,98 @@ let g:ackprg = 'ag --vimgrep'
 " Disable folding
 set nofoldenable
 
+" Tsuquyomi configuration
+set ballooneval
+autocmd FileType typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
+let g:tsuquyomi_single_quote_import = 1
+let g:tsuquyomi_use_dev_node_module = 0
+let g:tsuquyomi_use_local_typescript = 0
+
+" typescript-vim configuration
+let g:typescript_compiler_binary = 'tsc'
+let g:typescript_compiler_options = ''
+" autocmd QuickFixCmdPost [^l]* nested cwindow
+" autocmd QuickFixCmdPost    l* nested lwindow
+autocmd FileType typescript :set makeprg=tsc
+
+" vim-js-pretty-template (highlighting HTML in ts and js) configuration
+autocmd FileType typescript JsPreTmpl html
+autocmd FileType typescript syn clear foldBraces
+
+" Tsuquyomi integration with syntastic
+let g:syntastic_typescript_checkers = ['tsuquyomi']
+
+" Neocomplete configuration
+" Use neocomplete.
+let g:neocomplete#enable_at_startup = 1
+" Integration with Tsuquyomi
+autocmd BufRead,BufNewFile *.ts,*.d.ts setlocal filetype=typescript
+autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript
+autocmd FileType typescript setlocal completeopt+=menu
+if !exists('g:neocomplete#force_omni_input_patterns')
+	let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.typescript = '[^. *\t]\.\w*\|\h\w*::'
+" Use smartcase.
+let g:neocomplete#enable_smart_case = 1
+" Set minimum syntax keyword length.
+let g:neocomplete#sources#syntax#min_keyword_length = 1
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" Define dictionary.
+let g:neocomplete#sources#dictionary#dictionaries = {
+			\ 'default' : '',
+			\ 'vimshell' : $HOME.'/.vimshell_hist',
+			\ 'scheme' : $HOME.'/.gosh_completions'
+			\ }
+" Define keyword.
+if !exists('g:neocomplete#keyword_patterns')
+	let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+" <CR>: close popup and save indent.
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+	return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+	" For no inserting <CR> key.
+	"return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" <C-h>, <BS>: close popup and delete backword char.
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" AutoComplPop like behavior.
+" let g:neocomplete#enable_auto_select = 1
+" Enable omni completion.
+if !exists('g:neocomplete#force_omni_input_patterns')
+	let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=tern#Complete
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+if !exists('g:neocomplete#sources#omni#functions')
+	let g:neocomplete#sources#omni#functions = {}
+endif
+let g:neocomplete#sources#omni#functions.javascript = [
+			\   'tern#Complete',
+			\ ]
+
+" Trigger configuration. Do not use <tab> if you use YouCompleteMe
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<tab>"
+let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+
+" Disable keybindings for auto-pairs - https://github.com/jiangmiao/auto-pairs#shortcuts
+let g:AutoPairsShortcutToggle = ""
+
+" Configure Local .vimrc
+" let g:localvimrc_whitelist = 'D:\\Work\\LiveChat\\LiveChat\\Source\\LiveChat\\Client\\LiveChat.Client\\.lvimrc'
+
+" Configure custom start screen
+
 " ---------- End of UI and UX settings --------
 
 " ---------- Key mappings ----------
@@ -382,7 +532,7 @@ noremap <C-h> <C-w><C-h>
 " Move to right split
 noremap <C-l> <C-w><C-l>
 
-" Map Ctrl+Shift+p to format code; No spacing between the lines because it adds spaces
+" Map Ctrl+Shift+f to format code; No spacing between the lines because it adds spaces
 noremap <C-F> :Autoformat<CR><bar>:w<CR>
 
 " Map for toggling whitespace characters
@@ -399,21 +549,31 @@ vnoremap > >gv
 " No need to switch back to English in normal mode
 set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
 
-"Bubble single lines (kicks butt)
-"http://vimcasts.org/episodes/bubbling-text/
+" Bubble single lines (kicks butt)
+" http://vimcasts.org/episodes/bubbling-text/
 nmap <C-Up> ddkP
 nmap <C-Down> ddp
 
-"Bubble multiple lines
+" Bubble multiple lines
 vmap <C-Up> xkP`[V`]
 vmap <C-Down> xp`[V`]
 
 " Use Ctrl+Tab to switch between last used buffer
 nnoremap <C-Tab> :b#<CR>
 
-" Trigger configuration. Do not use <tab> if you use YouCompleteMe
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<tab>"
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+" Y yanks from current cursor position to the end
+nnoremap Y y$
 
+" Keep cursor position when joining lines with <S-j>
+nnoremap J mzJ`z
+
+" Wrapped lines are treated as multiple lines.
+nnoremap j gj
+nnoremap k gk
+" Remap the default behaviour
+nnoremap gj j
+nnoremap gk k
+
+" Toggle Colorizer
+nnoremap <leader>cc :ColorToggle<CR>
 " ---------- End of key mappings ------
