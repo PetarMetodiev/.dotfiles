@@ -1,3 +1,11 @@
+" Download gVim from http://tuxproject.de/projects/vim/complete-x64.exe
+" No installation needed, just extract.
+" Install python3 *64 bit*.
+" Update all plugins.
+" Install typescript-formatter - https://github.com/vvakame/typescript-formatter
+" Download 64bit lua libriaries and put them next to gvim.exe(for neocomplete) - http://luabinaries.sourceforge.net/#installation
+" Download vimproc 64 bit dll(for tsuquyomi) and put it in $HOME\vimfiles\bundle\vimproc.vim\lib - https://github.com/Shougo/vimproc.vim/releases
+
 " Set encoding first in order to avoid any character mismatches further on
 set encoding=utf-8
 
