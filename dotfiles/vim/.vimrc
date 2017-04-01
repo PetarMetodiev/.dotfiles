@@ -63,9 +63,6 @@ Plugin 'raimondi/delimitmate'
 " Statusline enhancements
 Plugin 'vim-airline/vim-airline'
 
-" Vim airline themes
-Plugin 'vim-airline/vim-airline-themes'
-
 " Plugin for easier navigation
 Plugin 'easymotion/vim-easymotion'
 
