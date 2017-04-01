@@ -60,6 +60,8 @@ set nocompatible
 " required
 filetype off
 
+set rtp+=$HOME/vimfiles/custom-snippets/
+
 " set the runtime path to include Vundle and initialize
 set rtp+=$HOME/vimfiles/bundle/Vundle.vim
 call vundle#begin('$HOME/vimfiles/bundle')
@@ -179,6 +181,12 @@ Plugin 'mhinz/vim-startify'
 
 " Color hex codes and color names
 Plugin 'chrisbra/Colorizer'
+
+" Place items in braces on new row each
+Plugin 'FooSoft/vim-argwrap'
+"
+" " TypeScript syntax highlighting
+Plugin 'HerringtonDarkholme/yats.vim'
 
 " All of your Plugins must be added before the following line
 " required
@@ -405,6 +413,10 @@ autocmd FileType typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
 let g:tsuquyomi_single_quote_import = 1
 let g:tsuquyomi_use_dev_node_module = 0
 let g:tsuquyomi_use_local_typescript = 0
+" Import shortest path instead of complete one, usefull for es6 imports with bundlers
+let g:tsuquyomi_shortest_import_path = 1
+" Show method signature - may be slow
+let g:tsuquyomi_completion_detail = 1
 
 " typescript-vim configuration
 let g:typescript_compiler_binary = 'tsc'
@@ -418,6 +430,7 @@ autocmd FileType typescript JsPreTmpl html
 autocmd FileType typescript syn clear foldBraces
 
 " Tsuquyomi integration with syntastic
+let g:tsuquyomi_disable_quickfix = 1
 let g:syntastic_typescript_checkers = ['tsuquyomi']
 
 " Neocomplete configuration
@@ -584,4 +597,7 @@ nnoremap gk k
 
 " Toggle Colorizer
 nnoremap <leader>cc :ColorToggle<CR>
+
+"Toggle Argwrap
+nnoremap <leader>aa :ArgWrap<CR>
 " ---------- End of key mappings ------
