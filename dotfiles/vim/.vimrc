@@ -34,11 +34,25 @@ set hlsearch
 " Tell vim to keep a backup file
 set backup
 
+" Tell vim where to put its backup files
+set backupdir=~/.vim/backup/
+
+" Tell vim where to put swap files
+set dir=~/.vim/backup/
+
+" persist undos
+set undofile
+set undodir=~/.vim/undo/
+
 " ---------- Vundle specific settings ----------
+
 " be iMproved, required
 set nocompatible
+
 " required
 filetype off
+
+" set rtp+=$HOME/vimfiles/custom-snippets/
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -61,7 +75,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'raimondi/delimitmate'
 
 " Statusline enhancements
-Plugin 'vim-airline/vim-airline'
+Plugin 'bling/vim-airline'
 
 " Plugin for easier navigation
 Plugin 'easymotion/vim-easymotion'
@@ -75,7 +89,7 @@ Plugin 'ervandew/supertab'
 " Code snippets
 Plugin 'SirVer/ultisnips'
 
-" Snippet engine
+" Snippet engine. Requires Python 2.7.9!
 Plugin 'honza/vim-snippets'
 
 " Jade highlighting
@@ -90,6 +104,9 @@ Plugin 'Chiel92/vim-autoformat'
 " Concealing for JS
 Plugin 'pangloss/vim-javascript'
 
+" JS syntax highlighting
+Plugin 'jelera/vim-javascript-syntax'
+
 " Fuzzy file, buffer, mru, tag, etc. finder
 Plugin 'ctrlpvim/ctrlp.vim'
 
@@ -98,6 +115,9 @@ Plugin 'vim-airline/vim-airline-themes'
 
 " Highlight enclosing html tags
 Plugin 'Valloric/MatchTagAlways'
+
+" Autocomplete
+" Plugin 'Valloric/YouCompleteMe'
 
 " Static code analysis
 Plugin 'scrooloose/syntastic'
@@ -135,6 +155,9 @@ Plugin 'elzr/vim-json'
 " Syntax for different javascript libraries
 Plugin 'othree/javascript-libraries-syntax.vim'
 
+" Autocomplete for JS
+" Plugin 'ternjs/tern_for_vim'
+
 " Snippets for Angular 2. Works with snipmate only
 " Plugin 'mhartington/vim-angular2-snippets'
 
@@ -153,20 +176,33 @@ Plugin 'FooSoft/vim-argwrap'
 " " TypeScript syntax highlighting
 Plugin 'HerringtonDarkholme/yats.vim'
 
+" Vim understands .tmux.conf¬
+Plugin 'tmux-plugins/vim-tmux'
+
+" Make autoread work in tmux¬
+Plugin 'tmux-plugins/vim-tmux-focus-events'
+
 " All of your Plugins must be added before the following line
 " required
 call vundle#end()
+
 " required
 filetype plugin indent on
-"
+
 " ---------- End of Vundle specific settings ----------
 
 " ---------- UI and UX settings ----------
+
+" Autocompletion
+" set omnifunc=syntaxcomplete#Complete
+" set omnifunc=javascriptcomplete#CompleteJS
+" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 set t_Co=256
 set background=dark
 colorscheme distinguished
 highlight NonText ctermfg=8 guifg=#4d4d4d
+
 
 " Display relative line numbers
 set rnu
@@ -189,13 +225,18 @@ set laststatus=2
 " Do not show the mode (-- INSERT --) at the bottom
 set noshowmode
 
+" set ttimeoutlen=50
+
 " Displaying the command line which keys are pressed
 set showcmd
 
 " No error bells
-set visualbell
+set noerrorbells
 set t_vb=
 set visualbell t_vb=
+
+" Make search/replace global by default
+set gdefault
 
 " Open new horizontal split to the bottom
 set splitbelow
@@ -244,16 +285,16 @@ let g:formatters_css=['custom_css']
 let g:formatdef_custom_ts='"tsfmt"'
 let g:formatters_ts = ['custom_ts']
 
+" CtrlP configuration
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+
 " Ignore files in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-" Coloring for the whitespace characters
-highlight NonText ctermfg=8
-
-" Always show at least 2 visible lines above/below cursor
+" Always show at least 10 visible lines above/below cursor
 set scrolloff=10
 
-" Show a list of suggestions above command line when pressing <Tab>
+" Show a list of suggestions above command line when pressing <tab>
 set wildmenu
 
 " If a file is changed outside of Vim, it is automatically read again
@@ -262,11 +303,10 @@ set autoread
 " Highlights the current line
 set cursorline
 
-" CtrlP configuration
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-
-" Ignore files in .gitignore
-let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
+" Display function signatures in the completion menu
+" set updatetime=500
+" let g:tern_show_argument_hints = 'on_move'
+" let g:tern_show_signature_in_pum=1
 
 " Show shortened filename path in vim-airline -> \d\c\d\t\f\file.js
 let g:airline#extensions#tabline#fnamemod = ':t'
@@ -274,7 +314,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " Change the working directory to the currently open file
 set autochdir
 
-" Remember last position when reopening a file
+" Remember las position when reopening a file
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
@@ -336,10 +376,15 @@ let g:syntastic_check_on_wq = 0
 " the_silver_searcher (Ag) integration with ack
 let g:ackprg = 'ag --vimgrep'
 
+" Folding based on the syntax of the used language
+" set foldmethod=syntax
+" Start at some unfolded position
+" set foldlevelstart=4
 " Disable folding
 set nofoldenable
 
 " Tsuquyomi configuration
+autocmd FileType typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
 let g:tsuquyomi_single_quote_import = 1
 let g:tsuquyomi_use_dev_node_module = 0
 let g:tsuquyomi_use_local_typescript = 0
@@ -411,6 +456,7 @@ endif
 let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#sources#omni#functions')
 	let g:neocomplete#sources#omni#functions = {}
@@ -424,7 +470,12 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 " Disable keybindings for auto-pairs - https://github.com/jiangmiao/auto-pairs#shortcuts
 let g:AutoPairsShortcutToggle = ""
 
-" ---------- End of UI and UX settings ----------
+" Configure Local .vimrc
+" let g:localvimrc_whitelist = 'D:\\Work\\LiveChat\\LiveChat\\Source\\LiveChat\\Client\\LiveChat.Client\\.lvimrc'
+
+" Configure custom start screen
+
+" ---------- End of UI and UX settings --------
 
 " ---------- Key mappings ----------
 
@@ -436,23 +487,23 @@ nnoremap <leader>c :lclose<CR>
 " Open vimrc
 nnoremap <leader>e :e $MYVIMRC<CR>
 
-" Remap space to ':' in normal mode
+" Insert empty space in normal mode
 nnoremap <space> :
 
 " Map Ctrl+b to open NERDTree. To close press <q>
 map <C-b> :NERDTreeToggle<CR>
 
 " Map Ctrl+/ to toggle comment
-map <C-/> :TComment<CR>
+" map <C-/> :TComment<CR>
 
-" Map {{ to move to previous tab
-nnoremap {{ :tabprevious<CR>
+" Map {{ to move to previous buffer
+nnoremap {{ :bprevious<CR>
 
-" Map }} to move to next tab
-nnoremap }} :tabnext<CR>
+" Map }} to move to next buffer
+nnoremap }} :bnext<CR>
 
-" Map {T to open new tab
-nnoremap {T :tabnew<CR>
+" Map {T to open new buffer
+nnoremap {T :enew<CR>
 
 " Close the current buffer and move to the previous one
 " This repicates the idea of closing a tab
