@@ -114,4 +114,5 @@ if ! shopt -oq posix; then
   fi
 fi
 
-
+LS_COLORS='di=01;35;40:ow=01;35;40'
+export LS_COLORS 
