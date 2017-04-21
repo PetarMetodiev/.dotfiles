@@ -1,0 +1,48 @@
+[user]
+	name = petmet
+	email = petmet@cobuilder.no
+[core]
+	autocrlf = true
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[gui]
+	recentrepo = D:/GIT/BIM
+[diff]
+    tool = winmerge
+
+[difftool "winmerge"]
+    name = WinMerge
+    trustExitCode = true
+    cmd = "/c/Program\\ Files\\ \\(x86\\)/WinMerge/WinMergeU.exe" -u -e $LOCAL $REMOTE
+[merge]
+    tool = winmerge
+[mergetool "winmerge"]
+    cmd = wMerge.sh \"$MERGED\" \"$REMOTE\"
+    path = c:/Program Files (x86)/winmerge/winmergeu.exe
+[mergetool]
+    keepBackup = false
+    trustExitCode = false
+[color]
+	ui = always
+[color "diff"]
+	meta = yellow bold
+	commit = green bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
+	newNormal = "green bold"
+	newHighlight = "green bold 22"
+[color "branch"]
+    remote = yellow
+[alias]
+	tree = log --pretty=format:\"%C(cyan)|%h| %cr%Creset %C(yellow)%an:%Creset %C(magenta)%d%Creset %s\" --graph --color --all
+    cob = checkout -b
+    co = checkout
+    start-from = rebase
+    iadd = add -i
+    undo = reset --soft HEAD^
+    unpushed = log @{u}.. --pretty=format:\"%C(cyan)|%h| %cr%Creset %C(yellow)%an:%Creset %C(magenta)%d%Creset %s\" --graph --color
+    all-unpushed = log @{u}.. --pretty=format:\"%C(cyan)|%h| %cr%Creset %C(yellow)%an:%Creset %C(magenta)%d%Creset %s\" --graph --color --all
