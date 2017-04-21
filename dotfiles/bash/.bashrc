@@ -92,7 +92,8 @@ fi
 #alias ll='ls -l'
 #alias la='ls -A'
 #alias l='ls -CF'
-alias la='ls -la'
+alias la='ls -lAGh -p'
+alias ld='la --group-directories-first'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
