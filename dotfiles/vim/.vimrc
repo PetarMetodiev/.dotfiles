@@ -89,7 +89,7 @@ Plugin 'ervandew/supertab'
 " Code snippets
 Plugin 'SirVer/ultisnips'
 
-" Snippet engine. Requires Python 2.7.9!
+" Snippet engine.
 Plugin 'honza/vim-snippets'
 
 " Jade highlighting
