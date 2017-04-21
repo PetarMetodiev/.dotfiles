@@ -1,26 +1,11 @@
 [user]
-	name = petmet
-	email = petmet@cobuilder.no
+	name = Petar Metodiev
+	email = petar.metodiev@gmail.com
 [core]
-	autocrlf = true
 	pager = diff-so-fancy | less --tabs=4 -RFX
-[gui]
-	recentrepo = D:/GIT/BIM
-[diff]
-    tool = winmerge
-
-[difftool "winmerge"]
-    name = WinMerge
-    trustExitCode = true
-    cmd = "/c/Program\\ Files\\ \\(x86\\)/WinMerge/WinMergeU.exe" -u -e $LOCAL $REMOTE
-[merge]
-    tool = winmerge
-[mergetool "winmerge"]
-    cmd = wMerge.sh \"$MERGED\" \"$REMOTE\"
-    path = c:/Program Files (x86)/winmerge/winmergeu.exe
-[mergetool]
-    keepBackup = false
-    trustExitCode = false
+	editor = vim
+[push]
+	default = matching
 [color]
 	ui = always
 [color "diff"]
