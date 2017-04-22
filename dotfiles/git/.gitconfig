@@ -1,6 +1,8 @@
 [user]
 	name = Petar Metodiev
 	email = petar.metodiev@gmail.com
+[credential]
+	helper = cache --timeout=1800 # Remember credentials for 30 minutes.
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	editor = vim
