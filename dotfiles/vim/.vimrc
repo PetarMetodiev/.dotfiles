@@ -525,7 +525,7 @@ noremap <C-h> <C-w><C-h>
 noremap <C-l> <C-w><C-l>
 
 " Map Ctrl+Shift+f to format code; No spacing between the lines because it adds spaces
-noremap <C-F> :Autoformat<CR><bar>:w<CR>
+noremap <C-M-f> :Autoformat<CR><bar>:w<CR>
 
 " Map for toggling whitespace characters
 nnoremap <leader>l :set list!<CR>
