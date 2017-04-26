@@ -33,3 +33,5 @@
     undo = reset --soft HEAD^
     unpushed = log @{u}.. --pretty=format:\"%C(cyan)|%h| %cr%Creset %C(yellow)%an:%Creset %C(magenta)%d%Creset %s\" --graph --color
     all-unpushed = log @{u}.. --pretty=format:\"%C(cyan)|%h| %cr%Creset %C(yellow)%an:%Creset %C(magenta)%d%Creset %s\" --graph --color --all
+	discard = checkout
+	discard-all = checkout -- .
