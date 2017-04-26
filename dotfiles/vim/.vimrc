@@ -551,7 +551,7 @@ vmap <C-Up> xkP`[V`]
 vmap <C-Down> xp`[V`]
 
 " Use Ctrl+Tab to switch between last used buffer
-nnoremap <C-Tab> :b#<CR>
+nnoremap <C-q> :b#<CR>
 
 " Y yanks from current cursor position to the end
 nnoremap Y y$
