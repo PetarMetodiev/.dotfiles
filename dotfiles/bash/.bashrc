@@ -119,6 +119,9 @@ if ! shopt -oq posix; then
 	fi
 fi
 
+# Disable Ctrs-s Ctrl-q nonsence.
+stty -ixon
+
 # Set config variables first
 GIT_PROMPT_ONLY_IN_REPO=1
 
