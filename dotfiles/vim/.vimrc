@@ -78,7 +78,7 @@ Plugin 'raimondi/delimitmate'
 Plugin 'bling/vim-airline'
 
 " Plugin for easier navigation
-Plugin 'easymotion/vim-easymotion'
+" Plugin 'easymotion/vim-easymotion'
 
 " Wrap text in tags, braces, etc. or delete the surrounding tags, braces, tec .
 Plugin 'tpope/vim-surround'
@@ -248,6 +248,7 @@ set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
 " Set the appearance of whitespace characters
 set listchars=tab:»\ ,eol:¬,trail:·
+
 " Turn on whitespace characters by default
 set list
 
@@ -256,6 +257,9 @@ set formatoptions-=o
 
 " No // when joining commented lines
 set formatoptions+=j
+
+" Mouse support(clicking, scrolling, selecting panes)
+set mouse=a
 
 " Enable line numbers for NERDTree
 let NERDTreeShowLineNumbers=1
