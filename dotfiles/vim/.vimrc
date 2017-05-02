@@ -547,6 +547,12 @@ set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЙ
 
 " Bubble single lines (kicks butt)
 " http://vimcasts.org/episodes/bubbling-text/
+" Specific escape sequences for wsltty
+map <ESC>[A <C-Up>
+map <ESC>[B <C-Down>
+map! <ESC>[A <C-Up>
+map! <ESC>[B <C-Down>
+
 nmap <C-Up> ddkP
 nmap <C-Down> ddp
 
