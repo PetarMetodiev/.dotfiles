@@ -75,7 +75,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'raimondi/delimitmate'
 
 " Statusline enhancements
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
 
 " Plugin for easier navigation
 " Plugin 'easymotion/vim-easymotion'
@@ -368,9 +368,9 @@ let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 
 " Syntastic default settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -410,7 +410,7 @@ autocmd FileType typescript syn clear foldBraces
 
 " Tsuquyomi integration with syntastic
 let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi']
+let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
 
 " Neocomplete configuration
 " Use neocomplete.
