@@ -15,9 +15,9 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 # share history file between panes in tmux
-shopt -s histreedit
-shopt -s histverify
-PROMPT_COMMAND="history -a;history -c;history -r; $PROMPT_COMMAND"
+# shopt -s histreedit
+# shopt -s histverify
+# PROMPT_COMMAND="history -a;history -c;history -r; $PROMPT_COMMAND"
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
