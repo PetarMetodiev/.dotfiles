@@ -173,8 +173,11 @@ Plugin 'chrisbra/Colorizer'
 " Place items in braces on new row each
 Plugin 'FooSoft/vim-argwrap'
 "
-" " TypeScript syntax highlighting
+" TypeScript syntax highlighting
 Plugin 'HerringtonDarkholme/yats.vim'
+
+" Session management
+" Plugin 'tpope/vim-obsession'
 
 " Vim understands .tmux.conf¬
 Plugin 'tmux-plugins/vim-tmux'
@@ -388,7 +391,7 @@ let g:ackprg = 'ag --vimgrep'
 set nofoldenable
 
 " Tsuquyomi configuration
-autocmd FileType typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
+" autocmd FileType typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
 let g:tsuquyomi_single_quote_import = 1
 let g:tsuquyomi_use_dev_node_module = 0
 let g:tsuquyomi_use_local_typescript = 0
