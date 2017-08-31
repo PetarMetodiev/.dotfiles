@@ -2,6 +2,10 @@ if [ -r ~/.bashrc  ]; then
 	source ~/.bashrc
 fi
 
+if [ -r ~/.ngrc ]; then
+	source ~/.ngrc
+fi
+
 PS1='\[\033[47m\]🐒 → 💻  \[\033[00m\]:\[\033[01;35m\]\w \n\$\[\033[00m\] '
 
 alias la='gls -lAGh -p --color'
