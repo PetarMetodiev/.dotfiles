@@ -206,10 +206,9 @@ filetype plugin indent on
 " autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 set t_Co=256
-set background=dark
-colorscheme distinguished
-highlight NonText ctermfg=8 guifg=#4d4d4d
-
+" set background=dark
+colorscheme molokai_dark
+" highlight NonText ctermfg=8 guifg=#4d4d4d
 
 " Display relative line numbers
 set rnu
