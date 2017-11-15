@@ -185,6 +185,10 @@ Plugin 'tmux-plugins/vim-tmux'
 " Make autoread work in tmux¬
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 
+" Themes
+Plugin 'flazz/vim-colorschemes'
+Plugin 'rafi/awesome-vim-colorschemes'
+
 " All of your Plugins must be added before the following line
 " required
 call vundle#end()
