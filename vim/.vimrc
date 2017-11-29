@@ -189,6 +189,9 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'rafi/awesome-vim-colorschemes'
 
+" Pretty icons
+Plugin 'ryanoasis/vim-devicons'
+
 " All of your Plugins must be added before the following line
 " required
 call vundle#end()
@@ -339,37 +342,6 @@ let g:airline_section_warning = 0
 
 " Display open buffers in airline
 let g:airline#extensions#tabline#enabled = 1
-
-" Use Airline special symbols
-let g:airline_powerline_fonts=1
-
-if !exists('g:airline_symbols')
-	let g:airline_symbols = {}
-endif
-
-" Unicode symbols
-let g:airline_left_sep = '»'
-let g:airline_left_sep = '▶'
-let g:airline_right_sep = '«'
-let g:airline_right_sep = '◀'
-let g:airline_symbols.linenr = '␊'
-let g:airline_symbols.linenr = '␤'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⭠'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.paste = 'Þ'
-let g:airline_symbols.paste = '∥'
-let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.space = "\ua0"
-
-" Airline symbols
-let g:airline_left_sep = '⮀'
-let g:airline_left_alt_sep = '⮁'
-let g:airline_right_sep = '⮂'
-let g:airline_right_alt_sep = '⮃'
-let g:airline_branch_prefix = '⭠'
-let g:airline_readonly_symbol = '⭤'
-let g:airline_linecolumn_prefix = '⭡'
 
 " Airline theme
 let g:airline_theme='papercolor'
