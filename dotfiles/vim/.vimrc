@@ -122,6 +122,9 @@ Plugin 'Valloric/MatchTagAlways'
 " Static code analysis
 " Plugin 'scrooloose/syntastic'
 
+" Code linter/fixer, should work async
+Plugin 'w0rp/ale'
+
 " Search tool wrapper
 Plugin 'mileszs/ack.vim'
 
@@ -187,6 +190,14 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 
 " Needed for proper icons with nerd fonts
 Plugin 'ryanoasis/vim-devicons'
+
+" Automatically :set paste! when inserting text from outside vim(e.g.
+" shift+insert)
+Plugin 'ConradIrwin/vim-bracketed-paste'
+
+" Automatically close html tags
+Plugin 'alvan/vim-closetag'
+
 " All of your Plugins must be added before the following line
 " required
 call vundle#end()
@@ -197,6 +208,8 @@ filetype plugin indent on
 " ---------- End of Vundle specific settings ----------
 
 " ---------- UI and UX settings ----------
+
+runtime macros/matchit.vim
 
 " Autocompletion
 " set omnifunc=syntaxcomplete#Complete
@@ -323,6 +336,9 @@ set cursorline
 
 " Show shortened filename path in vim-airline -> \d\c\d\t\f\file.js
 let g:airline#extensions#tabline#fnamemod = ':t'
+
+" ALE integration with airline
+let g:airline#extensions#ale#enabled = 1
 
 " Change the working directory to the currently open file
 set autochdir
@@ -460,6 +476,9 @@ let g:AutoPairsShortcutToggle = ""
 " let g:localvimrc_whitelist = 'D:\\Work\\LiveChat\\LiveChat\\Source\\LiveChat\\Client\\LiveChat.Client\\.lvimrc'
 
 " Configure custom start screen
+
+" Fix extra closing '>' when using vim-closetag with delimitMate
+let delimitMate_matchpairs ="(:),[:],{:}"
 
 " ---------- End of UI and UX settings --------
 
