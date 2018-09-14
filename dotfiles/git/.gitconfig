@@ -1,14 +1,14 @@
 [user]
 	name = Petar Metodiev
-	email = petar.metodiev@gmail.com
+	email = petmet@cobuilder.no
 [credential]
-	helper = cache --timeout=36000 # Remember credentials for 20 hours.
+	helper = cache --timeout=172800 # Remember credentials for 48 hours.
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RFX
 	editor = vim
 	excludesfile = /Users/twick/.gitignore
 [push]
-	default = matching
+	default = simple
 [color]
 	ui = always
 [color "diff"]
@@ -37,3 +37,5 @@
 	discard = checkout
 	discard-all = checkout -- .
 	unstage-all = reset
+[http]
+	sslVerify = true
