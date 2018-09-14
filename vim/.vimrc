@@ -135,7 +135,7 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'leafgarland/typescript-vim'
 
 " Highlighting HTML templates inside typescript and javascript
-" Plugin 'Quramy/vim-js-pretty-template' " UNUSED
+" Plugin 'Quramy/vim-js-pretty-template' " Removed due to some confilcts and wasnt using it after all
 
 " Interactive command execution
 " Plugin 'Shougo/vimproc.vim'
@@ -197,6 +197,10 @@ Plugin 'ConradIrwin/vim-bracketed-paste'
 
 " Automatically close html tags
 Plugin 'alvan/vim-closetag'
+" Themes
+Plugin 'flazz/vim-colorschemes'
+Plugin 'rafi/awesome-vim-colorschemes'
+
 
 " All of your Plugins must be added before the following line
 " required
@@ -218,9 +222,13 @@ runtime macros/matchit.vim
 
 set t_Co=256
 set background=dark
-colorscheme distinguished
-highlight NonText ctermfg=8 guifg=#4d4d4d
-
+colorscheme Benokai
+" colorscheme DevC++
+" colorscheme Light
+" colorscheme af
+" colorscheme bubblegum
+" colorscheme landscape
+" highlight NonText ctermfg=8 guifg=#4d4d4d
 
 " Display relative line numbers
 set rnu
@@ -401,14 +409,17 @@ let g:typescript_compiler_options = ''
 " autocmd QuickFixCmdPost    l* nested lwindow
 autocmd FileType typescript :set makeprg=tsc
 
-" vim-js-pretty-template (highlighting HTML in ts and js) configuration
+" " vim-js-pretty-template (highlighting HTML in ts and js) configuration
 " autocmd FileType typescript JsPreTmpl html
-autocmd FileType typescript syn clear foldBraces
+" autocmd FileType typescript syn clear foldBraces
 
 " Tsuquyomi integration with syntastic
 let g:tsuquyomi_disable_quickfix = 1
 " let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
 " let g:syntastic_typescript_checkers = ['tsc', 'tslint']
+
+" HTML5 for syntastic
+" let g:syntastic_html_tidy_exec = 'tidy5'
 
 " Neocomplete configuration
 " Use neocomplete.
