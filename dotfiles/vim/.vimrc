@@ -93,7 +93,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 " Jade highlighting
-Plugin 'digitaltoad/vim-pug'
+" Plugin 'digitaltoad/vim-pug' " UNUSED
 
 " Commenting
 Plugin 'tomtom/tcomment_vim'
@@ -120,7 +120,7 @@ Plugin 'Valloric/MatchTagAlways'
 " Plugin 'Valloric/YouCompleteMe'
 
 " Static code analysis
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
 
 " Search tool wrapper
 Plugin 'mileszs/ack.vim'
@@ -132,10 +132,10 @@ Plugin 'jiangmiao/auto-pairs'
 Plugin 'leafgarland/typescript-vim'
 
 " Highlighting HTML templates inside typescript and javascript
-Plugin 'Quramy/vim-js-pretty-template'
+" Plugin 'Quramy/vim-js-pretty-template' " UNUSED
 
 " Interactive command execution
-Plugin 'Shougo/vimproc.vim'
+" Plugin 'Shougo/vimproc.vim'
 
 " Typescript IDE likeness
 Plugin 'Quramy/tsuquyomi'
@@ -147,7 +147,7 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/neco-vim'
 
 " Multiple language identation and highlighting support
-Plugin 'sheerun/vim-polyglot'
+" Plugin 'sheerun/vim-polyglot'
 
 " Syntax support for JSON
 Plugin 'elzr/vim-json'
@@ -162,10 +162,10 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 " Plugin 'mhartington/vim-angular2-snippets'
 
 " Local .vimrc file
-Plugin 'embear/vim-localvimrc'
+" Plugin 'embear/vim-localvimrc' " UNUSED
 
 " Custom splash screen
-Plugin 'mhinz/vim-startify'
+" Plugin 'mhinz/vim-startify' " UNUSED
 
 " Color hex codes and color names
 Plugin 'chrisbra/Colorizer'
@@ -375,10 +375,10 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " the_silver_searcher (Ag) integration with ack
 let g:ackprg = 'ag --vimgrep'
@@ -408,12 +408,13 @@ let g:typescript_compiler_options = ''
 autocmd FileType typescript :set makeprg=tsc
 
 " vim-js-pretty-template (highlighting HTML in ts and js) configuration
-autocmd FileType typescript JsPreTmpl html
+" autocmd FileType typescript JsPreTmpl html
 autocmd FileType typescript syn clear foldBraces
 
 " Tsuquyomi integration with syntastic
 let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+" let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+" let g:syntastic_typescript_checkers = ['tsc', 'tslint']
 
 " Neocomplete configuration
 " Use neocomplete.
