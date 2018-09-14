@@ -66,7 +66,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 
 " Git wrapper
-Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive' " UNUSED / usefull for displaying current branch
 
 " File explorer tree view
 Plugin 'scrooloose/nerdtree'
