@@ -274,10 +274,14 @@ let g:NERDTreeSortOrder=['\/$', '\.html$', '\.js$', '*',  '\~$']
 autocmd FileType nerdtree setlocal relativenumber
 " Show NERDTree bookmarks by default
 let g:NERDTreeShowBookmarks=1
+" Fix for not loading files sometimes - https://github.com/scrooloose/nerdtree/issues/587
+let NERDTreeIgnore=['\c^ntuser\..*']
+" Show hidden files
+let NERDTreeShowHidden=1
 
 " Customizing html formatter - should use tabs instead of spaces and force
 " attributes on new lines
-let g:formatdef_custom_html = '"html-beautify -f - -t -A=force"'
+let g:formatdef_custom_html = '"html-beautify -f - -t -A=force-aligned"'
 let g:formatters_html = ['custom_html']
 
 " Cusomizing js formatter - should use tabs instead of spaces, enable jslint
@@ -557,6 +561,12 @@ nnoremap gk k
 " Toggle Colorizer
 nnoremap <leader>cc :ColorToggle<CR>
 
-"Toggle Argwrap
+" Toggle Argwrap
 nnoremap <leader>aa :ArgWrap<CR>
+
+" Navigate through tabs
+nnoremap tk :tabprev<CR>
+nnoremap tj :tabnext<CR>
+nnoremap tn :tabnew<CR>
+nnoremap tc :tabclose<CR>
 " ---------- End of key mappings ------
