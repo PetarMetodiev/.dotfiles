@@ -66,7 +66,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 
 " Git wrapper
-Plugin 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive' " UNUSED / usefull for displaying current branch
 
 " File explorer tree view
 Plugin 'scrooloose/nerdtree'
@@ -93,7 +93,7 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 
 " Jade highlighting
-Plugin 'digitaltoad/vim-pug'
+" Plugin 'digitaltoad/vim-pug' " UNUSED
 
 " Commenting
 Plugin 'tomtom/tcomment_vim'
@@ -120,7 +120,10 @@ Plugin 'Valloric/MatchTagAlways'
 " Plugin 'Valloric/YouCompleteMe'
 
 " Static code analysis
-Plugin 'scrooloose/syntastic'
+" Plugin 'scrooloose/syntastic'
+
+" Code linter/fixer, should work async
+Plugin 'w0rp/ale'
 
 " Search tool wrapper
 Plugin 'mileszs/ack.vim'
@@ -147,7 +150,7 @@ Plugin 'Shougo/neocomplete.vim'
 Plugin 'Shougo/neco-vim'
 
 " Multiple language identation and highlighting support
-Plugin 'sheerun/vim-polyglot'
+" Plugin 'sheerun/vim-polyglot'
 
 " Syntax support for JSON
 Plugin 'elzr/vim-json'
@@ -162,10 +165,10 @@ Plugin 'othree/javascript-libraries-syntax.vim'
 " Plugin 'mhartington/vim-angular2-snippets'
 
 " Local .vimrc file
-Plugin 'embear/vim-localvimrc'
+" Plugin 'embear/vim-localvimrc' " UNUSED
 
 " Custom splash screen
-Plugin 'mhinz/vim-startify'
+" Plugin 'mhinz/vim-startify' " UNUSED
 
 " Color hex codes and color names
 Plugin 'chrisbra/Colorizer'
@@ -185,12 +188,19 @@ Plugin 'tmux-plugins/vim-tmux'
 " Make autoread work in tmux¬
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 
+" Needed for proper icons with nerd fonts
+Plugin 'ryanoasis/vim-devicons'
+
+" Automatically :set paste! when inserting text from outside vim(e.g.
+" shift+insert)
+Plugin 'ConradIrwin/vim-bracketed-paste'
+
+" Automatically close html tags
+Plugin 'alvan/vim-closetag'
 " Themes
 Plugin 'flazz/vim-colorschemes'
 Plugin 'rafi/awesome-vim-colorschemes'
 
-" Pretty icons
-Plugin 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
 " required
@@ -202,6 +212,8 @@ filetype plugin indent on
 " ---------- End of Vundle specific settings ----------
 
 " ---------- UI and UX settings ----------
+
+runtime macros/matchit.vim
 
 " Autocompletion
 " set omnifunc=syntaxcomplete#Complete
@@ -284,10 +296,14 @@ let g:NERDTreeSortOrder=['\/$', '\.html$', '\.js$', '*',  '\~$']
 autocmd FileType nerdtree setlocal relativenumber
 " Show NERDTree bookmarks by default
 let g:NERDTreeShowBookmarks=1
+" Fix for not loading files sometimes - https://github.com/scrooloose/nerdtree/issues/587
+let NERDTreeIgnore=['\c^ntuser\..*']
+" Show hidden files
+let NERDTreeShowHidden=1
 
 " Customizing html formatter - should use tabs instead of spaces and force
 " attributes on new lines
-let g:formatdef_custom_html = '"html-beautify -f - -t -A=force"'
+let g:formatdef_custom_html = '"html-beautify -f - -t -A=force-aligned"'
 let g:formatters_html = ['custom_html']
 
 " Cusomizing js formatter - should use tabs instead of spaces, enable jslint
@@ -330,6 +346,9 @@ set cursorline
 " Show shortened filename path in vim-airline -> \d\c\d\t\f\file.js
 let g:airline#extensions#tabline#fnamemod = ':t'
 
+" ALE integration with airline
+let g:airline#extensions#ale#enabled = 1
+
 " Change the working directory to the currently open file
 set autochdir
 
@@ -344,6 +363,9 @@ let g:airline_section_warning = 0
 " Display open buffers in airline
 let g:airline#extensions#tabline#enabled = 1
 
+" Use Airline special symbols
+let g:airline_powerline_fonts=1
+
 " Airline theme
 let g:airline_theme='papercolor'
 
@@ -356,10 +378,10 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 " the_silver_searcher (Ag) integration with ack
 let g:ackprg = 'ag --vimgrep'
@@ -394,10 +416,11 @@ autocmd FileType typescript :set makeprg=tsc
 
 " Tsuquyomi integration with syntastic
 let g:tsuquyomi_disable_quickfix = 1
-let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+" let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
+" let g:syntastic_typescript_checkers = ['tsc', 'tslint']
 
 " HTML5 for syntastic
-let g:syntastic_html_tidy_exec = 'tidy5'
+" let g:syntastic_html_tidy_exec = 'tidy5'
 
 " Neocomplete configuration
 " Use neocomplete.
@@ -465,6 +488,9 @@ let g:AutoPairsShortcutToggle = ""
 " let g:localvimrc_whitelist = 'D:\\Work\\LiveChat\\LiveChat\\Source\\LiveChat\\Client\\LiveChat.Client\\.lvimrc'
 
 " Configure custom start screen
+
+" Fix extra closing '>' when using vim-closetag with delimitMate
+let delimitMate_matchpairs ="(:),[:],{:}"
 
 " ---------- End of UI and UX settings --------
 
@@ -566,6 +592,12 @@ nnoremap gk k
 " Toggle Colorizer
 nnoremap <leader>cc :ColorToggle<CR>
 
-"Toggle Argwrap
+" Toggle Argwrap
 nnoremap <leader>aa :ArgWrap<CR>
+
+" Navigate through tabs
+nnoremap tk :tabprev<CR>
+nnoremap tj :tabnext<CR>
+nnoremap tn :tabnew<CR>
+nnoremap tc :tabclose<CR>
 " ---------- End of key mappings ------

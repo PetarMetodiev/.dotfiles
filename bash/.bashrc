@@ -2,6 +2,12 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# Launch Zsh
+# https://www.howtogeek.com/258518/how-to-use-zsh-or-another-shell-in-windows-10/
+if [ -t 1 ]; then
+exec zsh
+fi
+
 # If not running interactively, don't do anything
 case $- in
 	*i*) ;;
@@ -149,3 +155,13 @@ source ~/.bash-git-prompt/gitprompt.sh
 
 LS_COLORS='di=01;35;40:ow=01;35;40'
 export LS_COLORS
+
+###-tns-completion-start-###
+if [ -f /home/petmet/.tnsrc ]; then 
+    source /home/petmet/.tnsrc 
+fi
+###-tns-completion-end-###
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
