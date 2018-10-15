@@ -98,6 +98,9 @@ Plugin 'honza/vim-snippets'
 " Commenting
 Plugin 'tomtom/tcomment_vim'
 
+" Integration with editorconfig
+Plugin 'editorconfig/editorconfig-vim'
+
 " Vim autoformating, uses external formatters
 Plugin 'Chiel92/vim-autoformat'
 
