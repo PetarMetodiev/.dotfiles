@@ -1,6 +1,6 @@
 [user]
 	name = Petar Metodiev
-	email = petmet@cobuilder.no
+	email = petar.metodiev@gmail.com
 [credential]
 	helper = cache --timeout=172800 # Remember credentials for 48 hours.
 [core]
