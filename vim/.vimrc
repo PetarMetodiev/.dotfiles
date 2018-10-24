@@ -354,6 +354,9 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ALE integration with airline
 let g:airline#extensions#ale#enabled = 1
+" Disable ALE highlighting, when writting it keeps on highlighting and gets in
+" the way
+let g:ale_set_highlights = 0
 
 " Change the working directory to the currently open file
 set autochdir
