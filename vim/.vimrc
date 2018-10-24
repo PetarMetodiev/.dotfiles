@@ -159,7 +159,7 @@ Plugin 'Shougo/neco-vim'
 Plugin 'elzr/vim-json'
 
 " Syntax for different javascript libraries
-Plugin 'othree/javascript-libraries-syntax.vim'
+" Plugin 'othree/javascript-libraries-syntax.vim'
 
 " Autocomplete for JS
 " Plugin 'ternjs/tern_for_vim'
