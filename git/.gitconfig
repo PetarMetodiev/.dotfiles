@@ -15,12 +15,12 @@
 	meta = yellow bold
 	commit = green bold
 	frag = magenta bold
-	old = cyan bold
+	old = red bold
 	new = green bold
 	whitespace = red reverse
 [color "diff-highlight"]
-	oldNormal = cyan bold
-	oldHighlight = "cyan bold 52"
+	oldNormal = red bold
+	oldHighlight = "red bold 52"
 	newNormal = "green bold"
 	newHighlight = "green bold 22"
 [color "branch"]
