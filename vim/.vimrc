@@ -291,6 +291,9 @@ set formatoptions+=j
 " Mouse support(clicking, scrolling, selecting panes)
 set mouse=a
 
+" Share clipboard with system
+set clipboard+=unnamed
+
 " Enable line numbers for NERDTree
 let NERDTreeShowLineNumbers=1
 " NERDTree file sorting
