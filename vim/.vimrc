@@ -357,6 +357,11 @@ let g:airline#extensions#ale#enabled = 1
 " Disable ALE highlighting. When writting it keeps highlighting on and gets in
 " the way
 let g:ale_set_highlights = 0
+" For .ts files use only tslint, as eslint could be installed sometimes but
+" not-configured properly
+let g:ale_linters = {
+\   'typescript': ['tslint'],
+\}
 
 " Change the working directory to the currently open file
 set autochdir
