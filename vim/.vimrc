@@ -354,7 +354,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ALE integration with airline
 let g:airline#extensions#ale#enabled = 1
-" Disable ALE highlighting, when writting it keeps on highlighting and gets in
+" Disable ALE highlighting. When writting it keeps highlighting on and gets in
 " the way
 let g:ale_set_highlights = 0
 
