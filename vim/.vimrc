@@ -86,6 +86,9 @@ Plugin 'tpope/vim-surround'
 " Use tab for insert completion
 Plugin 'ervandew/supertab'
 
+" Highlight yanked text
+Plugin 'machakann/vim-highlightedyank'
+
 " Code snippets
 Plugin 'SirVer/ultisnips'
 
@@ -396,6 +399,9 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
+
+" Set duration of highlighting when yanking
+let g:highlightedyank_highlight_duration = 300
 
 " the_silver_searcher (Ag) integration with ack
 let g:ackprg = 'ag --vimgrep'
