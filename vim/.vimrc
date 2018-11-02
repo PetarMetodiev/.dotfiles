@@ -422,6 +422,10 @@ let g:tsuquyomi_use_local_typescript = 0
 let g:tsuquyomi_shortest_import_path = 1
 " Show method signature - may be slow
 let g:tsuquyomi_completion_detail = 1
+" Show additional information about symbol below the cursor
+" https://github.com/Quramy/tsuquyomi/blob/master/doc/tsuquyomi.txt#L467
+autocmd FileType typescript nmap <buffer> <Leader>tt :
+		\ <C-u>echo tsuquyomi#hint()<CR>
 
 " typescript-vim configuration
 let g:typescript_compiler_binary = 'tsc'
