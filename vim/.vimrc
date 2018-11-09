@@ -297,6 +297,10 @@ set mouse=a
 " Share clipboard with system
 set clipboard+=unnamed
 
+" Zoom split(similar to tmux zooming to pane)
+nnoremap <leader>z :wincmd _<CR>:wincmd \|<CR>
+nnoremap <leader>zz :wincmd =<CR>
+
 " Enable line numbers for NERDTree
 let NERDTreeShowLineNumbers=1
 " NERDTree file sorting
