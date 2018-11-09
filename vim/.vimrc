@@ -297,6 +297,9 @@ set mouse=a
 " Share clipboard with system
 set clipboard+=unnamed
 
+" Ato-resize splits when VIM is resized(e.g. open new split in tmux)
+autocmd VimResized * :wincmd =
+
 " Zoom split(similar to tmux zooming to pane)
 nnoremap <leader>z :wincmd _<CR>:wincmd \|<CR>
 nnoremap <leader>zz :wincmd =<CR>
