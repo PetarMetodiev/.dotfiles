@@ -194,6 +194,11 @@ Plugin 'tmux-plugins/vim-tmux'
 " Make autoread work in tmux¬
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 
+" Jump between vim splits and tmux panes with the same key combination - C-k,
+" C-j, C-h, C-l
+" Needs to be configured in .tmux.conf as well
+Plugin 'christoomey/vim-tmux-navigator'
+
 " Needed for proper icons with nerd fonts
 Plugin 'ryanoasis/vim-devicons'
 
@@ -560,17 +565,19 @@ nnoremap {X :w<bar>:bp<bar>bd #<CR>
 " Show all open buffers and their status
 nnoremap {} :ls<CR>
 
-" Move to lower split
-noremap <C-j> <C-w><C-j>
-
-" Move to upper split
-noremap <C-k> <C-w><C-k>
-
-" Move to left split
-noremap <C-h> <C-w><C-h>
-
-" Move to right split
-noremap <C-l> <C-w><C-l>
+" Not needed right now since a plugin is handling this together with tmux
+" untegration.
+" " Move to lower split
+" noremap <C-j> <C-w><C-j>
+"
+" " Move to upper split
+" noremap <C-k> <C-w><C-k>
+"
+" " Move to left split
+" noremap <C-h> <C-w><C-h>
+"
+" " Move to right split
+" noremap <C-l> <C-w><C-l>
 
 " Map Ctrl+Shift+f to format code; No spacing between the lines because it adds spaces
 noremap <C-M-f> :Autoformat<CR><bar>:w<CR>
