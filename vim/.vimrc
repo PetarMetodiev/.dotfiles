@@ -375,8 +375,8 @@ let g:ale_set_highlights = 0
 " For .ts files use only tslint, as eslint could be installed sometimes but
 " not-configured properly
 let g:ale_linters = {
-\   'typescript': ['tslint'],
-\}
+			\   'typescript': ['tslint'],
+			\}
 
 " Change the working directory to the currently open file
 set autochdir
@@ -437,7 +437,7 @@ let g:tsuquyomi_completion_detail = 1
 " Show additional information about symbol below the cursor
 " https://github.com/Quramy/tsuquyomi/blob/master/doc/tsuquyomi.txt#L467
 autocmd FileType typescript nmap <buffer> <Leader>tt :
-		\ <C-u>echo tsuquyomi#hint()<CR>
+			\ <C-u>echo tsuquyomi#hint()<CR>
 
 " typescript-vim configuration
 let g:typescript_compiler_binary = 'tsc'
