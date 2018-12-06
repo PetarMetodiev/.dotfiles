@@ -503,10 +503,16 @@ let delimitMate_matchpairs ="(:),[:],{:}"
 
 " ---------- Key mappings ----------
 
-" Quick error navigation
-nnoremap <leader>n :lnext<CR>
-nnoremap <leader>p :lprevious<CR>
-nnoremap <leader>c :lclose<CR>
+" Vim hard mode.
+nnoremap <Left> :echoe "Use h"<CR>
+nnoremap <Right> :echoe "Use l"<CR>
+nnoremap <Up> :echoe "Use k"<CR>
+nnoremap <Down> :echoe "Use j"<CR>
+
+" Quick error navigation - UNUSED
+" nnoremap <leader>n :lnext<CR>
+" nnoremap <leader>p :lprevious<CR>
+" nnoremap <leader>c :lclose<CR>
 
 " Open vimrc
 nnoremap <leader>e :e $MYVIMRC<CR>
@@ -520,21 +526,20 @@ map <C-b> :NERDTreeToggle<CR>
 " Map Ctrl+/ to toggle comment
 " map <C-/> :TComment<CR>
 
+" UNUSED:
 " Map {{ to move to previous buffer
-nnoremap {{ :bprevious<CR>
-
+" nnoremap {{ :bprevious<CR>
 " Map }} to move to next buffer
-nnoremap }} :bnext<CR>
-
+" nnoremap }} :bnext<CR>
 " Map {T to open new buffer
-nnoremap {T :enew<CR>
+" nnoremap {T :enew<CR>
 
 " Close the current buffer and move to the previous one
-" This repicates the idea of closing a tab
-nnoremap {X :w<bar>:bp<bar>bd #<CR>
+" This repicates the idea of closing a tab - UNUSED
+" nnoremap {X :w<bar>:bp<bar>bd #<CR>
 
-" Show all open buffers and their status
-nnoremap {} :ls<CR>
+" Show all open buffers and their status - UNUSED
+" nnoremap {} :ls<CR>
 
 " Not needed right now since a plugin is handling this together with tmux
 " untegration.
@@ -550,14 +555,14 @@ nnoremap {} :ls<CR>
 " " Move to right split
 " noremap <C-l> <C-w><C-l>
 
-" Map Ctrl+Shift+f to format code; No spacing between the lines because it adds spaces
-noremap <C-M-f> :Autoformat<CR><bar>:w<CR>
+" Map Ctrl+Shift+f to format code; No spacing between the lines because it adds spaces - UNUSED / NOT-WORKING
+" noremap <C-M-f> :Autoformat<CR><bar>:w<CR>
 
-" Map for toggling whitespace characters
-nnoremap <leader>l :set list!<CR>
+" Map for toggling whitespace characters - UNUSED
+" nnoremap <leader>l :set list!<CR>
 
 " Insert new line without entering insert mode
-nnoremap <S-Enter> O<Esc>
+" nnoremap <S-Enter> O<Esc> - NOT-WORKING
 nnoremap <CR> o<Esc>
 
 " Reselect visual block after indent/outdent
