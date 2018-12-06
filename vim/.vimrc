@@ -77,9 +77,6 @@ Plugin 'raimondi/delimitmate'
 " Statusline enhancements
 Plugin 'vim-airline/vim-airline'
 
-" Plugin for easier navigation
-" Plugin 'easymotion/vim-easymotion'
-
 " Wrap text in tags, braces, etc. or delete the surrounding tags, braces, tec .
 Plugin 'tpope/vim-surround'
 
@@ -94,9 +91,6 @@ Plugin 'SirVer/ultisnips'
 
 " Snippet engine.
 Plugin 'honza/vim-snippets'
-
-" Jade highlighting
-" Plugin 'digitaltoad/vim-pug' " UNUSED
 
 " Commenting
 Plugin 'tomtom/tcomment_vim'
@@ -122,12 +116,6 @@ Plugin 'vim-airline/vim-airline-themes'
 " Highlight enclosing html tags
 Plugin 'Valloric/MatchTagAlways'
 
-" Autocomplete
-" Plugin 'Valloric/YouCompleteMe'
-
-" Static code analysis
-" Plugin 'scrooloose/syntastic'
-
 " Code linter/fixer, should work async
 Plugin 'w0rp/ale'
 
@@ -142,9 +130,6 @@ Plugin 'leafgarland/typescript-vim'
 
 " Highlighting HTML templates inside typescript and javascript
 " Plugin 'Quramy/vim-js-pretty-template' " Removed due to some confilcts and wasnt using it after all
-
-" Interactive command execution
-" Plugin 'Shougo/vimproc.vim'
 
 " Typescript IDE likeness
 Plugin 'Quramy/tsuquyomi'
@@ -163,12 +148,6 @@ Plugin 'elzr/vim-json'
 
 " Syntax for different javascript libraries
 " Plugin 'othree/javascript-libraries-syntax.vim'
-
-" Autocomplete for JS
-" Plugin 'ternjs/tern_for_vim'
-
-" Snippets for Angular 2. Works with snipmate only
-" Plugin 'mhartington/vim-angular2-snippets'
 
 " Local .vimrc file
 " Plugin 'embear/vim-localvimrc' " UNUSED
@@ -263,8 +242,6 @@ set laststatus=2
 " Do not show the mode (-- INSERT --) at the bottom
 set noshowmode
 
-" set ttimeoutlen=50
-
 " Displaying the command line which keys are pressed
 set showcmd
 
@@ -311,14 +288,19 @@ nnoremap <leader>zz :wincmd =<CR>
 
 " Enable line numbers for NERDTree
 let NERDTreeShowLineNumbers=1
+
 " NERDTree file sorting
 let g:NERDTreeSortOrder=['\/$', '\.html$', '\.js$', '*',  '\~$']
+
 " Use relative numbers for NERDTree
 autocmd FileType nerdtree setlocal relativenumber
+
 " Show NERDTree bookmarks by default
 let g:NERDTreeShowBookmarks=1
+
 " Fix for not loading files sometimes - https://github.com/scrooloose/nerdtree/issues/587
 let NERDTreeIgnore=['\c^ntuser\..*']
+
 " Show hidden files
 let NERDTreeShowHidden=1
 
@@ -359,19 +341,16 @@ set autoread
 " Highlights the current line
 set cursorline
 
-" Display function signatures in the completion menu
-" set updatetime=500
-" let g:tern_show_argument_hints = 'on_move'
-" let g:tern_show_signature_in_pum=1
-
 " Show shortened filename path in vim-airline -> \d\c\d\t\f\file.js
 let g:airline#extensions#tabline#fnamemod = ':t'
 
 " ALE integration with airline
 let g:airline#extensions#ale#enabled = 1
+
 " Disable ALE highlighting. When writting it keeps highlighting on and gets in
 " the way
 let g:ale_set_highlights = 0
+
 " For .ts files use only tslint, as eslint could be installed sometimes but
 " not-configured properly
 let g:ale_linters = {
@@ -412,19 +391,9 @@ let g:airline_powerline_fonts=1
 let g:airline_theme='papercolor'
 
 " NERDTree symbols
-let g:NERDTreeDirArrowExpandable = '▸'
-let g:NERDTreeDirArrowCollapsible = '▾'
-
-" Syntastic default settings
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-
+" let g:NERDTreeDirArrowExpandable = '▸'
+" let g:NERDTreeDirArrowCollapsible = '▾'
+"
 " Set duration of highlighting when yanking
 let g:highlightedyank_highlight_duration = 300
 
@@ -458,10 +427,6 @@ let g:typescript_compiler_options = ''
 " autocmd QuickFixCmdPost [^l]* nested cwindow
 " autocmd QuickFixCmdPost    l* nested lwindow
 autocmd FileType typescript :set makeprg=tsc
-
-" " vim-js-pretty-template (highlighting HTML in ts and js) configuration
-" autocmd FileType typescript JsPreTmpl html
-" autocmd FileType typescript syn clear foldBraces
 
 " Tsuquyomi integration with syntastic
 let g:tsuquyomi_disable_quickfix = 1
@@ -499,28 +464,26 @@ if !exists('g:neocomplete#keyword_patterns')
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 " <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-	return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+" function! s:my_cr_function()
+	" return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
 	" For no inserting <CR> key.
 	"return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
+" endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" AutoComplPop like behavior.
-" let g:neocomplete#enable_auto_select = 1
+
 " Enable omni completion.
 if !exists('g:neocomplete#force_omni_input_patterns')
 	let g:neocomplete#force_omni_input_patterns = {}
 endif
+
 let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 if !exists('g:neocomplete#sources#omni#functions')
 	let g:neocomplete#sources#omni#functions = {}
 endif
@@ -532,11 +495,6 @@ let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
 " Disable keybindings for auto-pairs - https://github.com/jiangmiao/auto-pairs#shortcuts
 let g:AutoPairsShortcutToggle = ""
-
-" Configure Local .vimrc
-" let g:localvimrc_whitelist = 'D:\\Work\\LiveChat\\LiveChat\\Source\\LiveChat\\Client\\LiveChat.Client\\.lvimrc'
-
-" Configure custom start screen
 
 " Fix extra closing '>' when using vim-closetag with delimitMate
 let delimitMate_matchpairs ="(:),[:],{:}"
