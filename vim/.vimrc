@@ -119,6 +119,9 @@ Plugin 'Valloric/MatchTagAlways'
 " Code linter/fixer, should work async
 Plugin 'w0rp/ale'
 
+" Exchange two text elements/blocks easily
+Plugin 'tommcdo/vim-exchange'
+
 " Search tool wrapper
 Plugin 'mileszs/ack.vim'
 
@@ -191,6 +194,7 @@ Plugin 'alvan/vim-closetag'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'rafi/awesome-vim-colorschemes'
 
+Plugin 'altercation/vim-colors-solarized'
 
 " All of your Plugins must be added before the following line
 " required
