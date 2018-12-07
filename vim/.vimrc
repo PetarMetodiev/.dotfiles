@@ -614,6 +614,9 @@ nnoremap <leader>cc :ColorToggle<CR>
 " Toggle Argwrap
 nnoremap <leader>aa :ArgWrap<CR>
 
+" Clean line contents without delteing the line
+nnoremap X 0D
+
 " Navigate through tabs
 nnoremap tk :tabprev<CR>
 nnoremap tj :tabnext<CR>
