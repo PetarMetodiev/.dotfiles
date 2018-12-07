@@ -615,7 +615,7 @@ nnoremap <leader>cc :ColorToggle<CR>
 nnoremap <leader>aa :ArgWrap<CR>
 
 " Clean line contents without delteing the line
-nnoremap X 0D
+nnoremap <leader>x 0D
 
 " Navigate through tabs
 nnoremap tk :tabprev<CR>
