@@ -193,6 +193,7 @@ Plugin 'alvan/vim-closetag'
 " Themes
 Plugin 'flazz/vim-colorschemes'
 Plugin 'rafi/awesome-vim-colorschemes'
+Plugin 'tomasiser/vim-code-dark'
 
 Plugin 'altercation/vim-colors-solarized'
 
@@ -216,7 +217,9 @@ runtime macros/matchit.vim
 
 set t_Co=256
 set background=dark
-colorscheme distinguished
+colorscheme onedark
+" colorscheme codedark
+" colorscheme distinguished
 " colorscheme Benokai
 " colorscheme DevC++
 " colorscheme Light
@@ -622,4 +625,5 @@ nnoremap tk :tabprev<CR>
 nnoremap tj :tabnext<CR>
 nnoremap tn :tabnew<CR>
 nnoremap tc :tabclose<CR>
+highlight LineNr ctermfg=grey ctermbg=darkgrey
 " ---------- End of key mappings ------
