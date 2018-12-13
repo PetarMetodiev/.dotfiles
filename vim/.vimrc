@@ -289,10 +289,6 @@ set clipboard+=unnamed
 " Ato-resize splits when VIM is resized(e.g. open new split in tmux)
 autocmd VimResized * :wincmd =
 
-" Zoom split(similar to tmux zooming to pane)
-nnoremap <leader>z :wincmd _<CR>:wincmd \|<CR>
-nnoremap <leader>zz :wincmd =<CR>
-
 " Enable line numbers for NERDTree
 let NERDTreeShowLineNumbers=1
 
@@ -619,6 +615,13 @@ nnoremap <leader>aa :ArgWrap<CR>
 
 " Clean line contents without delteing the line
 nnoremap <leader>x 0D
+
+" Zoom split(similar to tmux zooming to pane)
+nnoremap <leader>z :wincmd _<CR>:wincmd \|<CR>
+nnoremap <leader>zz :wincmd =<CR>
+
+" Resize to content
+nnoremap <leader>f :execute('resize ' . line('$'))<CR>
 
 " Navigate through tabs
 nnoremap tk :tabprev<CR>
