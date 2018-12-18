@@ -374,6 +374,8 @@ endif
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " Highlight current line only on active window
+" https://superuser.com/a/393948
+" More advanced tool - https://github.com/blueyed/vim-diminactive
 augroup BgHighlight
     autocmd!
     autocmd WinEnter * set cul
