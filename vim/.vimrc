@@ -373,6 +373,13 @@ endif
 " https://github.com/spf13/spf13-vim/blob/1ce5f23997f6dd82235c6936c5c47b3f1d1b4e50/.vimrc#L135
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
+" Highlight current line only on active window
+augroup BgHighlight
+    autocmd!
+    autocmd WinEnter * set cul
+    autocmd WinLeave * set nocul
+augroup END
+
 " Change autocomplete dropdown colors
 " https://github.com/spf13/spf13-vim/blob/1ce5f23997f6dd82235c6936c5c47b3f1d1b4e50/.vimrc#L533-L535
 " https://vi.stackexchange.com/questions/12664/is-there-any-way-to-change-the-popup-menu-color
@@ -380,6 +387,9 @@ hi Pmenu  guifg=grey guibg=darkgrey ctermfg=grey ctermbg=lightgrey
 hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
 hi PmenuSel  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkgrey ctermbg=lightgray cterm=standout
 hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=lightcyan cterm=NONE
+
+" Change line number column colors
+highlight LineNr ctermfg=grey ctermbg=8
 
 " No error in airline for white spaces - something anyway useless and takes too much space
 let g:airline_section_warning = 0
@@ -621,6 +631,7 @@ nnoremap <leader>z :wincmd _<CR>:wincmd \|<CR>
 nnoremap <leader>zz :wincmd =<CR>
 
 " Resize to content
+" https://til.hashrocket.com/posts/mvekrlaycp-resize-vim-window-to-the-size-of-its-content
 nnoremap <leader>f :execute('resize ' . line('$'))<CR>
 
 " Navigate through tabs
@@ -628,6 +639,4 @@ nnoremap tk :tabprev<CR>
 nnoremap tj :tabnext<CR>
 nnoremap tn :tabnew<CR>
 nnoremap tc :tabclose<CR>
-
-highlight LineNr ctermfg=grey ctermbg=8
 " ---------- End of key mappings ------
