@@ -344,12 +344,6 @@ set autoread
 " Highlights the current line
 set cursorline
 
-" Show shortened filename path in vim-airline -> \d\c\d\t\f\file.js
-let g:airline#extensions#tabline#fnamemod = ':t'
-
-" ALE integration with airline
-let g:airline#extensions#ale#enabled = 1
-
 " Disable ALE highlighting. When writting it keeps highlighting on and gets in
 " the way
 let g:ale_set_highlights = 0
@@ -404,6 +398,24 @@ let g:airline_powerline_fonts=1
 
 " Airline theme
 let g:airline_theme='papercolor'
+
+" Show shortened filename path in vim-airline -> \d\c\d\t\f\file.js
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Show tab numbers in tabline instead of number of open splits in that tab.
+let g:airline#extensions#tabline#tab_nr_type = 1
+
+" Do not close button in the tabline. Needless and not working as expected
+let g:airline#extensions#tabline#show_close_button = 0
+
+" Do not draw separators for empty sections (only for the active window)
+let g:airline_skip_empty_sections = 1
+
+" If no git repo - show some nice icons
+let g:airline#extensions#branch#empty_message = "\uf05e \uf09b"
+
+" ALE integration with airline
+let g:airline#extensions#ale#enabled = 1
 
 " NERDTree symbols
 " let g:NERDTreeDirArrowExpandable = '▸'
