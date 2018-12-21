@@ -351,7 +351,7 @@ let g:ale_set_highlights = 0
 " For .ts files use only tslint, as eslint could be installed sometimes but
 " not-configured properly
 let g:ale_linters = {
-			\   'typescript': ['tslint'],
+			\   'typescript': ['tslint', 'tsserver'],
 			\}
 
 " Change the working directory to the currently open file
