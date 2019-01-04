@@ -356,6 +356,10 @@ let g:ale_linters = {
 			\   'typescript': ['tslint', 'tsserver'],
 			\}
 
+" Fancy error icons
+let g:ale_sign_error = '🚨'
+let g:ale_sign_warning = '👀'
+
 " Change the working directory to the currently open file
 set autochdir
 
