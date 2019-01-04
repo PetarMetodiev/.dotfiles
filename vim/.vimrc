@@ -228,6 +228,8 @@ colorscheme onedark
 " colorscheme landscape
 " highlight NonText ctermfg=8 guifg=#4d4d4d
 
+let mapleader="\<BS>"
+
 " Display relative line numbers
 set rnu
 
@@ -445,7 +447,7 @@ let g:tsuquyomi_shortest_import_path = 1
 let g:tsuquyomi_completion_detail = 1
 " Show additional information about symbol below the cursor
 " https://github.com/Quramy/tsuquyomi/blob/master/doc/tsuquyomi.txt#L467
-autocmd FileType typescript nmap <buffer> <Leader>tt :
+autocmd FileType typescript nmap <buffer> <leader>tt :
 			\ <C-u>echo tsuquyomi#hint()<CR>
 
 " typescript-vim configuration
