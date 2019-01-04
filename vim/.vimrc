@@ -348,7 +348,7 @@ set cursorline
 
 " Disable ALE highlighting. When writting it keeps highlighting on and gets in
 " the way
-let g:ale_set_highlights = 0
+" let g:ale_set_highlights = 0
 
 " For .ts files use only tslint, as eslint could be installed sometimes but
 " not-configured properly
