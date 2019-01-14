@@ -197,6 +197,9 @@ Plugin 'tomasiser/vim-code-dark'
 
 Plugin 'altercation/vim-colors-solarized'
 
+" Display number of search matches & index of current match
+Plugin 'google/vim-searchindex'
+
 " All of your Plugins must be added before the following line
 " required
 call vundle#end()
