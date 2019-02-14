@@ -494,6 +494,10 @@ let delimitMate_matchpairs ="(:),[:],{:}"
 
 " ---------- Key mappings ----------
 
+" Navigate between Ale errors
+nmap <leader><leader>k <Plug>(ale_previous_wrap)
+nmap <leader><leader>j <Plug>(ale_next_wrap)
+
 " Vim hard mode.
 nnoremap <Left> :echoe "Use h"<CR>
 nnoremap <Right> :echoe "Use l"<CR>
