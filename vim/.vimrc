@@ -358,6 +358,9 @@ augroup BgHighlight
     autocmd WinLeave * set nocul
 augroup END
 
+" Vim color table
+" https://jonasjacek.github.io/colors/
+
 " Change autocomplete dropdown colors
 " https://github.com/spf13/spf13-vim/blob/1ce5f23997f6dd82235c6936c5c47b3f1d1b4e50/.vimrc#L533-L535
 " https://vi.stackexchange.com/questions/12664/is-there-any-way-to-change-the-popup-menu-color
@@ -368,6 +371,10 @@ hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=li
 
 " Change line number column colors
 highlight LineNr ctermfg=grey ctermbg=8
+
+" Change color of matching parens
+" https://stackoverflow.com/a/10746829
+hi MatchParen cterm=bold ctermbg=14 ctermfg=31
 
 " No error in airline for white spaces - something anyway useless and takes too much space
 let g:airline_section_warning = 0
