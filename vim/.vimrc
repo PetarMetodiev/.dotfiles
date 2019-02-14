@@ -131,9 +131,6 @@ Plugin 'jiangmiao/auto-pairs'
 " Typescript syntax
 Plugin 'leafgarland/typescript-vim'
 
-" Highlighting HTML templates inside typescript and javascript
-" Plugin 'Quramy/vim-js-pretty-template' " Removed due to some confilcts and wasnt using it after all
-
 " Typescript IDE likeness
 Plugin 'Quramy/tsuquyomi'
 
@@ -143,20 +140,11 @@ Plugin 'Shougo/neocomplete.vim'
 " The vim source for neocomplete
 Plugin 'Shougo/neco-vim'
 
-" Multiple language identation and highlighting support
-" Plugin 'sheerun/vim-polyglot'
-
 " Syntax support for JSON
 Plugin 'elzr/vim-json'
 
 " Syntax for different javascript libraries
 " Plugin 'othree/javascript-libraries-syntax.vim'
-
-" Local .vimrc file
-" Plugin 'embear/vim-localvimrc' " UNUSED
-
-" Custom splash screen
-" Plugin 'mhinz/vim-startify' " UNUSED
 
 " Color hex codes and color names
 Plugin 'chrisbra/Colorizer'
@@ -166,9 +154,6 @@ Plugin 'FooSoft/vim-argwrap'
 "
 " TypeScript syntax highlighting
 Plugin 'HerringtonDarkholme/yats.vim'
-
-" Session management
-" Plugin 'tpope/vim-obsession'
 
 " Vim understands .tmux.conf¬
 Plugin 'tmux-plugins/vim-tmux'
@@ -190,11 +175,11 @@ Plugin 'ConradIrwin/vim-bracketed-paste'
 
 " Automatically close html tags
 Plugin 'alvan/vim-closetag'
+
 " Themes
 Plugin 'flazz/vim-colorschemes'
 Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'tomasiser/vim-code-dark'
-
 Plugin 'altercation/vim-colors-solarized'
 
 " Display number of search matches & index of current match
@@ -212,11 +197,6 @@ filetype plugin indent on
 " ---------- UI and UX settings ----------
 
 runtime macros/matchit.vim
-
-" Autocompletion
-" set omnifunc=syntaxcomplete#Complete
-" set omnifunc=javascriptcomplete#CompleteJS
-" autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
 
 set t_Co=256
 set background=dark
@@ -244,9 +224,6 @@ syntax enable
 
 " Leave hidden buffers open
 set hidden
-
-"by default Vim saves your last 8 commands.  We can handle more
-set history=100
 
 " Status line is always shown
 set laststatus=2
@@ -349,10 +326,6 @@ set autoread
 " Highlights the current line
 set cursorline
 
-" Disable ALE highlighting. When writting it keeps highlighting on and gets in
-" the way
-" let g:ale_set_highlights = 0
-
 " For .ts files use only tslint, as eslint could be installed sometimes but
 " not-configured properly
 let g:ale_linters = {
@@ -366,7 +339,7 @@ let g:ale_sign_warning = '👀'
 " Change the working directory to the currently open file
 set autochdir
 
-" Remember las position when reopening a file
+" Remember last position when reopening a file
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
@@ -425,10 +398,6 @@ let g:airline#extensions#branch#empty_message = "\uf05e \uf09b"
 
 " ALE integration with airline
 let g:airline#extensions#ale#enabled = 1
-
-" NERDTree symbols
-" let g:NERDTreeDirArrowExpandable = '▸'
-" let g:NERDTreeDirArrowCollapsible = '▾'
 "
 " Set duration of highlighting when yanking
 let g:highlightedyank_highlight_duration = 300
@@ -460,17 +429,10 @@ autocmd FileType typescript nmap <buffer> <leader>tt :
 " typescript-vim configuration
 let g:typescript_compiler_binary = 'tsc'
 let g:typescript_compiler_options = ''
-" autocmd QuickFixCmdPost [^l]* nested cwindow
-" autocmd QuickFixCmdPost    l* nested lwindow
 autocmd FileType typescript :set makeprg=tsc
 
 " Tsuquyomi integration with syntastic
 let g:tsuquyomi_disable_quickfix = 1
-" let g:syntastic_typescript_checkers = ['tsuquyomi', 'tslint']
-" let g:syntastic_typescript_checkers = ['tsc', 'tslint']
-
-" HTML5 for syntastic
-" let g:syntastic_html_tidy_exec = 'tidy5'
 
 " Neocomplete configuration
 " Use neocomplete.
@@ -499,13 +461,6 @@ if !exists('g:neocomplete#keyword_patterns')
 	let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-" <CR>: close popup and save indent.
-" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-" function! s:my_cr_function()
-	" return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-	" For no inserting <CR> key.
-	"return pumvisible() ? "\<C-y>" : "\<CR>"
-" endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
@@ -545,11 +500,6 @@ nnoremap <Right> :echoe "Use l"<CR>
 nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
-" Quick error navigation - UNUSED
-" nnoremap <leader>n :lnext<CR>
-" nnoremap <leader>p :lprevious<CR>
-" nnoremap <leader>c :lclose<CR>
-
 " Open vimrc
 nnoremap <leader>e :e $MYVIMRC<CR>
 
@@ -559,46 +509,7 @@ nnoremap <space> :
 " Map Ctrl+b to open NERDTree. To close press <q>
 map <C-b> :NERDTreeToggle<CR>
 
-" Map Ctrl+/ to toggle comment
-" map <C-/> :TComment<CR>
-
-" UNUSED:
-" Map {{ to move to previous buffer
-" nnoremap {{ :bprevious<CR>
-" Map }} to move to next buffer
-" nnoremap }} :bnext<CR>
-" Map {T to open new buffer
-" nnoremap {T :enew<CR>
-
-" Close the current buffer and move to the previous one
-" This repicates the idea of closing a tab - UNUSED
-" nnoremap {X :w<bar>:bp<bar>bd #<CR>
-
-" Show all open buffers and their status - UNUSED
-" nnoremap {} :ls<CR>
-
-" Not needed right now since a plugin is handling this together with tmux
-" untegration.
-" " Move to lower split
-" noremap <C-j> <C-w><C-j>
-"
-" " Move to upper split
-" noremap <C-k> <C-w><C-k>
-"
-" " Move to left split
-" noremap <C-h> <C-w><C-h>
-"
-" " Move to right split
-" noremap <C-l> <C-w><C-l>
-
-" Map Ctrl+Shift+f to format code; No spacing between the lines because it adds spaces - UNUSED / NOT-WORKING
-" noremap <C-M-f> :Autoformat<CR><bar>:w<CR>
-
-" Map for toggling whitespace characters - UNUSED
-" nnoremap <leader>l :set list!<CR>
-
 " Insert new line without entering insert mode
-" nnoremap <S-Enter> O<Esc> - NOT-WORKING
 nnoremap <CR> o<Esc>
 
 " Reselect visual block after indent/outdent
@@ -608,21 +519,6 @@ vnoremap > >gv
 " No need to switch back to English in normal mode
 " set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
 set langmap =Ч~,ЯQ,ВW,ЕE,РR,ТT,ЪY,УU,ИI,ОO,ПP,Ш{,Щ},АA,СS,ДD,ФF,ГG,ХH,ЙJ,КK,ЛL,ЗZ,ЬZ,ЦC,ЖV,БB,НN,МM,ч`,яq,вw,еe,рr,тt,ъy,уu,иi,оo,пp,ш[,щ],аa,сs,дd,фf,гg,хh,йj,кk,лl,зz,ьz,цc,жv,бb,нn,мm
-
-" Bubble single lines (kicks butt)
-" http://vimcasts.org/episodes/bubbling-text/
-" Specific escape sequences for wsltty
-map <ESC>[A <C-Up>
-map <ESC>[B <C-Down>
-map! <ESC>[A <C-Up>
-map! <ESC>[B <C-Down>
-
-nmap <C-Up> ddkP
-nmap <C-Down> ddp
-
-" Bubble multiple lines
-vmap <C-Up> xkP`[V`]
-vmap <C-Down> xp`[V`]
 
 " Use Ctrl+Tab to switch between last used buffer
 nnoremap <C-q> :b#<CR>
