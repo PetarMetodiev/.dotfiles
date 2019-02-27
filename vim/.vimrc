@@ -483,6 +483,8 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+" https://github.com/Quramy/tsuquyomi/issues/271#issuecomment-467929317
+let g:SuperTabClosePreviewOnPopupClose = 1
 
 " Enable omni completion.
 if !exists('g:neocomplete#force_omni_input_patterns')
