@@ -99,7 +99,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'editorconfig/editorconfig-vim'
 
 " Vim autoformating, uses external formatters
-Plugin 'Chiel92/vim-autoformat'
+" Plugin 'Chiel92/vim-autoformat'
 
 " Concealing for JS
 Plugin 'pangloss/vim-javascript'
@@ -341,10 +341,24 @@ set cursorline
 let g:ale_linters = {
 			\   'typescript': ['tslint', 'tsserver'],
 			\}
+let g:ale_fixers = {
+			\ 'javascript': ['prettier'],
+			\ 'typescript': ['prettier'],
+			\ 'html': ['prettier'],
+			\ 'css': ['prettier'],
+			\ 'scss': ['prettier'],
+			\ 'json': ['prettier']
+			\}
 
 " Fancy error icons
 let g:ale_sign_error = '🚨'
 let g:ale_sign_warning = '👀'
+let g:ale_javascript_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
+let g:ale_typescript_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
+let g:ale_css_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
+let g:ale_scss_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
+let g:ale_html_prettier_options = '--tab-width 4'
+let g:ale_json_prettier_options = '--tab-width 4'
 
 " Change the working directory to the currently open file
 set autochdir
@@ -432,8 +446,8 @@ set nofoldenable
 " Tsuquyomi configuration
 " autocmd FileType typescript setlocal balloonexpr=tsuquyomi#balloonexpr()
 let g:tsuquyomi_single_quote_import = 1
-let g:tsuquyomi_use_dev_node_module = 0
-let g:tsuquyomi_use_local_typescript = 0
+" let g:tsuquyomi_use_dev_node_module = 0
+" let g:tsuquyomi_use_local_typescript = 0
 " Import shortest path instead of complete one, usefull for es6 imports with bundlers
 let g:tsuquyomi_shortest_import_path = 1
 " Show method signature - may be slow
@@ -516,6 +530,9 @@ let delimitMate_matchpairs ="(:),[:],{:}"
 " Navigate between Ale errors
 nmap <leader><leader>k <Plug>(ale_previous_wrap)
 nmap <leader><leader>j <Plug>(ale_next_wrap)
+
+" Run Ale fixer
+nmap <leader><leader>f <Plug>(ale_fix)
 
 " Vim hard mode.
 nnoremap <Left> :echoe "Use h"<CR>
