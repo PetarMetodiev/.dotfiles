@@ -202,6 +202,9 @@ filetype plugin indent on
 runtime macros/matchit.vim
 
 let g:onedark_terminal_italics=1
+if (has("termguicolors"))
+	set termguicolors
+endif
 
 set t_Co=256
 set background=dark
@@ -371,13 +374,13 @@ augroup END
 " Change autocomplete dropdown colors
 " https://github.com/spf13/spf13-vim/blob/1ce5f23997f6dd82235c6936c5c47b3f1d1b4e50/.vimrc#L533-L535
 " https://vi.stackexchange.com/questions/12664/is-there-any-way-to-change-the-popup-menu-color
-hi Pmenu  guifg=grey guibg=darkgrey ctermfg=grey ctermbg=lightgrey
-hi PmenuSbar  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
-hi PmenuSel  guifg=#8A95A7 guibg=#F8F8F8 gui=NONE ctermfg=darkgrey ctermbg=lightgray cterm=standout
-hi PmenuThumb  guifg=#F8F8F8 guibg=#8A95A7 gui=NONE ctermfg=lightgray ctermbg=lightcyan cterm=NONE
+" hi Pmenu  guifg=grey guibg=lightgrey ctermfg=grey ctermbg=lightgrey
+" hi PmenuSbar  guifg=grey93 guibg=#000000 gui=NONE ctermfg=darkcyan ctermbg=lightgray cterm=NONE
+" hi PmenuSel  guifg=#808080 guibg=#c0c0c0 gui=standout ctermfg=darkgrey ctermbg=lightgray cterm=standout
+" hi PmenuThumb  guifg=#c0c0c0 guibg=#d7ffff gui=NONE ctermfg=lightgray ctermbg=lightcyan cterm=NONE
 
 " Change line number column colors
-highlight LineNr ctermfg=grey ctermbg=8
+highlight LineNr ctermfg=grey guifg=grey ctermbg=8 guibg=#808080
 
 " Change color of matching parens
 " https://stackoverflow.com/a/10746829
