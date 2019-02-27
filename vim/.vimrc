@@ -177,10 +177,13 @@ Plugin 'ConradIrwin/vim-bracketed-paste'
 Plugin 'alvan/vim-closetag'
 
 " Themes
-Plugin 'flazz/vim-colorschemes'
-Plugin 'rafi/awesome-vim-colorschemes'
+" Plugin 'flazz/vim-colorschemes'
+" Plugin 'rafi/awesome-vim-colorschemes'
 Plugin 'tomasiser/vim-code-dark'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'joshdick/onedark.vim'
+Plugin 'rakr/vim-one'
+Plugin 'lifepillar/vim-solarized8'
+" Plugin 'altercation/vim-colors-solarized'
 
 " Display number of search matches & index of current match
 Plugin 'google/vim-searchindex'
@@ -198,8 +201,12 @@ filetype plugin indent on
 
 runtime macros/matchit.vim
 
+let g:onedark_terminal_italics=1
+
 set t_Co=256
 set background=dark
+" colorscheme solarized8_flat
+" colorscheme one
 colorscheme onedark
 " colorscheme codedark
 " colorscheme distinguished
