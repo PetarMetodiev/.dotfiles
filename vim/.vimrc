@@ -361,7 +361,7 @@ let g:ale_typescript_prettier_options = '--tab-width 4 --single-quote --trailing
 let g:ale_css_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
 let g:ale_scss_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
 let g:ale_html_prettier_options = '--tab-width 4'
-let g:ale_json_prettier_options = '--tab-width 4'
+let g:ale_json_prettier_options = '--tab-width 2'
 
 " Change the working directory to the currently open file
 set autochdir
@@ -401,7 +401,7 @@ highlight LineNr ctermfg=grey guifg=grey ctermbg=8 guibg=#808080
 
 " Change color of matching parens
 " https://stackoverflow.com/a/10746829
-hi MatchParen cterm=bold ctermbg=14 ctermfg=31
+hi MatchParen guibg=#080808 guifg=#a8a8a8 gui=bold cterm=bold ctermbg=14 ctermfg=31
 
 " No error in airline for white spaces - something anyway useless and takes too much space
 let g:airline_section_warning = 0
