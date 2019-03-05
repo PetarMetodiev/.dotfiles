@@ -4,46 +4,6 @@ set encoding=utf-8
 " Use Vim setting, rather than Vi settings (much better!)
 set nocompatible
 
-" Allow backspasing over everything in insert mode
-set backspace=indent,eol,start
-
-" Keep 1000 lines of command line history
-set history=1000
-
-" Show the cursor position all the time
-set ruler
-
-" Display incomplete commands
-set showcmd
-
-" Do incremental searching
-set incsearch
-
-" Search is case insensitive
-set ignorecase
-set smartcase
-
-" Always set autoindenting on
-set smartindent
-set autoindent
-set copyindent
-
-"Highlight searches
-set hlsearch
-
-" Tell vim to keep a backup file
-set backup
-
-" Tell vim where to put its backup files
-set backupdir=~/.vim/backup/
-
-" Tell vim where to put swap files
-set dir=~/.vim/backup/
-
-" persist undos
-set undofile
-set undodir=~/.vim/undo/
-
 " ---------- Vundle specific settings ----------
 
 " be iMproved, required
@@ -201,7 +161,48 @@ filetype plugin indent on
 
 runtime macros/matchit.vim
 
-let g:onedark_terminal_italics=1
+" Allow backspasing over everything in insert mode
+set backspace=indent,eol,start
+
+" Keep 1000 lines of command line history
+set history=1000
+
+" Show the cursor position all the time
+set ruler
+
+" Display incomplete commands
+set showcmd
+
+" Do incremental searching
+set incsearch
+
+" Search is case insensitive
+set ignorecase
+set smartcase
+
+" Always set autoindenting on
+set smartindent
+set autoindent
+set copyindent
+
+"Highlight searches
+set hlsearch
+
+" Tell vim to keep a backup file
+set backup
+
+" Look into this - https://stackoverflow.com/a/12488082
+" Tell vim where to put its backup files
+set backupdir=~/.vim/backup/
+
+" Tell vim where to put swap files
+set dir=~/.vim/backup/
+
+" persist undos
+set undofile
+set undodir=~/.vim/undo/
+
+" https://medium.com/@dubistkomisch/how-to-actually-get-italics-and-true-colour-to-work-in-iterm-tmux-vim-9ebe55ebc2be
 if (has("termguicolors"))
 	let &t_8f="\<Esc>[38;2;%lu;%lu;%lum"
 	let &t_8b="\<Esc>[48;2;%lu;%lu;%lum"
@@ -223,8 +224,6 @@ colorscheme onedark
 " colorscheme bubblegum
 " colorscheme landscape
 " highlight NonText ctermfg=8 guifg=#4d4d4d
-
-let mapleader="\<BS>"
 
 " Display relative line numbers
 set rnu
@@ -281,8 +280,29 @@ set mouse=a
 " Share clipboard with system
 set clipboard+=unnamed
 
+" Always show at least 10 visible lines above/below cursor
+set scrolloff=10
+
+" Show a list of suggestions above command line when pressing <tab>
+set wildmenu
+
+" If a file is changed outside of Vim, it is automatically read again
+set autoread
+
+" Highlights the current line
+set cursorline
+
+" Change the working directory to the currently open file
+set autochdir
+
 " Ato-resize splits when VIM is resized(e.g. open new split in tmux)
 autocmd VimResized * :wincmd =
+
+" Use italics for onedark colorscheme
+" Works only when true colors are set
+let g:onedark_terminal_italics=1
+
+let mapleader="\<BS>"
 
 " Enable line numbers for NERDTree
 let NERDTreeShowLineNumbers=1
@@ -327,18 +347,6 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 " Ignore files in .gitignore
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files -co --exclude-standard']
 
-" Always show at least 10 visible lines above/below cursor
-set scrolloff=10
-
-" Show a list of suggestions above command line when pressing <tab>
-set wildmenu
-
-" If a file is changed outside of Vim, it is automatically read again
-set autoread
-
-" Highlights the current line
-set cursorline
-
 " For .ts files use only tslint, as eslint could be installed sometimes but
 " not-configured properly
 let g:ale_linters = {
@@ -362,9 +370,6 @@ let g:ale_css_prettier_options = '--tab-width 4 --single-quote --trailing-comma 
 let g:ale_scss_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
 let g:ale_html_prettier_options = '--tab-width 4'
 let g:ale_json_prettier_options = '--tab-width 2'
-
-" Change the working directory to the currently open file
-set autochdir
 
 " Remember last position when reopening a file
 if has("autocmd")
@@ -610,7 +615,7 @@ nnoremap <leader>zz :wincmd =<CR>
 
 " Resize to content
 " https://til.hashrocket.com/posts/mvekrlaycp-resize-vim-window-to-the-size-of-its-content
-nnoremap <leader>f :execute('resize ' . line('$'))<CR>
+" nnoremap <leader>f :execute('resize ' . line('$'))<CR>
 
 " Navigate through tabs
 nnoremap tk :tabprev<CR>
