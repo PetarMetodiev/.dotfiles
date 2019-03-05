@@ -1,9 +1,6 @@
 " Set encoding first in order to avoid any character mismatches further on
 set encoding=utf-8
 
-" Use Vim setting, rather than Vi settings (much better!)
-set nocompatible
-
 " ---------- Vundle specific settings ----------
 
 " be iMproved, required
@@ -321,25 +318,6 @@ let NERDTreeIgnore=['\c^ntuser\..*']
 
 " Show hidden files
 let NERDTreeShowHidden=1
-
-" Customizing html formatter - should use tabs instead of spaces and force
-" attributes on new lines
-let g:formatdef_custom_html = '"html-beautify -f - -t -A=force-aligned"'
-let g:formatters_html = ['custom_html']
-
-" Cusomizing js formatter - should use tabs instead of spaces, enable jslint
-" stricter mode, add space before function's parens, break chained method
-" calls, put commas at the beginning of new line instead of end
-let g:formatdef_custom_js = '"js-beautify -f - -tjaBC"'
-let g:formatters_javascript = ['custom_js']
-
-" Customizing the CSS formatter
-let g:formatdef_custom_css='"css-beautify -f - -tN"'
-let g:formatters_css=['custom_css']
-
-" Customizing the ts formatter
-let g:formatdef_custom_ts='"tsfmt"'
-let g:formatters_ts = ['custom_ts']
 
 " CtrlP configuration
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
