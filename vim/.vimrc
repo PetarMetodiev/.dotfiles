@@ -371,6 +371,22 @@ if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
 
+" Change cursor based on mode
+" https://stackoverflow.com/a/30199177
+if $TERM_PROGRAM=="iTerm.app"
+	if exists('$TMUX')
+	  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+	  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+	else
+	  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+	  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+	endif
+endif
+
+" No lag between toggling modes
+" https://www.johnhawthorn.com/2012/09/vi-escape-delays/
+set timeoutlen=1000 ttimeoutlen=0
+
 " Instead of reverting the cursor to the last position in the buffer, we
 " set it to the first line when editing a git commit message
 " https://github.com/spf13/spf13-vim/blob/1ce5f23997f6dd82235c6936c5c47b3f1d1b4e50/.vimrc#L135
