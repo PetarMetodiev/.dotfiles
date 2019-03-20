@@ -336,7 +336,8 @@ let g:ale_fixers = {
 			\ 'html': ['prettier'],
 			\ 'css': ['prettier'],
 			\ 'scss': ['prettier'],
-			\ 'json': ['prettier']
+			\ 'json': ['prettier'],
+			\ 'markdown': ['prettier']
 			\}
 
 " Fancy error icons
@@ -344,6 +345,11 @@ let g:ale_sign_error = '🚨'
 let g:ale_sign_warning = '👀'
 let g:ale_javascript_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
 let g:ale_typescript_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
+
+" These two go together as suggested in the docs
+let g:ale_lint_on_text_changed = 'normal'
+let g:ale_lint_on_insert_leave = 1
+
 let g:ale_css_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
 let g:ale_scss_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
 let g:ale_html_prettier_options = '--tab-width 4'
