@@ -462,8 +462,7 @@ let g:tsuquyomi_shortest_import_path = 1
 let g:tsuquyomi_completion_detail = 1
 " Show additional information about symbol below the cursor
 " https://github.com/Quramy/tsuquyomi/blob/master/doc/tsuquyomi.txt#L467
-autocmd FileType typescript nmap <buffer> <leader>tt :
-			\ <C-u>echo tsuquyomi#hint()<CR>
+" autocmd FileType typescript nmap <buffer> <leader>tt :\<C-u><Plug>(ale_hover)<CR>
 
 " typescript-vim configuration
 let g:typescript_compiler_binary = 'tsc'
@@ -541,6 +540,9 @@ nmap <leader><leader>j <Plug>(ale_next_wrap)
 
 " Run Ale fixer
 nmap <leader><leader>f <Plug>(ale_fix)
+
+" Get type of element under cursor(works only in ts)
+nmap <leader>tt <Plug>(ale_hover)
 
 " Vim hard mode.
 nnoremap <Left> :echoe "Use h"<CR>
