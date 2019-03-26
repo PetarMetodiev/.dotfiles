@@ -136,10 +136,10 @@ Plugin 'alvan/vim-closetag'
 " Themes
 " Plugin 'flazz/vim-colorschemes'
 " Plugin 'rafi/awesome-vim-colorschemes'
-Plugin 'tomasiser/vim-code-dark'
+" Plugin 'tomasiser/vim-code-dark'
 Plugin 'joshdick/onedark.vim'
-Plugin 'rakr/vim-one'
-Plugin 'lifepillar/vim-solarized8'
+" Plugin 'rakr/vim-one'
+" Plugin 'lifepillar/vim-solarized8'
 " Plugin 'altercation/vim-colors-solarized'
 
 " Display number of search matches & index of current match
@@ -208,10 +208,15 @@ else
 	set t_Co=256
 endif
 
+" Use italics for onedark colorscheme
+" Works only when true colors are set
+" Has to be set before setting colorscheme onedark - https://github.com/joshdick/onedark.vim#options
+let g:onedark_terminal_italics=1
+
 set background=dark
+colorscheme onedark
 " colorscheme solarized8_flat
 " colorscheme one
-colorscheme onedark
 " colorscheme codedark
 " colorscheme distinguished
 " colorscheme Benokai
@@ -294,10 +299,6 @@ set autochdir
 
 " Ato-resize splits when VIM is resized(e.g. open new split in tmux)
 autocmd VimResized * :wincmd =
-
-" Use italics for onedark colorscheme
-" Works only when true colors are set
-let g:onedark_terminal_italics=1
 
 let mapleader="\<BS>"
 
@@ -404,9 +405,9 @@ augroup END
 " Change line number column colors
 highlight LineNr ctermfg=grey guifg=grey ctermbg=8 guibg=#808080
 
-" Change color of matching parens
+" Change color of matching parens. Currently matches highlight color of onedark
 " https://stackoverflow.com/a/10746829
-hi MatchParen guibg=#080808 guifg=#a8a8a8 gui=bold cterm=bold ctermbg=14 ctermfg=31
+hi MatchParen guibg=#e4b870 guifg=#23272e gui=bold cterm=bold ctermbg=14 ctermfg=31
 
 " No error in airline for white spaces - something anyway useless and takes too much space
 let g:airline_section_warning = 0
