@@ -344,12 +344,18 @@ let g:ale_fixers = {
 " Fancy error icons
 let g:ale_sign_error = '🚨'
 let g:ale_sign_warning = '👀'
-let g:ale_javascript_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
-let g:ale_typescript_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
 
 " These two go together as suggested in the docs
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
+
+if filereadable(globpath($HOME, '.config/prettier/.prettierrc'))
+	let g:ale_javascript_prettier_options = '--config ~/.config/prettier/.prettierrc --config-precedence prefer-file'
+	let g:ale_typescript_prettier_options = '--config ~/.config/prettier/.prettierrc --config-precedence prefer-file'
+else
+	let g:ale_javascript_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
+	let g:ale_typescript_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
+endif
 
 let g:ale_css_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
 let g:ale_scss_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
