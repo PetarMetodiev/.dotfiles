@@ -371,11 +371,11 @@ endif
 " https://stackoverflow.com/a/30199177
 if $TERM_PROGRAM=="iTerm.app"
 	if exists('$TMUX')
-	  let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
-	  let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+		let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+		let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
 	else
-	  let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-	  let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+		let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+		let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 	endif
 endif
 
@@ -392,9 +392,9 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " https://superuser.com/a/393948
 " More advanced tool - https://github.com/blueyed/vim-diminactive
 augroup BgHighlight
-    autocmd!
-    autocmd WinEnter * set cul
-    autocmd WinLeave * set nocul
+	autocmd!
+	autocmd WinEnter * set cul
+	autocmd WinLeave * set nocul
 augroup END
 
 " Vim color table
