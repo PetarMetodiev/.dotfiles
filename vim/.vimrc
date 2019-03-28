@@ -415,6 +415,15 @@ highlight LineNr ctermfg=grey guifg=grey ctermbg=8 guibg=#808080
 " https://stackoverflow.com/a/10746829
 hi MatchParen guibg=#e4b870 guifg=#23272e gui=bold cterm=bold ctermbg=14 ctermfg=31
 
+" Highlight matching parens only in normal mode
+" https://www.reddit.com/r/vim/comments/2rz74u/question_because_of_matching_parenthesis/cnnhtcy/
+augroup insertMatch
+    au!
+    au BufReadPost * DoMatchParen
+    au InsertEnter * NoMatchParen
+    au InsertLeave * DoMatchParen
+augroup END
+
 " No error in airline for white spaces - something anyway useless and takes too much space
 let g:airline_section_warning = 0
 
