@@ -419,7 +419,6 @@ hi MatchParen guibg=#e4b870 guifg=#23272e gui=bold cterm=bold ctermbg=14 ctermfg
 " https://www.reddit.com/r/vim/comments/2rz74u/question_because_of_matching_parenthesis/cnnhtcy/
 augroup insertMatch
     au!
-    au BufReadPost * DoMatchParen
     au InsertEnter * NoMatchParen
     au InsertLeave * DoMatchParen
 augroup END
