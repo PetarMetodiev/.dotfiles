@@ -333,17 +333,17 @@ function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
  exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
-call NERDTreeHighlightFile('md', 'blue', 'none', '#5ca4ef', 'none')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', '#e25141', 'none')
-call NERDTreeHighlightFile('json', 'yellow', 'none', '#f3c14f', 'none')
-call NERDTreeHighlightFile('html', 'yellow', 'none', '#d45735', 'none')
-call NERDTreeHighlightFile('css', 'cyan', 'none', '#5ca4ef', 'none')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#f7cb4f', 'none')
-call NERDTreeHighlightFile('ts', 'cyan', 'none', 'cyan', 'none')
-call NERDTreeHighlightFile('test.ts', 'cyan', 'none', '#e25c33', 'none')
-call NERDTreeHighlightFile('gitconfig', 'Gray', 'none', '#686868', 'none')
-call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', 'none')
-call NERDTreeHighlightFile('editorconfig', 'Gray', 'none', '#fdfdfd', 'none')
+call NERDTreeHighlightFile('md', 'blue', 'NONE', '#5ca4ef', 'NONE')
+call NERDTreeHighlightFile('yml', 'yellow', 'NONE', '#e25141', 'NONE')
+call NERDTreeHighlightFile('json', 'yellow', 'NONE', '#f3c14f', 'NONE')
+call NERDTreeHighlightFile('html', 'yellow', 'NONE', '#d45735', 'NONE')
+call NERDTreeHighlightFile('css', 'cyan', 'NONE', '#5ca4ef', 'NONE')
+call NERDTreeHighlightFile('js', 'Red', 'NONE', '#f7cb4f', 'NONE')
+call NERDTreeHighlightFile('ts', 'cyan', 'NONE', 'cyan', 'NONE')
+call NERDTreeHighlightFile('test.ts', 'cyan', 'NONE', '#e25c33', 'NONE')
+call NERDTreeHighlightFile('gitconfig', 'Gray', 'NONE', '#686868', 'NONE')
+call NERDTreeHighlightFile('gitignore', 'Gray', 'NONE', '#686868', 'NONE')
+call NERDTreeHighlightFile('editorconfig', 'Gray', 'NONE', '#fdfdfd', 'NONE')
 
 " Fix for not loading files sometimes - https://github.com/scrooloose/nerdtree/issues/587
 let NERDTreeIgnore=['\c^ntuser\..*']
