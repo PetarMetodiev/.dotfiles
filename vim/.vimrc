@@ -476,6 +476,7 @@ let g:airline#extensions#ale#enabled = 1
 
 " CtrlP style bindings for QFEnter
 let g:qfenter_keymap = {}
+let g:qfenter_keymap.open = ['<CR>', '<2-LeftMouse>']
 let g:qfenter_keymap.vopen = ['<C-v>']
 let g:qfenter_keymap.hopen = ['<C-CR>', '<C-s>', '<C-x>']"
 
