@@ -164,6 +164,15 @@ runtime macros/matchit.vim
 " Allow backspasing over everything in insert mode
 set backspace=indent,eol,start
 
+" Reduce cmd messages clutter.
+" f: use '(3 of 5)' instead of '(file 3 of 5)'
+" l: use '999L, 888C' instead of '999 lines, 888 characters'
+" m: '[+]' instead of '[Modified]'
+" n: use '[New]' instead of '[New File]'
+" x: use '[dos]' instead of '[dos format]', '[unix]' instead of
+"         [unix format]" and '[mac]' instead of '[mac format]'.
+set shortmess=flmnx
+
 " Keep 1000 lines of command line history
 set history=1000
 
