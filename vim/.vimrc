@@ -326,6 +326,25 @@ autocmd FileType nerdtree setlocal relativenumber
 " Show NERDTree bookmarks by default
 let g:NERDTreeShowBookmarks=1
 
+" NERDTrees File highlighting
+" https://github.com/ryanoasis/vim-devicons/wiki/FAQ-&-Troubleshooting#how-did-you-get-color-matching-based-on-file-type-in-nerdtree
+function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+ exec 'autocmd FileType nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+ exec 'autocmd FileType nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+endfunction
+
+call NERDTreeHighlightFile('md', 'blue', 'none', '#5ca4ef', 'none')
+call NERDTreeHighlightFile('yml', 'yellow', 'none', '#e25141', 'none')
+call NERDTreeHighlightFile('json', 'yellow', 'none', '#f3c14f', 'none')
+call NERDTreeHighlightFile('html', 'yellow', 'none', '#d45735', 'none')
+call NERDTreeHighlightFile('css', 'cyan', 'none', '#5ca4ef', 'none')
+call NERDTreeHighlightFile('js', 'Red', 'none', '#f7cb4f', 'none')
+call NERDTreeHighlightFile('ts', 'cyan', 'none', 'cyan', 'none')
+call NERDTreeHighlightFile('test.ts', 'cyan', 'none', '#e25c33', 'none')
+call NERDTreeHighlightFile('gitconfig', 'Gray', 'none', '#686868', 'none')
+call NERDTreeHighlightFile('gitignore', 'Gray', 'none', '#686868', 'none')
+call NERDTreeHighlightFile('editorconfig', 'Gray', 'none', '#fdfdfd', 'none')
+
 " Fix for not loading files sometimes - https://github.com/scrooloose/nerdtree/issues/587
 let NERDTreeIgnore=['\c^ntuser\..*']
 
