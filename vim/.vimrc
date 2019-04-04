@@ -351,6 +351,11 @@ let NERDTreeIgnore=['\c^ntuser\..*']
 " Show hidden files
 let NERDTreeShowHidden=1
 
+" Show folder icons in NERDTree
+" A little buggy, test if it is useful
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFolderExtensionPatternMatching = 1
 " CtrlP configuration
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
