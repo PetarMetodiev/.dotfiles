@@ -376,6 +376,9 @@ let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['ormconfig.js'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.npmrc'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['src'] = ''
 
+let g:DevIconsDefaultFolderOpenSymbol=''
+let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol=''
+
 " Hide NERDTree folder trailing slashes
 " https://github.com/scrooloose/nerdtree/issues/807#issuecomment-366997266
 augroup nerdtreehidetirslashes
