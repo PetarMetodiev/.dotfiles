@@ -369,6 +369,13 @@ let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {} " needed
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['ormconfig.js'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.npmrc'] = ''
 
+" Hide NERDTree folder trailing slashes
+augroup nerdtreehidetirslashes
+	autocmd!
+	autocmd FileType nerdtree syntax match NERDTreeDirSlash #/$# containedin=NERDTreeDir conceal contained
+augroup end
+
+
 " CtrlP configuration
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 
