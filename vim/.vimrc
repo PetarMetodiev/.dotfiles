@@ -326,6 +326,10 @@ autocmd FileType nerdtree setlocal relativenumber
 " Show NERDTree bookmarks by default
 let g:NERDTreeShowBookmarks=1
 
+" Disable NERDTree expand arrows in favor of devicons
+let NERDTreeDirArrowExpandable=' '
+let NERDTreeDirArrowCollapsible=' '
+
 " NERDTrees File highlighting
 " https://github.com/ryanoasis/vim-devicons/wiki/FAQ-&-Troubleshooting#how-did-you-get-color-matching-based-on-file-type-in-nerdtree
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
@@ -361,6 +365,9 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['ts'] = 'ﯤ'
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = 'ﬥ'
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {} " needed
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['ormconfig.js'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.npmrc'] = ''
 
 " CtrlP configuration
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
