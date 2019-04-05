@@ -374,6 +374,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.test.ts'] = 'ﭧ'
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {} " needed
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['ormconfig.js'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.npmrc'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['src'] = ''
 
 " Hide NERDTree folder trailing slashes
 " https://github.com/scrooloose/nerdtree/issues/807#issuecomment-366997266
