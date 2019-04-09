@@ -171,7 +171,13 @@ set backspace=indent,eol,start
 " n: use '[New]' instead of '[New File]'
 " x: use '[dos]' instead of '[dos format]', '[unix]' instead of
 "         [unix format]" and '[mac]' instead of '[mac format]'.
-set shortmess=flmnx
+" O: message for reading a file overwrites any previous message.
+"         Also for quickfix message (e.g., ':cn').
+" o: overwrite message for writing a file with subsequent message
+"         for reading a file (useful for ':wn' or when 'autowrite' on)
+"         Hopefully fixes Hit ENTER to continue promps when saving multiple
+"         files
+set shortmess=flmnxWoO
 
 " Keep 1000 lines of command line history
 set history=1000
