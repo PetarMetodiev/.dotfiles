@@ -498,7 +498,7 @@ highlight LineNr ctermfg=grey guifg=grey ctermbg=8 guibg=#808080
 hi MatchParen guibg=#e4b870 guifg=#23272e gui=bold cterm=bold ctermbg=14 ctermfg=31
 
 " Do not highlight lines when searching files
-hi QuickFixLine guibg=NONE
+" hi QuickFixLine guibg=NONE
 
 " Highlight matching parens only in normal mode
 " https://www.reddit.com/r/vim/comments/2rz74u/question_because_of_matching_parenthesis/cnnhtcy/
