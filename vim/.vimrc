@@ -379,6 +379,8 @@ let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.test.ts'] = 'ﭧ'
 " Custom icons for specific filenames
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {} " needed
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['ormconfig.js'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.env'] = 'ﭩ'
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.editorconfig'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.npmrc'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['src'] = ''
 
