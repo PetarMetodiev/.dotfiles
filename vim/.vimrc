@@ -126,9 +126,6 @@ Plugin 'tmux-plugins/vim-tmux-focus-events'
 " Needs to be configured in .tmux.conf as well
 Plugin 'christoomey/vim-tmux-navigator'
 
-" Needed for proper icons with nerd fonts
-Plugin 'ryanoasis/vim-devicons'
-
 " Automatically :set paste! when inserting text from outside vim(e.g.
 " shift+insert)
 Plugin 'ConradIrwin/vim-bracketed-paste'
@@ -147,6 +144,9 @@ Plugin 'joshdick/onedark.vim'
 
 " Display number of search matches & index of current match
 Plugin 'google/vim-searchindex'
+
+" Needed for proper icons with nerd fonts
+Plugin 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
 " required
