@@ -306,6 +306,11 @@ set scrolloff=10
 " Show a list of suggestions above command line when pressing <tab>
 set wildmenu
 
+" When in command mode, list all possible matches and complete till longest
+" common string
+" e.g. :help wild<TAB>
+set wildmode=list:longest,full
+
 " If a file is changed outside of Vim, it is automatically read again
 set autoread
 
