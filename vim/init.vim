@@ -50,14 +50,17 @@ Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript', 'tsx' ]}
 " Press enter to open file in quickfix/loclist
 Plug 'yssl/QFEnter'
 
-" Completion framework
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" Autocompletion using LSPs
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+
+" " Completion framework
+" if has('nvim')
+"   " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 
 " The vim source for neocomplete
 Plug 'Shougo/neco-vim'
@@ -216,6 +219,9 @@ autocmd VimResized * :wincmd =
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 let mapleader="\<BS>"
+
+call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
+call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
 
 " Enable line numbers for NERDTree
 let NERDTreeShowLineNumbers=1
@@ -468,6 +474,8 @@ let g:AutoPairsShortcutToggle = ""
 
 " Fix extra closing '>' when using vim-closetag with delimitMate
 let delimitMate_matchpairs ="(:),[:],{:}"
+
+nmap <C-p> :Denite file/rec -split=floating -auto-resize -highlight-mode-insert="WildMenu"<CR>
 
 " Navigate between Ale errors
 nmap <leader><leader>k <Plug>(ale_previous_wrap)
