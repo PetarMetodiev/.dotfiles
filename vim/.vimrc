@@ -329,7 +329,7 @@ let mapleader="\<BS>"
 let NERDTreeShowLineNumbers=1
 
 " NERDTree file sorting
-let g:NERDTreeSortOrder=['\/$', '\.html$', '\.js$', '*',  '\~$']
+let g:NERDTreeSortOrder=['\/$', '\.html$', '\.ts$', '\.tsx$', '\.jsx$', '\.js$', '*',  '\~$']
 
 " Use relative numbers for NERDTree
 autocmd FileType nerdtree setlocal relativenumber
