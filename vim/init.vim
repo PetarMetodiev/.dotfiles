@@ -63,7 +63,7 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 " endif
 
 " The vim source for neocomplete
-Plug 'Shougo/neco-vim'
+" Plug 'Shougo/neco-vim'
 
 " File system navigation - fuzzy file search
 Plug 'Shougo/denite.nvim'
@@ -131,7 +131,14 @@ set copyindent
 set hlsearch
 
 " Tell vim to keep a backup file
+" Should be $XDG_DATA_HOME/nvim/backup but macos is not happy
+if !isdirectory($HOME.'/.config/nvim/backup')
+	call mkdir($HOME.'/.config/nvim/backup', 'p')
+endif
+
 set backup
+" Double trailing back-slash: https://news.ycombinator.com/item?id=1690673
+set backupdir=$HOME/.config/nvim/backup//
 
 " persist undos
 set undofile
@@ -227,7 +234,7 @@ call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'nor
 let NERDTreeShowLineNumbers=1
 
 " As per docs
-let g:deoplete#enable_at_startup = 1
+" let g:deoplete#enable_at_startup = 1
 
 " NERDTree file sorting
 let g:NERDTreeSortOrder=['\/$', '\.html$', '\.js$', '*',  '\~$']
@@ -426,48 +433,48 @@ let g:typescript_compiler_options = ''
 autocmd FileType typescript :set makeprg=tsc
 " Neocomplete configuration
 " Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
+" let g:neocomplete#enable_at_startup = 1
 " Integration with Tsuquyomi
 autocmd BufRead,BufNewFile *.ts,*.d.ts setlocal filetype=typescript
 autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript
-autocmd FileType typescript setlocal completeopt+=menu
-if !exists('g:neocomplete#force_omni_input_patterns')
-	let g:neocomplete#force_omni_input_patterns = {}
-endif
-let g:neocomplete#force_omni_input_patterns.typescript = '[^. *\t]\.\w*\|\h\w*::'
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 1
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-			\ 'default' : '',
-			\ 'vimshell' : $HOME.'/.vimshell_hist',
-			\ 'scheme' : $HOME.'/.gosh_completions'
-			\ }
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-	let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-
-" Enable omni completion.
-if !exists('g:neocomplete#force_omni_input_patterns')
-	let g:neocomplete#force_omni_input_patterns = {}
-endif
-
-let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-if !exists('g:neocomplete#sources#omni#functions')
-	let g:neocomplete#sources#omni#functions = {}
-endif
+" autocmd FileType typescript setlocal completeopt+=menu
+" if !exists('g:neocomplete#force_omni_input_patterns')
+" 	let g:neocomplete#force_omni_input_patterns = {}
+" endif
+" let g:neocomplete#force_omni_input_patterns.typescript = '[^. *\t]\.\w*\|\h\w*::'
+" " Use smartcase.
+" let g:neocomplete#enable_smart_case = 1
+" " Set minimum syntax keyword length.
+" let g:neocomplete#sources#syntax#min_keyword_length = 1
+" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+" " Define dictionary.
+" let g:neocomplete#sources#dictionary#dictionaries = {
+" 			\ 'default' : '',
+" 			\ 'vimshell' : $HOME.'/.vimshell_hist',
+" 			\ 'scheme' : $HOME.'/.gosh_completions'
+" 			\ }
+" " Define keyword.
+" if !exists('g:neocomplete#keyword_patterns')
+" 	let g:neocomplete#keyword_patterns = {}
+" endif
+" let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+" " <TAB>: completion.
+" " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" " <C-h>, <BS>: close popup and delete backword char.
+" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+"
+" " Enable omni completion.
+" if !exists('g:neocomplete#force_omni_input_patterns')
+" 	let g:neocomplete#force_omni_input_patterns = {}
+" endif
+"
+" let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
+" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+" if !exists('g:neocomplete#sources#omni#functions')
+" 	let g:neocomplete#sources#omni#functions = {}
+" endif
 
 " Disable keybindings for auto-pairs - https://github.com/jiangmiao/auto-pairs#shortcuts
 let g:AutoPairsShortcutToggle = ""
@@ -475,7 +482,6 @@ let g:AutoPairsShortcutToggle = ""
 " Fix extra closing '>' when using vim-closetag with delimitMate
 let delimitMate_matchpairs ="(:),[:],{:}"
 
-nmap <C-p> :Denite file/rec -split=floating -auto-resize -highlight-mode-insert="WildMenu"<CR>
 
 " Navigate between Ale errors
 nmap <leader><leader>k <Plug>(ale_previous_wrap)
@@ -551,3 +557,49 @@ nnoremap tk :tabprev<CR>
 nnoremap tj :tabnext<CR>
 nnoremap tn :tabnew<CR>
 nnoremap tc :tabclose<CR>
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use Ctrl-X + Ctrl-O to trigger completion.
+inoremap <silent><expr> <C-x><C-o> coc#refresh()
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+nmap <C-p> :Denite file/rec -split=floating -start-filter -winrow=5<CR>
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+autocmd CursorHold * silent call CocActionAsync('highlight')
+" Define mappings
+	autocmd FileType denite call s:denite_my_settings()
+	function! s:denite_my_settings() abort
+	  nnoremap <silent><buffer><expr> <CR>
+	  \ denite#do_map('do_action')
+	  nnoremap <silent><buffer><expr> p
+	  \ denite#do_map('do_action', 'preview')
+	  nnoremap <silent><buffer><expr> <Esc>
+	  \ denite#do_map('quit')
+	  nnoremap <silent><buffer><expr> i
+	  \ denite#do_map('open_filter_buffer')
+	endfunction
+
+	" Change file/rec command.
+	call denite#custom#var('file/rec', 'command',
+	\ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
