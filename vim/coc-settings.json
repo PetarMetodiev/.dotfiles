@@ -1,0 +1,8 @@
+{
+	"suggest.autoTrigger": "always",
+	"suggest.maxCompleteItemCount": 200,
+	"coc.preferences.enableFloatHighlight": false,
+	"tsserver.reportStyleChecksAsWarnings": false,
+	"typescript.validate.enable": false,
+	// "tsserver.npm": "~/.nvm/versions/node/v11.12.0/bin/npm"
+}
