@@ -582,11 +582,20 @@ function! s:show_documentation()
   endif
 endfunction
 
-nmap <silent> <C-p> :Denite file/rec -split=floating -start-filter -winrow=5<CR>
-
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+call denite#custom#source('grep', 'args', ['', '', '!'])
+call denite#custom#var('grep', 'command', ['ag'])
+call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+call denite#custom#var('grep', 'recursive_opts', [])
+call denite#custom#var('grep', 'pattern_opt', [])
+call denite#custom#var('grep', 'separator', ['--'])
+call denite#custom#var('grep', 'final_opts', [])
+call denite#custom#filter('matcher/ignore_globs', 'ignore_globs',
+	      \ [ '.git/', '.ropeproject/', '__pycache__/',
+	      \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
 
 autocmd FileType denite-filter nnoremap <buffer><expr> <Esc> denite#do_map('quit')
 autocmd FileType denite nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
@@ -594,6 +603,5 @@ autocmd FileType denite nnoremap <silent><buffer><expr> p denite#do_map('do_acti
 autocmd FileType denite nnoremap <silent><buffer><expr> <Esc> denite#do_map('quit')
 autocmd FileType denite nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
 
-" Change file/rec command.
-call denite#custom#var('file/rec', 'command',
-\ ['ag', '--follow', '--nocolor', '--nogroup', '-g', ''])
+nmap <silent> <C-p> :DeniteProjectDir file/rec -split=floating -start-filter -winrow=5<CR>
+nmap <silent> <C-f> :DeniteProjectDir grep -split=floating -start-filter -winrow=5<CR>
