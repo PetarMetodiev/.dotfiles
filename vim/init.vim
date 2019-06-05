@@ -593,9 +593,9 @@ call denite#custom#var('grep', 'recursive_opts', [])
 call denite#custom#var('grep', 'pattern_opt', [])
 call denite#custom#var('grep', 'separator', ['--'])
 call denite#custom#var('grep', 'final_opts', [])
-call denite#custom#filter('matcher/ignore_globs', 'ignore_globs',
-	      \ [ '.git/', '.ropeproject/', '__pycache__/',
-	      \   'venv/', 'images/', '*.min.*', 'img/', 'fonts/'])
+
+let ignore=&wildignore . ',*.pyc,.git,.hg,.svn,node_modules'
+call denite#custom#var('file/rec', 'command', ['scantree.py', '--ignore', ignore])
 
 autocmd FileType denite-filter nnoremap <buffer><expr> <Esc> denite#do_map('quit')
 autocmd FileType denite nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
