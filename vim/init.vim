@@ -597,11 +597,35 @@ call denite#custom#var('grep', 'final_opts', [])
 let ignore=&wildignore . ',*.pyc,.git,.hg,.svn,node_modules'
 call denite#custom#var('file/rec', 'command', ['scantree.py', '--ignore', ignore])
 
-autocmd FileType denite-filter nnoremap <buffer><expr> <Esc> denite#do_map('quit')
+autocmd FileType denite-filter inoremap <buffer><expr> <Esc> denite#do_map('quit')
 autocmd FileType denite nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
 autocmd FileType denite nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
 autocmd FileType denite nnoremap <silent><buffer><expr> <Esc> denite#do_map('quit')
 autocmd FileType denite nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
 
-nmap <silent> <C-p> :DeniteProjectDir file/rec -split=floating -start-filter -winrow=5<CR>
-nmap <silent> <C-f> :DeniteProjectDir grep -split=floating -start-filter -winrow=5<CR>
+nmap <silent> <C-p> :DeniteProjectDir file/rec -split=floating -highlight-matched-char=WildMenu -start-filter -winrow=5<CR>
+nmap <silent> <C-f> :DeniteProjectDir grep -split=floating -start-filter -auto-action=preview -winrow=5<CR>
+call denite#custom#option('_', 'statusline', v:false)
+" For reference:
+"
+" let s:menus = {}
+"
+" let s:menus.zsh = {
+" 	\ 'description': 'Edit your import zsh configuration'
+" 	\ }
+" let s:menus.zsh.file_candidates = [
+" 	\ ['zshrc', '~/.config/zsh/.zshrc'],
+" 	\ ['zshenv', '~/.zshenv'],
+" 	\ ]
+"
+" let s:menus.my_commands = {
+" 	\ 'description': 'Example commands'
+" 	\ }
+" let s:menus.my_commands.command_candidates = [
+" 	\ ['Split the window', 'vnew'],
+" 	\ ['Open zsh menu', 'Denite menu:zsh'],
+" 	\ ['Go back', 'Denite menu'],
+" 	\ ['Format code', 'FormatCode', 'go,python'],
+" 	\ ]
+"
+" call denite#custom#var('menu', 'menus', s:menus)
