@@ -51,22 +51,7 @@ Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript', 'tsx' ]}
 Plug 'yssl/QFEnter'
 
 " Autocompletion using LSPs
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-
-" " Completion framework
-" if has('nvim')
-"   " Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-
-" The vim source for neocomplete
-" Plug 'Shougo/neco-vim'
-
-" File system navigation - fuzzy file search
-Plug 'Shougo/denite.nvim'
+" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 
 " Syntax support for JSON
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -226,9 +211,6 @@ autocmd VimResized * :wincmd =
 let g:python3_host_prog = '/usr/local/bin/python3'
 
 let mapleader="\<BS>"
-
-call denite#custom#map('insert', '<C-j>', '<denite:move_to_next_line>', 'noremap')
-call denite#custom#map('insert', '<C-k>', '<denite:move_to_previous_line>', 'noremap')
 
 " Enable line numbers for NERDTree
 let NERDTreeShowLineNumbers=1
@@ -427,55 +409,6 @@ let g:ackprg = 'ag --vimgrep'
 " Disable folding
 set nofoldenable
 
-" typescript-vim configuration
-let g:typescript_compiler_binary = 'tsc'
-let g:typescript_compiler_options = ''
-autocmd FileType typescript :set makeprg=tsc
-" Neocomplete configuration
-" Use neocomplete.
-" let g:neocomplete#enable_at_startup = 1
-" Integration with Tsuquyomi
-autocmd BufRead,BufNewFile *.ts,*.d.ts setlocal filetype=typescript
-autocmd BufRead,BufNewFile *.tsx setlocal filetype=typescript
-" autocmd FileType typescript setlocal completeopt+=menu
-" if !exists('g:neocomplete#force_omni_input_patterns')
-" 	let g:neocomplete#force_omni_input_patterns = {}
-" endif
-" let g:neocomplete#force_omni_input_patterns.typescript = '[^. *\t]\.\w*\|\h\w*::'
-" " Use smartcase.
-" let g:neocomplete#enable_smart_case = 1
-" " Set minimum syntax keyword length.
-" let g:neocomplete#sources#syntax#min_keyword_length = 1
-" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" " Define dictionary.
-" let g:neocomplete#sources#dictionary#dictionaries = {
-" 			\ 'default' : '',
-" 			\ 'vimshell' : $HOME.'/.vimshell_hist',
-" 			\ 'scheme' : $HOME.'/.gosh_completions'
-" 			\ }
-" " Define keyword.
-" if !exists('g:neocomplete#keyword_patterns')
-" 	let g:neocomplete#keyword_patterns = {}
-" endif
-" let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-" " <TAB>: completion.
-" " inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" " <C-h>, <BS>: close popup and delete backword char.
-" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-"
-" " Enable omni completion.
-" if !exists('g:neocomplete#force_omni_input_patterns')
-" 	let g:neocomplete#force_omni_input_patterns = {}
-" endif
-"
-" let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
-" autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-" autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-" if !exists('g:neocomplete#sources#omni#functions')
-" 	let g:neocomplete#sources#omni#functions = {}
-" endif
-
 " Disable keybindings for auto-pairs - https://github.com/jiangmiao/auto-pairs#shortcuts
 let g:AutoPairsShortcutToggle = ""
 
@@ -560,55 +493,55 @@ nnoremap tc :tabclose<CR>
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use Ctrl-X + Ctrl-O to trigger completion.
-inoremap <silent><expr> <C-x><C-o> coc#refresh()
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-noremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-call denite#custom#source('grep', 'args', ['', '', '!'])
-call denite#custom#var('grep', 'command', ['ag'])
-call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
-call denite#custom#var('grep', 'recursive_opts', [])
-call denite#custom#var('grep', 'pattern_opt', [])
-call denite#custom#var('grep', 'separator', ['--'])
-call denite#custom#var('grep', 'final_opts', [])
-
-let ignore=&wildignore . ',*.pyc,.git,.hg,.svn,node_modules'
-call denite#custom#var('file/rec', 'command', ['scantree.py', '--ignore', ignore])
-
-autocmd FileType denite-filter inoremap <buffer><expr> <Esc> denite#do_map('quit')
-autocmd FileType denite nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
-autocmd FileType denite nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
-autocmd FileType denite nnoremap <silent><buffer><expr> <Esc> denite#do_map('quit')
-autocmd FileType denite nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
-
-nmap <silent> <C-p> :DeniteProjectDir file/rec -split=floating -highlight-matched-char=WildMenu -start-filter -winrow=5<CR>
-nmap <silent> <C-f> :DeniteProjectDir grep -split=floating -start-filter -auto-action=preview -winrow=5<CR>
-call denite#custom#option('_', 'statusline', v:false)
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+"
+" function! s:check_back_space() abort
+"   let col = col('.') - 1
+"   return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
+"
+" " Use Ctrl-X + Ctrl-O to trigger completion.
+" inoremap <silent><expr> <C-x><C-o> coc#refresh()
+"
+" function! s:show_documentation()
+"   if (index(['vim','help'], &filetype) >= 0)
+"     execute 'h '.expand('<cword>')
+"   else
+"     call CocAction('doHover')
+"   endif
+" endfunction
+" inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+" noremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+" " Use K to show documentation in preview window
+" nnoremap <silent> K :call <SID>show_documentation()<CR>
+" autocmd CursorHold * silent call CocActionAsync('highlight')
+"
+" call denite#custom#source('grep', 'args', ['', '', '!'])
+" call denite#custom#var('grep', 'command', ['ag'])
+" call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
+" call denite#custom#var('grep', 'recursive_opts', [])
+" call denite#custom#var('grep', 'pattern_opt', [])
+" call denite#custom#var('grep', 'separator', ['--'])
+" call denite#custom#var('grep', 'final_opts', [])
+"
+" let ignore=&wildignore . ',*.pyc,.git,.hg,.svn,node_modules'
+" call denite#custom#var('file/rec', 'command', ['scantree.py', '--ignore', ignore])
+"
+" autocmd FileType denite-filter inoremap <buffer><expr> <Esc> denite#do_map('quit')
+" autocmd FileType denite nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
+" autocmd FileType denite nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
+" autocmd FileType denite nnoremap <silent><buffer><expr> <Esc> denite#do_map('quit')
+" autocmd FileType denite nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
+"
+" nmap <silent> <C-p> :DeniteProjectDir file/rec -split=floating -highlight-matched-char=WildMenu -start-filter -winrow=5<CR>
+" nmap <silent> <C-f> :DeniteProjectDir grep -split=floating -start-filter -auto-action=preview -winrow=5<CR>
+" call denite#custom#option('_', 'statusline', v:false)
 " For reference:
 "
 " let s:menus = {}
