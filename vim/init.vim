@@ -52,6 +52,8 @@ Plug 'yssl/QFEnter'
 
 " Autocompletion using LSPs
 " Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Use plugin manager for coc-extensions management - https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#use-vims-plugin-manager-for-coc-extension
 
 " Syntax support for JSON
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -111,6 +113,12 @@ set smartcase
 set smartindent
 set autoindent
 set copyindent
+
+" Needed for coc.nvim update time, may lead to performance issues
+set updatetime=300
+
+" Don't give |ins-completion-menu| messages.
+set shortmess+=c
 
 "Highlight searches
 set hlsearch
@@ -415,6 +423,23 @@ let g:AutoPairsShortcutToggle = ""
 " Fix extra closing '>' when using vim-closetag with delimitMate
 let delimitMate_matchpairs ="(:),[:],{:}"
 
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Use Ctrl-X + Ctrl-O to trigger completion.
+inoremap <silent><expr> <C-x><C-o> coc#refresh()
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Navigate between Ale errors
 nmap <leader><leader>k <Plug>(ale_previous_wrap)
@@ -490,7 +515,6 @@ nnoremap tk :tabprev<CR>
 nnoremap tj :tabnext<CR>
 nnoremap tn :tabnew<CR>
 nnoremap tc :tabclose<CR>
-
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 " inoremap <silent><expr> <TAB>
