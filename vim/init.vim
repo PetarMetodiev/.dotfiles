@@ -357,6 +357,9 @@ highlight LineNr guifg=LightGrey guibg=DarkGray
 " https://stackoverflow.com/a/10746829
 hi MatchParen guibg=#e4b870 guifg=#23272e gui=bold cterm=bold ctermbg=14 ctermfg=31
 
+" Change CocFloating window background: https://github.com/neoclide/coc.nvim/wiki/F.A.Q#highlight-of-floating-window-doesnt-looks-right
+highlight CocFloating guibg=#545C6F
+
 " Do not highlight lines when searching files
 " hi QuickFixLine guibg=NONE
 
