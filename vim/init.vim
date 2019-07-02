@@ -441,6 +441,17 @@ endfunction
 " Coc only does snippet and additional edit on confirm.
 inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
+" Use K to show documentation in preview window
+nnoremap <silent><leader><leader>t :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
 " Navigate between Ale errors
 nmap <leader><leader>k <Plug>(ale_previous_wrap)
 nmap <leader><leader>j <Plug>(ale_next_wrap)
@@ -449,7 +460,7 @@ nmap <leader><leader>j <Plug>(ale_next_wrap)
 nmap <leader><leader>f <Plug>(ale_fix)
 
 " Get type of element under cursor(works only in ts)
-nmap <leader>tt <Plug>(ale_hover)
+" nmap <leader>tt <Plug>(ale_hover)
 
 " Vim hard mode.
 nnoremap <Left> :echoe "Use h"<CR>
