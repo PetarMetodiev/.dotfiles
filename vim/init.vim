@@ -85,6 +85,12 @@ Plug 'ConradIrwin/vim-bracketed-paste'
 " Automatically close html tags
 Plug 'alvan/vim-closetag'
 
+" Automatically clear search highlight
+Plug 'pgdouyon/vim-evanesco'
+
+" Repeat with '.' surroundings
+Plug 'tpope/vim-repeat'
+
 " Themes
 " Plug 'flazz/vim-colorschemes'
 " Plug 'rafi/awesome-vim-colorschemes'
