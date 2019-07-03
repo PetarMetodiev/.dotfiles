@@ -3,7 +3,9 @@
     "suggest.maxCompleteItemCount": 2000,
     "list.indicator": "",
     "suggest.snippetIndicator": " ",
-    "suggest.detailField": "preview",
+    "suggest.detailMaxLength": 500,
+    "signature.preferShownAbove": false,
+    // "suggest.detailField": "preview",
     "coc.preferences.bracketEnterImprove": false,
     "coc.preferences.enableFloatHighlight": true,
     "typescript.suggest.autoImports": true
