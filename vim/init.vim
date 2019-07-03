@@ -476,6 +476,7 @@ nnoremap <leader>e :e $MYVIMRC<CR>
 
 " Insert empty space in normal mode
 nnoremap <space> :
+vnoremap <space> :
 
 " Map Ctrl+b to open NERDTree. To close press <q>
 map <C-b> :NERDTreeToggle<CR>
