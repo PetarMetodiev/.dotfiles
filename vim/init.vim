@@ -200,6 +200,9 @@ set list
 " Do not continue comment using o or O
 set formatoptions-=o
 
+" Explanation - https://www.youtube.com/watch?v=sA3z6gsqOuw
+set inccommand = "split"
+
 " No // when joining commented lines
 set formatoptions+=j
 
@@ -535,7 +538,6 @@ nnoremap <leader>zz :wincmd =<CR>
 nnoremap tk :tabprev<CR>
 nnoremap tj :tabnext<CR>
 nnoremap tn :tabnew<CR>
-nnoremap tc :tabclose<CR>
 
 " call denite#custom#source('grep', 'args', ['', '', '!'])
 " call denite#custom#var('grep', 'command', ['ag'])
