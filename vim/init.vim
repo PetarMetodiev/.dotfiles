@@ -246,21 +246,65 @@ let NERDTreeDirArrowCollapsible=' '
 
 " NERDTrees File highlighting
 " https://github.com/ryanoasis/vim-devicons/wiki/FAQ-&-Troubleshooting#how-did-you-get-color-matching-based-on-file-type-in-nerdtree
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
- exec 'autocmd FileType NERDTree silent highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
- exec 'autocmd FileType NERDTree silent syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
+" function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+"  exec 'autocmd FileType NERDTree silent highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+"  exec 'autocmd FileType NERDTree silent syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+" endfunction
 
-call NERDTreeHighlightFile('md', 'blue', 'NONE', '#5ca4ef', 'NONE')
-call NERDTreeHighlightFile('yml', 'yellow', 'NONE', '#e25141', 'NONE')
-call NERDTreeHighlightFile('json', 'yellow', 'NONE', '#f3c14f', 'NONE')
-call NERDTreeHighlightFile('html', 'yellow', 'NONE', '#d45735', 'NONE')
-call NERDTreeHighlightFile('css', 'cyan', 'NONE', '#5ca4ef', 'NONE')
-call NERDTreeHighlightFile('js', 'Red', 'NONE', '#f7cb4f', 'NONE')
-call NERDTreeHighlightFile('ts', 'cyan', 'NONE', 'cyan', 'NONE')
-call NERDTreeHighlightFile('gitconfig', 'Gray', 'NONE', '#686868', 'NONE')
-call NERDTreeHighlightFile('gitignore', 'Gray', 'NONE', '#686868', 'NONE')
-call NERDTreeHighlightFile('editorconfig', 'Gray', 'NONE', '#fdfdfd', 'NONE')
+" http://learnvimscriptthehardway.stevelosh.com/chapters/46.html
+" https://github.com/zeorin/dotfiles/blob/master/.vimrc#L1019
+
+let cog_icon = ""
+let md_icon = ""
+let json_icon = "ﬥ"
+let html_icon = ""
+let css_icon = ""
+let scss_icon = ""
+let js_icon = ""
+let ts_icon = "ﯤ"
+let test_icon = "ﭧ"
+let orm_icon =""
+let env_icon = "ﭩ"
+let npm_icon = ""
+let src_icon = ""
+let git_icon = ""
+
+let g:icons_map = {
+	\ 'ts_icon': ts_icon,
+	\ 'md_icon': md_icon,
+	\ 'json_icon': json_icon,
+	\ 'html_icon': html_icon,
+	\ 'css_icon': css_icon,
+	\ 'scss_icon': scss_icon,
+	\ 'js_icon': js_icon,
+	\ 'cog_icon': cog_icon,
+	\ 'test_icon': test_icon,
+	\ 'orm_icon': orm_icon,
+	\ 'env_icon': env_icon,
+	\ 'git_icon': git_icon,
+\}
+
+augroup devicons_colors
+	autocmd!
+	let icons = keys(g:icons_map)
+	for icon in g:icons
+		exec 'autocmd FileType nerdtree syntax match '.icon.'_color /\v'.g:icons_map[icon].'/ containedin=ALL'
+	endfor
+augroup END
+
+highlight ts_icon_color guifg=cyan
+highlight md_icon_color guifg=#5ca4ef
+highlight yml_icon_color guifg=#e25141
+highlight json_icon_color guifg=#f3c14f
+highlight html_icon_color guifg=#d45735
+highlight css_icon_color guifg=#5ca4ef
+highlight scss_icon_color guifg=#ce6499
+highlight js_icon_color guifg=#f7cb4f
+highlight cog_icon_color guifg=#fdfdfd
+highlight test_icon_color guifg=red
+highlight orm_icon_color guifg=#fdfdfd
+highlight env_icon_color guifg=#fdfdfd
+highlight git_icon_color guifg=#6cc644
 
 " Fix for not loading files sometimes - https://github.com/scrooloose/nerdtree/issues/587
 let NERDTreeIgnore=['\c^ntuser\..*']
@@ -274,22 +318,26 @@ let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 let g:DevIconsEnableFolderExtensionPatternMatching = 1
 
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+
 " Custom icons for file extensions
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['ts'] = 'ﯤ'
-let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = 'ﬥ'
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = js_icon
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['ts'] = ts_icon
+let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = json_icon
 
 let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {} " needed
-let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.test.ts'] = 'ﭧ'
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.test.ts'] = test_icon
 
 " Custom icons for specific filenames
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {} " needed
-let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['ormconfig.js'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.env'] = 'ﭩ'
-let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.editorconfig'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.npmrc'] = ''
-let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['src'] = ''
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['ormconfig.js'] = orm_icon
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.env'] = env_icon
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.editorconfig'] = cog_icon
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.npmrc'] = npm_icon
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.gitignore'] = git_icon
+let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['src'] = src_icon
 
 let g:DevIconsDefaultFolderOpenSymbol=''
 let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol=''
@@ -545,6 +593,8 @@ nnoremap <leader>zz :wincmd =<CR>
 nnoremap tk :tabprev<CR>
 nnoremap tj :tabnext<CR>
 nnoremap tn :tabnew<CR>
+
+" For adding some sane cmdline navigation see :help cmdline
 
 " call denite#custom#source('grep', 'args', ['', '', '!'])
 " call denite#custom#var('grep', 'command', ['ag'])
