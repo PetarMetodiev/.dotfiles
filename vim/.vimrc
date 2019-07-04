@@ -177,7 +177,7 @@ set backspace=indent,eol,start
 "         for reading a file (useful for ':wn' or when 'autowrite' on)
 "         Hopefully fixes Hit ENTER to continue promps when saving multiple
 "         files
-set shortmess=flmnxWoO
+" set shortmess=flmnxWoO
 
 " Keep 1000 lines of command line history
 set history=1000
