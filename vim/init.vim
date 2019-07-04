@@ -487,6 +487,13 @@ nnoremap <leader>e :e $MYVIMRC<CR>
 nnoremap <space> :
 vnoremap <space> :
 
+" Going to the first character of the line is ofter times more needed
+" 0 is easier to press than Shift+6
+nnoremap ^ 0
+nnoremap 0 ^
+vnoremap ^ 0
+vnoremap 0 ^
+
 " Map Ctrl+b to open NERDTree. To close press <q>
 map <C-b> :NERDTreeToggle<CR>
 
