@@ -91,6 +91,9 @@ Plug 'pgdouyon/vim-evanesco'
 " Repeat with '.' surroundings
 Plug 'tpope/vim-repeat'
 
+" Git status in NERDTree
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 " Themes
 " Plug 'flazz/vim-colorschemes'
 " Plug 'rafi/awesome-vim-colorschemes'
