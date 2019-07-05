@@ -244,6 +244,12 @@ autocmd FileType nerdtree setlocal relativenumber
 let NERDTreeDirArrowExpandable=' '
 let NERDTreeDirArrowCollapsible=' '
 
+" If NERDTree is the only thing left in tab - close tab
+augroup CloseLonelyNERDTree
+	autocmd!
+	autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+augroup END
+
 " Based on https://github.com/zeorin/dotfiles/blob/master/.vimrc#L1019
 let cog_icon = ""
 let md_icon = ""
