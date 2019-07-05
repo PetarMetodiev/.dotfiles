@@ -337,6 +337,9 @@ autocmd FileType nerdtree setlocal relativenumber
 " Show NERDTree bookmarks by default
 let g:NERDTreeShowBookmarks=1
 
+" Hide Press ? for help
+let NERDTreeMinimalUI = 1
+
 " Disable NERDTree expand arrows in favor of devicons
 let NERDTreeDirArrowExpandable=' '
 let NERDTreeDirArrowCollapsible=' '

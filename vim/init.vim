@@ -238,6 +238,9 @@ let NERDTreeShowLineNumbers=1
 " NERDTree file sorting
 let g:NERDTreeSortOrder=['\/$', '\.html$', '\.js$', '*',  '\~$']
 
+" Hide Press ? for help
+let NERDTreeMinimalUI = 1
+
 " Use relative numbers for NERDTree
 autocmd FileType nerdtree setlocal relativenumber
 " Disable NERDTree expand arrows in favor of devicons
