@@ -123,3 +123,8 @@
   ```sh
   brew install the_silver_searcher
   ```
+  
+  - ### [bat](https://github.com/sharkdp/bat)
+  ```sh
+  brew install bat
+  ```
