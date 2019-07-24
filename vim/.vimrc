@@ -401,6 +401,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['src'] = ''
 augroup nerdtreehidetirslashes
 	autocmd!
 	autocmd FileType nerdtree syntax match NERDTreeDirSlash #/$# containedin=NERDTreeDir conceal contained
+	autocmd FileType nerdtree syntax clear NERDTreeFlags
 augroup end
 
 
