@@ -128,3 +128,11 @@
   ```sh
   brew install bat
   ```
+
+  - ### [fzf](https://github.com/junegunn/fzf)
+  ```sh
+  brew install fzf
+
+  # To install useful key bindings and fuzzy completion:
+  $(brew --prefix)/opt/fzf/install
+  ```
