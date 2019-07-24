@@ -426,6 +426,11 @@ let g:ale_fixers = {
 			\ 'markdown': ['prettier']
 			\}
 
+let g:ale_pattern_options = {
+			\ '\.min.js$': { 'ale_enabled': 0 },
+			\ '\.d.ts$': { 'ale_enabled': 0 },
+			\ }
+
 " Fancy error icons
 let g:ale_sign_error = '🚨'
 let g:ale_sign_warning = '👀'
