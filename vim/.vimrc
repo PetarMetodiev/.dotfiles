@@ -146,6 +146,7 @@ Plugin 'joshdick/onedark.vim'
 Plugin 'google/vim-searchindex'
 
 " Needed for proper icons with nerd fonts
+" Has to be last loaded plugin
 Plugin 'ryanoasis/vim-devicons'
 
 " All of your Plugins must be added before the following line
@@ -371,9 +372,12 @@ let NERDTreeShowHidden=1
 
 " Show folder icons in NERDTree
 " A little buggy, test if it is useful
-let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:DevIconsEnableFoldersOpenClose = 1
 let g:DevIconsEnableFolderExtensionPatternMatching = 1
+
+let g:DevIconsDefaultFolderOpenSymbol=''
+let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol=''
 
 " Custom icons for file extensions
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
@@ -391,9 +395,6 @@ let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.env'] = 'ﭩ'
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.editorconfig'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.npmrc'] = ''
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['src'] = ''
-
-let g:DevIconsDefaultFolderOpenSymbol=''
-let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol=''
 
 " Hide NERDTree folder trailing slashes
 " https://github.com/scrooloose/nerdtree/issues/807#issuecomment-366997266
@@ -725,3 +726,6 @@ nnoremap tj :tabnext<CR>
 nnoremap tn :tabnew<CR>
 nnoremap tc :tabclose<CR>
 " ---------- End of key mappings ------
+if exists("g:loaded_webdevicons")
+  call webdevicons#refresh()
+endif
