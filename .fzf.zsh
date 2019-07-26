@@ -58,3 +58,24 @@ fcdf() {
    local dir
    file=$(fzf +m -q "$1") && dir=$(dirname "$file") && cd "$dir"
 }
+
+# interactive cd
+function fcdi() {
+    if [[ "$#" != 0 ]]; then
+        builtin cd "$@";
+        return
+    fi
+    while true; do
+        local lsd=$(echo ".." && ls -pa | grep '/$' | sed 's;/$;;')
+        local dir="$(printf '%s\n' "${lsd[@]}" |
+            fzf --reverse --preview '
+                __cd_nxt="$(echo {})";
+                __cd_path="$(echo $(pwd)/${__cd_nxt} | sed "s;//;/;")";
+                echo $__cd_path;
+                echo;
+                ls -p -a -FG "${__cd_path}";
+        ')"
+        [[ ${#dir} != 0 ]] || return 0
+        builtin cd "$dir" &> /dev/null
+    done
+}
