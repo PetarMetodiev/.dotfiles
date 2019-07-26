@@ -66,7 +66,7 @@ function fcdi() {
         return
     fi
     while true; do
-        local lsd=$(echo ".." && ls -pa | grep '/$' | sed 's;/$;;')
+        local lsd=$(ls -pa | grep '/$' | sed 's;/$;;')
         local dir="$(printf '%s\n' "${lsd[@]}" |
             fzf --reverse --preview '
                 __cd_nxt="$(echo {})";
