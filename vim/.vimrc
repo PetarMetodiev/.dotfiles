@@ -284,7 +284,7 @@ set splitright
 set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
 
 " Set the appearance of whitespace characters
-set listchars=tab:»\ ,eol:¬,trail:·
+set listchars=tab:»\ ,trail:·
 
 " Turn on whitespace characters by default
 set list
