@@ -236,7 +236,7 @@ let NERDTreeShowLineNumbers=1
 " let g:deoplete#enable_at_startup = 1
 
 " NERDTree file sorting
-let g:NERDTreeSortOrder=['\/$', '\.html$', '\.js$', '*',  '\~$']
+let g:NERDTreeSortOrder=['\/$', '\.html$', '\.ts$', '\.tsx$', '\.jsx$', '\.js$', '*',  '\~$']
 
 " Hide Press ? for help
 let NERDTreeMinimalUI = 1
@@ -454,6 +454,32 @@ let g:airline#extensions#tabline#enabled = 1
 " Use Airline special symbols
 let g:airline_powerline_fonts=1
 
+" By default, it will display something like 'utf-8[unix]', however, you can
+" skip displaying it, if the output matches a configured string. To do so, set >
+let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
+
+" Short mode names for airline(show I instead of INSERT)
+let g:airline_mode_map = {
+  \ '__'     : '-',
+  \ 'c'      : 'C',
+  \ 'i'      : 'I',
+  \ 'ic'     : 'I',
+  \ 'ix'     : 'I',
+  \ 'n'      : 'N',
+  \ 'multi'  : 'M',
+  \ 'ni'     : 'N',
+  \ 'no'     : 'N',
+  \ 'R'      : 'R',
+  \ 'Rv'     : 'R',
+  \ 's'      : 'S',
+  \ 'S'      : 'S',
+  \ ''     : 'S',
+  \ 't'      : 'T',
+  \ 'v'      : 'V',
+  \ 'V'      : 'V',
+  \ ''     : 'V',
+  \ }
+
 " Airline theme
 let g:airline_theme='papercolor'
 
@@ -656,3 +682,6 @@ nnoremap tn :tabnew<CR>
 " 	\ ]
 "
 " call denite#custom#var('menu', 'menus', s:menus)
+if exists("g:loaded_webdevicons")
+  call webdevicons#refresh()
+endif
