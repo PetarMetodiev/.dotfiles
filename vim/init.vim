@@ -556,11 +556,11 @@ function! s:show_documentation()
 endfunction
 
 " Navigate between Ale errors
-nmap <leader><leader>k <Plug>(ale_previous_wrap)
-nmap <leader><leader>j <Plug>(ale_next_wrap)
+nmap ggk <Plug>(ale_previous_wrap)
+nmap ggj <Plug>(ale_next_wrap)
 
 " Run Ale fixer
-nmap <leader><leader>f <Plug>(ale_fix)
+nmap ggf <Plug>(ale_fix)
 
 " Get type of element under cursor(works only in ts)
 " nmap <leader>tt <Plug>(ale_hover)
