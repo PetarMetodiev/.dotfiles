@@ -366,10 +366,6 @@ augroup nerdtreehidetirslashes
 	autocmd FileType nerdtree syntax match NERDTreeDirSlash #/$# containedin=NERDTreeDir conceal contained
 augroup end
 
-
-" CtrlP configuration
-set wildignore+=*/tmp/*,*.so,*.swp,*.zip
-
 " For .ts files use only tslint, as eslint could be installed sometimes but
 " not-configured properly
 let g:ale_linters = {
