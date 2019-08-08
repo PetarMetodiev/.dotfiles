@@ -586,7 +586,7 @@ highlight LineNr ctermfg=grey guifg=grey ctermbg=8 guibg=#808080
 
 " Change color of matching parens. Currently matches highlight color of onedark
 " https://stackoverflow.com/a/10746829
-hi MatchParen guibg=#e4b870 guifg=#23272e gui=bold cterm=bold ctermbg=14 ctermfg=31
+hi MatchParen guibg=#ee88ee guifg=#23272e gui=bold cterm=bold ctermbg=14 ctermfg=31
 
 " Do not highlight lines when searching files
 " hi QuickFixLine guibg=NONE
