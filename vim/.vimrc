@@ -149,7 +149,7 @@ Plugin 'joshdick/onedark.vim'
 " Plugin 'altercation/vim-colors-solarized'
 
 " Display number of search matches & index of current match
-Plugin 'google/vim-searchindex'
+Plugin 'henrik/vim-indexed-search'
 
 " Needed for proper icons with nerd fonts
 " Has to be last loaded plugin
@@ -753,9 +753,22 @@ let g:AutoPairsShortcutToggle = ""
 " Fix extra closing '>' when using vim-closetag with delimitMate
 let delimitMate_matchpairs ="(:),[:],{:}"
 
+" Shorter message for displaying number of search results
+let g:indexed_search_shortmess=1
+
 " ---------- End of UI and UX settings --------
 
 " ---------- Key mappings ----------
+
+" https://github.com/pgdouyon/vim-evanesco/issues/6#issuecomment-251026521
+let g:indexed_search_mappings = 0
+nmap <silent> / :ShowSearchIndex<CR><Plug>Evanesco_/
+nmap <silent> ? :ShowSearchIndex<CR><Plug>Evanesco_?
+nmap <silent> n <Plug>Evanesco_n:ShowSearchIndex<CR>
+nmap <silent> N <Plug>Evanesco_N:ShowSearchIndex<CR>
+nmap <silent> * <Plug>Evanesco_*:ShowSearchIndex<CR>
+nmap <silent> # <Plug>Evanesco_#:ShowSearchIndex<CR>
+nnoremap ggg gg
 
 " Navigate between Ale errors
 nmap ggk <Plug>(ale_previous_wrap)
