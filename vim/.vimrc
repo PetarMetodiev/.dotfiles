@@ -566,10 +566,10 @@ augroup BgHighlight
 augroup END
 
 " Automatically reload vimrc on save
-augroup ReloadVimrcGroup
-    autocmd!
-    autocmd BufWritePost $MYVIMRC source $MYVIMRC
-augroup END
+" augroup ReloadVimrcGroup
+"     autocmd!
+"     autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" augroup END
 " Vim color table
 " https://jonasjacek.github.io/colors/
 
