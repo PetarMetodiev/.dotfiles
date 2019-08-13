@@ -433,7 +433,7 @@ highlight license_icon_color guifg=#fdfdfd
 highlight npm_folder_icon_color guifg=#ad403f
 
 " Fix for not loading files sometimes - https://github.com/scrooloose/nerdtree/issues/587
-let NERDTreeIgnore=['\c^ntuser\..*']
+" let NERDTreeIgnore=['\c^ntuser\..*']
 
 " Show hidden files
 let NERDTreeShowHidden=1
