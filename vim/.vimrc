@@ -839,8 +839,8 @@ nnoremap <silent> <leader>aa :ArgWrap<CR>
 nnoremap <leader>x 0D
 
 " Zoom split(similar to tmux zooming to pane)
-nnoremap <leader>z :wincmd _<CR>:wincmd \|<CR>
-nnoremap <leader>zz :wincmd =<CR>
+" nnoremap <leader>z :wincmd _<CR>:wincmd \|<CR>
+" nnoremap <leader>zz :wincmd =<CR>
 
 " Resize to content
 " https://til.hashrocket.com/posts/mvekrlaycp-resize-vim-window-to-the-size-of-its-content
