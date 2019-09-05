@@ -800,7 +800,7 @@ vnoremap ^ 0
 vnoremap 0 ^
 
 " Map Ctrl+b to open NERDTree. To close press <q>
-map <C-b> :NERDTreeToggle<CR>
+map <silent> <C-b> :NERDTreeToggle<CR>
 
 " Insert new line without entering insert mode
 nnoremap <CR> o<Esc>
@@ -814,7 +814,7 @@ vnoremap > >gv
 set langmap =Ч~,ЯQ,ВW,ЕE,РR,ТT,ЪY,УU,ИI,ОO,ПP,Ш{,Щ},АA,СS,ДD,ФF,ГG,ХH,ЙJ,КK,ЛL,ЗZ,ЬZ,ЦC,ЖV,БB,НN,МM,ч`,яq,вw,еe,рr,тt,ъy,уu,иi,оo,пp,ш[,щ],аa,сs,дd,фf,гg,хh,йj,кk,лl,зz,ьz,цc,жv,бb,нn,мm
 
 " Use Ctrl+Tab to switch between last used buffer
-nnoremap <C-q> :b#<CR>
+nnoremap <silent> <C-q> :b#<CR>
 
 " Y yanks from current cursor position to the end
 nnoremap Y y$
@@ -830,10 +830,10 @@ nnoremap <leader>j j
 nnoremap <leader>k k
 
 " Toggle Colorizer
-nnoremap <leader>cc :ColorToggle<CR>
+nnoremap <silent> <leader>cc :ColorToggle<CR>
 
 " Toggle Argwrap
-nnoremap <leader>aa :ArgWrap<CR>
+nnoremap <silent> <leader>aa :ArgWrap<CR>
 
 " Clean line contents without delteing the line
 nnoremap <leader>x 0D
@@ -847,10 +847,10 @@ nnoremap <leader>zz :wincmd =<CR>
 " nnoremap <leader>f :execute('resize ' . line('$'))<CR>
 
 " Navigate through tabs
-nnoremap tk :tabprev<CR>
-nnoremap tj :tabnext<CR>
-nnoremap tn :tabnew<CR>
-nnoremap tc :tabclose<CR>
+nnoremap <silent> tk :tabprev<CR>
+nnoremap <silent> tj :tabnext<CR>
+nnoremap <silent> tn :tabnew<CR>
+nnoremap <silent> tc :tabclose<CR>
 " ---------- End of key mappings ------
 if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
