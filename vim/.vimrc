@@ -770,11 +770,11 @@ nmap <silent> * <Plug>Evanesco_*:ShowSearchIndex<CR>
 nmap <silent> # <Plug>Evanesco_#:ShowSearchIndex<CR>
 
 " Navigate between Ale errors
-nmap gk <Plug>(ale_previous_wrap)
-nmap gj <Plug>(ale_next_wrap)
+nmap <silent> gk <Plug>(ale_previous_wrap)
+nmap <silent> gj <Plug>(ale_next_wrap)
 
 " Run Ale fixer
-nmap gf <Plug>(ale_fix)
+nmap <silent> gf <Plug>(ale_fix)
 
 " Get type of element under cursor(works only in ts)
 nmap <leader>tt <Plug>(ale_hover)
@@ -786,7 +786,7 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 " Open vimrc
-nnoremap <leader>e :e $MYVIMRC<CR>
+nnoremap <silent> <leader>e :e $MYVIMRC<CR>
 
 " Insert empty space in normal mode
 nnoremap <space> :
