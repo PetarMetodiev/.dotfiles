@@ -297,6 +297,7 @@ set list
 
 " Do not continue comment using o or O
 set formatoptions-=o
+set formatoptions-=r
 
 " No // when joining commented lines
 set formatoptions+=j
