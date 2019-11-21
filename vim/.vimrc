@@ -147,6 +147,7 @@ Plugin 'joshdick/onedark.vim'
 " Plugin 'rakr/vim-one'
 " Plugin 'lifepillar/vim-solarized8'
 " Plugin 'altercation/vim-colors-solarized'
+Plugin 'chriskempson/base16-vim'
 
 " Display number of search matches & index of current match
 Plugin 'henrik/vim-indexed-search'
@@ -239,6 +240,7 @@ endif
 let g:onedark_terminal_italics=1
 
 set background=dark
+" colorscheme base16-ashes
 colorscheme onedark
 " colorscheme solarized8_flat
 " colorscheme one
