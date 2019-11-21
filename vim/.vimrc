@@ -435,6 +435,15 @@ highlight gulp_icon_color guifg=#DB4446
 highlight license_icon_color guifg=#fdfdfd
 highlight npm_folder_icon_color guifg=#ad403f
 
+" Make node_modules grey(similar to VSCode). Not sure how to make grey the
+" contents of node_modules
+augroup node_modules_colors
+	autocmd!
+	autocmd FileType nerdtree syntax match node_modules_dir "\vnode_modules" containedin=ALL
+augroup END
+
+highlight node_modules_dir guifg=#5c6370
+
 " Fix for not loading files sometimes - https://github.com/scrooloose/nerdtree/issues/587
 " let NERDTreeIgnore=['\c^ntuser\..*']
 
