@@ -139,6 +139,9 @@ Plugin 'tpope/vim-repeat'
 " Automatically close html tags
 Plugin 'alvan/vim-closetag'
 
+" Make the size of the current window larger
+Plugin 'roman/golden-ratio'
+
 " Themes
 " Plugin 'flazz/vim-colorschemes'
 " Plugin 'rafi/awesome-vim-colorschemes'
