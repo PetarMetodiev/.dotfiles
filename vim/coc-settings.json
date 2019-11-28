@@ -8,5 +8,6 @@
     "signature.target": "echo",
     "coc.preferences.bracketEnterImprove": false,
     "coc.preferences.enableFloatHighlight": true,
-    "typescript.suggest.autoImports": true
+    "typescript.suggest.autoImports": true,
+	"typescript.preferences.importModuleSpecifier": "auto"
 }
