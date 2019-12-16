@@ -140,7 +140,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'alvan/vim-closetag'
 
 " Make the size of the current window larger
-Plugin 'roman/golden-ratio'
+" Plugin 'roman/golden-ratio'
 
 " Themes
 " Plugin 'flazz/vim-colorschemes'
