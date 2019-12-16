@@ -334,9 +334,10 @@ set cursorline
 set autochdir
 
 " Ato-resize splits when VIM is resized(e.g. open new split in tmux)
-autocmd VimResized * :wincmd =
+" autocmd VimResized * :wincmd =
 
 let mapleader="\<BS>"
+
 
 " Enable line numbers for NERDTree
 let NERDTreeShowLineNumbers=1
