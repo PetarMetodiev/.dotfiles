@@ -569,11 +569,11 @@ nmap <silent> * <Plug>Evanesco_*:ShowSearchIndex<CR>
 nmap <silent> # <Plug>Evanesco_#:ShowSearchIndex<CR>
 
 " Navigate between Ale errors
-nmap ggk <Plug>(ale_previous_wrap)
-nmap ggj <Plug>(ale_next_wrap)
+nmap gk <Plug>(ale_previous_wrap)
+nmap gj <Plug>(ale_next_wrap)
 
 " Run Ale fixer
-nmap ggf <Plug>(ale_fix)
+nmap gf <Plug>(ale_fix)
 
 " Get type of element under cursor(works only in ts)
 " nmap <leader>tt <Plug>(ale_hover)
@@ -625,8 +625,8 @@ nnoremap J mzJ`z
 nnoremap j gj
 nnoremap k gk
 " Remap the default behaviour
-nnoremap gj j
-nnoremap gk k
+nnoremap <leader>j j
+nnoremap <leader>k k
 
 " Toggle Colorizer
 nnoremap <leader>cc :ColorToggle<CR>
