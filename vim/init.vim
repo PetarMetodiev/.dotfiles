@@ -189,7 +189,7 @@ set splitbelow
 set splitright
 
 " Set the appearance of whitespace characters
-set listchars=tab:»\ ,eol:¬,trail:·
+set listchars=tab:»\ ,trail:·
 
 " Turn on whitespace characters by default
 set list
