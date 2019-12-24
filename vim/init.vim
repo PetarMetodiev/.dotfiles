@@ -108,6 +108,8 @@ Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
+" Neovim defaults: https://neovim.io/doc/user/vim_diff.html
+
 " Keep 1000 lines of command line history
 set history=1000
 
@@ -411,6 +413,11 @@ let g:ale_json_prettier_options = '--tab-width 2'
 if has("autocmd")
 	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 endif
+
+" Instead of reverting the cursor to the last position in the buffer, we
+" set it to the first line when editing a git commit message
+" https://github.com/spf13/spf13-vim/blob/1ce5f23997f6dd82235c6936c5c47b3f1d1b4e50/.vimrc#L135
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " Highlight current line only on active window
 " https://superuser.com/a/393948
