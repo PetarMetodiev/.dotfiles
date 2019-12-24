@@ -188,9 +188,6 @@ set splitbelow
 " Open new vertical split to the right
 set splitright
 
-" Use tabs for identation instead of spaces, 1 tab = 4 spaces
-set tabstop=4 softtabstop=0 noexpandtab shiftwidth=4
-
 " Set the appearance of whitespace characters
 set listchars=tab:»\ ,eol:¬,trail:·
 
@@ -220,9 +217,6 @@ set cursorline
 
 " Change the working directory to the currently open file
 set autochdir
-
-" Ato-resize splits when VIM is resized(e.g. open new split in tmux)
-autocmd VimResized * :wincmd =
 
 " Set path to python3, needed for python based plugins
 let g:python3_host_prog = '/usr/local/bin/python3'
@@ -629,64 +623,11 @@ nnoremap <leader>aa :ArgWrap<CR>
 " Clean line contents without delteing the line
 nnoremap <leader>x 0D
 
-" Zoom split(similar to tmux zooming to pane)
-nnoremap <leader>z :wincmd _<CR>:wincmd \|<CR>
-nnoremap <leader>zz :wincmd =<CR>
-
-" Resize to content
-" https://til.hashrocket.com/posts/mvekrlaycp-resize-vim-window-to-the-size-of-its-content
-" nnoremap <leader>f :execute('resize ' . line('$'))<CR>
-
 " Navigate through tabs
 nnoremap tk :tabprev<CR>
 nnoremap tj :tabnext<CR>
 nnoremap tn :tabnew<CR>
 
-" For adding some sane cmdline navigation see :help cmdline
-
-" call denite#custom#source('grep', 'args', ['', '', '!'])
-" call denite#custom#var('grep', 'command', ['ag'])
-" call denite#custom#var('grep', 'default_opts', ['-i', '--vimgrep'])
-" call denite#custom#var('grep', 'recursive_opts', [])
-" call denite#custom#var('grep', 'pattern_opt', [])
-" call denite#custom#var('grep', 'separator', ['--'])
-" call denite#custom#var('grep', 'final_opts', [])
-"
-" let ignore=&wildignore . ',*.pyc,.git,.hg,.svn,node_modules'
-" call denite#custom#var('file/rec', 'command', ['scantree.py', '--ignore', ignore])
-"
-" autocmd FileType denite-filter inoremap <buffer><expr> <Esc> denite#do_map('quit')
-" autocmd FileType denite nnoremap <silent><buffer><expr> <CR> denite#do_map('do_action')
-" autocmd FileType denite nnoremap <silent><buffer><expr> p denite#do_map('do_action', 'preview')
-" autocmd FileType denite nnoremap <silent><buffer><expr> <Esc> denite#do_map('quit')
-" autocmd FileType denite nnoremap <silent><buffer><expr> i denite#do_map('open_filter_buffer')
-"
-" nmap <silent> <C-p> :DeniteProjectDir file/rec -split=floating -highlight-matched-char=WildMenu -start-filter -winrow=5<CR>
-" nmap <silent> <C-f> :DeniteProjectDir grep -split=floating -start-filter -auto-action=preview -winrow=5<CR>
-" call denite#custom#option('_', 'statusline', v:false)
-" For reference:
-"
-" let s:menus = {}
-"
-" let s:menus.zsh = {
-" 	\ 'description': 'Edit your import zsh configuration'
-" 	\ }
-" let s:menus.zsh.file_candidates = [
-" 	\ ['zshrc', '~/.config/zsh/.zshrc'],
-" 	\ ['zshenv', '~/.zshenv'],
-" 	\ ]
-"
-" let s:menus.my_commands = {
-" 	\ 'description': 'Example commands'
-" 	\ }
-" let s:menus.my_commands.command_candidates = [
-" 	\ ['Split the window', 'vnew'],
-" 	\ ['Open zsh menu', 'Denite menu:zsh'],
-" 	\ ['Go back', 'Denite menu'],
-" 	\ ['Format code', 'FormatCode', 'go,python'],
-" 	\ ]
-"
-" call denite#custom#var('menu', 'menus', s:menus)
 if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
 endif
