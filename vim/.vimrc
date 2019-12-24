@@ -55,9 +55,6 @@ Plugin 'tomtom/tcomment_vim'
 " Integration with editorconfig
 Plugin 'editorconfig/editorconfig-vim'
 
-" Vim autoformating, uses external formatters
-" Plugin 'Chiel92/vim-autoformat'
-
 " Concealing for JS
 Plugin 'pangloss/vim-javascript'
 
@@ -337,7 +334,6 @@ set autochdir
 " autocmd VimResized * :wincmd =
 
 let mapleader="\<BS>"
-
 
 " Enable line numbers for NERDTree
 let NERDTreeShowLineNumbers=1
@@ -741,7 +737,6 @@ let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 " https://github.com/Quramy/tsuquyomi/issues/271#issuecomment-467929317
 let g:SuperTabClosePreviewOnPopupClose = 1
@@ -866,7 +861,6 @@ nnoremap <leader>x 0D
 nnoremap <silent> tk :tabprev<CR>
 nnoremap <silent> tj :tabnext<CR>
 nnoremap <silent> tn :tabnew<CR>
-nnoremap <silent> tc :tabclose<CR>
 " ---------- End of key mappings ------
 if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
