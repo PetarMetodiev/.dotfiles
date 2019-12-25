@@ -50,10 +50,19 @@ Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript', 'tsx' ]}
 " Press enter to open file in quickfix/loclist
 Plug 'yssl/QFEnter'
 
-" Autocompletion using LSPs
-" Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Use plugin manager for coc-extensions management - https://github.com/neoclide/coc.nvim/wiki/Using-coc-extensions#use-vims-plugin-manager-for-coc-extension
+" List of LSP Servers: https://langserver.org/
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
+
+Plug 'junegunn/fzf'
+
+" Completion engine
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Floating window for deoplete
+Plug 'ncm2/float-preview.nvim'
 
 " Syntax support for JSON
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -152,6 +161,9 @@ endif
 " Works only when true colors are set
 " Has to be set before setting colorscheme onedark - https://github.com/joshdick/onedark.vim#options
 let g:onedark_terminal_italics=1
+" let g:LanguageClient_useVirtualText=1
+" May be Ale does the job well enough?
+let g:LanguageClient_diagnosticsEnable=0
 
 set background=dark
 colorscheme onedark
@@ -222,6 +234,37 @@ set autochdir
 
 " Set path to python3, needed for python based plugins
 let g:python3_host_prog = '/usr/local/bin/python3'
+
+let g:LanguageClient_serverCommands = {
+    \ 'javascript': ['javascript-typescript-stdio'],
+    \ 'typescript': ['javascript-typescript-stdio'],
+    \ }
+
+let g:LanguageClient_rootMarkers = {
+    \ 'javascript': ['jsconfig.json'],
+    \ 'typescript': ['tsconfig.json'],
+    \ }
+
+let g:deoplete#enable_at_startup = 1
+
+call deoplete#custom#source('LanguageClient',
+            \ 'min_pattern_length',
+            \ 2)
+
+" Scroll through deoplete items with tab and shift+tab
+inoremap <silent><expr> <TAB>
+		\ pumvisible() ? "\<C-n>" :
+		\ <SID>check_back_space() ? "\<TAB>" :
+		\ deoplete#manual_complete()
+inoremap <silent><expr> <S-TAB>
+		\ pumvisible() ? "\<C-p>" :
+		\ <SID>check_back_space() ? "\<S-TAB>" :
+		\ deoplete#manual_complete()
+
+function! s:check_back_space() abort "{{{
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
+endfunction "}}}
 
 let mapleader="\<BS>"
 
@@ -435,9 +478,6 @@ highlight LineNr guifg=LightGrey guibg=#808080
 " https://stackoverflow.com/a/10746829
 hi MatchParen guibg=#ee88ee guifg=#23272e gui=bold cterm=bold ctermbg=14 ctermfg=31
 
-" Change CocFloating window background: https://github.com/neoclide/coc.nvim/wiki/F.A.Q#highlight-of-floating-window-doesnt-looks-right
-highlight CocFloating guibg=#545C6F
-
 " Do not highlight lines when searching files
 " hi QuickFixLine guibg=NONE
 
@@ -529,35 +569,6 @@ let g:AutoPairsShortcutToggle = ""
 
 " Fix extra closing '>' when using vim-closetag with delimitMate
 let delimitMate_matchpairs ="(:),[:],{:}"
-
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" Use Ctrl-X + Ctrl-O to trigger completion.
-inoremap <silent><expr> <C-x><C-o> coc#refresh()
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use K to show documentation in preview window
-nnoremap <silent><leader><leader>t :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
 
 " https://github.com/pgdouyon/vim-evanesco/issues/6#issuecomment-251026521
 let g:indexed_search_mappings = 0
