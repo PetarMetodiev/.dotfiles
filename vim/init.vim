@@ -361,6 +361,8 @@ augroup node_modules_colors
 	autocmd FileType nerdtree syntax match node_modules_dir "\vnode_modules" containedin=ALL
 augroup END
 
+highlight node_modules_dir guifg=#5c6370
+
 " Fix for not loading files sometimes - https://github.com/scrooloose/nerdtree/issues/587
 let NERDTreeIgnore=['\c^ntuser\..*']
 
