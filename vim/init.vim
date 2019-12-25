@@ -271,9 +271,6 @@ let mapleader="\<BS>"
 " Enable line numbers for NERDTree
 let NERDTreeShowLineNumbers=1
 
-" As per docs
-" let g:deoplete#enable_at_startup = 1
-
 " NERDTree file sorting
 let g:NERDTreeSortOrder=['\/$', '\.html$', '\.ts$', '\.tsx$', '\.jsx$', '\.js$', '*',  '\~$']
 
