@@ -247,9 +247,11 @@ let g:LanguageClient_rootMarkers = {
 
 let g:deoplete#enable_at_startup = 1
 
-call deoplete#custom#source('LanguageClient',
-            \ 'min_pattern_length',
-            \ 2)
+call deoplete#custom#source('LanguageClient', {
+		\ 'min_pattern_length': 2,
+		\ 'rank': 500,
+		\ 'dup': v:false
+		\ })
 
 " Scroll through deoplete items with tab and shift+tab
 inoremap <silent><expr> <TAB>
