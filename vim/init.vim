@@ -56,7 +56,8 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
     \ }
 
-Plug 'junegunn/fzf'
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
 
 " Completion engine
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -461,6 +462,13 @@ let g:ale_css_prettier_options = '--tab-width 4 --single-quote --trailing-comma 
 let g:ale_scss_prettier_options = '--tab-width 4 --single-quote --trailing-comma es5'
 let g:ale_html_prettier_options = '--tab-width 4'
 let g:ale_json_prettier_options = '--tab-width 2'
+
+" https://github.com/junegunn/fzf/blob/master/README-VIM.md#hide-statusline
+if has('nvim') && !exists('g:fzf_layout')
+  autocmd! FileType fzf
+  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+endif
 
 " Remember last position when reopening a file
 if has("autocmd")
