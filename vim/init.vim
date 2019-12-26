@@ -597,7 +597,10 @@ nmap <silent> gj <Plug>(ale_next_wrap)
 nmap <silent> gf <Plug>(ale_fix)
 
 " Get type of element under cursor(works only in ts)
-" nmap <leader>tt <Plug>(ale_hover)
+nmap <silent> gt :call LanguageClient_textDocument_hover()<CR>
+
+" Call :ContextMenu to open LanguageClient context menu
+command! -nargs=0 ContextMenu :call LanguageClient_contextMenu()<CR>
 
 " Vim hard mode.
 nnoremap <Left> :echoe "Use h"<CR>
