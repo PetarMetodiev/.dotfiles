@@ -161,9 +161,6 @@ endif
 " Works only when true colors are set
 " Has to be set before setting colorscheme onedark - https://github.com/joshdick/onedark.vim#options
 let g:onedark_terminal_italics=1
-" let g:LanguageClient_useVirtualText=1
-" May be Ale does the job well enough?
-let g:LanguageClient_diagnosticsEnable=0
 
 set background=dark
 colorscheme onedark
@@ -234,6 +231,16 @@ set autochdir
 
 " Set path to python3, needed for python based plugins
 let g:python3_host_prog = '/usr/local/bin/python3'
+
+" May be Ale does the job well enough?
+let g:LanguageClient_diagnosticsEnable=0
+
+" If not explicitly disabled, a check is made for known snipper plugins.
+" May lead to performance hits.
+let g:LanguageClient_hasSnippetSupport = 0
+
+" Default is 'Auto' and leads to inconsistent behavior.
+let g:LanguageClient_hoverPreview = 'Always'
 
 let g:LanguageClient_serverCommands = {
     \ 'javascript': ['javascript-typescript-stdio'],
