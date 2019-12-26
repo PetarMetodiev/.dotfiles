@@ -109,6 +109,12 @@
   brew install python
   ```
   
+  - ### [Language servers](https://langserver.org/)
+  	- #### [javascript-typescript-langserver](https://github.com/sourcegraph/javascript-typescript-langserver)
+	  ```sh
+	  npm install -g javascript-typescript-langserver
+	  ```
+  
   - ### [HTTPie](https://httpie.org/) _optional_
   ```sh
   brew install httpie
