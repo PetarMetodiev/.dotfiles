@@ -590,11 +590,11 @@ nmap <silent> * <Plug>Evanesco_*:ShowSearchIndex<CR>
 nmap <silent> # <Plug>Evanesco_#:ShowSearchIndex<CR>
 
 " Navigate between Ale errors
-nmap gk <Plug>(ale_previous_wrap)
-nmap gj <Plug>(ale_next_wrap)
+nmap <silent> gk <Plug>(ale_previous_wrap)
+nmap <silent> gj <Plug>(ale_next_wrap)
 
 " Run Ale fixer
-nmap gf <Plug>(ale_fix)
+nmap <silent> gf <Plug>(ale_fix)
 
 " Get type of element under cursor(works only in ts)
 " nmap <leader>tt <Plug>(ale_hover)
@@ -606,7 +606,7 @@ nnoremap <Up> :echoe "Use k"<CR>
 nnoremap <Down> :echoe "Use j"<CR>
 
 " Open vimrc
-nnoremap <leader>e :e $MYVIMRC<CR>
+nnoremap <silent> <leader>e :e $MYVIMRC<CR>
 
 " Insert empty space in normal mode
 nnoremap <space> :
@@ -634,7 +634,7 @@ vnoremap > >gv
 set langmap =Ч~,ЯQ,ВW,ЕE,РR,ТT,ЪY,УU,ИI,ОO,ПP,Ш{,Щ},АA,СS,ДD,ФF,ГG,ХH,ЙJ,КK,ЛL,ЗZ,ЬZ,ЦC,ЖV,БB,НN,МM,ч`,яq,вw,еe,рr,тt,ъy,уu,иi,оo,пp,ш[,щ],аa,сs,дd,фf,гg,хh,йj,кk,лl,зz,ьz,цc,жv,бb,нn,мm
 
 " Use Ctrl+Tab to switch between last used buffer
-nnoremap <C-q> :b#<CR>
+nnoremap <silent> <C-q> :b#<CR>
 
 " Y yanks from current cursor position to the end
 nnoremap Y y$
@@ -650,18 +650,18 @@ nnoremap <leader>j j
 nnoremap <leader>k k
 
 " Toggle Colorizer
-nnoremap <leader>cc :ColorToggle<CR>
+nnoremap <silent> <leader>cc :ColorToggle<CR>
 
 " Toggle Argwrap
-nnoremap <leader>aa :ArgWrap<CR>
+nnoremap <silent> <leader>aa :ArgWrap<CR>
 
 " Clean line contents without delteing the line
 nnoremap <leader>x 0D
 
 " Navigate through tabs
-nnoremap tk :tabprev<CR>
-nnoremap tj :tabnext<CR>
-nnoremap tn :tabnew<CR>
+nnoremap <silent>tk :tabprev<CR>
+nnoremap <silent>tj :tabnext<CR>
+nnoremap <silent>tn :tabnew<CR>
 
 if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
