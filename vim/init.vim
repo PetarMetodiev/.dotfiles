@@ -63,6 +63,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Floating window for deoplete
+" Shows docs for an item(if docs exist)
 Plug 'ncm2/float-preview.nvim'
 
 " Syntax support for JSON
@@ -464,10 +465,77 @@ let g:ale_html_prettier_options = '--tab-width 4'
 let g:ale_json_prettier_options = '--tab-width 2'
 
 " https://github.com/junegunn/fzf/blob/master/README-VIM.md#hide-statusline
-if has('nvim') && !exists('g:fzf_layout')
-  autocmd! FileType fzf
-  autocmd  FileType fzf set laststatus=0 noshowmode noruler
-    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+" if has('nvim') && !exists('g:fzf_layout')
+" 	augroup fzf_statusline
+" 	  autocmd! FileType fzf
+" 	  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+" 	    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+" 	augroup END
+" endif
+
+augroup fzf_options
+	autocmd! FileType fzf
+	autocmd  FileType fzf set nonu nornu
+	  \| autocmd BufLeave <buffer> set nu rnu
+augroup END
+
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+
+
+" fzf colors:
+"   fg         Text
+"   bg         Background
+"   preview-fg Preview window text
+"   preview-bg Preview window background
+"   hl         Highlighted substrings
+"   fg+        Text (current line)
+"   bg+        Background (current line)
+"   gutter     Gutter on the left (defaults to bg+)
+"   hl+        Highlighted substrings (current line)
+"   info       Info
+"   border     Border of the preview window and horizontal separators (--border)
+"   prompt     Prompt
+"   pointer    Pointer to the current line
+"   marker     Multi-select marker
+"   spinner    Streaming input indicator
+"   header     Header
+
+hi link FzfPlus LineNr
+
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'CursorColumn'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'FzfPlus'],
+  \ 'bg+':     ['bg', 'FzfPlus'],
+  \ 'gutter':  ['bg', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+if has('nvim')
+  let $FZF_DEFAULT_OPTS .= ' --border --margin=1,1'
+
+  function! FloatingFZF()
+    let width = float2nr(&columns * 0.8)
+    let height = 20
+    let opts = { 'relative': 'editor',
+               \ 'row': &lines - height - 5,
+               \ 'col': (&columns - width) / 2,
+               \ 'width': width,
+               \ 'height': height }
+
+    let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+    call setwinvar(win, '&winhighlight', 'NormalFloat:Normal')
+  endfunction
+
+  let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 endif
 
 " Remember last position when reopening a file
@@ -673,6 +741,8 @@ nnoremap <leader>x 0D
 nnoremap <silent>tk :tabprev<CR>
 nnoremap <silent>tj :tabnext<CR>
 nnoremap <silent>tn :tabnew<CR>
+
+nnoremap <silent> <C-P> :GFiles<CR>
 
 if exists("g:loaded_webdevicons")
   call webdevicons#refresh()
