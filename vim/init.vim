@@ -48,9 +48,6 @@ Plug 'jiangmiao/auto-pairs'
 " Typescript syntax
 Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript', 'tsx' ]}
 
-" Press enter to open file in quickfix/loclist
-Plug 'yssl/QFEnter'
-
 " List of LSP Servers: https://langserver.org/
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -651,12 +648,6 @@ let g:airline#extensions#branch#empty_message = "\uf05e \uf09b"
 
 " ALE integration with airline
 let g:airline#extensions#ale#enabled = 1
-
-" CtrlP style bindings for QFEnter
-let g:qfenter_keymap = {}
-let g:qfenter_keymap.open = ['<CR>', '<2-LeftMouse>']
-let g:qfenter_keymap.vopen = ['<C-v>']
-let g:qfenter_keymap.hopen = ['<C-CR>', '<C-s>', '<C-x>']"
 
 " Set duration of highlighting when yanking
 let g:highlightedyank_highlight_duration = 300
