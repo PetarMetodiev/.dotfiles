@@ -38,8 +38,6 @@ Plug 'w0rp/ale'
 " Exchange two text elements/blocks easily
 Plug 'tommcdo/vim-exchange'
 
-" Search tool wrapper
-Plug 'mileszs/ack.vim'
 
 " Insert or delete brackets, automatically add new lines between brackets
 Plug 'jiangmiao/auto-pairs'
@@ -644,9 +642,6 @@ let g:qfenter_keymap.hopen = ['<C-CR>', '<C-s>', '<C-x>']"
 
 " Set duration of highlighting when yanking
 let g:highlightedyank_highlight_duration = 300
-
-" the_silver_searcher (Ag) integration with ack
-let g:ackprg = 'ag --vimgrep'
 
 " Folding based on the syntax of the used language
 " set foldmethod=syntax
