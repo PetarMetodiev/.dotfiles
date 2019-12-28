@@ -282,6 +282,12 @@ function! s:check_back_space() abort "{{{
 	return !col || getline('.')[col - 1]  =~ '\s'
 endfunction "}}}
 
+" Set up fzf to work with Ag
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(
+  \   '',
+  \   fzf#vim#with_preview('right:50%'))
+
 let mapleader="\<BS>"
 
 " Enable line numbers for NERDTree
