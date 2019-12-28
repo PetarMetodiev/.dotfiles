@@ -50,9 +50,9 @@ Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript', 'tsx' ]}
 
 " List of LSP Servers: https://langserver.org/
 Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+			\ 'branch': 'next',
+			\ 'do': 'bash install.sh',
+			\ }
 
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -257,34 +257,34 @@ let g:LanguageClient_hasSnippetSupport = 0
 let g:LanguageClient_hoverPreview = 'Always'
 
 let g:LanguageClient_serverCommands = {
-    \ 'javascript': ['javascript-typescript-stdio'],
-    \ 'typescript': ['javascript-typescript-stdio'],
-    \ }
+			\ 'javascript': ['javascript-typescript-stdio'],
+			\ 'typescript': ['javascript-typescript-stdio'],
+			\ }
 
 let g:LanguageClient_rootMarkers = {
-    \ 'javascript': ['jsconfig.json'],
-    \ 'typescript': ['tsconfig.json'],
-    \ }
+			\ 'javascript': ['jsconfig.json'],
+			\ 'typescript': ['tsconfig.json'],
+			\ }
 
 let g:deoplete#enable_at_startup = 1
 
 call deoplete#custom#source('_', 'buffer')
 
 call deoplete#custom#source('LanguageClient', {
-		\ 'min_pattern_length': 2,
-		\ 'rank': 500,
-		\ 'dup': v:false
-		\ })
+			\ 'min_pattern_length': 2,
+			\ 'rank': 500,
+			\ 'dup': v:false
+			\ })
 
 " Scroll through deoplete items with tab and shift+tab
 inoremap <silent><expr> <TAB>
-		\ pumvisible() ? "\<C-n>" :
-		\ <SID>check_back_space() ? "\<TAB>" :
-		\ deoplete#manual_complete()
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ deoplete#manual_complete()
 inoremap <silent><expr> <S-TAB>
-		\ pumvisible() ? "\<C-p>" :
-		\ <SID>check_back_space() ? "\<S-TAB>" :
-		\ deoplete#manual_complete()
+			\ pumvisible() ? "\<C-p>" :
+			\ <SID>check_back_space() ? "\<S-TAB>" :
+			\ deoplete#manual_complete()
 
 function! s:check_back_space() abort "{{{
 	let col = col('.') - 1
@@ -293,9 +293,9 @@ endfunction "}}}
 
 " Set up fzf to work with Ag
 command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(
-  \   '',
-  \   fzf#vim#with_preview('right:50%'))
+			\ call fzf#vim#ag(
+			\   '',
+			\   fzf#vim#with_preview('right:50%'))
 
 let mapleader="\<BS>"
 
@@ -341,23 +341,23 @@ let license_icon = ""
 let npm_folder_icon = ""
 
 let g:icons_map = {
-	\ 'ts_icon': ts_icon,
-	\ 'md_icon': md_icon,
-	\ 'json_icon': json_icon,
-	\ 'html_icon': html_icon,
-	\ 'css_icon': css_icon,
-	\ 'scss_icon': scss_icon,
-	\ 'js_icon': js_icon,
-	\ 'cog_icon': cog_icon,
-	\ 'test_icon': test_icon,
-	\ 'orm_icon': orm_icon,
-	\ 'env_icon': env_icon,
-	\ 'git_icon': git_icon,
-	\ 'vim_icon': vim_icon,
-	\ 'gulp_icon': gulp_icon,
-	\ 'license_icon': license_icon,
-	\ 'npm_folder_icon': npm_folder_icon,
-\}
+			\ 'ts_icon': ts_icon,
+			\ 'md_icon': md_icon,
+			\ 'json_icon': json_icon,
+			\ 'html_icon': html_icon,
+			\ 'css_icon': css_icon,
+			\ 'scss_icon': scss_icon,
+			\ 'js_icon': js_icon,
+			\ 'cog_icon': cog_icon,
+			\ 'test_icon': test_icon,
+			\ 'orm_icon': orm_icon,
+			\ 'env_icon': env_icon,
+			\ 'git_icon': git_icon,
+			\ 'vim_icon': vim_icon,
+			\ 'gulp_icon': gulp_icon,
+			\ 'license_icon': license_icon,
+			\ 'npm_folder_icon': npm_folder_icon,
+			\}
 
 augroup devicons_colors
 	autocmd!
@@ -494,13 +494,13 @@ let g:ale_json_prettier_options = '--tab-width 2'
 augroup fzf_options
 	autocmd! FileType fzf
 	autocmd  FileType fzf set nonu nornu
-	  \| autocmd BufLeave <buffer> set nu rnu
+				\| autocmd BufLeave <buffer> set nu rnu
 augroup END
 
 let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit' }
+			\ 'ctrl-t': 'tab split',
+			\ 'ctrl-s': 'split',
+			\ 'ctrl-v': 'vsplit' }
 
 
 " fzf colors:
@@ -524,36 +524,36 @@ let g:fzf_action = {
 hi link FzfPlus LineNr
 
 let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'CursorColumn'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'FzfPlus'],
-  \ 'bg+':     ['bg', 'FzfPlus'],
-  \ 'gutter':  ['bg', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+			\ { 'fg':      ['fg', 'Normal'],
+			\ 'bg':      ['bg', 'CursorColumn'],
+			\ 'hl':      ['fg', 'Comment'],
+			\ 'fg+':     ['fg', 'FzfPlus'],
+			\ 'bg+':     ['bg', 'FzfPlus'],
+			\ 'gutter':  ['bg', 'CursorColumn'],
+			\ 'hl+':     ['fg', 'Statement'],
+			\ 'prompt':  ['fg', 'Conditional'],
+			\ 'pointer': ['fg', 'Exception'],
+			\ 'marker':  ['fg', 'Keyword'],
+			\ 'spinner': ['fg', 'Label'],
+			\ 'header':  ['fg', 'Comment'] }
 
 if has('nvim')
-  let $FZF_DEFAULT_OPTS .= ' --border --margin=1,1'
+	let $FZF_DEFAULT_OPTS .= ' --border --margin=1,1'
 
-  function! FloatingFZF()
-    let width = float2nr(&columns * 0.8)
-    let height = 20
-    let opts = { 'relative': 'editor',
-               \ 'row': &lines - height - 5,
-               \ 'col': (&columns - width) / 2,
-               \ 'width': width,
-               \ 'height': height }
+	function! FloatingFZF()
+		let width = float2nr(&columns * 0.8)
+		let height = 20
+		let opts = { 'relative': 'editor',
+					\ 'row': &lines - height - 5,
+					\ 'col': (&columns - width) / 2,
+					\ 'width': width,
+					\ 'height': height }
 
-    let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
-    call setwinvar(win, '&winhighlight', 'NormalFloat:Normal')
-  endfunction
+		let win = nvim_open_win(nvim_create_buf(v:false, v:true), v:true, opts)
+		call setwinvar(win, '&winhighlight', 'NormalFloat:Normal')
+	endfunction
 
-  let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+	let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 endif
 
 " Remember last position when reopening a file
@@ -588,9 +588,9 @@ hi MatchParen guibg=#ee88ee guifg=#23272e gui=bold cterm=bold ctermbg=14 ctermfg
 " Highlight matching parens only in normal mode
 " https://www.reddit.com/r/vim/comments/2rz74u/question_because_of_matching_parenthesis/cnnhtcy/
 augroup insertMatch
-    au!
-    au InsertEnter * NoMatchParen
-    au InsertLeave * DoMatchParen
+	au!
+	au InsertEnter * NoMatchParen
+	au InsertLeave * DoMatchParen
 augroup END
 
 " No error in airline for white spaces - something anyway useless and takes too much space
@@ -608,25 +608,25 @@ let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
 " Short mode names for airline(show I instead of INSERT)
 let g:airline_mode_map = {
-  \ '__'     : '-',
-  \ 'c'      : 'C',
-  \ 'i'      : 'I',
-  \ 'ic'     : 'I',
-  \ 'ix'     : 'I',
-  \ 'n'      : 'N',
-  \ 'multi'  : 'M',
-  \ 'ni'     : 'N',
-  \ 'no'     : 'N',
-  \ 'R'      : 'R',
-  \ 'Rv'     : 'R',
-  \ 's'      : 'S',
-  \ 'S'      : 'S',
-  \ ''     : 'S',
-  \ 't'      : 'T',
-  \ 'v'      : 'V',
-  \ 'V'      : 'V',
-  \ ''     : 'V',
-  \ }
+			\ '__'     : '-',
+			\ 'c'      : 'C',
+			\ 'i'      : 'I',
+			\ 'ic'     : 'I',
+			\ 'ix'     : 'I',
+			\ 'n'      : 'N',
+			\ 'multi'  : 'M',
+			\ 'ni'     : 'N',
+			\ 'no'     : 'N',
+			\ 'R'      : 'R',
+			\ 'Rv'     : 'R',
+			\ 's'      : 'S',
+			\ 'S'      : 'S',
+			\ ''     : 'S',
+			\ 't'      : 'T',
+			\ 'v'      : 'V',
+			\ 'V'      : 'V',
+			\ ''     : 'V',
+			\ }
 
 " Airline theme
 let g:airline_theme='papercolor'
@@ -708,7 +708,7 @@ vnoremap ^ 0
 vnoremap 0 ^
 
 " Map Ctrl+b to open NERDTree. To close press <q>
-map <C-b> :NERDTreeToggle<CR>
+nnoremap <silent> <C-b> :NERDTreeToggle<CR>
 
 " Insert new line without entering insert mode
 nnoremap <CR> o<Esc>
@@ -754,5 +754,5 @@ nnoremap <silent>tn :tabnew<CR>
 nnoremap <silent> <C-P> :GFiles<CR>
 
 if exists("g:loaded_webdevicons")
-  call webdevicons#refresh()
+	call webdevicons#refresh()
 endif
