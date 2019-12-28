@@ -38,6 +38,9 @@ Plug 'w0rp/ale'
 " Exchange two text elements/blocks easily
 Plug 'tommcdo/vim-exchange'
 
+" Set current working dir to the project root
+" Useful for ag, rg, etc...
+Plug 'airblade/vim-rooter'
 
 " Insert or delete brackets, automatically add new lines between brackets
 Plug 'jiangmiao/auto-pairs'
@@ -236,6 +239,15 @@ set completeopt-=preview
 
 " Set path to python3, needed for python based plugins
 let g:python3_host_prog = '/usr/local/bin/python3'
+
+let g:rooter_patterns = [
+			\ '.git',
+			\ '.git/',
+			\ '_darcs/',
+			\ '.hg/',
+			\ '.bzr/',
+			\ '.svn/',
+			\ 'node_modules/']
 
 " May be Ale does the job well enough?
 let g:LanguageClient_diagnosticsEnable=0
