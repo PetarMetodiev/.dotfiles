@@ -231,6 +231,11 @@ set cursorline
 " Change the working directory to the currently open file
 set autochdir
 
+" Do not show completion options in preview window
+" Needed for deoplete as  ncm2/float-preview.nvim shows docs in floating
+" window
+set completeopt-=preview
+
 " Set path to python3, needed for python based plugins
 let g:python3_host_prog = '/usr/local/bin/python3'
 
