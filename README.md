@@ -111,8 +111,15 @@
   
   - ### [Language servers](https://langserver.org/)
   	- #### [javascript-typescript-langserver](https://github.com/sourcegraph/javascript-typescript-langserver)
+	> _Seems to be more popular(based on GitHub stars) but throws random warnings on startup_
 	  ```sh
 	  npm install -g javascript-typescript-langserver
+	  ```
+	  
+	- #### [typescript-language-server](https://github.com/theia-ide/typescript-language-server)
+	> _Not as popular as [javascript-typescript-langserver](https://github.com/sourcegraph/javascript-typescript-langserver)(based on GitHub stars) but does not throw random warnings on startup and [claims to be following the LSP spec as closely as possible unlike competitors](https://www.reddit.com/r/vscode/comments/cafp6k/which_language_server_does_vscode_use_for/f6lzsqw/)_
+	  ```sh
+	  npm install -g typescript-language-server
 	  ```
   
   - ### [HTTPie](https://httpie.org/) _optional_
