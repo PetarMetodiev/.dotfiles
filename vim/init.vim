@@ -257,9 +257,12 @@ let g:LanguageClient_hasSnippetSupport = 0
 let g:LanguageClient_hoverPreview = 'Always'
 
 let g:LanguageClient_serverCommands = {
-			\ 'javascript': ['javascript-typescript-stdio'],
-			\ 'typescript': ['javascript-typescript-stdio'],
+			\ 'javascript': ['typescript-language-server', '--stdio'],
+			\ 'typescript': ['typescript-language-server', '--stdio'],
 			\ }
+			" \ 'javascript': ['javascript-typescript-stdio'],
+			" \ 'typescript': ['javascript-typescript-stdio'],
+			" \ }
 
 let g:LanguageClient_rootMarkers = {
 			\ 'javascript': ['jsconfig.json'],
