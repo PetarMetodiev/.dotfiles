@@ -298,7 +298,7 @@ endfunction "}}}
 command! -bang -nargs=* Ag
 			\ call fzf#vim#ag(
 			\   '',
-			\   fzf#vim#with_preview('right:50%'))
+			\   fzf#vim#with_preview('right:50%:noborder'))
 
 let mapleader="\<BS>"
 
