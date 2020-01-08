@@ -691,10 +691,10 @@ nmap <silent> K :call LanguageClient_textDocument_hover()<CR>
 nmap <silent> gt :call LanguageClient_contextMenu()<CR>
 
 " Vim hard mode.
-nnoremap <Left> :echoe "Use h"<CR>
-nnoremap <Right> :echoe "Use l"<CR>
-nnoremap <Up> :echoe "Use k"<CR>
-nnoremap <Down> :echoe "Use j"<CR>
+nnoremap <silent> <Left> :echoe "Use h"<CR>
+nnoremap <silent> <Right> :echoe "Use l"<CR>
+nnoremap <silent> <Up> :echoe "Use k"<CR>
+nnoremap <silent> <Down> :echoe "Use j"<CR>
 
 " Open vimrc
 nnoremap <silent> <leader>e :e $MYVIMRC<CR>
