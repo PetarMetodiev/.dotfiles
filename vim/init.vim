@@ -755,6 +755,7 @@ nnoremap <silent>tj :tabnext<CR>
 nnoremap <silent>tn :tabnew<CR>
 
 nnoremap <silent> <C-P> :GFiles<CR>
+nnoremap <silent> <C-f> :Buffers<CR>
 
 if exists("g:loaded_webdevicons")
 	call webdevicons#refresh()
