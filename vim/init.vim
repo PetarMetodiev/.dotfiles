@@ -151,6 +151,10 @@ set shortmess+=c
 "Highlight searches
 set hlsearch
 
+" Make floating window and other overlays slightly transparent
+set winblend=10 " Floating window
+set pumblend=10 " All kinds of popup menus
+
 " Tell vim to keep a backup file
 " Should be $XDG_DATA_HOME/nvim/backup but macos is not happy
 if !isdirectory($HOME.'/.config/nvim/backup')
