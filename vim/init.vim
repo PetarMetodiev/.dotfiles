@@ -489,6 +489,9 @@ let g:ale_echo_msg_format = '%severity%%linter%%(code)%: %s'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 
+" Test if this is fine
+let g:ale_completion_tsserver_autoimport = 1
+
 if filereadable(globpath($HOME, '.config/prettier/.prettierrc'))
 	let g:ale_javascript_prettier_options = '--config ~/.config/prettier/.prettierrc --config-precedence prefer-file'
 	let g:ale_typescript_prettier_options = '--config ~/.config/prettier/.prettierrc --config-precedence prefer-file'
