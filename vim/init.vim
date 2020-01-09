@@ -284,7 +284,13 @@ let g:deoplete#enable_at_startup = 1
 
 call deoplete#custom#source('_', 'buffer')
 
+call deoplete#custom#source('_', {
+			\ 'max_abbr_width': 0,
+			\ 'max_menu_width': 0
+			\ })
+
 call deoplete#custom#source('LanguageClient', {
+			\ 'max_abbr_width': 0,
 			\ 'min_pattern_length': 2,
 			\ 'rank': 500,
 			\ 'dup': v:false
