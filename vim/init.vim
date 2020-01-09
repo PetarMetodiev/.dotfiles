@@ -68,7 +68,7 @@ Plug 'ncm2/float-preview.nvim'
 Plug 'elzr/vim-json', { 'for': 'json' }
 
 " Color hex codes and color names
-Plug 'chrisbra/Colorizer'
+Plug 'norcalli/nvim-colorizer.lua'
 
 " Place items in braces on new row each
 Plug 'FooSoft/vim-argwrap'
@@ -118,6 +118,17 @@ Plug 'ryanoasis/vim-devicons'
 call plug#end()
 
 " Neovim defaults: https://neovim.io/doc/user/vim_diff.html
+"
+set termguicolors
+
+" Has to be set after setting termguicolors
+" More info on configuration :h colorizer.lua
+lua require 'colorizer'.setup ({
+			\ 'vim',
+			\ 'css',
+			\ 'html',
+			\ 'typescript'
+			\ })
 
 " Keep 1000 lines of command line history
 set history=1000
@@ -152,10 +163,6 @@ set backupdir=$HOME/.config/nvim/backup//
 
 " persist undos
 set undofile
-
-if (has("termguicolors"))
-	set termguicolors
-endif
 
 " Use italics for onedark colorscheme
 " Works only when true colors are set
@@ -741,7 +748,7 @@ nnoremap <leader>j j
 nnoremap <leader>k k
 
 " Toggle Colorizer
-nnoremap <silent> <leader>cc :ColorToggle<CR>
+nnoremap <silent> <leader>cc :ColorizerToggle<CR>
 
 " Toggle Argwrap
 nnoremap <silent> <leader>aa :ArgWrap<CR>
