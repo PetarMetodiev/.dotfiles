@@ -381,7 +381,7 @@ augroup devicons_colors
 	endfor
 augroup END
 
-highlight ts_icon_color guifg=cyan
+highlight ts_icon_color guifg=Cyan
 highlight md_icon_color guifg=#5ca4ef
 highlight yml_icon_color guifg=#e25141
 highlight json_icon_color guifg=#f3c14f
@@ -390,7 +390,7 @@ highlight css_icon_color guifg=#5ca4ef
 highlight scss_icon_color guifg=#ce6499
 highlight js_icon_color guifg=#f7cb4f
 highlight cog_icon_color guifg=#fdfdfd
-highlight test_icon_color guifg=red
+highlight test_icon_color guifg=Red
 highlight orm_icon_color guifg=#fdfdfd
 highlight env_icon_color guifg=#fdfdfd
 highlight git_icon_color guifg=#6cc644
