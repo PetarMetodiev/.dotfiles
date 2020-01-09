@@ -260,9 +260,9 @@ let g:rooter_patterns = [
 " May be Ale does the job well enough?
 let g:LanguageClient_diagnosticsEnable=0
 
-" If not explicitly disabled, a check is made for known snipper plugins.
+" If not explicitly disabled, a check is made for known snippet plugins.
 " May lead to performance hits.
-let g:LanguageClient_hasSnippetSupport = 0
+let g:LanguageClient_hasSnippetSupport = 1
 
 " Default is 'Auto' and leads to inconsistent behavior.
 let g:LanguageClient_hoverPreview = 'Always'
