@@ -523,11 +523,11 @@ let g:ale_json_prettier_options = '--tab-width 2'
 
 " https://github.com/junegunn/fzf/blob/master/README-VIM.md#hide-statusline
 " if has('nvim') && !exists('g:fzf_layout')
-" 	augroup fzf_statusline
-" 	  autocmd! FileType fzf
-" 	  autocmd  FileType fzf set laststatus=0 noshowmode noruler
-" 	    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-" 	augroup END
+"	augroup fzf_statusline
+"	  autocmd! FileType fzf
+"	  autocmd  FileType fzf set laststatus=0 noshowmode noruler
+"	    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+"	augroup END
 " endif
 
 augroup fzf_options
@@ -543,11 +543,11 @@ let g:fzf_action = {
 
 
 " fzf colors:
-"   fg         Text
-"   bg         Background
+"   fg	       Text
+"   bg	       Background
 "   preview-fg Preview window text
 "   preview-bg Preview window background
-"   hl         Highlighted substrings
+"   hl	       Highlighted substrings
 "   fg+        Text (current line)
 "   bg+        Background (current line)
 "   gutter     Gutter on the left (defaults to bg+)
@@ -647,24 +647,24 @@ let g:airline#parts#ffenc#skip_expected_string='utf-8[unix]'
 
 " Short mode names for airline(show I instead of INSERT)
 let g:airline_mode_map = {
-			\ '__'     : '-',
-			\ 'c'      : 'C',
-			\ 'i'      : 'I',
-			\ 'ic'     : 'I',
-			\ 'ix'     : 'I',
-			\ 'n'      : 'N',
+			\ '__'	   : '-',
+			\ 'c'	   : 'C',
+			\ 'i'	   : 'I',
+			\ 'ic'	   : 'I',
+			\ 'ix'	   : 'I',
+			\ 'n'	   : 'N',
 			\ 'multi'  : 'M',
-			\ 'ni'     : 'N',
-			\ 'no'     : 'N',
-			\ 'R'      : 'R',
-			\ 'Rv'     : 'R',
-			\ 's'      : 'S',
-			\ 'S'      : 'S',
-			\ ''     : 'S',
-			\ 't'      : 'T',
-			\ 'v'      : 'V',
-			\ 'V'      : 'V',
-			\ ''     : 'V',
+			\ 'ni'	   : 'N',
+			\ 'no'	   : 'N',
+			\ 'R'	   : 'R',
+			\ 'Rv'	   : 'R',
+			\ 's'	   : 'S',
+			\ 'S'	   : 'S',
+			\ ''	   : 'S',
+			\ 't'	   : 'T',
+			\ 'v'	   : 'V',
+			\ 'V'	   : 'V',
+			\ ''	   : 'V',
 			\ }
 
 " Airline theme
