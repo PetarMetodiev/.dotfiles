@@ -217,13 +217,17 @@ set listchars=tab:»\ ,trail:·
 set list
 
 " Do not continue comment using o or O
-set formatoptions-=o
-
-" Explanation - https://www.youtube.com/watch?v=sA3z6gsqOuw
-set inccommand = "split"
+" Why use augroup: https://vi.stackexchange.com/a/1985
+augroup all_filetypes
+	au!
+	au Filetype * set formatoptions-=o
+augroup END
 
 " No // when joining commented lines
 set formatoptions+=j
+
+" Explanation - https://www.youtube.com/watch?v=sA3z6gsqOuw
+set inccommand = "split"
 
 " Mouse support(clicking, scrolling, selecting panes)
 set mouse=a
