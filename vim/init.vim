@@ -737,6 +737,9 @@ nnoremap <silent> <Down> :echoe "Use j"<CR>
 " Open vimrc
 nnoremap <silent> <leader>e :e $MYVIMRC<CR>
 
+" Equalize splits
+nnoremap - :wincmd =<cr>
+
 " Insert empty space in normal mode
 nnoremap <space> :
 vnoremap <space> :
