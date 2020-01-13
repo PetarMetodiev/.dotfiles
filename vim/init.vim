@@ -596,9 +596,11 @@ if has('nvim')
 endif
 
 " Remember last position when reopening a file
-if has("autocmd")
-	au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
+augroup ResumeCursor
+	autocmd BufReadPost *  if line("'\"") > 1 && line("'\"") <= line("$")
+				\|     exe "normal! g`\""
+				\|  endif
+augroup END
 
 " Instead of reverting the cursor to the last position in the buffer, we
 " set it to the first line when editing a git commit message
