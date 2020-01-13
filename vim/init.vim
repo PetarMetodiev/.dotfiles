@@ -740,6 +740,9 @@ nnoremap <silent> <leader>e :e $MYVIMRC<CR>
 " Equalize splits
 nnoremap - :wincmd =<cr>
 
+" Maximize window
+nnoremap _ :wincmd _<cr>
+
 " Hopefuly will help with colorscheme stops working.
 nnoremap <silent>U :syntax sync fromstart<cr>:redraw!<cr>
 
