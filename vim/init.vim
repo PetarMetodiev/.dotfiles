@@ -731,7 +731,7 @@ nmap <silent> gt :call LanguageClient_contextMenu()<CR>
 " Vim hard mode.
 nnoremap <silent> <Left> :echoe "Use h"<CR>
 nnoremap <silent> <Right> :echoe "Use l"<CR>
-nnoremap <silent> <Up> :echoe "Use k"<CR>
+nnoremap <silent> <Up> :<Up>
 nnoremap <silent> <Down> :echoe "Use j"<CR>
 
 " Open vimrc
