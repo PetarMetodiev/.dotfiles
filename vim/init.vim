@@ -252,6 +252,15 @@ set fillchars=eob:\
 " window
 set completeopt-=preview
 
+" Do not show line numbers in quickfix window and in ale preview window
+" Close ale preview window with ESC
+augroup preview_settings
+	au!
+	au Filetype qf setlocal nornu nonu
+	au Filetype ale-preview-selection setlocal nornu nonu
+	au Filetype ale-preview-selection nnoremap <buffer> <ESC> ZZ
+augroup END
+
 " Set path to python3, needed for python based plugins
 let g:python3_host_prog = '/usr/local/bin/python3'
 
