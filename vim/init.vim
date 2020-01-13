@@ -240,6 +240,9 @@ set cursorline
 " Change the working directory to the currently open file
 set autochdir
 
+" Hide ~ symbols at the end of a file
+set fillchars=eob:\ 
+
 " Do not show completion options in preview window
 " Needed for deoplete as  ncm2/float-preview.nvim shows docs in floating
 " window
