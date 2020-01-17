@@ -505,6 +505,11 @@ let g:ale_echo_msg_format = '%severity%%linter%%(code)%: %s'
 let g:ale_lint_on_text_changed = 'normal'
 let g:ale_lint_on_insert_leave = 1
 
+let g:ale_virtualtext_cursor = 1
+let g:ale_virtualtext_prefix = ' '
+
+highlight ALEVirtualTextError guifg=#56688a gui=NONE,italic
+
 " Test if this is fine
 let g:ale_completion_tsserver_autoimport = 1
 
