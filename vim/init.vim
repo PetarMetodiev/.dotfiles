@@ -728,28 +728,28 @@ nmap <silent> gj <Plug>(ale_next_wrap)
 nmap <silent> gf <Plug>(ale_fix)
 
 " Get type of element under cursor(works only in ts)
-nmap <silent> K :call LanguageClient_textDocument_hover()<CR>
+nmap <silent> K :<C-U>call LanguageClient_textDocument_hover()<CR>
 
 " Call :ContextMenu to open LanguageClient context menu
-nmap <silent> gt :call LanguageClient_contextMenu()<CR>
+nmap <silent> gt :<C-U>call LanguageClient_contextMenu()<CR>
 
 " Vim hard mode.
-nnoremap <silent> <Left> :echoe "Use h"<CR>
-nnoremap <silent> <Right> :echoe "Use l"<CR>
-nnoremap <silent> <Up> :<Up>
-nnoremap <silent> <Down> :echoe "Use j"<CR>
+nnoremap <silent> <Left> :<C-U>echoe "Use h"<CR>
+nnoremap <silent> <Right> :<C-U>echoe "Use l"<CR>
+nnoremap <Up> :<C-U><Up>
+nnoremap <silent> <Down> :<C-U>echoe "Use j"<CR>
 
 " Open vimrc
-nnoremap <silent> <leader>e :e $MYVIMRC<CR>
+nnoremap <silent> <leader>e :<C-U>e $MYVIMRC<CR>
 
 " Equalize splits
-nnoremap <silent>- :wincmd =<cr>
+nnoremap <silent>- :<C-U>wincmd =<cr>
 
 " Maximize window
-nnoremap <silent>_ :wincmd _<cr>
+nnoremap <silent>_ :<C-U>wincmd _<cr>
 
 " Hopefuly will help with colorscheme stops working.
-nnoremap <silent>U :syntax sync fromstart<cr>:redraw!<cr>
+nnoremap <silent>U :<C-U>syntax sync fromstart<cr>:redraw!<cr>
 
 " Insert empty space in normal mode
 nnoremap <space> :
@@ -763,7 +763,7 @@ vnoremap ^ 0
 vnoremap 0 ^
 
 " Map Ctrl+b to open NERDTree. To close press <q>
-nnoremap <silent> <C-b> :NERDTreeToggle<CR>
+nnoremap <silent> <C-b> :<C-U>NERDTreeToggle<CR>
 
 " Insert new line without entering insert mode
 nnoremap <CR> o<Esc>
@@ -777,7 +777,7 @@ vnoremap > >gv
 set langmap =Ч~,ЯQ,ВW,ЕE,РR,ТT,ЪY,УU,ИI,ОO,ПP,Ш{,Щ},АA,СS,ДD,ФF,ГG,ХH,ЙJ,КK,ЛL,ЗZ,ЬZ,ЦC,ЖV,БB,НN,МM,ч`,яq,вw,еe,рr,тt,ъy,уu,иi,оo,пp,ш[,щ],аa,сs,дd,фf,гg,хh,йj,кk,лl,зz,ьz,цc,жv,бb,нn,мm
 
 " Use Ctrl+Tab to switch between last used buffer
-nnoremap <silent> <C-q> :b#<CR>
+nnoremap <silent> <C-q> :<C-U>b#<CR>
 
 " Y yanks from current cursor position to the end
 nnoremap Y y$
@@ -793,21 +793,21 @@ nnoremap <leader>j j
 nnoremap <leader>k k
 
 " Toggle Colorizer
-nnoremap <silent> <leader>cc :ColorizerToggle<CR>
+nnoremap <silent> <leader>cc :<C-U>ColorizerToggle<CR>
 
 " Toggle Argwrap
-nnoremap <silent> <leader>aa :ArgWrap<CR>
+nnoremap <silent> <leader>aa :<C-U>ArgWrap<CR>
 
 " Clean line contents without delteing the line
 nnoremap <leader>x 0D
 
 " Navigate through tabs
-nnoremap <silent>tk :tabprev<CR>
-nnoremap <silent>tj :tabnext<CR>
-nnoremap <silent>tn :tabnew<CR>
+nnoremap <silent>tk :<C-U>tabprev<CR>
+nnoremap <silent>tj :<C-U>tabnext<CR>
+nnoremap <silent>tn :<C-U>tabnew<CR>
 
-nnoremap <silent> <C-P> :GFiles<CR>
-nnoremap <silent> <C-f> :Buffers<CR>
+nnoremap <silent> <C-P> :<C-U>GFiles<CR>
+nnoremap <silent> <C-f> :<C-U>Buffers<CR>
 
 if exists("g:loaded_webdevicons")
 	call webdevicons#refresh()
