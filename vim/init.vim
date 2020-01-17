@@ -188,10 +188,10 @@ colorscheme onedark
 " highlight NonText ctermfg=8 guifg=#4d4d4d
 
 " Display relative line numbers
-set rnu
+set relativenumber
 
 " Display absolute line numbers
-set nu
+set number
 
 " Leave hidden buffers open
 set hidden
