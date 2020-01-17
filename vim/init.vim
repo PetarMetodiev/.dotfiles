@@ -345,7 +345,10 @@ let g:NERDTreeSortOrder=['\/$', '\.html$', '\.ts$', '\.tsx$', '\.jsx$', '\.js$',
 let NERDTreeMinimalUI = 1
 
 " Use relative numbers for NERDTree
-autocmd FileType nerdtree setlocal relativenumber
+augroup NERDTreeSettings
+	autocmd!
+	autocmd FileType nerdtree setlocal relativenumber
+augroup END
 " Disable NERDTree expand arrows in favor of devicons
 let NERDTreeDirArrowExpandable=' '
 let NERDTreeDirArrowCollapsible=' '
