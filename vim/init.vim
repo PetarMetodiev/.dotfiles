@@ -527,14 +527,6 @@ let g:ale_html_prettier_options = '--tab-width 4'
 let g:ale_json_prettier_options = '--tab-width 2'
 
 " https://github.com/junegunn/fzf/blob/master/README-VIM.md#hide-statusline
-" if has('nvim') && !exists('g:fzf_layout')
-"	augroup fzf_statusline
-"	  autocmd! FileType fzf
-"	  autocmd  FileType fzf set laststatus=0 noshowmode noruler
-"	    \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-"	augroup END
-" endif
-
 augroup fzf_options
 	autocmd! FileType fzf
 	autocmd  FileType fzf set nonu nornu
