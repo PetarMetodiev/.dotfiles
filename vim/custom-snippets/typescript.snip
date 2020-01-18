@@ -1,0 +1,62 @@
+snippet     i
+abbr        import { member, ... } from 'module-name';
+options     head
+  import { ${1:MEMBERS} } from '${0:TARGET}';
+
+snippet cl
+abbr console.log('message');
+  console.log(${0:TARGET});
+
+snippet ce
+abbr console.error('error message');
+  console.error(${0:TARGET});
+
+snippet cw
+abbr console.warn('warn message');
+  console.warn(${0:TARGET});
+
+snippet ci
+abbr console.info('info message');
+  console.info(${0:TARGET});
+
+snippet ternary
+alias ?
+  ${1} ? ${2} : ${3}
+
+snippet if
+abbr if(condition) { ... }
+options head
+  if (${1}) {
+    ${0}
+  }
+
+snippet ife
+abbr if(condition) { ... } else { ... }
+options head
+  if (${1}) {
+    ${2}
+  } else {
+    ${3}
+  }
+
+snippet st
+abbr setTimeout(() => ...);
+options head
+  setTimeout(() => ${0});
+
+snippet af
+abbr () => ...;
+  (${1})${2} => ${3}
+
+snippet caf
+abbr const name = () => ...;
+  const ${1} = (${2}) => ${3}
+
+snippet switch
+abbr switch (condition) { case(...): ...; default; }
+  switch (${1}) {
+      case ${2}:
+          break;
+      default:
+          break;
+  }
