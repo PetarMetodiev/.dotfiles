@@ -54,11 +54,15 @@ Plug 'autozimu/LanguageClient-neovim', {
 			\ 'do': 'bash install.sh',
 			\ }
 
+" Path to locally installed FZF
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Completion engine
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Integrates with LanguageClient-neovim and deoplete
+Plug 'Shougo/neosnippet.vim'
 
 " Floating window for deoplete
 " Shows docs for an item(if docs exist)
@@ -278,7 +282,7 @@ let g:LanguageClient_diagnosticsEnable=0
 
 " If not explicitly disabled, a check is made for known snippet plugins.
 " May lead to performance hits.
-let g:LanguageClient_hasSnippetSupport = 1
+let g:LanguageClient_hasSnippetSupport = 0
 
 " Default is 'Auto' and leads to inconsistent behavior.
 let g:LanguageClient_hoverPreview = 'Always'
@@ -298,6 +302,14 @@ let g:LanguageClient_rootMarkers = {
 
 let g:deoplete#enable_at_startup = 1
 
+let g:neosnippet#disable_runtime_snippets = {
+			\   '_' : 1,
+			\ }
+let g:neosnippet#snippets_directory = "~/.config/nvim/custom-snippets"
+" if has('conceal')
+" 	set conceallevel=2 concealcursor=niv
+" endif
+
 call deoplete#custom#source('_', 'buffer')
 
 call deoplete#custom#source('_', {
@@ -313,10 +325,13 @@ call deoplete#custom#source('LanguageClient', {
 			\ })
 
 " Scroll through deoplete items with tab and shift+tab
-inoremap <silent><expr> <TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ <SID>check_back_space() ? "\<TAB>" :
-			\ deoplete#manual_complete()
+" This interferes with Tab expansion for snippets and commenting it out seems
+" to solve all issues.
+" Leaving this for reference in case any problem with completion arises.
+" inoremap <silent><expr> <TAB>
+" 			\ pumvisible() ? "\<C-n>" :
+" 			\ <SID>check_back_space() ? "\<TAB>" :
+" 			\ deoplete#manual_complete()
 inoremap <silent><expr> <S-TAB>
 			\ pumvisible() ? "\<C-p>" :
 			\ <SID>check_back_space() ? "\<S-TAB>" :
@@ -327,6 +342,20 @@ function! s:check_back_space() abort "{{{
 	return !col || getline('.')[col - 1]  =~ '\s'
 endfunction "}}}
 
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_or_jump)
+
+imap <expr><TAB>
+			\ pumvisible() ? "\<C-n>" :
+			\ neosnippet#expandable_or_jumpable() ?
+			\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+
+autocmd InsertLeave * NeoSnippetClearMarkers
+snoremap <silent><ESC>  <ESC>:NeoSnippetClearMarkers<CR>
 " Set up fzf to work with Ag
 command! -bang -nargs=* Ag
 			\ call fzf#vim#ag(
