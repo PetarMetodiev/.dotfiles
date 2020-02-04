@@ -10,7 +10,13 @@ options     head
 
 snippet cl
 abbr console.log('message');
+options head
   console.log(${0:TARGET});
+
+snippet cl
+abbr console.log('message')
+options word
+  console.log(${0:TARGET})
 
 snippet ce
 abbr console.error('error message');
