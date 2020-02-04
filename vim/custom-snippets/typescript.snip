@@ -3,6 +3,11 @@ abbr        import { member, ... } from 'module-name';
 options     head
   import { ${0} } from '${1}';
 
+snippet     e
+abbr        export ... from './path-to-file';
+options     head
+  export ${0} from '${1}';
+
 snippet cl
 abbr console.log('message');
   console.log(${0:TARGET});
