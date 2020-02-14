@@ -91,6 +91,10 @@ Plug 'tmux-plugins/vim-tmux-focus-events'
 " Needs to be configured in .tmux.conf as well
 Plug 'christoomey/vim-tmux-navigator'
 
+" Session save and restore.
+" Works great with tmux-resurrect and tmux-continuum
+Plug 'tpope/vim-obsession'
+
 " Automatically :set paste! when inserting text from outside vim(e.g.
 " shift+insert)
 Plug 'ConradIrwin/vim-bracketed-paste'
