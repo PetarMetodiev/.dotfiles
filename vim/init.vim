@@ -737,6 +737,9 @@ set nofoldenable
 " Disable keybindings for auto-pairs - https://github.com/jiangmiao/auto-pairs#shortcuts
 let g:AutoPairsShortcutToggle = ""
 
+" Jump between matching < and > with %
+set matchpairs+=<:>
+
 " Fix extra closing '>' when using vim-closetag with delimitMate
 let delimitMate_matchpairs ="(:),[:],{:}"
 
