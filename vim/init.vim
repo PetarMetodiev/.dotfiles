@@ -741,7 +741,11 @@ let g:AutoPairsShortcutToggle = ""
 set matchpairs+=<:>
 
 " Fix extra closing '>' when using vim-closetag with delimitMate
-let delimitMate_matchpairs ="(:),[:],{:}"
+augroup html_delimitmate
+	au!
+	au FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
+augroup END
+let delimitMate_matchpairs = "(:),[:],{:},<:>"
 
 " https://github.com/pgdouyon/vim-evanesco/issues/6#issuecomment-251026521
 let g:indexed_search_mappings = 0
