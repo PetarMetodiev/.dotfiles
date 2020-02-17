@@ -235,7 +235,7 @@ augroup END
 set formatoptions+=j
 
 " Explanation - https://www.youtube.com/watch?v=sA3z6gsqOuw
-set inccommand = "split"
+set inccommand=split
 
 " Mouse support(clicking, scrolling, selecting panes)
 set mouse=a
