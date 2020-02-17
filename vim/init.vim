@@ -311,7 +311,7 @@ let g:neosnippet#disable_runtime_snippets = {
 			\ }
 let g:neosnippet#snippets_directory = "~/.config/nvim/custom-snippets"
 " if has('conceal')
-" 	set conceallevel=2 concealcursor=niv
+"	set conceallevel=2 concealcursor=niv
 " endif
 
 call deoplete#custom#source('_', 'buffer')
@@ -333,9 +333,9 @@ call deoplete#custom#source('LanguageClient', {
 " to solve all issues.
 " Leaving this for reference in case any problem with completion arises.
 " inoremap <silent><expr> <TAB>
-" 			\ pumvisible() ? "\<C-n>" :
-" 			\ <SID>check_back_space() ? "\<TAB>" :
-" 			\ deoplete#manual_complete()
+"			\ pumvisible() ? "\<C-n>" :
+"			\ <SID>check_back_space() ? "\<TAB>" :
+"			\ deoplete#manual_complete()
 inoremap <silent><expr> <S-TAB>
 			\ pumvisible() ? "\<C-p>" :
 			\ <SID>check_back_space() ? "\<S-TAB>" :
