@@ -802,7 +802,7 @@ vnoremap ^ 0
 vnoremap 0 ^
 
 " Map Ctrl+b to open NERDTree. To close press <q>
-nnoremap <silent> <C-b> :<C-U>NERDTreeToggle<CR>
+nnoremap <silent><expr> <C-b> g:NERDTree.IsOpen() ? ":NERDTreeClose\<CR>" : ":NERDTreeFind\<CR>zz"
 
 " Insert new line without entering insert mode
 nnoremap <CR> o<Esc>
