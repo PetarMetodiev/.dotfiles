@@ -386,6 +386,9 @@ augroup END
 let NERDTreeDirArrowExpandable=' '
 let NERDTreeDirArrowCollapsible=' '
 
+" Automatically delete a buffer when deleting or removing file from NERDTree
+let NERDTreeAutoDeleteBuffer = 1
+
 " If NERDTree is the only thing left in tab - close tab
 augroup CloseLonelyNERDTree
 	autocmd!
