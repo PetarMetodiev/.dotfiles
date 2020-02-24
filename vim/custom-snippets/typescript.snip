@@ -8,6 +8,34 @@ abbr        export ... from './path-to-file';
 options     head
   export ${0} from '${1}';
 
+snippet     d
+abbr        describe(..., () => { ... });
+options     head
+  describe(${1}, () => {
+    ${2}
+  });
+
+snippet     it
+abbr        it(..., () => { ... });
+options     head
+  it(${1}, () => {
+    ${2}
+  });
+
+snippet     fit
+abbr        fit(..., () => { ... });
+options     head
+  fit(${1}, () => {
+    ${2}
+  });
+
+snippet     fat
+abbr        it(..., fakeAsync() => { ... });
+options     head
+  fit(${1}, fakeAsync() => {
+    ${2}
+  });
+
 snippet cl
 abbr console.log('message');
   console.log(${0});
