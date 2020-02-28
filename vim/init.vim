@@ -323,6 +323,7 @@ call deoplete#custom#source('_', {
 
 call deoplete#custom#source('LanguageClient', {
 			\ 'max_abbr_width': 0,
+			\ 'max_menu_width': 0,
 			\ 'min_pattern_length': 2,
 			\ 'rank': 500,
 			\ 'dup': v:false
