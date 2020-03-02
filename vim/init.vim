@@ -807,6 +807,8 @@ nnoremap <silent><expr> <C-b> g:NERDTree.IsOpen() ? ":NERDTreeClose\<CR>" : ":NE
 
 " Insert new line without entering insert mode
 nnoremap <CR> o<Esc>
+" Needs Option key to ack as +Esc in iTerm2 - https://coderwall.com/p/h6yfda/use-and-to-jump-forwards-backwards-words-in-iterm-2-on-os-x
+nnoremap <M-CR> O<Esc>
 
 " Reselect visual block after indent/outdent
 vnoremap < <gv
