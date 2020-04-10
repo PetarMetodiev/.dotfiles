@@ -201,6 +201,12 @@ set relativenumber
 " Display absolute line numbers
 set number
 
+" Show a character for wrapped lines.
+set showbreak=\ \ \\ 
+
+" Show wrapped line character inside the number column.
+set cpoptions+=n
+
 " Leave hidden buffers open
 set hidden
 
