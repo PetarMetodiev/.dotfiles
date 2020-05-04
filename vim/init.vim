@@ -193,7 +193,7 @@ colorscheme onedark
 " colorscheme af
 " colorscheme bubblegum
 " colorscheme landscape
-" highlight NonText ctermfg=8 guifg=#4d4d4d
+" highlight NonText ctermfg=8 guifg=#4d4d4d " Used for coloring the character for the wrapping lines
 
 " Display relative line numbers
 set relativenumber
