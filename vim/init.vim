@@ -163,18 +163,41 @@ set hlsearch
 set winblend=10 " Floating window
 set pumblend=10 " All kinds of popup menus
 
-" Tell vim to keep a backup file
+" Create backup dir if needed
 " Should be $XDG_DATA_HOME/nvim/backup but macos is not happy
 if !isdirectory($HOME.'/.config/nvim/backup')
 	call mkdir($HOME.'/.config/nvim/backup', 'p')
 endif
 
-set backup
+" Create swapfile dir if needed
+if !isdirectory($HOME.'/.config/nvim/swap')
+	call mkdir($HOME.'/.config/nvim/swap', 'p')
+endif
+
+" Create swapfile dir if needed
+if !isdirectory($HOME.'/.config/nvim/undo')
+	call mkdir($HOME.'/.config/nvim/undo', 'p')
+endif
+
+" https://begriffs.com/posts/2019-07-19-history-use-vim.html#backups-and-undo
+" Protect changes between writes. Default values of
+" Updatecount (200 keystrokes) and updatetime
+" (4 seconds) are fine
+set swapfile
+set directory^=~/.config/nvim/swap//
+
+" Protect against crash-during-write
+set writebackup
+" ...but do not persist backup after successful write
+set nobackup
+" Use rename-and-write-new method whenever safe
+set backupcopy=auto
 " Double trailing back-slash: https://news.ycombinator.com/item?id=1690673
 set backupdir=$HOME/.config/nvim/backup//
 
-" persist undos
+" persist the undo tree for each file
 set undofile
+set undodir^=~/.config/nvim/undo//
 
 " Use italics for onedark colorscheme
 " Works only when true colors are set
