@@ -108,6 +108,8 @@ Plug 'pgdouyon/vim-evanesco'
 " Repeat with '.' surroundings
 Plug 'tpope/vim-repeat'
 
+Plug 'mbbill/undotree'
+
 " Themes
 " Plug 'flazz/vim-colorschemes'
 " Plug 'rafi/awesome-vim-colorschemes'
@@ -779,6 +781,29 @@ augroup html_delimitmate
 	au FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
 augroup END
 let delimitMate_matchpairs = "(:),[:],{:},<:>"
+
+" +------------------------+----------+
+" |                        |          |
+" |                        |          |
+" |                        | undotree |
+" |                        |          |
+" |                        |          |
+" +------------------------+----------+
+" |                                   |
+" |                            diff   |
+" |                                   |
+" +-----------------------------------+
+let g:undotree_WindowLayout = 4
+" Autofocus on undotree when it is opened
+let g:undotree_SetFocusWhenToggle = 1
+" Use (6 s) instead of (6 seconds ago)
+let g:undotree_ShortIndicators = 1
+
+nnoremap <silent> <leader>u :UndotreeToggle<CR>
+
+function g:Undotree_CustomMap()
+	nmap <buffer> <Esc> <plug>UndotreeClose
+endfunc
 
 " https://github.com/pgdouyon/vim-evanesco/issues/6#issuecomment-251026521
 let g:indexed_search_mappings = 0
