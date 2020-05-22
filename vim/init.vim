@@ -554,6 +554,7 @@ augroup end
 let g:ale_linters = {
 			\   'typescript': ['tslint', 'tsserver'],
 			\}
+
 let g:ale_fixers = {
 			\ 'javascript': ['prettier'],
 			\ 'typescript': ['prettier'],
