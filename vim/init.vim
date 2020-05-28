@@ -108,7 +108,11 @@ Plug 'pgdouyon/vim-evanesco'
 " Repeat with '.' surroundings
 Plug 'tpope/vim-repeat'
 
+" Move between different undo paths in undo history
 Plug 'mbbill/undotree'
+
+" Display contents of registers when pressing "(normal) or Ctrl-R(insert)
+Plug 'junegunn/vim-peekaboo'
 
 " Themes
 " Plug 'flazz/vim-colorschemes'
