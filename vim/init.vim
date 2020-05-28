@@ -291,6 +291,9 @@ set fillchars=eob:\
 " window
 set completeopt-=preview
 
+" Treat dash separated words as a word text object
+set iskeyword+=-
+
 " Do not show line numbers in quickfix window and in ale preview window
 " Close ale preview window with ESC
 augroup preview_settings
@@ -873,7 +876,8 @@ vnoremap > >gv
 " set langmap=ёйцукенгшщзхъфывапролджэячсмитьбюЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ;`qwertyuiop[]asdfghjkl\\;'zxcvbnm\\,.QWERTYUIOP{}ASDFGHJKL:\\"ZXCVBNM<>
 set langmap =Ч~,ЯQ,ВW,ЕE,РR,ТT,ЪY,УU,ИI,ОO,ПP,Ш{,Щ},АA,СS,ДD,ФF,ГG,ХH,ЙJ,КK,ЛL,ЗZ,ЬZ,ЦC,ЖV,БB,НN,МM,ч`,яq,вw,еe,рr,тt,ъy,уu,иi,оo,пp,ш[,щ],аa,сs,дd,фf,гg,хh,йj,кk,лl,зz,ьz,цc,жv,бb,нn,мm
 
-" Use Ctrl+Tab to switch between last used buffer
+" Use Ctrl+q to switch between last used buffer(Ctrl+TAB is not reliable in
+" all terminals)
 nnoremap <silent> <C-q> :<C-U>b#<CR>
 
 " Y yanks from current cursor position to the end
