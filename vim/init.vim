@@ -151,6 +151,8 @@ set smartcase
 set smartindent
 set autoindent
 set copyindent
+" Should insert same indentation as the rest of the file
+set smarttab
 
 " Needed for coc.nvim update time, may lead to performance issues
 set updatetime=300
