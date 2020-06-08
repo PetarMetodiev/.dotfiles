@@ -261,6 +261,9 @@ set listchars=tab:»\ ,trail:·
 " Turn on whitespace characters by default
 set list
 
+" Show as much as possible from last wrapped line
+set display+=lastline
+
 " Do not continue comment using o or O
 " Why use augroup: https://vi.stackexchange.com/a/1985
 augroup all_filetypes
