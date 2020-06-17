@@ -303,6 +303,12 @@ set completeopt-=preview
 " Treat dash separated words as a word text object
 set iskeyword+=-
 
+augroup background_colors
+	au!
+	au FocusGained * highlight Normal guibg=#282C34
+	au FocusLost * highlight Normal guibg=#141619
+augroup END
+
 " Do not show line numbers in quickfix window and in ale preview window
 " Close ale preview window with ESC
 augroup preview_settings
