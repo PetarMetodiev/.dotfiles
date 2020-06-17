@@ -408,7 +408,10 @@ smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
 			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 
-autocmd InsertLeave * NeoSnippetClearMarkers
+augroup neosnippets
+	autocmd!
+	autocmd InsertLeave * NeoSnippetClearMarkers
+augroup END
 snoremap <silent><ESC>  <ESC>:NeoSnippetClearMarkers<CR>
 " Set up fzf to work with Ag
 command! -bang -nargs=* Ag
