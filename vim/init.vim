@@ -333,6 +333,9 @@ let g:rooter_patterns = [
 " May be Ale does the job well enough?
 let g:LanguageClient_diagnosticsEnable=0
 
+" Open context menu in fzf
+let g:LanguageClient_selectionUI = 'fzf'
+
 " If not explicitly disabled, a check is made for known snippet plugins.
 " May lead to performance hits.
 let g:LanguageClient_hasSnippetSupport = 0
