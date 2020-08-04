@@ -158,6 +158,11 @@ set copyindent
 " Should insert same indentation as the rest of the file
 set smarttab
 
+" Bracket highlighting while in insert mode. After typing a paren, brace, or bracket, the cursor will automatically jump to the matching bracket
+" and return to the insert position.
+set showmatch
+set matchtime=3
+
 " Needed for coc.nvim update time, may lead to performance issues
 set updatetime=300
 
