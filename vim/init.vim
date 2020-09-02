@@ -612,7 +612,7 @@ let g:ale_virtualtext_prefix = ' '
 highlight ALEVirtualTextError guifg=#56688a gui=NONE,italic
 
 " Test if this is fine
-let g:ale_completion_tsserver_autoimport = 1
+let g:ale_completion_autoimport = 1
 
 if filereadable(globpath($HOME, '.config/prettier/.prettierrc'))
 	let g:ale_javascript_prettier_options = '--config ~/.config/prettier/.prettierrc --config-precedence prefer-file'
