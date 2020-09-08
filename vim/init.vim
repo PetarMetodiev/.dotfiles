@@ -531,7 +531,7 @@ augroup END
 highlight node_modules_dir guifg=#5c6370
 
 " Fix for not loading files sometimes - https://github.com/scrooloose/nerdtree/issues/587
-let NERDTreeIgnore=['\c^ntuser\..*']
+let NERDTreeIgnore=['\c^ntuser\..*', '\.git$']
 
 " Show hidden files
 let NERDTreeShowHidden=1
