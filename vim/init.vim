@@ -433,7 +433,7 @@ let mapleader="\<BS>"
 let NERDTreeShowLineNumbers=1
 
 " NERDTree file sorting
-let g:NERDTreeSortOrder=['\/$', '\.html$', '\.ts$', '\.tsx$', '\.jsx$', '\.js$', '*',  '\~$']
+let g:NERDTreeSortOrder=['\/$', '\.html$', '\.scss$', '\.css$', '\.ts$', '\.tsx$', '\.jsx$', '\.js$', '*',  '\~$']
 
 " Hide Press ? for help
 let NERDTreeMinimalUI = 1
