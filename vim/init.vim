@@ -137,7 +137,10 @@ lua require 'colorizer'.setup ({
 			\ 'html',
 			\ 'typescript'
 			\ })
-
+" Disable all LSP diagnostics. Use ALE instead as it is more configurable.
+lua << EOF
+  vim.lsp.callbacks["textDocument/publishDiagnostics"] = function() end
+EOF
 lua require'nvim_lsp'.tsserver.setup{}
 lua require'nvim_lsp'.bashls.setup{}
 lua require'nvim_lsp'.cssls.setup{}
