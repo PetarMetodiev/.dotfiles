@@ -101,6 +101,12 @@ Plug 'mbbill/undotree'
 " Display contents of registers when pressing "(normal) or Ctrl-R(insert)
 Plug 'junegunn/vim-peekaboo'
 
+" Built-in neovim lsp configs
+Plug 'neovim/nvim-lspconfig'
+
+" Completion engine for nvim-lsp
+Plug 'nvim-lua/completion-nvim'
+
 " Themes
 " Plug 'flazz/vim-colorschemes'
 " Plug 'rafi/awesome-vim-colorschemes'
@@ -121,6 +127,7 @@ call plug#end()
 " Neovim defaults: https://neovim.io/doc/user/vim_diff.html
 "
 set termguicolors
+autocmd BufEnter * lua require'completion'.on_attach()
 
 " Has to be set after setting termguicolors
 " More info on configuration :h colorizer.lua
@@ -130,6 +137,13 @@ lua require 'colorizer'.setup ({
 			\ 'html',
 			\ 'typescript'
 			\ })
+
+lua require'nvim_lsp'.tsserver.setup{}
+lua require'nvim_lsp'.bashls.setup{}
+lua require'nvim_lsp'.cssls.setup{}
+lua require'nvim_lsp'.html.setup{}
+lua require'nvim_lsp'.jsonls.setup{}
+lua require'nvim_lsp'.vimls.setup{}
 
 " Keep 1000 lines of command line history
 set history=1000
@@ -287,10 +301,9 @@ set autochdir
 " Hide ~ symbols at the end of a file
 set fillchars=eob:\ 
 
-" Do not show completion options in preview window
-" Needed for deoplete as  ncm2/float-preview.nvim shows docs in floating
-" window
-set completeopt-=preview
+" Set completeopt to have a better completion experience
+" https://github.com/nvim-lua/completion-nvim#recommended-setting
+set completeopt=menuone,noinsert,noselect
 
 " Treat dash separated words as a word text object
 set iskeyword+=-
@@ -341,6 +354,26 @@ command! -bang -nargs=* Ag
 			\ call fzf#vim#ag(
 			\   '',
 			\   fzf#vim#with_preview('right:50%:noborder'))
+
+let g:completion_matching_strategy_list = [
+					\ 'exact', 
+					\ 'substring', 
+					\ 'fuzzy', 
+					\ 'all']
+
+" https://github.com/nvim-lua/completion-nvim/issues/164#issuecomment-667705618
+let g:completion_items_priority = {
+				  \ 'Field': 5,
+				  \ 'Function': 7,
+				  \ 'Variable': 7,
+				  \ 'Method': 10,
+				  \ 'Interfaces': 5,
+				  \ 'Constant': 5,
+				  \ 'Class': 5,
+				  \ 'Keyword': 4,
+				  \ 'Buffers' : 1,
+				  \ 'File' : 0,
+				  \}
 
 let mapleader="\<BS>"
 
@@ -744,6 +777,10 @@ nnoremap <silent> <leader>u :UndotreeToggle<CR>
 function g:Undotree_CustomMap()
 	nmap <buffer> <Esc> <plug>UndotreeClose
 endfunc
+
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " https://github.com/pgdouyon/vim-evanesco/issues/6#issuecomment-251026521
 let g:indexed_search_mappings = 0
