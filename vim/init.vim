@@ -378,6 +378,19 @@ let g:completion_items_priority = {
 				  \ 'File' : 0,
 				  \}
 
+" Complete file paths
+" May be buggy - https://github.com/nvim-lua/completion-nvim/issues/23
+let g:completion_chain_complete_list = {
+            \ 'default' : {
+            \   'default': [
+            \       {'complete_items': ['lsp']},
+            \       {'mode': '<c-p>'},
+            \       {'mode': '<c-n>'}],
+            \   'comment': [],
+            \   'string' : [
+            \       {'complete_items': ['path'], 'triggered_only': ['/']}]
+            \   }}
+
 let mapleader="\<BS>"
 
 " Enable line numbers for NERDTree
