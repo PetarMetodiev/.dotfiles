@@ -48,25 +48,12 @@ Plug 'jiangmiao/auto-pairs'
 " Typescript syntax
 Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript', 'tsx' ]}
 
-" List of LSP Servers: https://langserver.org/
-Plug 'autozimu/LanguageClient-neovim', {
-			\ 'branch': 'next',
-			\ 'do': 'bash install.sh',
-			\ }
-
 " Path to locally installed FZF
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
-" Completion engine
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
 " Integrates with LanguageClient-neovim and deoplete
 Plug 'Shougo/neosnippet.vim'
-
-" Floating window for deoplete
-" Shows docs for an item(if docs exist)
-Plug 'ncm2/float-preview.nvim'
 
 " Syntax support for JSON
 Plug 'elzr/vim-json', { 'for': 'json' }
@@ -80,10 +67,10 @@ Plug 'FooSoft/vim-argwrap'
 " TypeScript syntax highlighting
 Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript', 'tsx' ]}
 
-" Vim understands .tmux.conf¬
+" Vim understands .tmux.conf
 Plug 'tmux-plugins/vim-tmux'
 
-" Make autoread work in tmux¬
+" Make autoread work in tmux
 Plug 'tmux-plugins/vim-tmux-focus-events'
 
 " Jump between vim splits and tmux panes with the same key combination - C-k,
@@ -335,87 +322,14 @@ let g:rooter_patterns = [
 			\ '.svn/',
 			\ 'node_modules/']
 
-" May be Ale does the job well enough?
-let g:LanguageClient_diagnosticsEnable=0
-
-" Open context menu in fzf
-let g:LanguageClient_selectionUI = 'fzf'
-
-" If not explicitly disabled, a check is made for known snippet plugins.
-" May lead to performance hits.
-let g:LanguageClient_hasSnippetSupport = 0
-
-" Default is 'Auto' and leads to inconsistent behavior.
-let g:LanguageClient_hoverPreview = 'Always'
-
-let g:LanguageClient_serverCommands = {
-			\ 'javascript': ['typescript-language-server', '--stdio'],
-			\ 'typescript': ['typescript-language-server', '--stdio'],
-			\ }
-			" \ 'javascript': ['javascript-typescript-stdio'],
-			" \ 'typescript': ['javascript-typescript-stdio'],
-			" \ }
-
-let g:LanguageClient_rootMarkers = {
-			\ 'javascript': ['jsconfig.json'],
-			\ 'typescript': ['tsconfig.json'],
-			\ }
-
-let g:deoplete#enable_at_startup = 1
-
 let g:neosnippet#disable_runtime_snippets = {
 			\   '_' : 1,
 			\ }
 let g:neosnippet#snippets_directory = "~/.config/nvim/custom-snippets"
-" if has('conceal')
-"	set conceallevel=2 concealcursor=niv
-" endif
-
-call deoplete#custom#source('_', 'buffer')
-
-call deoplete#custom#source('_', {
-			\ 'max_abbr_width': 0,
-			\ 'max_menu_width': 0
-			\ })
-
-call deoplete#custom#source('LanguageClient', {
-			\ 'max_abbr_width': 0,
-			\ 'max_menu_width': 0,
-			\ 'min_pattern_length': 2,
-			\ 'rank': 500,
-			\ 'dup': v:false
-			\ })
-
-" Scroll through deoplete items with tab and shift+tab
-" This interferes with Tab expansion for snippets and commenting it out seems
-" to solve all issues.
-" Leaving this for reference in case any problem with completion arises.
-" inoremap <silent><expr> <TAB>
-"			\ pumvisible() ? "\<C-n>" :
-"			\ <SID>check_back_space() ? "\<TAB>" :
-"			\ deoplete#manual_complete()
-inoremap <silent><expr> <S-TAB>
-			\ pumvisible() ? "\<C-p>" :
-			\ <SID>check_back_space() ? "\<S-TAB>" :
-			\ deoplete#manual_complete()
-
-function! s:check_back_space() abort "{{{
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~ '\s'
-endfunction "}}}
 
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_or_jump)
-
-" Turns out <C-k> works well enough
-" imap <expr><TAB>
-" 			\ pumvisible() ? "\<C-n>" :
-" 			\ neosnippet#expandable_or_jumpable() ?
-" 			\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-" 			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
 
 augroup neosnippets
 	autocmd!
@@ -846,12 +760,6 @@ nmap <silent> gj <Plug>(ale_next_wrap)
 
 " Run Ale fixer
 nmap <silent> gf <Plug>(ale_fix)
-
-" Get type of element under cursor(works only in ts)
-nmap <silent> K :<C-U>call LanguageClient_textDocument_hover()<CR>
-
-" Call :ContextMenu to open LanguageClient context menu
-nmap <silent> gt :<C-U>call LanguageClient_contextMenu()<CR>
 
 " Vim hard mode.
 nnoremap <silent> <Left> :<C-U>echoe "Use h"<CR>
