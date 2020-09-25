@@ -15,7 +15,7 @@ Plug 'vim-airline/vim-airline'
 Plug 'tpope/vim-surround'
 
 " Highlight yanked text
-Plug 'machakann/vim-highlightedyank'
+Plug 'machakann/vim-highlightedyank' " uses built in TextYankPost, no need to remove it
 
 " Commenting
 Plug 'tomtom/tcomment_vim'
@@ -408,12 +408,13 @@ imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
 xmap <C-k> <Plug>(neosnippet_expand_or_jump)
 
-imap <expr><TAB>
-			\ pumvisible() ? "\<C-n>" :
-			\ neosnippet#expandable_or_jumpable() ?
-			\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" Turns out <C-k> works well enough
+" imap <expr><TAB>
+" 			\ pumvisible() ? "\<C-n>" :
+" 			\ neosnippet#expandable_or_jumpable() ?
+" 			\    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+" smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
+" 			\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
 
 
 augroup neosnippets
@@ -611,7 +612,6 @@ let g:ale_virtualtext_prefix = ' '
 
 highlight ALEVirtualTextError guifg=#56688a gui=NONE,italic
 
-" Test if this is fine
 let g:ale_completion_autoimport = 1
 
 if filereadable(globpath($HOME, '.config/prettier/.prettierrc'))
@@ -792,10 +792,6 @@ let g:airline#extensions#ale#enabled = 1
 " Set duration of highlighting when yanking
 let g:highlightedyank_highlight_duration = 300
 
-" Folding based on the syntax of the used language
-" set foldmethod=syntax
-" Start at some unfolded position
-" set foldlevelstart=4
 " Disable folding
 set nofoldenable
 
