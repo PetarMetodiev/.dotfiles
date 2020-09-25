@@ -887,7 +887,20 @@ vnoremap ^ 0
 vnoremap 0 ^
 
 " Map Ctrl+b to open NERDTree. To close press <q>
-nnoremap <silent><expr> <C-b> g:NERDTree.IsOpen() ? ":NERDTreeClose\<CR>" : ":NERDTreeFind\<CR>zz"
+nnoremap <silent> <C-b> :call NERDTreeToggleInCurDir()<CR>
+" https://github.com/preservim/nerdtree/issues/480#issuecomment-139815558
+function! NERDTreeToggleInCurDir()
+	" If NERDTree is open in the current buffer
+	if (exists("t:NERDTreeBufName") && bufwinnr(t:NERDTreeBufName) != -1)
+		exe ":NERDTreeClose"
+	else
+		if (expand("%:t") != '')
+			exe ":NERDTreeFind"
+		else
+			exe ":NERDTreeToggle"
+		endif
+	endif
+endfunction
 
 " Insert new line without entering insert mode
 nnoremap <CR> o<Esc>
