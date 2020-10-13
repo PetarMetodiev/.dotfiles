@@ -814,6 +814,9 @@ nmap <silent> gj <Plug>(ale_next_wrap)
 " Run Ale fixer
 nmap <silent> gf <Plug>(ale_fix)
 
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+
 " Vim hard mode.
 nnoremap <silent> <Left> :<C-U>echoe "Use h"<CR>
 nnoremap <silent> <Right> :<C-U>echoe "Use l"<CR>
