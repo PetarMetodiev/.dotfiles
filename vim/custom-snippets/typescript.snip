@@ -1,12 +1,12 @@
 snippet     i
-abbr        import { member, ... } from 'module-name';
+abbr        import { ... } from 'module-name';
 options     head
   import { ${0} } from '${1}';
 
 snippet     e
-abbr        export ... from './path-to-file';
+abbr        export { ... } from './path-to-file';
 options     head
-  export ${0} from '${1}';
+  export { ${0} } from '${1}';
 
 snippet     d
 abbr        describe(..., () => { ... });
