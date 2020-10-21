@@ -946,7 +946,7 @@ nnoremap <silent>tk :<C-U>tabprev<CR>
 nnoremap <silent>tj :<C-U>tabnext<CR>
 nnoremap <silent>tn :<C-U>tabnew<CR>
 
-nnoremap <silent> <C-P> :<C-U>GFiles<CR>
+nnoremap <silent> <C-P> :execute system('git rev-parse --is-inside-work-tree') =~ 'true' ? 'GFiles' : 'Files'<CR>
 nnoremap <silent> <C-f> :<C-U>Buffers<CR>
 
 if exists("g:loaded_webdevicons")
