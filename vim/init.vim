@@ -351,6 +351,7 @@ let g:LanguageClient_hoverPreview = 'Always'
 let g:LanguageClient_serverCommands = {
 			\ 'javascript': ['typescript-language-server', '--stdio'],
 			\ 'typescript': ['typescript-language-server', '--stdio'],
+			\ 'vim': ['vim-language-server', '--stdio'],
 			\ }
 			" \ 'javascript': ['javascript-typescript-stdio'],
 			" \ 'typescript': ['javascript-typescript-stdio'],
