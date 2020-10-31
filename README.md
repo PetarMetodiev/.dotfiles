@@ -121,6 +121,11 @@
 	  ```sh
 	  npm install -g typescript-language-server
 	  ```
+
+	- #### [vim-language-server](https://github.com/iamcco/vim-language-server)
+	```sh
+	npm install -g vim-language-server
+	```
   
   - ### [HTTPie](https://httpie.org/) _optional_
   ```sh
