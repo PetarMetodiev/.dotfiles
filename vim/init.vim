@@ -575,11 +575,14 @@ augroup end
 " not-configured properly
 let g:ale_linters = {
 			\   'typescript': ['tslint', 'tsserver'],
+			\   'typescriptreact': ['tslint', 'tsserver'],
 			\}
 
 let g:ale_fixers = {
 			\ 'javascript': ['prettier'],
 			\ 'typescript': ['prettier'],
+			\ 'javascriptreact': ['prettier'],
+			\ 'typescriptreact': ['prettier'],
 			\ 'html': ['prettier'],
 			\ 'css': ['prettier'],
 			\ 'scss': ['prettier'],
