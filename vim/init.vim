@@ -26,9 +26,6 @@ Plug 'editorconfig/editorconfig-vim'
 " Concealing for JS
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 
-" JS syntax highlighting
-Plug 'jelera/vim-javascript-syntax', { 'for': 'javascript' }
-
 " Airline themes
 Plug 'vim-airline/vim-airline-themes'
 
@@ -44,9 +41,6 @@ Plug 'airblade/vim-rooter'
 
 " Insert or delete brackets, automatically add new lines between brackets
 Plug 'jiangmiao/auto-pairs'
-
-" Typescript syntax
-Plug 'leafgarland/typescript-vim', { 'for': [ 'typescript', 'tsx' ]}
 
 " List of LSP Servers: https://langserver.org/
 Plug 'autozimu/LanguageClient-neovim', {
@@ -68,17 +62,15 @@ Plug 'Shougo/neosnippet.vim'
 " Shows docs for an item(if docs exist)
 Plug 'ncm2/float-preview.nvim'
 
-" Syntax support for JSON
-Plug 'elzr/vim-json', { 'for': 'json' }
-
 " Color hex codes and color names
 Plug 'norcalli/nvim-colorizer.lua'
 
 " Place items in braces on new row each
 Plug 'FooSoft/vim-argwrap'
-"
-" TypeScript syntax highlighting
-Plug 'HerringtonDarkholme/yats.vim', { 'for': [ 'typescript', 'tsx' ]}
+
+" Syntax highlighting for most of the common filetypes
+" and real smart indent
+Plug 'sheerun/vim-polyglot'
 
 " Vim understands .tmux.conf¬
 Plug 'tmux-plugins/vim-tmux'
