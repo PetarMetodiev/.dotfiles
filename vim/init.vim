@@ -343,6 +343,8 @@ let g:LanguageClient_hoverPreview = 'Always'
 let g:LanguageClient_serverCommands = {
 			\ 'javascript': ['typescript-language-server', '--stdio'],
 			\ 'typescript': ['typescript-language-server', '--stdio'],
+			\ 'javascriptreact': ['typescript-language-server', '--stdio'],
+			\ 'typescriptreact': ['typescript-language-server', '--stdio'],
 			\ 'vim': ['vim-language-server', '--stdio'],
 			\ }
 			" \ 'javascript': ['javascript-typescript-stdio'],
@@ -352,6 +354,8 @@ let g:LanguageClient_serverCommands = {
 let g:LanguageClient_rootMarkers = {
 			\ 'javascript': ['jsconfig.json'],
 			\ 'typescript': ['tsconfig.json'],
+			\ 'javascriptreact': ['jsconfig.json'],
+			\ 'typescriptreact': ['tsconfig.json'],
 			\ }
 
 let g:deoplete#enable_at_startup = 1
