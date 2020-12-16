@@ -852,7 +852,15 @@ nmap <silent> gj <Plug>(ale_next_wrap)
 nmap <silent> gf <Plug>(ale_fix)
 
 " Get type of element under cursor(works only in ts)
-nmap <silent> K :<C-U>call LanguageClient_textDocument_hover()<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call LanguageClient_textDocument_hover()
+  endif
+endfunction
 
 " Call :ContextMenu to open LanguageClient context menu
 nmap <silent> gt :<C-U>call LanguageClient_contextMenu()<CR>
