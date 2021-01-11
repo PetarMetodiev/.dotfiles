@@ -546,7 +546,7 @@ let g:webdevicons_enable_nerdtree = 1
 let g:webdevicons_conceal_nerdtree_brackets = 1
 
 " Custom icons for file extensions
-" Next line is needed needed
+" Next line is needed
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['js'] = js_icon
 let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['ts'] = ts_icon
@@ -558,7 +558,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.test.ts'] = test_icon
 let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['license'] = license_icon
 
 " Custom icons for specific filenames
-" Next line is needed needed
+" Next line is needed
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['ormconfig.js'] = orm_icon
 let g:WebDevIconsUnicodeDecorateFileNodesExactSymbols['.env'] = env_icon
