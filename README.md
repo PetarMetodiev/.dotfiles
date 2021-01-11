@@ -132,10 +132,19 @@
   brew install httpie
   ```
   
-  - ### [colorls](https://github.com/athityakumar/colorls)
+  - ### ~~[colorls](https://github.com/athityakumar/colorls)~~
+  > _Slow and dependent on ruby(which itself is quite unreliable). Replaced it with [lsd](#lsd)_
   ```sh
   gem install colorls
   ```
+  
+  - ### [lsd](https://github.com/Peltoche/lsd)
+  ```sh
+  brew install lsd
+  ```
+  > [How to install config](./lsd/README.md)
+  
+  > [Color configuration](./lscolors/README.md)
   
   - ### [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
   ```sh
