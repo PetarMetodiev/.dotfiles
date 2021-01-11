@@ -809,7 +809,7 @@ set matchpairs+=<:>
 " Fix extra closing '>' when using vim-closetag with delimitMate
 augroup html_delimitmate
 	au!
-	au FileType html let b:delimitMate_matchpairs = "(:),[:],{:}"
+	au FileType html,typescriptreact let b:delimitMate_matchpairs = "(:),[:],{:}"
 augroup END
 let delimitMate_matchpairs = "(:),[:],{:},<:>"
 
