@@ -555,6 +555,7 @@ let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['json'] = json_icon
 " Next line is needed needed
 let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols = {}
 let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.test.ts'] = test_icon
+let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['.spec.ts'] = test_icon
 let g:WebDevIconsUnicodeDecorateFileNodesPatternSymbols['license'] = license_icon
 
 " Custom icons for specific filenames
