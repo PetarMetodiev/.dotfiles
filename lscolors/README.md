@@ -34,3 +34,4 @@ This config is based on [trapd00r/LS_COLORS](https://github.com/trapd00r/LS_COLO
   ```sh
   dircolors -b LS_COLORS > lscolors.sh
   ```
+### 5. Source `lscolors.sh`
