@@ -149,6 +149,8 @@ set autoindent
 set copyindent
 " Should insert same indentation as the rest of the file
 set smarttab
+" Explanation https://vimtricks.com/p/ensuring-aligned-indentation/
+set shiftround
 
 " Bracket highlighting while in insert mode. After typing a paren, brace, or bracket, the cursor will automatically jump to the matching bracket
 " and return to the insert position.
