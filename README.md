@@ -126,6 +126,12 @@
 	  ```sh
 	  npm install -g vim-language-server
 	  ```
+  
+    - #### [css-languageserver](https://github.com/vscode-langservers/vscode-css-languageserver-bin)
+    ```sh
+    npm install -g vscode-css-languageserver-bin
+    ```
+
   - ### [HTTPie](https://httpie.org/) _optional_
   ```sh
   brew install httpie

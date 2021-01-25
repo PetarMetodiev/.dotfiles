@@ -347,6 +347,8 @@ let g:LanguageClient_serverCommands = {
 			\ 'typescript': ['typescript-language-server', '--stdio'],
 			\ 'javascriptreact': ['typescript-language-server', '--stdio'],
 			\ 'typescriptreact': ['typescript-language-server', '--stdio'],
+			\ 'scss': ['css-languageserver', '--stdio'],
+			\ 'css': ['css-languageserver', '--stdio'],
 			\ 'vim': ['vim-language-server', '--stdio'],
 			\ }
 			" \ 'javascript': ['javascript-typescript-stdio'],
