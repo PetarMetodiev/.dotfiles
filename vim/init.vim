@@ -868,7 +868,15 @@ function! s:show_documentation()
 endfunction
 
 " Call :ContextMenu to open LanguageClient context menu
-nmap <silent> gt :<C-U>call LanguageClient_contextMenu()<CR>
+" nmap <silent> gt :<C-U>call LanguageClient_contextMenu()<CR>
+" Open context menu for LSP
+nmap <silent> gt <Plug>(lcn-menu)
+" Find references for symbol under the cursor
+nmap <silent> gr <Plug>(lcn-references)
+" Rename symbol under the cursor
+nmap <silent> <leader>gr <Plug>(lcn-rename)
+" Go to definition of the symbol under the cursor
+nmap <silent> <leader>gd <Plug>(lcn-definition)
 
 " Vim hard mode.
 nnoremap <silent> <Left> :<C-U>echoe "Use h"<CR>
