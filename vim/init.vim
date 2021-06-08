@@ -583,8 +583,8 @@ augroup end
 " For .ts files use only tslint, as eslint could be installed sometimes but
 " not-configured properly
 let g:ale_linters = {
-			\ 'typescript': ['tslint', 'tsserver'],
-			\ 'typescriptreact': ['tslint', 'tsserver'],
+			\ 'typescript': ['tslint', 'eslint', 'tsserver'],
+			\ 'typescriptreact': ['tslint', 'eslint', 'tsserver'],
 			\ }
 
 g:ale_pattern_options = {
