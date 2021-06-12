@@ -587,7 +587,7 @@ let g:ale_linters = {
 			\ 'typescriptreact': ['tslint', 'eslint', 'tsserver'],
 			\ }
 
-g:ale_pattern_options = {
+let g:ale_pattern_options = {
 			\ '\.min\.js$': {'ale_enabled': 0},
 			\ '\.min\.css$': {'ale_enabled': 0}
 			\ }
