@@ -351,9 +351,6 @@ let g:LanguageClient_serverCommands = {
 			\ 'css': ['css-languageserver', '--stdio'],
 			\ 'vim': ['vim-language-server', '--stdio'],
 			\ }
-			" \ 'javascript': ['javascript-typescript-stdio'],
-			" \ 'typescript': ['javascript-typescript-stdio'],
-			" \ }
 
 let g:LanguageClient_rootMarkers = {
 			\ 'javascript': ['jsconfig.json'],
@@ -621,7 +618,6 @@ let g:ale_virtualtext_prefix = ' '
 
 highlight ALEVirtualTextError guifg=#56688a gui=NONE,italic
 
-" Test if this is fine
 let g:ale_completion_autoimport = 1
 
 if filereadable(globpath($HOME, '.config/prettier/.prettierrc'))
