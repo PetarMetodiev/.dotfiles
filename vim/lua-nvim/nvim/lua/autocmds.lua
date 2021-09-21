@@ -18,6 +18,7 @@ local autocmds = {
     { 'insertenter', '*', 'NoMatchParen' };
     { 'insertleave', '*', 'DoMatchParen' };
   };
+  --[[
   general_colors = {
     {
       -- Hot to override colorscheme values https://gist.github.com/romainl/379904f91fa40533175dfaec4c833f2f
@@ -25,9 +26,10 @@ local autocmds = {
       '*',
       -- Change color of matching parens. Currently matches highlight color of onedark
       -- https://stackoverflow.com/a/10746829
-      'highlight LineNr guifg=LightGrey guibg=#808080 | highlight MatchParen guibg=#ee88ee guifg=#23272e gui=bold | highlight Pmenu guibg=#3E4452 | highlight PmenuSel guifg=#282C34 guibg=#61AFEF | highlight PmenuSbar guibg=#3B4048 | highlight PmenuThumb guibg=#ABB2Bf'
+      'highlight LineNr guifg=LightGrey guibg=#808080 | highlight MatchParen guibg=#ee88ee guifg=#23272e gui=bold'
     };
   }
+  ]]--
   --[[ todo: may be unneeded
 
   -- Jump between matching < and > with %
