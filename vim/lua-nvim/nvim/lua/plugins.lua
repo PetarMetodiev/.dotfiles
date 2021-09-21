@@ -65,17 +65,17 @@ return require('packer').startup(function()
   use 'alvan/vim-closetag'
 
   use {
-    'joshdick/onedark.vim',
+    'navarasu/onedark.nvim',
     config = function()
-      require('configs.colorscheme')
+      require('configs.colorscheme').setup_onedark()
     end
   }
 
-  use {
-    'folke/tokyonight.nvim',
-    config = function()
-      require('configs.colorscheme')
-    end
-  }
+  -- use {
+  --   'folke/tokyonight.nvim',
+  --   config = function()
+  --     require('configs.colorscheme').setup_tokyonight()
+  --   end
+  -- }
 
 end)
