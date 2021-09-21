@@ -181,7 +181,7 @@ if !isdirectory($HOME.'/.config/nvim/swap')
 	call mkdir($HOME.'/.config/nvim/swap', 'p')
 endif
 
-" Create swapfile dir if needed
+" Create undo dir if needed
 if !isdirectory($HOME.'/.config/nvim/undo')
 	call mkdir($HOME.'/.config/nvim/undo', 'p')
 endif
@@ -948,8 +948,9 @@ nnoremap Y y$
 nnoremap J mzJ`z
 
 " Wrapped lines are treated as multiple lines.
-nnoremap j gj
-nnoremap k gk
+" explanation https://bluz71.github.io/2021/09/10/vim-tips-revisited.html#smarter-j-and-k-navigation
+nnoremap <expr> j v:count ? (v:count > 5 ? "m'" . v:count : '') . 'j' : 'gj'
+nnoremap <expr> k v:count ? (v:count > 5 ? "m'" . v:count : '') . 'k' : 'gk'
 " Remap the default behaviour
 nnoremap <leader>j j
 nnoremap <leader>k k
