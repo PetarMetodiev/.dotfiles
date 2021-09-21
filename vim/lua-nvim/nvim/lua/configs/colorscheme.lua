@@ -1,10 +1,16 @@
 require('utils')
 
-g.onedark_terminal_italics = 2
+local M = {}
 
-cmd([[colorscheme onedark]])
+M.setup_onedark = function()
+  cmd([[colorscheme onedark]])
+end
 
--- g.tokyonight_hide_inactive_statusline = true
--- vim.g.tokyonight_style = "storm"
---
--- cmd([[colorscheme tokyonight]])
+M.setup_tokyonight = function()
+  g.tokyonight_hide_inactive_statusline = true
+  vim.g.tokyonight_style = "storm"
+
+  cmd([[colorscheme tokyonight]])
+end
+
+return M
