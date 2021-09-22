@@ -64,6 +64,14 @@ return require('packer').startup(function()
   -- Automatically close html tags
   use 'alvan/vim-closetag'
 
+  -- Auto pair plugin. It is quite complex and may turn out to be buggy overkill.
+  use {
+    'steelsojka/pears.nvim',
+    config = function()
+      require('pears').setup()
+    end
+  }
+
   -- use 'sheerun/vim-polyglot'
 
   use {
