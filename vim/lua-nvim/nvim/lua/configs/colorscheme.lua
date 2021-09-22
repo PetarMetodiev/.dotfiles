@@ -6,16 +6,16 @@ M.setup_onedark = function()
   local onedark = require('onedark')
   onedark.setup({
       colors = {
-        yellow = '#f9ff8d',
-        red = '#cb4f10',
-        green = '#52ad70',
-        purple = '#b164c8',
-        blue = '#83c0f2',
-        cyan = "#39939f",
-        white = "#abb2bf",
-        black = "#1E1E1E",
-        gray = "#4c4f55",
-        highlight = "#e2be7d",
+        yellow = '#F9FF8D',
+        red = '#Cb4F10',
+        green = '#52AD70',
+        purple = '#B164C8',
+        blue = '#83C0F2',
+        cyan = '#39939F',
+        white = '#ABB2BF',
+        black = '#1e1e1e',
+        gray = '#4C4F55',
+        highlight = '#E2BE7D',
       };
       styles = {
         comments = 'italic',
