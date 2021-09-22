@@ -17,9 +17,6 @@ g.nvim_tree_auto_close = 1
 -- don't auto open tree on specific filetypes.
 g.nvim_tree_auto_ignore_ft = { 'startify', 'dashboard' }
 
--- this option allows the cursor to be updated when entering a buffer
-g.nvim_tree_follow = 1
-
 -- will update the path of the current dir if the file is not inside the tree.
 g.nvim_tree_follow_update_path = 1
 
@@ -43,7 +40,7 @@ g.nvim_tree_special_files = { 'README.md'; 'Makefile'; 'MAKEFILE'; }
 
 nnoremap('<C-b>', ':<C-U>NvimTreeToggle<CR>')
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
--- default mappings
+
 vim.g.nvim_tree_bindings = {
   { key = 'c',    cb = tree_cb('cd') },
   { key = '<C-v>',                        cb = tree_cb('vsplit') },
@@ -69,8 +66,3 @@ vim.g.nvim_tree_bindings = {
   { key = 'q',                            cb = tree_cb('close') },
   { key = 'g?',                           cb = tree_cb('toggle_help') },
 }
--- nnoremap <leader>n :NvimTreeFindFile<CR>
---  NvimTreeOpen, NvimTreeClose and NvimTreeFocus are also available if you need them
---
---  a list of groups can be found at `:help nvim_tree_highlight`
--- highlight NvimTreeFolderIcon guibg=blue
