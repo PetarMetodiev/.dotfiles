@@ -39,6 +39,18 @@ g.nvim_tree_tab_open = 1
 g.nvim_tree_special_files = { 'README.md'; 'Makefile'; 'MAKEFILE'; }
 
 nnoremap('<C-b>', ':<C-U>NvimTreeToggle<CR>')
+
+local is_expanded = false
+function toggle_expanded()
+  if is_expanded then
+    cmd(':NvimTreeResize 40')
+  else
+    cmd(':NvimTreeResize "100%"')
+  end
+
+  is_expanded = not is_expanded
+end
+
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 vim.g.nvim_tree_bindings = {
@@ -64,5 +76,6 @@ vim.g.nvim_tree_bindings = {
   { key = 'u',                            cb = tree_cb('dir_up') },
   { key = 's',                            cb = tree_cb('system_open') },
   { key = 'q',                            cb = tree_cb('close') },
+  { key = 'A',                             cb = ':lua toggle_expanded()<cr>' },
   { key = 'g?',                           cb = tree_cb('toggle_help') },
 }
