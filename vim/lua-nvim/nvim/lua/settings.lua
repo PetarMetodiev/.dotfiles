@@ -12,13 +12,15 @@ opt.ignorecase = true
 -- Search is not case sensitive when the search term contains a capital letter
 opt.smartcase = true
 
+-- Size of an indentation
+opt.shiftwidth = 2
 -- Try to guess indentation based on syntax
 opt.smartindent = true
-
 -- Copy the structure of the existing lines indent when autoindenting a new line
 opt.copyindent = true
-
 -- Should insert same indentation as the rest of the file
+opt.smarttab = true
+-- Explanation https://vimtricks.com/p/ensuring-aligned-indentation/
 opt.shiftround = true
 
 -- Bracket highlighting while in insert mode. After typing a paren, brace, or bracket, the cursor will automatically jump to the matching bracket
