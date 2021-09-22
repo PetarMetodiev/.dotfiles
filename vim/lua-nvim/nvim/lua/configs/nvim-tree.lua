@@ -1,7 +1,8 @@
 local utils = require('utils')
+local tree_width = 30
 
 --30 by default, can be width_in_columns or 'width_in_percent%'
-g.nvim_tree_width = 40
+g.nvim_tree_width = tree_width
 
 g.nvim_tree_ignore = { '.git', '.cache' }
 
@@ -43,7 +44,7 @@ nnoremap('<C-b>', ':<C-U>NvimTreeToggle<CR>')
 local is_expanded = false
 function toggle_expanded()
   if is_expanded then
-    cmd(':NvimTreeResize 40')
+    cmd(':NvimTreeResize ' .. tree_width)
   else
     cmd(':NvimTreeResize "100%"')
   end
@@ -54,14 +55,14 @@ end
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 vim.g.nvim_tree_bindings = {
-  { key = 'c',    cb = tree_cb('cd') },
+  { key = 'C',                            cb = tree_cb('cd') },
   { key = '<C-v>',                        cb = tree_cb('vsplit') },
   { key = '<C-s>',                        cb = tree_cb('split') },
   { key = '<C-t>',                        cb = tree_cb('tabnew') },
   { key = '<',                            cb = tree_cb('prev_sibling') },
   { key = '>',                            cb = tree_cb('next_sibling') },
   { key = 'P',                            cb = tree_cb('parent_node') },
-  { key = 'x',                         cb = tree_cb('close_node') },
+  { key = 'x',                            cb = tree_cb('close_node') },
   { key = '<S-CR>',                       cb = tree_cb('close_node') },
   { key = 'R',                            cb = tree_cb('refresh') },
   { key = 'a',                            cb = tree_cb('create') },
@@ -76,6 +77,6 @@ vim.g.nvim_tree_bindings = {
   { key = 'u',                            cb = tree_cb('dir_up') },
   { key = 's',                            cb = tree_cb('system_open') },
   { key = 'q',                            cb = tree_cb('close') },
-  { key = 'A',                             cb = ':lua toggle_expanded()<cr>' },
+  { key = 'A',                            cb = ':lua toggle_expanded()<cr>' },
   { key = 'g?',                           cb = tree_cb('toggle_help') },
 }
