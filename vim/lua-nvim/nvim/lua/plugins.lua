@@ -64,18 +64,13 @@ return require('packer').startup(function()
   -- Automatically close html tags
   use 'alvan/vim-closetag'
 
+  -- use 'sheerun/vim-polyglot'
+
   use {
-    'navarasu/onedark.nvim',
+    'olimorris/onedark.nvim',
     config = function()
       require('configs.colorscheme').setup_onedark()
     end
   }
-
-  -- use {
-  --   'folke/tokyonight.nvim',
-  --   config = function()
-  --     require('configs.colorscheme').setup_tokyonight()
-  --   end
-  -- }
 
 end)
