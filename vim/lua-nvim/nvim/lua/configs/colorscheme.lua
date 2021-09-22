@@ -33,6 +33,7 @@ M.setup_onedark = function()
         PmenuThumb = { bg='#ABB2Bf' },
         LineNr = { fg='LightGrey', bg='#808080' },
         MatchParen = { bg='#ee88ee', fg='#23272e', style='bold' },
+        NvimTreeOpenedFile = { bg = '#4C4F55', style='bold' }
       }
     })
   onedark.load()
