@@ -52,6 +52,17 @@ function toggle_expanded()
   is_expanded = not is_expanded
 end
 
+local is_number_visible = false
+function toggle_line_numbers()
+  is_number_visible = not is_number_visible
+  -- Display relative line numbers
+  vim.wo.number = is_number_visible
+  -- Display absolute line numbers
+  vim.wo.relativenumber = is_number_visible
+  -- Hide signcoloumn as it takes too much space
+  vim.wo.signcolumn = is_number_visible and 'no' or 'yes'
+end
+
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
 
 vim.g.nvim_tree_bindings = {
@@ -78,5 +89,6 @@ vim.g.nvim_tree_bindings = {
   { key = 's',                            cb = tree_cb('system_open') },
   { key = 'q',                            cb = tree_cb('close') },
   { key = 'A',                            cb = ':lua toggle_expanded()<cr>' },
+  { key = 'gn',                           cb = ':lua toggle_line_numbers()<cr>' },
   { key = 'g?',                           cb = tree_cb('toggle_help') },
 }
