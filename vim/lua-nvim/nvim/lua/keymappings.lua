@@ -7,7 +7,8 @@ cmd([[let mapleader="\<BS>"]]) -- no idea how to map leader to Backspace in pure
 nnoremap('<Left>', ':<C-U>echoe "Use h"<CR>')
 nnoremap('<Right>', ':<C-U>echoe "Use l"<CR>')
 nnoremap('<Down>', ':<C-U>echoe "Use j"<CR>')
-nnoremap('<Up>', ':<C-U><Up>')
+-- nnoremap is silent by default and does not play well with the binding for Up arrow
+vim.api.nvim_set_keymap('n', '<Up>', ':<C-U><Up>', { noremap = true })
 
 -- Open init.lua
 nnoremap('<Leader>e', ':<C-U>e $MYVIMRC<CR>')
