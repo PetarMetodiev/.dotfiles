@@ -57,6 +57,7 @@ return require('packer').startup(function()
   -- Intellignetly remember last position in file
   use 'farmergreg/vim-lastplace'
 
+  -- Colorful icons out of the box
   use {
     'kyazdani42/nvim-web-devicons',
     config = function()
@@ -75,6 +76,14 @@ return require('packer').startup(function()
     end
   }
 
+  use {
+    'kevinhwang91/nvim-hlslens',
+    config = function()
+      require('configs.nvim-hlslens')
+    end
+  }
+
+  -- Tree navigation
   use {
       'kyazdani42/nvim-tree.lua',
       requires = 'kyazdani42/nvim-web-devicons',
