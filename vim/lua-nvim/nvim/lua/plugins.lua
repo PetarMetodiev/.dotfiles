@@ -54,6 +54,9 @@ return require('packer').startup(function()
   -- Works great with tmux-resurrect and tmux-continuum
   use 'tpope/vim-obsession'
 
+  -- Intellignetly remember last position in file
+  use 'farmergreg/vim-lastplace'
+
   use {
     'kyazdani42/nvim-web-devicons',
     config = function()

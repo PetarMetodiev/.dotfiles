@@ -60,7 +60,7 @@ function toggle_line_numbers()
   -- Display absolute line numbers
   vim.wo.relativenumber = is_number_visible
   -- Hide signcoloumn as it takes too much space
-  vim.wo.signcolumn = is_number_visible and 'no' or 'yes'
+  vim.wo.signcolumn = is_number_visible and 'no' or 'yes' -- lua version of ternary
 end
 
 local tree_cb = require'nvim-tree.config'.nvim_tree_callback
