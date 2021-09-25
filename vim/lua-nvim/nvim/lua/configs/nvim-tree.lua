@@ -6,20 +6,11 @@ g.nvim_tree_width = tree_width
 
 g.nvim_tree_ignore = { '.git', '.cache' }
 
--- when moving cursor in the tree, will position the cursor at the start of the file on the current line
-g.nvim_tree_hijack_cursor = 0
-
--- opens the tree when typing `vim $DIR` or `vim`
-g.nvim_tree_auto_open = 1
-
--- closes the tree when it's the last window
-g.nvim_tree_auto_close = 1
-
 -- don't auto open tree on specific filetypes.
 g.nvim_tree_auto_ignore_ft = { 'startify', 'dashboard' }
 
 -- will update the path of the current dir if the file is not inside the tree.
-g.nvim_tree_follow_update_path = 1
+-- g.nvim_tree_follow_update_path = 1
 
 -- this option shows indent markers when folders are open
 g.nvim_tree_indent_markers = 1
@@ -31,9 +22,6 @@ g.nvim_tree_git_hl = 1
 g.nvim_tree_highlight_opened_files = 3
 
 -- g.nvim_tree_root_folder_modifier = ':~' --This is the default. See :help filename-modifiers for more options
-
--- will open the tree when entering a new tab and the tree was previously open
-g.nvim_tree_tab_open = 1
 
 -- List of filenames that gets highlighted with NvimTreeSpecialFile
 -- There is some kind of bug - removing this line, removes README.md icon
@@ -92,3 +80,21 @@ vim.g.nvim_tree_bindings = {
   { key = 'gn',                           cb = ':lua toggle_line_numbers()<cr>' },
   { key = 'g?',                           cb = tree_cb('toggle_help') },
 }
+
+require'nvim-tree'.setup ({
+  -- open the tree when running this setup function
+  open_on_setup       = true,
+  -- closes neovim automatically when the tree is the last **WINDOW** in the view
+  auto_close          = true,
+  -- opens the tree when changing/opening a new tab if the tree wasn't previously opened
+  open_on_tab         = true,
+  -- hijack the cursor in the tree to put it at the start of the filename
+  hijack_cursor       = false,
+  -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually) 
+  update_cwd          = true,
+  -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
+  update_focused_file = {
+    -- enables the feature
+    enable      = true
+  },
+})
