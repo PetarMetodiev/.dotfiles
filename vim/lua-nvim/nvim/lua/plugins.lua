@@ -65,6 +65,9 @@ return require('packer').startup(function()
     end
   }
 
+  -- Repeat with '.' surroundings
+  use 'tpope/vim-repeat'
+
   -- Automatically close html tags
   use 'alvan/vim-closetag'
 
