@@ -98,7 +98,6 @@ return require('packer').startup(function()
   -- Pretty statusline
   use {
     'famiu/feline.nvim',
-    branch = 'develop',
     config = function()
       require('configs.feline')
     end,
