@@ -16,7 +16,11 @@ local get_scroll_position = function(percent, scroll_positions)
   return scroll_positions[index]
 end
 
-local colors = { bg = '#12afff', fg = '#ffffff' }
+local colors = { bg = '#0080FF', fg = '#ffffff' }
+local side_hl = {
+  fg = '#ffffff',
+  bg = '#8000FF',
+}
 
 local disable = {
   filetypes = {
@@ -52,11 +56,7 @@ table.insert(components.inactive, {})
 local git_branch = {
     provider = 'git_branch',
     icon = ' ',
-    hl = {
-      fg = '#ffffff',
-      bg = '#0000ff',
-      style = 'bold'
-    },
+    hl = side_hl,
     left_sep = '█',
     right_sep = '█'
 }
@@ -66,6 +66,7 @@ local file_info = {
     name = 'file_info',
     opts = {
       file_modified_icon = '',
+      type = 'unique'
     },
   },
   icon = ''
@@ -77,11 +78,7 @@ local file_icon = {
 
 local vertical_position = {
   provider = 'vertical_position',
-  hl = {
-    fg = '#ffffff',
-    bg = '#0000ff',
-    style = 'bold'
-  },
+  hl = side_hl,
   left_sep = '█',
   right_sep = '█'
 }
