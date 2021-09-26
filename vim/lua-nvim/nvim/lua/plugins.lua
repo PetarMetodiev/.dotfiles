@@ -94,6 +94,26 @@ return require('packer').startup(function()
         require('configs.nvim-tree')
       end
   }
+
+  -- Pretty statusline
+  use {
+    'famiu/feline.nvim',
+    branch = 'develop',
+    config = function()
+      require('configs.feline')
+    end,
+    -- git signs slows down startup time!
+    requires = {
+      {
+        'lewis6991/gitsigns.nvim',
+        requires = { 'nvim-lua/plenary.nvim' },
+        config = function()
+          require('gitsigns').setup()
+        end
+      },
+      'kyazdani42/nvim-web-devicons'
+    }
+  }
   -- use 'sheerun/vim-polyglot'
 
   use {
