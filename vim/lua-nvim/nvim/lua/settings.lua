@@ -99,7 +99,7 @@ opt.scrolloff = 10
 opt.cursorline = true
 
 -- Change the working directory to the currently open file
-opt.autochdir = true
+opt.autochdir = false
 
 -- Hide ~ symbols at the end of a file
 opt.fillchars='eob: ' 
