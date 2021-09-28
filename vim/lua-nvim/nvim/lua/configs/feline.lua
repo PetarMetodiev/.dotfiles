@@ -66,7 +66,7 @@ local file_info = {
     name = 'file_info',
     opts = {
       file_modified_icon = '',
-      type = 'unique'
+      type = 'relative'
     },
   },
   icon = ''
