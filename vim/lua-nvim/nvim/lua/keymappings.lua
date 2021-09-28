@@ -4,17 +4,17 @@ require('utils')
 cmd([[let mapleader="\<BS>"]]) -- no idea how to map leader to Backspace in pure lua
 
 -- Vim hardmode
-nnoremap('<Left>', ':<C-U>echoe "Use h"<CR>')
-nnoremap('<Right>', ':<C-U>echoe "Use l"<CR>')
-nnoremap('<Down>', ':<C-U>echoe "Use j"<CR>')
+nnoremap('<Left>', '<cmd>echoe "Use h"<CR>')
+nnoremap('<Right>', '<cmd>echoe "Use l"<CR>')
+nnoremap('<Down>', '<cmd>echoe "Use j"<CR>')
 -- nnoremap is silent by default and does not play well with the binding for Up arrow
 vim.api.nvim_set_keymap('n', '<Up>', ':<C-U><Up>', { noremap = true })
 
 -- Open init.lua
-nnoremap('<Leader>e', ':<C-U>e $MYVIMRC<CR>')
+nnoremap('<Leader>e', '<cmd>e $MYVIMRC<CR>')
 
 -- Hopefuly will help with colorscheme stops working.
-nnoremap('U', ':<C-U>syntax sync fromstart<CR>:redraw!<CR>')
+nnoremap('U', '<cmd>syntax sync fromstart<CR>:redraw!<CR>')
 
 -- Insert empty space in normal mode
 setmap('n', '<space>', ':', { noremap = true })
@@ -36,7 +36,7 @@ vnoremap('>', '>gv')
 
 -- Use Ctrl+q to switch between last used buffer(Ctrl+TAB is not reliable in
 -- all terminals)
-nnoremap('<C-q>', ':<C-U>b#<CR>')
+nnoremap('<C-q>', '<cmd>b#<CR>')
 
 -- Y yanks from current cursor position to the end
 nnoremap('Y', 'y$')
@@ -78,6 +78,6 @@ inoremap('!', '!<C-g>u')
 nnoremap('<leader>x', '0"_D')
 
 -- Navigate through tabs
-nnoremap('tk', ':<C-U>tabprev<CR>')
-nnoremap('tj', ':<C-U>tabnext<CR>')
-nnoremap('tn', ':<C-U>tabnew<CR>')
+nnoremap('tk', '<cmd>tabprev<CR>')
+nnoremap('tj', '<cmd>tabnext<CR>')
+nnoremap('tn', '<cmd>tabnew<CR>')
