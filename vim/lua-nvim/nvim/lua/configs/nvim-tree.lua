@@ -27,7 +27,7 @@ g.nvim_tree_highlight_opened_files = 3
 -- There is some kind of bug - removing this line, removes README.md icon
 g.nvim_tree_special_files = { 'README.md'; 'Makefile'; 'MAKEFILE'; }
 
-nnoremap('<C-b>', ':<C-U>NvimTreeToggle<CR>')
+nnoremap('<C-b>', '<cmd>NvimTreeToggle<CR>')
 
 local is_expanded = false
 function toggle_expanded()
