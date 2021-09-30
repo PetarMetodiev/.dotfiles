@@ -4,6 +4,7 @@ cmd = vim.cmd
 opt = vim.opt
 fn = vim.fn
 g = vim.g
+lsp = vim.lsp
 setmap = api.nvim_set_keymap
 generic_opts = { noremap = true; silent = true }
 

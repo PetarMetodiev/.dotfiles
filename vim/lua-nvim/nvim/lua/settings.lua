@@ -127,6 +127,36 @@ utils.safe_create_nvim_dir('undo')
 opt.undofile = true
 opt.undodir = vim.fn.stdpath('config') .. '/undo//'
 
+-- Autocomplete items icons
+-- Explanation https://www.reddit.com/r/neovim/comments/nrt4yg/nvimlsp_completionitemkind_what_it_is_how_to/
+-- Source https://github.com/LunarVim/LunarVim/blob/rolling/lua/config/defaults.lua#L36-L62
+lsp.protocol.CompletionItemKind = {
+  "   (Text) ",
+  "   (Method)",
+  "   (Function)",
+  "   (Constructor)",
+  "   (Field)",
+  "   (Variable)",
+  "   (Class)",
+  " ﰮ  (Interface)",
+  "   (Module)",
+  "   (Property)",
+  " 塞 (Unit)",
+  "   (Value)",
+  " 練 (Enum)",
+  "   (Keyword)",
+  "   (Snippet)",
+  "   (Color)",
+  "   (File)",
+  "   (Reference)",
+  "   (Folder)",
+  "   (EnumMember)",
+  " ﲀ  (Constant)",
+  "   (Struct)",
+  "   (Event)",
+  "   (Operator)",
+  "   (TypeParameter)",
+}
 
 -- fileencoding = "utf-8", -- the encoding written to a file
 -- pumheight = 10, -- pop up menu height
