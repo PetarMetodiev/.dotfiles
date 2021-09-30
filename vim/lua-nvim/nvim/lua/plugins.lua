@@ -6,17 +6,17 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
 end
 
-return require('packer').startup(function()
+return require('packer').startup({function()
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
   -- Magic
   use {
-      'nvim-treesitter/nvim-treesitter',
-      run = ':TSUpdate',
-      config = function()
-        require('configs.treesitter')
-      end
+    'nvim-treesitter/nvim-treesitter',
+    run = ':TSUpdate',
+    config = function()
+      require('configs.treesitter')
+    end
   }
 
   -- Essential for adding/removing/changing surrounding characters
@@ -88,11 +88,11 @@ return require('packer').startup(function()
 
   -- Tree navigation
   use {
-      'kyazdani42/nvim-tree.lua',
-      requires = 'kyazdani42/nvim-web-devicons',
-      config = function()
-        require('configs.nvim-tree')
-      end
+    'kyazdani42/nvim-tree.lua',
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+      require('configs.nvim-tree')
+    end
   }
 
   -- Pretty statusline
@@ -104,11 +104,11 @@ return require('packer').startup(function()
     -- git signs slows down startup time!
     requires = {
       {
-        'lewis6991/gitsigns.nvim',
-        requires = { 'nvim-lua/plenary.nvim' },
-        config = function()
-          require('gitsigns').setup()
-        end
+	'lewis6991/gitsigns.nvim',
+	requires = { 'nvim-lua/plenary.nvim' },
+	config = function()
+	  require('gitsigns').setup()
+	end
       },
       'kyazdani42/nvim-web-devicons'
     }
@@ -122,4 +122,12 @@ return require('packer').startup(function()
     end
   }
 
-end)
+end,
+
+config = {
+  display = {
+    open_fn = function()
+      return require('packer.util').float({ border = 'rounded' })
+    end
+  }
+}})
