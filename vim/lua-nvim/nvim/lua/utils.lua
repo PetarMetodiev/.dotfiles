@@ -8,6 +8,19 @@ lsp = vim.lsp
 setmap = api.nvim_set_keymap
 generic_opts = { noremap = true; silent = true }
 
+-- Avoid writing print(vim.inspect(...))
+-- Source https://github.com/nanotee/nvim-lua-guide#tips-3
+function _G.put(...)
+  local objects = {}
+  for i = 1, select('#', ...) do
+    local v = select(i, ...)
+    table.insert(objects, vim.inspect(v))
+  end
+
+  print(table.concat(objects, '\n'))
+  return ...
+end
+
 function nnoremap(key, val)
   setmap('n', key, val, generic_opts)
 end
