@@ -116,7 +116,7 @@ return require('packer').startup({function()
   -- use 'sheerun/vim-polyglot'
 
   use {
-    'olimorris/onedark.nvim',
+    'olimorris/onedarkpro.nvim',
     config = function()
       require('configs.colorscheme').setup_onedark()
     end
