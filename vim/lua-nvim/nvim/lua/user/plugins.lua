@@ -19,6 +19,9 @@ return require('packer').startup({function()
     end
   }
 
+  -- Integrate with built-in lsp
+  use 'neovim/nvim-lspconfig'
+
   -- Essential for adding/removing/changing surrounding characters
   use 'tpope/vim-surround'
 
