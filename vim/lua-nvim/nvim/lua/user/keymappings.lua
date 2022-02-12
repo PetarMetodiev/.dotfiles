@@ -1,4 +1,4 @@
-require('utils')
+require('user/utils')
 
 -- g.mapleader = '\b'
 cmd([[let mapleader="\<BS>"]]) -- no idea how to map leader to Backspace in pure lua

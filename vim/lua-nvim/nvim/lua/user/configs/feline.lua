@@ -1,4 +1,4 @@
-require('utils')
+require('user/utils')
 
 local get_scroll_position = function(percent, scroll_positions)
   local step = 100 / #scroll_positions
