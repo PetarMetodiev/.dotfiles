@@ -3,7 +3,12 @@ require('user/utils')
 local M = {}
 
 M.setup_onedark = function()
-  local onedark = require('onedarkpro')
+  local status_ok, onedark = pcall(require, 'onedarkpro')
+  if not status_ok then
+    vim.notify('Colorscheme onedarkpro is not found')
+    return
+  end
+
   onedark.setup({
     theme = "onedark",
     colors = {
