@@ -1,10 +1,10 @@
-local utils = require('utils')
+local utils = require('user/utils')
 local tree_width = 30
 
 --30 by default, can be width_in_columns or 'width_in_percent%'
 -- g.nvim_tree_width = tree_width
 
-g.nvim_tree_ignore = { '.git', '.cache' }
+-- g.nvim_tree_ignore = { '.git', '.cache' }
 
 -- don't auto open tree on specific filetypes.
 g.nvim_tree_auto_ignore_ft = { 'startify', 'dashboard' }
@@ -111,6 +111,11 @@ require'nvim-tree'.setup ({
         custom_only = false,
         -- list of mappings to set on the tree manually
         list = list
+      }
+    },
+    filters = {
+      custom = {
+	'.git', '.cache'
       }
     }
 })
