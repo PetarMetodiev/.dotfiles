@@ -1,4 +1,4 @@
-require('utils')
+require('user/utils')
 
 local M = {}
 
@@ -42,7 +42,7 @@ M.setup_onedark = function()
       underline = true, -- Use the themes opinionated underline styles?
       undercurl = true, -- Use the themes opinionated undercurl styles?
       transparent = false, -- Use a transparent background?
-      highlight_cursorline = true, -- Use cursorline highlighting?
+      cursorline = true, -- Use cursorline highlighting?
     }
   })
   onedark.load()

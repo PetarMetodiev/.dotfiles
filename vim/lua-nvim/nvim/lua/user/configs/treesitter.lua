@@ -1,4 +1,4 @@
-require('utils')
+require('user/utils')
 
 require('nvim-treesitter.configs').setup({
   ensure_installed = {

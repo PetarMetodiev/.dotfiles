@@ -15,7 +15,7 @@ return require('packer').startup({function()
     'nvim-treesitter/nvim-treesitter',
     run = ':TSUpdate',
     config = function()
-      require('configs.treesitter')
+      require('user/configs/treesitter')
     end
   }
 
@@ -38,7 +38,7 @@ return require('packer').startup({function()
   use {
     'FooSoft/vim-argwrap',
     config = function()
-      require('configs.argwrap')
+      require('user/configs/argwrap')
     end
   }
 
@@ -64,7 +64,7 @@ return require('packer').startup({function()
   use {
     'kyazdani42/nvim-web-devicons',
     config = function()
-      require('configs.nvim-web-devicons')
+      require('user/configs/nvim-web-devicons')
     end
   }
 
@@ -85,7 +85,7 @@ return require('packer').startup({function()
   use {
     'kevinhwang91/nvim-hlslens',
     config = function()
-      require('configs.nvim-hlslens')
+      require('user/configs/nvim-hlslens')
     end
   }
 
@@ -94,7 +94,7 @@ return require('packer').startup({function()
     'kyazdani42/nvim-tree.lua',
     requires = 'kyazdani42/nvim-web-devicons',
     config = function()
-      require('configs.nvim-tree')
+      require('user/configs/nvim-tree')
     end
   }
 
@@ -102,7 +102,7 @@ return require('packer').startup({function()
   use {
     'famiu/feline.nvim',
     config = function()
-      require('configs.feline')
+      require('user/configs/feline')
     end,
     -- git signs slows down startup time!
     requires = {
@@ -121,7 +121,7 @@ return require('packer').startup({function()
   use {
     'olimorris/onedarkpro.nvim',
     config = function()
-      require('configs.colorscheme').setup_onedark()
+      require('user/configs/colorscheme').setup_onedark()
     end
   }
 
