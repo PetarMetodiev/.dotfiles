@@ -81,3 +81,7 @@ nnoremap('<leader>x', '0"_D')
 nnoremap('tk', '<cmd>tabprev<CR>')
 nnoremap('tj', '<cmd>tabnext<CR>')
 nnoremap('tn', '<cmd>tabnew<CR>')
+
+-- Do not copy visually selected text when pasting over it
+-- vnoremap <silent> p "_dP
+vnoremap('p', '"_dP')
