@@ -1,4 +1,4 @@
-local utils = require('utils')
+local utils = require('user/utils')
 
 -- Make NeoVim support 24bit colors (pretty terminal 🤩)
 opt.termguicolors = true
@@ -126,6 +126,10 @@ opt.directory = vim.fn.stdpath('config') .. '/swap//'
 utils.safe_create_nvim_dir('undo')
 opt.undofile = true
 opt.undodir = vim.fn.stdpath('config') .. '/undo//'
+
+-- Recognize "-" as a word separator.
+-- Useful when using word motions.
+opt.iskeyword:append('-')
 
 -- Autocomplete items icons
 -- Explanation https://www.reddit.com/r/neovim/comments/nrt4yg/nvimlsp_completionitemkind_what_it_is_how_to/
