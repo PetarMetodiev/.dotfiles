@@ -125,24 +125,42 @@ return packer.startup(function(use)
   }
 
   -- Pretty statusline
+  -- use {
+  --   'famiu/feline.nvim',
+  --   config = function()
+  --     require('user/configs/feline')
+  --   end,
+  --   -- git signs slows down startup time!
+  --   requires = {
+  --     {
+	-- 'lewis6991/gitsigns.nvim',
+	-- requires = { 'nvim-lua/plenary.nvim' },
+	-- config = function()
+	--   require('gitsigns').setup()
+	-- end
+  --     },
+  --     'kyazdani42/nvim-web-devicons'
+  --   }
+  -- }
+  -- use 'sheerun/vim-polyglot'
+
+  -- Completion
   use {
-    'famiu/feline.nvim',
-    config = function()
-      require('user/configs/feline')
+    "hrsh7th/nvim-cmp",
+    config = function() 
+      require('user/configs/cmp')
     end,
-    -- git signs slows down startup time!
     requires = {
-      {
-	'lewis6991/gitsigns.nvim',
-	requires = { 'nvim-lua/plenary.nvim' },
-	config = function()
-	  require('gitsigns').setup()
-	end
-      },
-      'kyazdani42/nvim-web-devicons'
+      "hrsh7th/cmp-buffer", -- buffer completions
+      "hrsh7th/cmp-path", -- path completions
+      "hrsh7th/cmp-cmdline", -- cmdline completions
+      "saadparwaiz1/cmp_luasnip", -- snippet completions
+
+      -- snippets
+      "L3MON4D3/LuaSnip", --snippet engine
+      "rafamadriz/friendly-snippets" -- a bunch of snippets to use
     }
   }
-  -- use 'sheerun/vim-polyglot'
 
   use {
     'olimorris/onedarkpro.nvim',
