@@ -18,6 +18,10 @@ local autocmds = {
     { 'insertenter', '*', 'NoMatchParen' };
     { 'insertleave', '*', 'DoMatchParen' };
   };
+  packer_user_config = {
+    {'BufWritePost', 'plugins.lua', 'source <afile> | PackerSync'}
+  }
+
   --[[
   general_colors = {
     {
