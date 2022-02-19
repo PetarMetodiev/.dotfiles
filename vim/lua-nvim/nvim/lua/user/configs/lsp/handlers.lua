@@ -14,10 +14,11 @@ M.setup = function()
   end
 
   local config = {
-    virtual_text = false,
+    virtual_text = {
+      spacing = 1,
+      prefix = " "
+    },
     -- Add these to virtual text config table
-    -- spacing = 5,
-    -- prefix = " ",
     signs = {
       active = signs,
     },
