@@ -958,6 +958,9 @@ nnoremap <leader>k k
 nnoremap c "_c
 nnoremap C "_C
 
+" Do not copy visually selected text when pasting over it
+vnoremap <silent> p "_dP
+
 " Toggle Colorizer
 nnoremap <silent> <leader>cc :<C-U>ColorizerToggle<CR>
 
