@@ -954,6 +954,10 @@ nnoremap k gk
 nnoremap <leader>j j
 nnoremap <leader>k k
 
+" Do not copy stuff when using c/C
+nnoremap c "_c
+nnoremap C "_C
+
 " Toggle Colorizer
 nnoremap <silent> <leader>cc :<C-U>ColorizerToggle<CR>
 
