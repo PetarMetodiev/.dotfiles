@@ -45,8 +45,10 @@ return packer.startup(function(use)
     end
   }
 
-  -- Integrate with built-in lsp
-  use 'neovim/nvim-lspconfig'
+  -- -- Integrate with built-in lsp
+  -- use 'neovim/nvim-lspconfig'
+  -- -- Simple to use language server installer
+  -- use "williamboman/nvim-lsp-installer"
 
   -- Essential for adding/removing/changing surrounding characters
   use 'tpope/vim-surround'
@@ -147,20 +149,35 @@ return packer.startup(function(use)
   -- Completion
   use {
     "hrsh7th/nvim-cmp",
-    config = function() 
+    config = function()
       require('user/configs/cmp')
     end,
     requires = {
-      "hrsh7th/cmp-buffer", -- buffer completions
-      "hrsh7th/cmp-path", -- path completions
-      "hrsh7th/cmp-cmdline", -- cmdline completions
-      "saadparwaiz1/cmp_luasnip", -- snippet completions
+      'hrsh7th/cmp-buffer', -- buffer completions
+      'hrsh7th/cmp-path', -- path completions
+      'hrsh7th/cmp-cmdline', -- cmdline completions
+      'saadparwaiz1/cmp_luasnip', -- snippet completions
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lua',
+      -- Integrate with built-in lsp
+      {
+	'neovim/nvim-lspconfig',
+	config = function ()
+	  require('user/configs/lsp')
+	end
+      },
+      -- Simple to use language server installer
+      'williamboman/nvim-lsp-installer',
 
-      -- snippets
-      "L3MON4D3/LuaSnip", --snippet engine
-      "rafamadriz/friendly-snippets" -- a bunch of snippets to use
     }
   }
+
+  -- Snippets
+  -- Snippet engine
+  use "L3MON4D3/LuaSnip"
+  -- A bunch of snippets to use
+  use "rafamadriz/friendly-snippets"
+
 
   use {
     'olimorris/onedarkpro.nvim',
