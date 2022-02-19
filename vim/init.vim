@@ -970,6 +970,11 @@ nnoremap <silent> <leader>aa :<C-U>ArgWrap<CR>
 " Clean line contents without delteing the line
 nnoremap <leader>x 0"_D
 
+" Move visually selected lines up or down
+" Why the symbols: https://superuser.com/a/988391
+vnoremap <silent> ∆ :move '>+1<CR>gv-gv
+vnoremap <silent> ˚ :move '<-2<CR>gv-gv
+
 " Navigate through tabs
 nnoremap <silent>tk :<C-U>tabprev<CR>
 nnoremap <silent>tj :<C-U>tabnext<CR>
