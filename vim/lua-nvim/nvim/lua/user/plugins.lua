@@ -45,11 +45,6 @@ return packer.startup(function(use)
     end
   }
 
-  -- -- Integrate with built-in lsp
-  -- use 'neovim/nvim-lspconfig'
-  -- -- Simple to use language server installer
-  -- use "williamboman/nvim-lsp-installer"
-
   -- Essential for adding/removing/changing surrounding characters
   use 'tpope/vim-surround'
 
@@ -178,6 +173,16 @@ return packer.startup(function(use)
   -- A bunch of snippets to use
   use "rafamadriz/friendly-snippets"
 
+  -- Fuzzy everything
+  use {
+    "nvim-telescope/telescope.nvim",
+    config = function ()
+      require('user/configs/telescope')
+    end,
+    requires = {
+      'nvim-lua/plenary.nvim'
+    }
+  }
 
   use {
     'olimorris/onedarkpro.nvim',
