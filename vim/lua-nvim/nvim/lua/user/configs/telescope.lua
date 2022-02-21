@@ -5,6 +5,7 @@ if not status_ok then
 end
 
 local actions = require('telescope.actions')
+print('Checkout Telescope configuration')
 
 telescope.setup {
   defaults = {
