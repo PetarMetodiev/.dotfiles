@@ -1,6 +1,12 @@
 require('user/utils')
 
-require('nvim-treesitter.configs').setup({
+local status_ok, configs = pcall(require, "nvim-treesitter.configs")
+if not status_ok then
+  print('Could not load nvim-treesitter')
+  return
+end
+
+configs.setup({
   ensure_installed = {
     'bash',
     'css',
