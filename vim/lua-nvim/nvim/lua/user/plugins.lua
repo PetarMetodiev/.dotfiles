@@ -19,7 +19,7 @@ end
 -- Use a protected call so we don't error out on first use
 local status_ok, packer = pcall(require, "packer")
 if not status_ok then
-  vim.notify('There was a problem loading packer.')
+  vim.notify('Could not load packer')
   return
 end
 
@@ -52,7 +52,7 @@ return packer.startup(function(use)
   use 'tomtom/tcomment_vim'
 
   -- Integrate with EditorConfig
-  use 'editorconfig/editorconfig-vim'
+  -- use 'editorconfig/editorconfig-vim'
 
   -- Exchange two text elements/blocks easily
   use 'tommcdo/vim-exchange'
@@ -78,7 +78,7 @@ return packer.startup(function(use)
 
   -- Session save and restore.
   -- Works great with tmux-resurrect and tmux-continuum
-  use 'tpope/vim-obsession'
+  -- use 'tpope/vim-obsession'
 
   -- Intellignetly remember last position in file
   use 'farmergreg/vim-lastplace'
