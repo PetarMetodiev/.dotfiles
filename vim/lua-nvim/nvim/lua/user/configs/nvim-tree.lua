@@ -1,5 +1,6 @@
 local utils = require('user/utils')
 local tree_width = 30
+print('Refactor nvim-tree keybindings')
 
 --30 by default, can be width_in_columns or 'width_in_percent%'
 -- g.nvim_tree_width = tree_width
@@ -90,7 +91,7 @@ require'nvim-tree'.setup ({
     open_on_tab         = true,
     -- hijack the cursor in the tree to put it at the start of the filename
     hijack_cursor       = false,
-    -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually) 
+    -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
     update_cwd          = true,
     -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
     update_focused_file = {
@@ -108,7 +109,7 @@ require'nvim-tree'.setup ({
       mappings = {
         -- custom only false will merge the list with the default mappings
         -- if true, it will only use your list to set the mappings
-        custom_only = false,
+        -- custom_only = false,
         -- list of mappings to set on the tree manually
         list = list
       }
