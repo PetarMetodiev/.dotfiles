@@ -6,6 +6,8 @@ if not status_ok then
   return
 end
 
+print('Checkout nvim-treesitter configuration')
+
 configs.setup({
   ensure_installed = {
     'bash',
