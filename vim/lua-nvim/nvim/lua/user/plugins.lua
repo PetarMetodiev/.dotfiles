@@ -49,7 +49,15 @@ return packer.startup(function(use)
   use 'tpope/vim-surround'
 
   -- Commenting
-  use 'tomtom/tcomment_vim'
+  use {
+    "numToStr/Comment.nvim",
+    config = function ()
+      require("user/configs/comment")
+    end
+  }
+
+  -- Context aware comments, useful for JSX
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
 
   -- Integrate with EditorConfig
   -- use 'editorconfig/editorconfig-vim'
