@@ -1,7 +1,7 @@
 require('user/utils')
 
 local M = {}
-
+print('Consider switching to tokyonight and configure it properly with custom highlights')
 M.setup_onedark = function()
   local status_ok, onedark = pcall(require, 'onedarkpro')
   if not status_ok then
@@ -55,7 +55,6 @@ end
 
 M.setup_tokyonight = function()
   g.tokyonight_hide_inactive_statusline = true
-  vim.g.tokyonight_style = "storm"
 
   cmd([[colorscheme tokyonight]])
 end
