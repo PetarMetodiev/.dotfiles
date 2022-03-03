@@ -83,17 +83,17 @@ cmp.setup ({
     "s",
   }),
   ["<S-Tab>"] = cmp.mapping(function(fallback)
-    if cmp.visible() then
-      cmp.select_prev_item()
-    elseif luasnip.jumpable(-1) then
-      luasnip.jump(-1)
-    else
-      fallback()
-    end
-  end, {
-  "i",
-  "s",
-}),
+      if cmp.visible() then
+	cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+	luasnip.jump(-1)
+      else
+	fallback()
+      end
+    end, {
+      "i",
+      "s",
+    }),
   },
   formatting = {
     fields = { "kind", "abbr", "menu" },
@@ -125,8 +125,19 @@ cmp.setup ({
   documentation = {
     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
   },
-  experimental = {
-    ghost_text = false,
-    native_menu = false,
+  -- experimental = {
+  --   ghost_text = false,
+  --   native_menu = false,
+  -- },
+})
+
+cmp.setup.cmdline(':', {
+  sources = {
+    { name = "cmdline" },
   },
+})
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  }
 })
