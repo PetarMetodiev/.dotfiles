@@ -33,6 +33,10 @@ function inoremap(key, val)
   setmap('i', key, val, generic_opts)
 end
 
+function xnoremap(key, val)
+  setmap('x', key, val, generic_opts)
+end
+
 local M = {}
 
 -- https://github.com/norcalli/nvim_utils/blob/master/lua/nvim_utils.lua#L554-L567
