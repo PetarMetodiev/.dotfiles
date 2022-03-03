@@ -1,6 +1,7 @@
 local M = {}
 
 print('Update settings in configs/lsp/handlers.lua')
+
 M.setup = function()
   local signs = {
     { name = "DiagnosticSignError", text = "" },
@@ -18,11 +19,10 @@ M.setup = function()
       spacing = 1,
       prefix = " "
     },
-    -- Add these to virtual text config table
     signs = {
       active = signs,
     },
-    update_in_insert = true,
+    update_in_insert = false,
     underline = true,
     severity_sort = true,
     float = {
@@ -54,6 +54,7 @@ local function lsp_highlight_document(client)
       augroup lsp_document_highlight
         autocmd! * <buffer>
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorHold <buffer> lua vim.diagnostic.open_float({ float = { border = "rounded" }})
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
     ]],
