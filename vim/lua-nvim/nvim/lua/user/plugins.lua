@@ -174,6 +174,17 @@ return packer.startup(function(use)
     }
   }
 
+  -- Fancy git symbols in the line number column
+  use {
+    'lewis6991/gitsigns.nvim',
+    requires = {
+      'nvim-lua/plenary.nvim'
+    },
+    config = function ()
+      require("user/configs/gitsigns")
+    end
+  }
+
   -- Snippets
   -- Snippet engine
   use "L3MON4D3/LuaSnip"
