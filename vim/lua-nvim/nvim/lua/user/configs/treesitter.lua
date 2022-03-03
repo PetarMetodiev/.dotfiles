@@ -24,6 +24,9 @@ configs.setup({
     'vim'
   },
   sync_install = false,
+    autopairs = {
+      enable = true,
+  },
   incremental_selection = {
     enable = true,
     keymaps = {
