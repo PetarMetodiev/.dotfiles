@@ -2,14 +2,6 @@ local utils = require('user/utils')
 local tree_width = 30
 print('Refactor nvim-tree keybindings')
 
---30 by default, can be width_in_columns or 'width_in_percent%'
--- g.nvim_tree_width = tree_width
-
--- g.nvim_tree_ignore = { '.git', '.cache' }
-
--- don't auto open tree on specific filetypes.
-g.nvim_tree_auto_ignore_ft = { 'startify', 'dashboard' }
-
 -- will update the path of the current dir if the file is not inside the tree.
 -- g.nvim_tree_follow_update_path = 1
 
