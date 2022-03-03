@@ -97,11 +97,10 @@ return packer.startup(function(use)
   -- Automatically close html tags
   use 'alvan/vim-closetag'
 
-  -- Auto pair plugin. It is quite complex and may turn out to be buggy overkill.
   use {
-    'steelsojka/pears.nvim',
-    config = function()
-      require('pears').setup()
+    "windwp/nvim-autopairs",
+    config = function ()
+      require('user/configs/autopairs')
     end
   }
 
