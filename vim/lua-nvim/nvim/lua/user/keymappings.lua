@@ -85,3 +85,7 @@ nnoremap('tn', '<cmd>tabnew<CR>')
 -- Do not copy visually selected text when pasting over it
 -- vnoremap <silent> p "_dP
 vnoremap('p', '"_dP')
+
+nnoremap('<C-p>', [[<cmd>lua require('user/configs/telescope').project_files()<CR>]])
+nnoremap('gd', '<cmd>Telescope lsp_definitions<CR>')
+nnoremap('gr', '<cmd>Telescope lsp_references<CR>')
