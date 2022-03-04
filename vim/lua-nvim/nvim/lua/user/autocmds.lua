@@ -4,7 +4,8 @@ local autocmds = {
   formatoptions = {
     -- do not continue comment using o or o
     -- why use augroup: https://vi.stackexchange.com/a/1985
-    { 'filetype', '*', 'set formatoptions-=o' };
+    -- solution found here: https://github.com/LunarVim/Neovim-from-scratch/pull/65/files
+    { 'BufEnter', '*', 'set formatoptions-=o' };
   };
   -- may not be needed as tmux is handling this
   background_colors = {
