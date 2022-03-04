@@ -36,6 +36,14 @@ return packer.startup(function(use)
   -- Packer can manage itself
   use 'wbthomason/packer.nvim'
 
+  -- Should speed up startup time
+  use {
+    'lewis6991/impatient.nvim',
+    config = function ()
+      require('impatient')
+    end
+  }
+
   -- Magic
   use {
     'nvim-treesitter/nvim-treesitter',
