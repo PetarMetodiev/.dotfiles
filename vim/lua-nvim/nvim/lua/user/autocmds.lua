@@ -21,6 +21,12 @@ local autocmds = {
   };
   packer_user_config = {
     {'BufWritePost', 'plugins.lua', 'source <afile> | PackerSync'}
+  };
+  toggle_cursor_line = {
+    { 'VimEnter', '*', 'setlocal', 'cursorline' };
+    {'WinEnter', '*', 'setlocal', 'cursorline'};
+    {'BufWinEnter', '*', 'setlocal', 'cursorline'};
+    {'WinLeave', '*', 'setlocal', 'nocursorline'};
   }
 
   --[[
