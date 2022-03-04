@@ -203,9 +203,9 @@ return packer.startup(function(use)
   }
 
   use {
-    'olimorris/onedarkpro.nvim',
+    'folke/tokyonight.nvim',
     config = function()
-      require('user/configs/colorscheme').setup_onedark()
+      require("user/configs/colorscheme").setup_tokyonight()
     end
   }
 
