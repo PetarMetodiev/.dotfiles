@@ -32,7 +32,7 @@ opt.matchtime = 3
 opt.updatetime = 300
 
 -- Don't give |ins-completion-menu| messages.
-vim.opt.shortmess:append('c')
+opt.shortmess:append('c')
 
 -- Highlight searches
 opt.hlsearch = true
@@ -102,7 +102,7 @@ opt.cursorline = true
 opt.autochdir = false
 
 -- Hide ~ symbols at the end of a file
-opt.fillchars='eob: ' 
+opt.fillchars='eob: '
 
 -- Treat dash separated words as a word text object
 opt.iskeyword:append('-')
@@ -116,47 +116,16 @@ opt.foldenable = false
 -- Create backup dir if needed
 utils.safe_create_nvim_dir('backup')
 -- Double trailing back-slash: https://news.ycombinator.com/item?id=1690673
-opt.backupdir = vim.fn.stdpath('config') .. '/backup//'
+opt.backupdir = fn.stdpath('config') .. '/backup//'
 
 -- Create swapfile dir if needed
 utils.safe_create_nvim_dir('swap')
-opt.directory = vim.fn.stdpath('config') .. '/swap//'
+opt.directory = fn.stdpath('config') .. '/swap//'
 
 -- Create swapfile dir if needed
 utils.safe_create_nvim_dir('undo')
 opt.undofile = true
-opt.undodir = vim.fn.stdpath('config') .. '/undo//'
-
--- Autocomplete items icons
--- Explanation https://www.reddit.com/r/neovim/comments/nrt4yg/nvimlsp_completionitemkind_what_it_is_how_to/
--- Source https://github.com/LunarVim/LunarVim/blob/rolling/lua/config/defaults.lua#L36-L62
--- lsp.protocol.CompletionItemKind = {
---   "   (Text) ",
---   "   (Method)",
---   "   (Function)",
---   "   (Constructor)",
---   "   (Field)",
---   "   (Variable)",
---   "   (Class)",
---   " ﰮ  (Interface)",
---   "   (Module)",
---   "   (Property)",
---   " 塞 (Unit)",
---   "   (Value)",
---   " 練 (Enum)",
---   "   (Keyword)",
---   "   (Snippet)",
---   "   (Color)",
---   "   (File)",
---   "   (Reference)",
---   "   (Folder)",
---   "   (EnumMember)",
---   " ﲀ  (Constant)",
---   "   (Struct)",
---   "   (Event)",
---   "   (Operator)",
---   "   (TypeParameter)",
--- }
+opt.undodir = fn.stdpath('config') .. '/undo//'
 
 -- fileencoding = "utf-8", -- the encoding written to a file
 -- pumheight = 10, -- pop up menu height
