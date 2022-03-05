@@ -102,7 +102,7 @@ opt.cursorline = true
 opt.autochdir = false
 
 -- Hide ~ symbols at the end of a file
-opt.fillchars='eob: '
+opt.fillchars = 'eob: '
 
 -- Treat dash separated words as a word text object
 opt.iskeyword:append('-')
