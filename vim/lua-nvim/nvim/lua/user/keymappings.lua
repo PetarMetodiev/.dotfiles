@@ -87,6 +87,11 @@ nnoremap('tn', '<cmd>tabnew<CR>')
 vnoremap('p', '"_dP')
 
 nnoremap('<C-p>', [[<cmd>lua require('user/configs/telescope').project_files()<CR>]])
+nnoremap('<C-f>', [[<cmd> Telescope buffers<CR>]])
+nnoremap("<leader>f", "<cmd>lua require'telescope.builtin'.buffers({ sort_mru = true })<cr>")
+nnoremap('<leader>F', [[<cmd>Telescope live_grep<CR>]])
+nnoremap('<leader>f', [[<cmd>Telescope grep_string<CR>]])
+
 nnoremap('gd', '<cmd>Telescope lsp_definitions<CR>')
 nnoremap('gr', '<cmd>Telescope lsp_references<CR>')
 nnoremap('ga', '<cmd>Telescope lsp_code_actions<CR>')
