@@ -47,7 +47,6 @@ local kind_icons = {
 }
 -- find more here: https://www.nerdfonts.com/cheat-sheet
 
-print('Check out cmp config options')
 cmp.setup({
     snippet = {
         expand = function(args)
@@ -55,8 +54,8 @@ cmp.setup({
         end,
     },
     mapping = {
-        ['<C-j>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
-        ['<C-k>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
+        ['<C-k>'] = cmp.mapping(cmp.mapping.scroll_docs(-1), { 'i', 'c' }),
+        ['<C-j>'] = cmp.mapping(cmp.mapping.scroll_docs(1), { 'i', 'c' }),
         ['<C-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
         ['<C-y>'] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
         ['<C-e>'] = cmp.mapping({
@@ -125,10 +124,12 @@ cmp.setup({
     documentation = {
         border = { '╭', '─', '╮', '│', '╯', '─', '╰', '│' },
     },
-    -- experimental = {
-    --   ghost_text = false,
-    --   native_menu = false,
-    -- },
+    view = {
+        entries = 'custom', -- can be "custom", "wildmenu" or "native"
+    },
+    experimental = {
+        ghost_text = true, -- show the first completion candidate as virtual text, may be completely useless, but seems cool for now
+    },
 })
 
 cmp.setup.cmdline(':', {

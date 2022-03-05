@@ -107,3 +107,5 @@ nnoremap('gr', '<cmd>Telescope lsp_references<CR>')
 nnoremap('ga', '<cmd>Telescope lsp_code_actions<CR>')
 
 nnoremap('gf', '<cmd> Format<CR>')
+
+inoremap('<C-x><C-o>', '<Cmd>lua require("cmp").complete()<CR>')
