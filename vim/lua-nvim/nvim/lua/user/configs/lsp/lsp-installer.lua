@@ -7,6 +7,15 @@ end
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 print('Add config files for jsonls and sumneko_lua')
+lsp_installer.settings({
+  ui = {
+    icons = {
+      server_installed = " ",
+      server_pending = "羽",
+      server_uninstalled = " "
+    }
+  }
+})
 lsp_installer.on_server_ready(function(server)
   local opts = {
     on_attach = require("user/configs/lsp/handlers").on_attach,
