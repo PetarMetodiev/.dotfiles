@@ -5,14 +5,20 @@ if not status_ok then
 end
 
 local actions = require('telescope.actions')
-print('Checkout Telescope configuration')
+local action_layout = require('telescope.actions.layout')
 
 telescope.setup {
   defaults = {
 
-    prompt_prefix = "  ",
-    selection_caret = " ",
+    prompt_prefix = "  ",
+    selection_caret = " ",
     path_display = { "smart" },
+    -- wrap_results = true,
+    preview = {
+      filesize_limit = 1,
+      -- msg_bg_fillchar = ''
+      msg_bg_fillchar = ' '
+    },
 
     mappings = {
       i = {
@@ -48,6 +54,7 @@ telescope.setup {
 
       n = {
         ["<esc>"] = actions.close,
+        ["<C-p>"] = action_layout.toggle_preview,
         ["<CR>"] = actions.select_default,
         ["<C-x>"] = actions.select_horizontal,
         ["<C-v>"] = actions.select_vertical,
@@ -79,15 +86,6 @@ telescope.setup {
       },
     },
   },
-  pickers = {
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
-  },
   extensions = {
     media_files = {
         -- filetypes whitelist
@@ -95,11 +93,6 @@ telescope.setup {
         filetypes = {"png", "webp", "jpg", "jpeg"},
         find_cmd = "rg" -- find command (defaults to `fd`)
       }
-    -- Your extension configuration goes here:
-    -- extension_name = {
-    --   extension_config_key = value,
-    -- }
-    -- please take a look at the readme of the extension you want to configure
   },
 }
 
