@@ -73,7 +73,8 @@ end
 
 M.on_attach = function(client, bufnr)
   if client.name == "tsserver" then
-    client.resolved_capabilities.document_formatting = false
+    local tsserver_opts = require('user/configs/lsp/settings/tsserver')
+    tsserver_opts.on_attach(client)
   end
   lsp_keymaps(bufnr)
   lsp_highlight_document(client)
