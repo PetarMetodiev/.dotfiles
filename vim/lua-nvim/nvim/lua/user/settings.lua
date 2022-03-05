@@ -38,8 +38,8 @@ opt.shortmess:append('c')
 opt.hlsearch = true
 
 -- Make floating window and other overlays slightly transparent
-opt.winblend = 10 -- Floating window
-opt.pumblend = 10 -- All kinds of popup menus
+-- opt.winblend = 10 -- Floating window
+-- opt.pumblend = 10 -- All kinds of popup menus
 
 -- Display relative line numbers
 opt.relativenumber = true
