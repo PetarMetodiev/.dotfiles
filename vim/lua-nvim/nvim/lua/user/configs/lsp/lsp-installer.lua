@@ -4,9 +4,9 @@ if not status_ok then
   return
 end
 
+
 -- Register a handler that will be called for all installed servers.
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
-print('Add config files for jsonls and sumneko_lua')
 lsp_installer.settings({
   ui = {
     icons = {
@@ -16,11 +16,18 @@ lsp_installer.settings({
     }
   }
 })
+
 lsp_installer.on_server_ready(function(server)
   local opts = {
     on_attach = require("user/configs/lsp/handlers").on_attach,
     capabilities = require("user/configs/lsp/handlers").capabilities,
   }
+
+  if server.name == 'tsserver' then
+    local tsserver_opts = require('user/configs/lsp/settings/tsserver')
+    -- 'error' means that an error will be thrown if keys overlap
+    opts = vim.tbl_deep_extend('error', tsserver_opts.init_options, opts)
+  end
 
   if server.name == "jsonls" then
     local jsonls_opts = require("user/configs/lsp/settings/jsonls")

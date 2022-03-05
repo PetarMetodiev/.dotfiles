@@ -182,6 +182,8 @@ return packer.startup(function(use)
     }
   }
 
+  use 'jose-elias-alvarez/nvim-lsp-ts-utils'
+
   -- Fancy git symbols in the line number column
   use {
     'lewis6991/gitsigns.nvim',
