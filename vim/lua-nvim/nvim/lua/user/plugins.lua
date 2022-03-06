@@ -113,7 +113,8 @@ return packer.startup(function(use)
     use('tpope/vim-repeat')
 
     -- Automatically close html tags
-    use('alvan/vim-closetag')
+    -- use('alvan/vim-closetag')
+    use('windwp/nvim-ts-autotag')
 
     use({
         'windwp/nvim-autopairs',

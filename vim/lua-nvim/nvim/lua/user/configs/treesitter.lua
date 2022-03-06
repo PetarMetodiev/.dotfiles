@@ -40,6 +40,9 @@ configs.setup({
         enable = true,
         additional_vim_regex_highlighting = true,
     },
+    autotag = {
+        enable = true,
+    },
     indent = { enable = true, disable = { 'yaml' } },
     context_commentstring = {
         enable = true,
