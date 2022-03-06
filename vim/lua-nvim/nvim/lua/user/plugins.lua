@@ -222,6 +222,14 @@ return packer.startup(function(use)
     })
 
     use({
+        'nvim-lualine/lualine.nvim',
+        config = function()
+            require('user/configs/lualine')
+        end,
+        requires = { 'kyazdani42/nvim-web-devicons' },
+    })
+
+    use({
         'folke/tokyonight.nvim',
         config = function()
             require('user/configs/colorscheme').setup_tokyonight()

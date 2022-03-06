@@ -53,7 +53,6 @@ M.setup_onedark = function()
 end
 
 M.setup_tokyonight = function()
-    g.tokyonight_hide_inactive_statusline = true
     g.tokyonight_style = 'night'
 
     cmd([[colorscheme tokyonight]])
