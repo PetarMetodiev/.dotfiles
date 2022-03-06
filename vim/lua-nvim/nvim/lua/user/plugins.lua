@@ -53,6 +53,8 @@ return packer.startup(function(use)
         end,
     })
 
+    use({ 'nvim-treesitter/nvim-treesitter-textobjects' })
+
     -- Essential for adding/removing/changing surrounding characters
     use('tpope/vim-surround')
 
