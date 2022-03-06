@@ -70,7 +70,7 @@ local function rows()
 
     local scroll_symbol = get_scroll_position(percent_pos, scroll_positions)
 
-    return percent_str .. '  ' .. pos .. ' ' .. scroll_symbol
+    return pos .. ' ' .. percent_str .. ' ' .. scroll_symbol
 end
 
 lualine.setup({
@@ -114,14 +114,10 @@ lualine.setup({
         lualine_a = {
             {
                 'tabs',
-                -- max_length = vim.o.columns / 3, -- Maximum width of tabs component.
-                -- Note:
-                -- It can also be a function that returns
-                -- the value of `max_length` dynamically.
-                mode = 2, -- 0: Shows tab_nr
+                -- 0: Shows tab_nr
                 -- 1: Shows tab_name
                 -- 2: Shows tab_nr + tab_name
-
+                mode = 2,
                 tabs_color = {
                     -- Same values as the general color option can be used here.
                     active = 'lualine_a_normal', -- Color for active tab.
