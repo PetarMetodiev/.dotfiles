@@ -53,6 +53,11 @@ M.setup_onedark = function()
 end
 
 M.setup_tokyonight = function()
+    local status_ok, _ = pcall(cmd, 'colorscheme tokyonight')
+    if not status_ok then
+        print('Could not load tokyonight')
+        return
+    end
     g.tokyonight_style = 'night'
 
     cmd([[colorscheme tokyonight]])
