@@ -13,9 +13,10 @@ local mode = {
 local filename = {
     'filename',
     file_status = true, -- Displays file status (readonly status, modified status)
-    path = 1, -- 0: Just the filename
+    -- 0: Just the filename
     -- 1: Relative path
     -- 2: Absolute path
+    path = 1,
 
     shorting_target = 40, -- Shortens path to leave 40 spaces in the window
     symbols = {
@@ -51,12 +52,6 @@ local get_scroll_position = function(percent, scroll_positions)
 end
 
 local function rows()
-    -- local row = string.format('%3d', unpack(api.nvim_win_get_cursor(winid)))
-    -- local total_rows = api.nvim_buf_line_count(api.nvim_win_get_buf(winid))
-    -- local pos = row .. '/' .. total_rows
-
-    -- return pos
-
     local scroll_positions = { '⎺', '⎻', '─', '⎼', '⎽' }
 
     local row = string.format('%3d', unpack(api.nvim_win_get_cursor(0)))
