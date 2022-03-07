@@ -65,7 +65,7 @@ cmp.setup({
         }),
         -- Accept currently selected item. If none selected, `select` first item.
         -- Set `select` to `false` to only confirm explicitly selected items.
-        ['<CR>'] = cmp.mapping.confirm({ select = true }),
+        ['<CR>'] = cmp.mapping.confirm({ select = false }),
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_next_item()
@@ -128,9 +128,6 @@ cmp.setup({
     view = {
         entries = 'custom', -- can be "custom", "wildmenu" or "native"
     },
-    experimental = {
-        ghost_text = true, -- show the first completion candidate as virtual text, may be completely useless, but seems cool for now
-    },
 })
 
 cmp.setup.cmdline(':', {
@@ -138,6 +135,7 @@ cmp.setup.cmdline(':', {
         { name = 'cmdline' },
     },
 })
+
 cmp.setup.cmdline('/', {
     sources = {
         { name = 'buffer' },
