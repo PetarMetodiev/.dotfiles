@@ -127,6 +127,9 @@ utils.safe_create_nvim_dir('undo')
 opt.undofile = true
 opt.undodir = fn.stdpath('config') .. '/undo//'
 
+-- Prevent signcolumn jumping when git signs or diagnostics show
+opt.signcolumn = 'yes:1'
+
 -- fileencoding = "utf-8", -- the encoding written to a file
 -- pumheight = 10, -- pop up menu height
 -- timeoutlen = 100, -- time to wait for a mapped sequence to complete (in milliseconds)
