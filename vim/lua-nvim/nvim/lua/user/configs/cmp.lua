@@ -11,6 +11,7 @@ if not snip_status_ok then
 end
 
 require('luasnip/loaders/from_vscode').lazy_load()
+print('Add custom console.log snippets')
 
 local check_backspace = function()
     local col = vim.fn.col('.') - 1

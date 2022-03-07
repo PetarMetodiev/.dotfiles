@@ -120,7 +120,7 @@ lualine.setup({
                 tabs_color = {
                     -- Same values as the general color option can be used here.
                     active = 'lualine_a_normal', -- Color for active tab.
-                    inactive = 'lualine_c_normal', -- Color for inactive tab.
+                    inactive = 'lualine_b_normal', -- Color for inactive tab.
                 },
             },
         },
