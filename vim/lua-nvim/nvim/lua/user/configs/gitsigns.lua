@@ -52,3 +52,5 @@ gitsigns.setup({
         enable = false,
     },
 })
+
+cmd([[ command! GBlame execute "Gitsigns blame_line" ]])
