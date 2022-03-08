@@ -192,6 +192,9 @@ return packer.startup(function(use)
         },
     })
 
+    -- Speed up telescope
+    use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
+
     -- Formatting and linting
     use({
         'jose-elias-alvarez/null-ls.nvim',
