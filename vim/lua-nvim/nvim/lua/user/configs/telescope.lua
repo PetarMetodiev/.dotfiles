@@ -9,7 +9,6 @@ local action_layout = require('telescope.actions.layout')
 
 telescope.setup({
     defaults = {
-
         prompt_prefix = '  ',
         selection_caret = ' ',
         path_display = { 'smart' },
@@ -19,7 +18,6 @@ telescope.setup({
             -- msg_bg_fillchar = ''
             msg_bg_fillchar = ' ',
         },
-
         mappings = {
             i = {
                 ['<C-n>'] = actions.cycle_history_next,
