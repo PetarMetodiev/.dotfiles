@@ -212,6 +212,14 @@ return packer.startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons' },
     })
 
+    -- Fancy LSP loading status
+    use({
+        'j-hui/fidget.nvim',
+        config = function()
+            require('user/configs/fidget-nvim')
+        end,
+    })
+
     -- Nice color scheme
     use({
         'folke/tokyonight.nvim',
