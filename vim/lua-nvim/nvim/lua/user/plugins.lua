@@ -220,6 +220,14 @@ return packer.startup(function(use)
         end,
     })
 
+    -- Display CSS colors
+    use({
+        'norcalli/nvim-colorizer.lua',
+        config = function()
+            require('user/configs/nvim-colorizer')
+        end,
+    })
+
     -- Nice color scheme
     use({
         'folke/tokyonight.nvim',
