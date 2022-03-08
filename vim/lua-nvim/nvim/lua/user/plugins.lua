@@ -69,9 +69,6 @@ return packer.startup(function(use)
     -- Context aware comments, useful for JSX
     use('JoosepAlviste/nvim-ts-context-commentstring')
 
-    -- Integrate with EditorConfig
-    -- use 'editorconfig/editorconfig-vim'
-
     -- Exchange two text elements/blocks easily
     use('tommcdo/vim-exchange')
 
@@ -93,10 +90,6 @@ return packer.startup(function(use)
     -- C-j, C-h, C-l
     -- Needs to be configured in .tmux.conf as well
     use('christoomey/vim-tmux-navigator')
-
-    -- Session save and restore.
-    -- Works great with tmux-resurrect and tmux-continuum
-    -- use 'tpope/vim-obsession'
 
     -- Intellignetly remember last position in file
     use('farmergreg/vim-lastplace')
@@ -123,6 +116,7 @@ return packer.startup(function(use)
         end,
     })
 
+    -- Better search navigation
     use({
         'kevinhwang91/nvim-hlslens',
         config = function()
@@ -130,6 +124,7 @@ return packer.startup(function(use)
         end,
     })
 
+    -- Do not jump to next item when * is pressed
     use('haya14busa/vim-asterisk')
 
     -- Tree navigation
@@ -140,26 +135,6 @@ return packer.startup(function(use)
             require('user/configs/nvim-tree')
         end,
     })
-
-    -- Pretty statusline
-    -- use {
-    --   'famiu/feline.nvim',
-    --   config = function()
-    --     require('user/configs/feline')
-    --   end,
-    --   -- git signs slows down startup time!
-    --   requires = {
-    --     {
-    -- 'lewis6991/gitsigns.nvim',
-    -- requires = { 'nvim-lua/plenary.nvim' },
-    -- config = function()
-    --   require('gitsigns').setup()
-    -- end
-    --     },
-    --     'kyazdani42/nvim-web-devicons'
-    --   }
-    -- }
-    -- use 'sheerun/vim-polyglot'
 
     -- Completion
     use({
@@ -186,6 +161,7 @@ return packer.startup(function(use)
         },
     })
 
+    -- Improve typescript lsp
     use('jose-elias-alvarez/nvim-lsp-ts-utils')
 
     -- Fancy git symbols in the line number column
@@ -216,6 +192,7 @@ return packer.startup(function(use)
         },
     })
 
+    -- Formatting and linting
     use({
         'jose-elias-alvarez/null-ls.nvim',
         config = function()
@@ -226,6 +203,7 @@ return packer.startup(function(use)
         },
     })
 
+    -- Fancy status line
     use({
         'nvim-lualine/lualine.nvim',
         config = function()
@@ -234,6 +212,7 @@ return packer.startup(function(use)
         requires = { 'kyazdani42/nvim-web-devicons' },
     })
 
+    -- Nice color scheme
     use({
         'folke/tokyonight.nvim',
         config = function()
