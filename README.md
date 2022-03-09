@@ -64,10 +64,6 @@
 
     `brew install --cask font-caskaydia-cove-nerd-font` - also a good option, set horizontal spacing to 101 inside iTerm2
 
--   ### [Powerlevel9k](https://github.com/bhilburn/powerlevel9k) - The most awesome Powerline theme for ZSH around!
-
-    [Install instructions](https://github.com/bhilburn/powerlevel9k/wiki/Install-Instructions#option-3-install-for-prezto)
-
 -   ### [zsh-completions](https://github.com/zsh-users/zsh-completions)
 
     ```sh
