@@ -4,6 +4,12 @@
 
 -   ### [iTerm2](https://www.iterm2.com/)
 
+-   ### [maccy](https://maccy.app/) - clipboard manager
+
+```sh
+brew install --cask maccy
+```
+
 -   ### [Homebrew](https://brew.sh/)
 
     ```sh
@@ -102,23 +108,16 @@ nvm install node # "node" is an alias for the latest version
 npm install -g diff-so-fancy
 ```
 
--   ### [prettier](https://prettier.io)
+-   ### [prettierd](https://github.com/fsouza/prettierd)
 
 ```sh
-npm install -g prettier
+npm install -g @fsouza/prettierd
 ```
 
--   ### [Vim(Homebrew formula)](https://formulae.brew.sh/formula/vim#default)
-    > Needs Xcode
+-   ### [eslint_d](https://github.com/mantoni/eslint_d.js)
 
 ```sh
-brew install vim
-```
-
-> If `Xcode` is not needed(not sure if this is ok)
-
-```sh
-brew install vim --with-override-system-vi
+npm install -g eslint_d
 ```
 
 -   ### [Neovim](https://neovim.io/)
@@ -127,59 +126,10 @@ brew install vim --with-override-system-vi
 brew install neovim
 ```
 
-> For latest version(seems to be stable enough)
-
-```sh
-brew install neovim --HEAD
-```
-
--   ### [Python3(Homebrew formula)](https://formulae.brew.sh/formula/python#default)
-    > Optionally for neovim
-
-```sh
-brew install python
-```
-
--   ### [Language servers](https://langserver.org/)
-
-    -   #### [javascript-typescript-langserver](https://github.com/sourcegraph/javascript-typescript-langserver)
-
-        > _Seems to be more popular(based on GitHub stars) but throws random warnings on startup_
-
-        ```sh
-        npm install -g javascript-typescript-langserver
-        ```
-
-        -   #### [typescript-language-server](https://github.com/theia-ide/typescript-language-server)
-            > _Not as popular as [javascript-typescript-langserver](https://github.com/sourcegraph/javascript-typescript-langserver)(based on GitHub stars) but does not throw random warnings on startup and [claims to be following the LSP spec as closely as possible unlike competitors](https://www.reddit.com/r/vscode/comments/cafp6k/which_language_server_does_vscode_use_for/f6lzsqw/)_
-
-        ```sh
-        npm install -g typescript-language-server
-        ```
-
-        -   #### [vim-language-server](https://github.com/iamcco/vim-language-server)
-
-        ```sh
-        npm install -g vim-language-server
-        ```
-
-    -   #### [css-languageserver](https://github.com/vscode-langservers/vscode-css-languageserver-bin)
-
-    ```sh
-    npm install -g vscode-css-languageserver-bin
-    ```
-
 -   ### [HTTPie](https://httpie.org/) _optional_
 
 ```sh
 brew install httpie
-```
-
--   ### ~~[colorls](https://github.com/athityakumar/colorls)~~
-    > _Slow and dependent on ruby(which itself is quite unreliable). Replaced it with [lsd](#lsd)_
-
-```sh
-gem install colorls
 ```
 
 -   ### [lsd](https://github.com/Peltoche/lsd)
@@ -192,23 +142,26 @@ brew install lsd
 
 > [Color configuration](./lscolors/README.md)
 
--   ### [the_silver_searcher](https://github.com/ggreer/the_silver_searcher)
-
-```sh
-brew install the_silver_searcher
-```
-
 -   ### [bat](https://github.com/sharkdp/bat)
 
 ```sh
 brew install bat
 ```
 
--   ### [fzf](https://github.com/junegunn/fzf)
+-   ### [fd](https://github.com/sharkdp/fd)
 
 ```sh
-brew install fzf
+brew install fd
+```
 
-# To install useful key bindings and fuzzy completion:
-$(brew --prefix)/opt/fzf/install
+-   ### [ripgrep](https://github.com/BurntSushi/ripgrep)
+
+```sh
+brew install ripgrep
+```
+
+-   ### [stylua](https://github.com/JohnnyMorganz/StyLua)
+
+```sh
+brew install stylua
 ```
