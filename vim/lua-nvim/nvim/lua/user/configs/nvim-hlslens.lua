@@ -1,5 +1,6 @@
 require('user/utils')
 
+-- config without asterisk-z integration
 -- nnoremap('n', '<Cmd>execute("norm! " . v:count1 . "n")<CR><Cmd>lua require("hlslens").start()<CR>')
 -- nnoremap('N', '<Cmd>execute("norm! " . v:count1 . "N")<CR><Cmd>lua require("hlslens").start()<CR>')
 -- nnoremap('*', '*<Cmd>lua require("hlslens").start()<CR>')

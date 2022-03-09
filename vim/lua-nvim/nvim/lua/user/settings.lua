@@ -130,14 +130,5 @@ opt.undodir = fn.stdpath('config') .. '/undo//'
 -- Prevent signcolumn jumping when git signs or diagnostics show
 opt.signcolumn = 'yes:1'
 
--- fileencoding = "utf-8", -- the encoding written to a file
 -- pumheight = 10, -- pop up menu height
 -- timeoutlen = 100, -- time to wait for a mapped sequence to complete (in milliseconds)
--- title = true, -- set the title of window to the value of the titlestring
--- -- opt.titlestring = "%<%F%=%l/%L - nvim" -- what the title of the window will be set to
--- expandtab = true, -- convert tabs to spaces
--- shiftwidth = 2, -- the number of spaces inserted for each indentation
--- tabstop = 2, -- insert 2 spaces for a tab
--- signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
--- spell = false,
--- spelllang = "en",

@@ -12,7 +12,6 @@ telescope.setup({
         prompt_prefix = '  ',
         selection_caret = ' ',
         path_display = { 'smart' },
-        -- wrap_results = true,
         preview = {
             filesize_limit = 1,
             -- msg_bg_fillchar = ''
@@ -89,17 +88,15 @@ telescope.setup({
             fuzzy = true, -- false will only do exact matching
             override_generic_sorter = true, -- override the generic sorter
             override_file_sorter = true, -- override the file sorter
-            case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
             -- the default case_mode is "smart_case"
+            case_mode = 'smart_case', -- or "ignore_case" or "respect_case"
         },
     },
 })
 
 telescope.load_extension('fzf')
 
-local M = {}
-
-M.project_files = function()
+_G.project_files = function()
     local opts = {} -- define here if you want to define something
     local ok = pcall(require('telescope.builtin').git_files, opts)
     if not ok then
@@ -107,4 +104,12 @@ M.project_files = function()
     end
 end
 
-return M
+
+nnoremap('<C-p>', [[<cmd>lua project_files()<CR>]])
+nnoremap('<C-f>', "<cmd>lua require'telescope.builtin'.buffers({ sort_mru = true })<cr>")
+nnoremap('<leader>F', [[<cmd>Telescope live_grep<CR>]])
+nnoremap('<leader>f', [[<cmd>Telescope grep_string<CR>]])
+
+nnoremap('gd', '<cmd>Telescope lsp_definitions<CR>')
+nnoremap('gr', '<cmd>Telescope lsp_references<CR>')
+nnoremap('ga', '<cmd>Telescope lsp_code_actions<CR>')
