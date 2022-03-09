@@ -81,7 +81,7 @@ local function lsp_keymaps(bufnr)
         opts
     )
     cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()' ]])
-    api.nvim_buf_set_keymap(bufnr, 'n', 'gf', '<cmd>Format<CR>')
+    api.nvim_buf_set_keymap(bufnr, 'n', 'gf', '<cmd>Format<CR>', opts)
 end
 
 M.on_attach = function(client, bufnr)
