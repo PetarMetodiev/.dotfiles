@@ -141,3 +141,5 @@ cmp.setup.cmdline('/', {
         { name = 'buffer' },
     },
 })
+
+inoremap('<C-x><C-o>', '<Cmd>lua require("cmp").complete()<CR>')
