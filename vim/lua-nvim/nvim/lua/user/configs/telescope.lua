@@ -95,6 +95,7 @@ telescope.setup({
 })
 
 telescope.load_extension('fzf')
+telescope.load_extension('neoclip')
 
 _G.project_files = function()
     local opts = {} -- define here if you want to define something

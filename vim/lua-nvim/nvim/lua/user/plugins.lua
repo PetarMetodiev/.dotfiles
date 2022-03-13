@@ -192,6 +192,16 @@ return packer.startup(function(use)
         },
     })
 
+    use({
+        'AckslD/nvim-neoclip.lua',
+        requires = {
+            'nvim-telescope/telescope.nvim',
+        },
+        config = function()
+            require('user/configs/nvim-neoclip')
+        end,
+    })
+
     -- Speed up telescope
     use({ 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' })
 
