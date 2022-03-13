@@ -233,6 +233,13 @@ return packer.startup(function(use)
         end,
     })
 
+    use({
+        'haringsrob/nvim_context_vt',
+        config = function()
+            require('user/configs/nvim-context-vt')
+        end,
+    })
+
     -- Display CSS colors
     use({
         'norcalli/nvim-colorizer.lua',
