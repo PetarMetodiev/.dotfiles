@@ -1,6 +1,10 @@
-require('user/utils')
+local status_ok, colorizer = pcall(require, 'colorizer')
+if not status_ok then
+    print('Could not load colorizer')
+    return
+end
 
-require('colorizer').setup({
+colorizer.setup({
     default_options = {
         RGB = true, -- #RGB hex codes
         RRGGBB = true, -- #RRGGBB hex codes

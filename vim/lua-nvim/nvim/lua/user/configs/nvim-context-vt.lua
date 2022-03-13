@@ -1,45 +1,51 @@
-require('nvim_context_vt').setup({
-  -- Enable by default. You can disable and use :NvimContextVtToggle to maually enable.
-  -- Default: true
-  enabled = true,
+local status_ok, nvim_context_vt = pcall(require, 'nvim_context_vt')
+if not status_ok then
+    print('Could not load nvim_context_vt')
+    return
+end
 
-  -- Override default virtual text prefix
-  -- Default: '-->'
-  prefix = ' ',
+nvim_context_vt.setup({
+    -- Enable by default. You can disable and use :NvimContextVtToggle to maually enable.
+    -- Default: true
+    enabled = true,
 
-  -- Override the internal highlight group name
-  -- Default: 'ContextVt'
-  highlight = 'ContextVt',
+    -- Override default virtual text prefix
+    -- Default: '-->'
+    prefix = ' ',
 
-  -- Disable virtual text for given filetypes
-  -- Default: { 'markdown' }
-  disable_ft = { 'markdown' },
+    -- Override the internal highlight group name
+    -- Default: 'ContextVt'
+    highlight = 'ContextVt',
 
-  -- Disable display of virtual text below blocks for indentation based languages like Python
-  -- Default: false
-  disable_virtual_lines = false,
+    -- Disable virtual text for given filetypes
+    -- Default: { 'markdown' }
+    disable_ft = { 'markdown' },
 
-  -- Same as above but only for spesific filetypes
-  -- Default: {}
-  disable_virtual_lines_ft = { 'yaml' },
+    -- Disable display of virtual text below blocks for indentation based languages like Python
+    -- Default: false
+    disable_virtual_lines = false,
 
-  -- How many lines required after starting position to show virtual text
-  -- Default: 1 (equals two lines total)
-  min_rows = 3,
+    -- Same as above but only for spesific filetypes
+    -- Default: {}
+    disable_virtual_lines_ft = { 'yaml' },
 
-  -- Same as above but only for spesific filetypes
-  -- Default: {}
-  min_rows_ft = {},
+    -- How many lines required after starting position to show virtual text
+    -- Default: 1 (equals two lines total)
+    min_rows = 3,
 
-  -- Custom virtual text node parser callback
-  -- Default: nil
-  custom_parser = nil,
+    -- Same as above but only for spesific filetypes
+    -- Default: {}
+    min_rows_ft = {},
 
-  -- Custom node validator callback
-  -- Default: nil
-  custom_validator = nil,
+    -- Custom virtual text node parser callback
+    -- Default: nil
+    custom_parser = nil,
 
-  -- Custom node virtual text resolver callback
-  -- Default: nil
-  custom_resolver = nil,
+    -- Custom node validator callback
+    -- Default: nil
+    custom_validator = nil,
+
+    -- Custom node virtual text resolver callback
+    -- Default: nil
+    custom_resolver = nil,
 })

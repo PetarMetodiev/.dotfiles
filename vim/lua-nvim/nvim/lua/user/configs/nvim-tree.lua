@@ -1,5 +1,11 @@
 require('user/utils')
 
+local status_ok, nvim_tree = pcall(require, 'nvim-tree')
+if not status_ok then
+    print('Could not load nvim-tree')
+    return
+end
+
 local tree_width = 30
 local is_expanded = false
 local function toggle_expanded()
@@ -98,7 +104,7 @@ g.nvim_tree_icons = {
     },
 }
 
-require('nvim-tree').setup({
+nvim_tree.setup({
     disable_netrw = false,
     hijack_netrw = true,
     open_on_setup = true,
@@ -143,8 +149,8 @@ require('nvim-tree').setup({
         timeout = 500,
     },
     view = {
-        width = 30,
-        height = 30,
+        -- width = 30,
+        -- height = 30,
         hide_root_folder = true,
         side = 'left',
         preserve_window_proportions = false,

@@ -1,4 +1,10 @@
-require('neoclip').setup({
+local status_ok, neoclip = pcall(require, 'neoclip')
+if not status_ok then
+    print('Could not load neoclip')
+    return
+end
+
+neoclip.setup({
     history = 1000,
     enable_persistent_history = false,
     continious_sync = false,
