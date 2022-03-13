@@ -240,6 +240,13 @@ return packer.startup(function(use)
         end,
     })
 
+    use({
+        'kosayoda/nvim-lightbulb',
+        config = function()
+            require('user/configs/lightbulb')
+        end,
+    })
+
     -- Display CSS colors
     use({
         'norcalli/nvim-colorizer.lua',

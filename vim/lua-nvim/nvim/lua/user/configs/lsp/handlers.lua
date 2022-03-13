@@ -58,6 +58,15 @@ local function lsp_highlight_document(client)
     ]],
             false
         )
+        vim.api.nvim_exec(
+            [[
+      augroup show_lightbulb
+        autocmd! * <buffer>
+        autocmd CursorHold <buffer> lua require'nvim-lightbulb'.update_lightbulb()
+      augroup END
+    ]],
+            false
+        )
     end
 end
 
