@@ -52,7 +52,7 @@ local function lsp_highlight_document(client)
       augroup lsp_document_highlight
         autocmd! * <buffer>
         autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
-        autocmd CursorHold <buffer> lua vim.diagnostic.open_float({ float = { border = "rounded" }})
+        " autocmd CursorHold <buffer> lua vim.diagnostic.open_float({ float = { border = "rounded" }})
         autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
       augroup END
     ]],
@@ -73,7 +73,7 @@ end
 local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
     api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    -- vim.api.nvim_buf_set_keymap(bufnr, "n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    api.nvim_buf_set_keymap(bufnr, "i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
     api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     api.nvim_buf_set_keymap(
         bufnr,
