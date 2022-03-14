@@ -44,5 +44,5 @@ neoclip.setup({
     },
 })
 
-nnoremap('<C-r>', '<cmd>Telescope neoclip<CR>')
+nnoremap('"', '<cmd>Telescope neoclip<CR>')
 inoremap('<C-r>', '<cmd>Telescope neoclip<CR>')
