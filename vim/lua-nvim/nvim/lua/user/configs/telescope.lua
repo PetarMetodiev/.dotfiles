@@ -11,7 +11,10 @@ telescope.setup({
     defaults = {
         prompt_prefix = '  ',
         selection_caret = ' ',
-        path_display = { 'smart' },
+        scroll_strategy = 'limit',
+        path_display = { 'absolute' },
+        layout_strategy = 'vertical',
+        dynamic_preview_title = true,
         preview = {
             filesize_limit = 1,
             -- msg_bg_fillchar = ''
@@ -52,6 +55,7 @@ telescope.setup({
             n = {
                 ['<esc>'] = actions.close,
                 ['<C-p>'] = action_layout.toggle_preview,
+                ['<C-l>'] = action_layout.cycle_layout_next,
                 ['<CR>'] = actions.select_default,
                 ['<C-s>'] = actions.select_horizontal,
                 ['<C-v>'] = actions.select_vertical,
@@ -104,7 +108,6 @@ _G.project_files = function()
         require('telescope.builtin').find_files(opts)
     end
 end
-
 
 nnoremap('<C-p>', [[<cmd>lua project_files()<CR>]])
 nnoremap('<C-f>', "<cmd>lua require'telescope.builtin'.buffers({ sort_mru = true })<cr>")
