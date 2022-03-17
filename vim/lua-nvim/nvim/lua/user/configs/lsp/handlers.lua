@@ -12,7 +12,7 @@ M.setup = function()
         fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = '' })
     end
 
-    local config = {
+    local diagnostic_config = {
         virtual_text = {
             spacing = 1,
             prefix = ' ',
@@ -32,15 +32,18 @@ M.setup = function()
         },
     }
 
-    vim.diagnostic.config(config)
+    vim.diagnostic.config(diagnostic_config)
 
-    lsp.handlers['textDocument/hover'] = lsp.with(lsp.handlers.hover, {
+    local handler_config = {
         border = 'rounded',
-    })
+        width = 80,
+        style = 'minimal',
+        focusable = false,
+    }
 
-    lsp.handlers['textDocument/signatureHelp'] = lsp.with(lsp.handlers.signature_help, {
-        border = 'rounded',
-    })
+    lsp.handlers['textDocument/hover'] = lsp.with(lsp.handlers.hover, handler_config)
+
+    lsp.handlers['textDocument/signatureHelp'] = lsp.with(lsp.handlers.signature_help, handler_config)
 end
 
 -- Not sure if this would be useful. Will evaluate.
@@ -73,7 +76,7 @@ end
 local function lsp_keymaps(bufnr)
     local opts = { noremap = true, silent = true }
     api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    api.nvim_buf_set_keymap(bufnr, "i", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>", opts)
+    api.nvim_buf_set_keymap(bufnr, 'i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', opts)
     api.nvim_buf_set_keymap(bufnr, 'n', '<leader>gr', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
     api.nvim_buf_set_keymap(
         bufnr,
