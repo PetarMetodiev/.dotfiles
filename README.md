@@ -2,7 +2,10 @@
 
 ## Needed software
 
--   ### [iTerm2](https://www.iterm2.com/)
+-   ### [kitty](https://sw.kovidgoyal.net/kitty/)
+    ```sh
+    curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+    ```
 
 -   ### [maccy](https://maccy.app/) - clipboard manager
 
