@@ -41,7 +41,7 @@ local list = {
     { key = 'D', action = 'trash' },
     { key = 'r', action = 'rename' },
     { key = '<C-r>', action = 'full_rename' },
-    { key = 'x', action = 'cut' },
+    { key = 'm', action = 'cut' },
     { key = 'c', action = 'copy' },
     { key = 'p', action = 'paste' },
     { key = 'y', action = 'copy_name' },
@@ -155,7 +155,7 @@ nvim_tree.setup({
         side = 'left',
         preserve_window_proportions = false,
         mappings = {
-            custom_only = false,
+            custom_only = true,
             list = list,
         },
         number = true,
