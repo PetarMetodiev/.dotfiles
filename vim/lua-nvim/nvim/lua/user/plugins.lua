@@ -255,6 +255,13 @@ return packer.startup(function(use)
         end,
     })
 
+    use({
+        'rgroli/other.nvim',
+        config = function()
+            require('user/configs/other')
+        end,
+    })
+
     -- Nice color scheme
     use({
         'folke/tokyonight.nvim',
