@@ -59,6 +59,10 @@ M.setup_tokyonight = function()
         return
     end
     g.tokyonight_style = 'night'
+    g.tokyonight_italic_functions = true
+    -- g.tokyonight_italic_variables = true
+    -- g.tokyonight_lualine_bold = true
+    g.tokyonight_style = 'day'
 
     cmd([[colorscheme tokyonight]])
 end
