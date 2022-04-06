@@ -61,11 +61,11 @@
     brew tap homebrew/cask-fonts
     ```
 
-    `brew cask install font-sourcecodepro-nerd-font-mono` - main font
-
-    `brew cask install font-hasklig-nerd-font` - non-ascii font
-
     `brew install --cask font-caskaydia-cove-nerd-font` - also a good option, set horizontal spacing to 101 inside iTerm2
+
+    `brew install --cask font-hasklig-nerd-font` - alternative font
+
+    `brew install --cask font-victor-mono` - cursive font
 
 -   ### [zsh-completions](https://github.com/zsh-users/zsh-completions)
 
