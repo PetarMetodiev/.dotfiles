@@ -29,6 +29,7 @@ vnoremap('0', '^')
 
 -- Insert new line without entering insert mode
 nnoremap('<CR>', 'o<Esc>')
+nnoremap('<S-CR>', 'O<Esc>')
 
 -- Reselect visual block after indent/outdent
 vnoremap('<', '<gv')
