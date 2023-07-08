@@ -353,10 +353,10 @@ return {
         -- 2: Absolute path
         path = 1,
 
-        shorting_target = 40,    -- Shortens path to leave 40 spaces in the window
+        shorting_target = 40, -- Shortens path to leave 40 spaces in the window
         symbols = {
-          modified = "",      -- Text to show when the file is modified.
-          readonly = "",      -- Text to show when the file is non-modifiable or readonly.
+          modified = "", -- Text to show when the file is modified.
+          readonly = "", -- Text to show when the file is non-modifiable or readonly.
           unnamed = "[No Name]", -- Text to show for unnamed buffers.
         },
       }
@@ -366,7 +366,7 @@ return {
       }
       local diagnostics = {
         "diagnostics",
-        colored = false,       -- Displays diagnostics status in color if set to true.
+        colored = false, -- Displays diagnostics status in color if set to true.
         always_visible = true, -- Show diagnostics even if there are none.
         -- symbols = {
         --   error = icons.diagnostics.Error,
@@ -455,7 +455,7 @@ return {
               mode = 2,
               tabs_color = {
                 -- Same values as the general color option can be used here.
-                active = "lualine_a_normal",   -- Color for active tab.
+                active = "lualine_a_normal", -- Color for active tab.
                 inactive = "lualine_b_normal", -- Color for inactive tab.
               },
             },
