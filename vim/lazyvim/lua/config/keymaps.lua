@@ -1,6 +1,3 @@
--- Keymaps are automatically loaded on the VeryLazy event
--- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
--- Add any additional keymaps here
 local function map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
@@ -10,19 +7,15 @@ map("n", "<Right>", '<cmd>echoe "Use l"<CR>', { noremap = true, silent = true, d
 map("n", "<Down>", '<cmd>echoe "Use j"<CR>', { noremap = true, silent = true, desc = "Enforce proper vim motions" })
 map("n", "<Up>", ":<C-U><Up>", { noremap = true, desc = "Retype last command" })
 
--- -- Insert empty space in normal mode
--- setmap("n", "<space>", ":", { noremap = true })
--- setmap("v", "<space>", ":", { noremap = true })
+-- Insert empty space in normal mode
 map({ "n", "v" }, "<BS>", ":", { noremap = true })
---
+
 -- -- Going to the first character of the line is ofter times more needed
 -- -- 0 is easier to press than Shift+6
 map({ "n", "v" }, "^", "0", { noremap = true, silent = true, desc = "Move to beginning text on the line" })
 map({ "n", "v" }, "0", "^", { noremap = true, silent = true, desc = "Move to the beginning of the line" })
---
+
 -- -- Insert new line without entering insert mode
--- nnoremap("<CR>", "o<Esc>")
--- nnoremap("<S-CR>", "O<Esc>")
 map("n", "<CR>", "o<Esc>", { noremap = true, silent = true, desc = "Add new line below in normal mode" })
 map("n", "<S-CR>", "O<Esc>", { noremap = true, silent = true, desc = "Add new line above in normal mode" })
 
@@ -48,9 +41,6 @@ map("n", "J", "mzJ`z", { noremap = true, silent = true })
 -- 	{ noremap = true, expr = true, silent = true }
 -- )
 --
--- -- Remap the default behaviour
--- nnoremap("<leader>j", "j")
--- nnoremap("<leader>k", "k")
 
 -- Do not copy stuff when using c/C
 map({ "v", "n" }, "c", '"_c', { noremap = true, silent = true })
@@ -89,3 +79,6 @@ map(
 )
 -- -- map C-U to C-Uzz <- always center the screen
 -- -- do the same for C-D, C-o, C-i
+
+vim.keymap.del("n", "H")
+vim.keymap.del("n", "L")
