@@ -9,8 +9,8 @@ return {
   {
     "ggandor/leap.nvim",
     keys = {
-      { "-",  "<Plug>(leap-forward-to)",  mode = { "n", "x", "o" }, desc = "Leap forward to" },
-      { "_",  "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
+      { "-", "<Plug>(leap-forward-to)", mode = { "n", "x", "o" }, desc = "Leap forward to" },
+      { "_", "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
       { "g-", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from windows" },
     },
   },
@@ -88,13 +88,13 @@ return {
       for _, bracket in pairs(brackets) do
         npairs.add_rules({
           Rule(bracket[1] .. " ", " " .. bracket[2])
-              :with_pair(function()
-                return false
-              end)
-              :with_move(function(opts)
-                return opts.prev_char:match(".%" .. bracket[2]) ~= nil
-              end)
-              :use_key(bracket[2]),
+            :with_pair(function()
+              return false
+            end)
+            :with_move(function(opts)
+              return opts.prev_char:match(".%" .. bracket[2]) ~= nil
+            end)
+            :use_key(bracket[2]),
         })
       end
     end,
