@@ -349,8 +349,6 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = function()
-      -- local icons = require("lazyvim.config").icons
-
       local mode = {
         "mode",
         fmt = function(str)
@@ -380,6 +378,7 @@ return {
       local filetype = {
         "filetype",
         icon_only = true, -- Display only an icon for filetype
+        colored = false,
       }
       local diagnostics = {
         "diagnostics",
@@ -459,13 +458,7 @@ return {
           lualine_a = {},
           lualine_b = {},
           lualine_c = { filename },
-          lualine_x = {
-            {
-              "filetype",
-              icon_only = true, -- Display only an icon for filetype
-              colored = false,
-            },
-          },
+          lualine_x = { filetype },
           lualine_y = {},
           lualine_z = {},
         },
