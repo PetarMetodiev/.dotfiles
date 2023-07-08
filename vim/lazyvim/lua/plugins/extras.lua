@@ -334,6 +334,18 @@ return {
   },
 
   {
+    "SmiteshP/nvim-navic",
+    opts = function()
+      return {
+        separator = "  ",
+        highlight = false,
+        depth_limit = 6,
+        icons = require("lazyvim.config").icons.kinds,
+      }
+    end,
+  },
+
+  {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = function()
@@ -344,6 +356,11 @@ return {
         fmt = function(str)
           return str:sub(1, 1)
         end,
+      }
+      local simple_filename = {
+        "filename",
+        file_status = false,
+        path = 0,
       }
       local filename = {
         "filename",
@@ -412,7 +429,14 @@ return {
         options = {
           icons_enabled = true,
           theme = "papercolor_light",
-          disabled_filetypes = { statusline = { "dashboard", "alpha" }, "NvimTree" },
+          disabled_filetypes = {
+            statusline = {
+              "dashboard",
+              "alpha",
+            },
+            winbar = { "gitcommit" },
+            "NvimTree",
+          },
           always_divide_middle = true,
         },
         sections = {
@@ -462,6 +486,31 @@ return {
           },
           lualine_b = {},
           lualine_c = {},
+          lualine_x = {},
+          lualine_y = {},
+          lualine_z = {},
+        },
+        winbar = {
+          lualine_a = {
+            {
+              function()
+                return require("nvim-navic").get_location()
+              end,
+              cond = function()
+                return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
+              end,
+            },
+          },
+          lualine_b = {},
+          lualine_c = {},
+          lualine_x = {},
+          lualine_y = { simple_filename },
+          lualine_z = { diagnostics },
+        },
+        inactive_winbar = {
+          lualine_a = {},
+          lualine_b = {},
+          lualine_c = { filename },
           lualine_x = {},
           lualine_y = {},
           lualine_z = { diagnostics },
