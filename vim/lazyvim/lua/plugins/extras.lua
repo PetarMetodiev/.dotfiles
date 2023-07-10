@@ -41,6 +41,8 @@ return {
         function()
           return require("telescope").extensions.neoclip.default()
         end,
+        noremap = true,
+        silent = true,
         desc = "Open clipboard manager",
       },
       {
@@ -48,6 +50,8 @@ return {
         function()
           return require("telescope").extensions.neoclip.default()
         end,
+        noremap = true,
+        silent = true,
         desc = "Open clipboard manager",
         mode = "i",
       },
@@ -60,6 +64,8 @@ return {
       {
         "<leader>a",
         "<cmd>ArgWrap<CR>",
+        noremap = true,
+        silent = true,
         desc = "Wrap and unwrap stuff in parens",
       },
     },
@@ -110,6 +116,8 @@ return {
         function()
           vim.diagnostic.goto_prev({ float = { border = "rounded" } })
         end,
+        noremap = true,
+        silent = true,
         desc = "Go to previous diagnostic",
       }
 
@@ -118,12 +126,16 @@ return {
         function()
           vim.diagnostic.goto_next({ float = { border = "rounded" } })
         end,
+        noremap = true,
+        silent = true,
         desc = "Go to next diagnostic",
       }
 
       keys[#keys + 1] = {
         "gf",
         vim.lsp.buf.format,
+        noremap = true,
+        silent = true,
         desc = "Format document",
         has = "formatting",
       }
@@ -131,6 +143,8 @@ return {
       keys[#keys + 1] = {
         "gf",
         vim.lsp.buf.format,
+        noremap = true,
+        silent = true,
         desc = "Format range",
         mode = "v",
         has = "rangeFormatting",
@@ -139,6 +153,8 @@ return {
       keys[#keys + 1] = {
         "ga",
         vim.lsp.buf.code_action,
+        noremap = true,
+        silent = true,
         desc = "Code Action",
         mode = { "n", "v" },
         has = "codeAction",
@@ -542,6 +558,8 @@ return {
       {
         "<leader>cc",
         "<cmd>ColorizerToggle<CR>",
+        noremap = true,
+        silent = true,
         desc = "Toggle color highlights",
       },
     },
@@ -576,11 +594,15 @@ return {
       {
         "<leader>fv",
         "<cmd>OtherVSplit<CR>",
+        noremap = true,
+        silent = true,
         desc = "Open alternative file in v-split",
       },
       {
         "<leader>fs",
         "<cmd>OtherSplit<CR>",
+        noremap = true,
+        silent = true,
         desc = "Open alternative file in split",
       },
     },
