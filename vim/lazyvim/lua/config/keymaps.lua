@@ -77,8 +77,13 @@ map(
   '"_dP',
   { noremap = true, silent = true, desc = "Do not copy visually selected text when pasting over it" }
 )
--- -- map C-U to C-Uzz <- always center the screen
--- -- do the same for C-D, C-o, C-i
+
+-- keep things centered
+map({ "n", "v" }, "<C-u>", "<C-u>zz", { noremap = true, silent = true, desc = "Go to previous tab" })
+map({ "n", "v" }, "<C-d>", "<C-d>zz", { noremap = true, silent = true, desc = "Go to previous tab" })
+map({ "n", "v" }, "<C-o>", "<C-o>zz", { noremap = true, silent = true, desc = "Go to previous tab" })
+map({ "n", "v" }, "<C-i>", "<C-i>zz", { noremap = true, silent = true, desc = "Go to previous tab" })
+map({ "n", "v" }, "G", "Gzz", { noremap = true, silent = true, desc = "Go to previous tab" })
 
 vim.keymap.del("n", "H")
 vim.keymap.del("n", "L")
