@@ -620,9 +620,10 @@ return {
         layout_strategy = "vertical",
         dynamic_preview_title = true,
         preview = {
-          filesize_limit = 1,
           msg_bg_fillchar = " ",
         },
+        winblend = 15,
+        wrap_results = true,
         mappings = {
           i = {
             ["<C-s>"] = require("telescope.actions").select_horizontal,
