@@ -659,4 +659,49 @@ return {
       },
     },
   },
+
+  {
+    "nvim-neo-tree/neo-tree.nvim",
+    opts = {
+      close_if_last_window = true,
+      window = {
+        mappings = {
+          ["s"] = "open_split",
+          ["v"] = "open_vsplit",
+          ["x"] = "close_node",
+        }
+      },
+      filesystem = {
+        window = {
+          mappings = {
+            ["u"] = "navigate_up",
+            ["C"] = "set_root",
+            ["H"] = "toggle_hidden",
+            ["/"] = "none",
+            ["D"] = "none",
+            ["#"] = "none",   -- fuzzy sorting using the fzy algorithm
+            ["f"] = "none",
+            ["<c-x>"] = "clear_filter",
+            ["[g"] = "prev_git_modified",
+            ["]g"] = "next_git_modified",
+          }
+        },
+        filtered_items = {
+          visible = true, -- always show hidden files
+        },
+      },
+      default_component_configs = {
+        icon = {
+          folder_empty = "",
+          folder_empty_open = "",
+        },
+        git_status = {
+          symbols = {
+            renamed = "➜",
+            unstaged = "",
+          },
+        },
+      },
+    },
+  },
 }
