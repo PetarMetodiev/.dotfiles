@@ -452,7 +452,7 @@ return {
               "dashboard",
               "alpha",
             },
-            winbar = { "gitcommit" },
+            winbar = { "gitcommit", "neo-tree" },
             "NvimTree",
           },
           always_divide_middle = true,
