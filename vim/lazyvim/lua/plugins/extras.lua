@@ -663,6 +663,10 @@ return {
         },
       },
       filesystem = {
+        follow_current_file = {
+          enabled = true,
+          leave_dirs_open = true,
+        },
         window = {
           mappings = {
             ["u"] = "navigate_up",
