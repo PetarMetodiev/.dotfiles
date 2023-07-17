@@ -7,15 +7,6 @@ return {
   { "windwp/nvim-ts-autotag" },
 
   {
-    "ggandor/leap.nvim",
-    keys = {
-      { "-",  "<Plug>(leap-forward-to)",  mode = { "n", "x", "o" }, desc = "Leap forward to" },
-      { "_",  "<Plug>(leap-backward-to)", mode = { "n", "x", "o" }, desc = "Leap backward to" },
-      { "g-", "<Plug>(leap-from-window)", mode = { "n", "x", "o" }, desc = "Leap from windows" },
-    },
-  },
-
-  {
     "AckslD/nvim-neoclip.lua",
     dependencies = {
       "nvim-telescope/telescope.nvim",
