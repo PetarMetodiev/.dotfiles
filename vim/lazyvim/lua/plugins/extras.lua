@@ -692,8 +692,14 @@ return {
         },
         git_status = {
           symbols = {
+            modified = "",
+            conflict = "",
+            unstaged = "󰓛",
+            staged = "✓",
+            unmerged = "",
             renamed = "➜",
-            unstaged = "",
+            untracked = "",
+            deleted = "",
           },
         },
       },
