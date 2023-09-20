@@ -85,5 +85,12 @@ map({ "n", "v" }, "<C-o>", "<C-o>zz", { noremap = true, silent = true, desc = "G
 map({ "n", "v" }, "<C-i>", "<C-i>zz", { noremap = true, silent = true, desc = "Go to previous tab" })
 map({ "n", "v" }, "G", "Gzz", { noremap = true, silent = true, desc = "Go to previous tab" })
 
+map(
+  "n",
+  "<leader>gb",
+  "<cmd>Gitsigns blame_line<CR>",
+  { noremap = true, silent = true, desc = "Blame Line (shortened)" }
+)
+
 vim.keymap.del("n", "H")
 vim.keymap.del("n", "L")
