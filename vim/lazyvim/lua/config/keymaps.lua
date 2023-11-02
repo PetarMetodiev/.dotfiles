@@ -92,5 +92,13 @@ map(
   { noremap = true, silent = true, desc = "Blame Line (shortened)" }
 )
 
+-- vim-tmux-navigator
+if os.getenv("TMUX") then
+  map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
+  map("n", "<C-j>", "<cmd>TmuxNavigateDown<cr>")
+  map("n", "<C-k>", "<cmd>TmuxNavigateUp<cr>")
+  map("n", "<C-l>", "<cmd>TmuxNavigateRight<cr>")
+end
+
 vim.keymap.del("n", "H")
 vim.keymap.del("n", "L")
