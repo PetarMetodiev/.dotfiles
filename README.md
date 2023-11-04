@@ -2,165 +2,168 @@
 
 ## Needed software
 
--   ### [kitty](https://sw.kovidgoyal.net/kitty/)
-    ```sh
-    curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
-    ```
+- ### [kitty](https://sw.kovidgoyal.net/kitty/)
 
--   ### [maccy](https://maccy.app/) - clipboard manager
+  ```sh
+  curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+  ```
 
-    ```sh
-    brew install --cask maccy
-    ```
+- ### [maccy](https://maccy.app/) - clipboard manager
 
--   ### [Homebrew](https://brew.sh/)
+  ```sh
+  brew install --cask maccy
+  ```
 
-    ```sh
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    ```
+- ### [Homebrew](https://brew.sh/)
 
--   ### [git(Homebrew formula)](https://formulae.brew.sh/formula/git#default)
+  ```sh
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  ```
 
-    ```sh
-    brew install git
-    ```
+- ### [git(Homebrew formula)](https://formulae.brew.sh/formula/git#default)
 
--   ### [tmux(Homebrew formula)](https://formulae.brew.sh/formula/tmux)
+  ```sh
+  brew install git
+  ```
 
-    ```sh
-    brew install tmux
-    ```
+- ### [tmux(Homebrew formula)](https://formulae.brew.sh/formula/tmux)
 
-    - ### With true color(not tested):
+  ```sh
+  brew install tmux
+  ```
 
-        ```sh
-        brew install tmux --with-truecolor
-        ```
-
--   ### [tmux plugin manager](https://github.com/tmux-plugins/tpm)
+  - ### With true color(not tested):
 
     ```sh
-    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+    brew install tmux --with-truecolor
     ```
 
--   ### [zsh(Homebrew formula)](https://formulae.brew.sh/formula/zsh#default)
+- ### [tmux plugin manager](https://github.com/tmux-plugins/tpm)
+
+  ```sh
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  ```
+
+- ### [zsh(Homebrew formula)](https://formulae.brew.sh/formula/zsh#default)
+
+  ```sh
+  brew install zsh
+  ```
+
+- ### [Prezto](https://github.com/sorin-ionescu/prezto) - Instantly Awesome Zsh
+
+  ```sh
+  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  ```
+
+- ### [NerdFonts](https://github.com/ryanoasis/nerd-fonts)
+
+  ```sh
+  brew tap homebrew/cask-fonts
+  ```
+
+  `brew install --cask font-caskaydia-cove-nerd-font` - also a good option, set horizontal spacing to 101 inside iTerm2
+
+  `brew install --cask font-hasklig-nerd-font` - alternative font
+
+  `brew install --cask font-victor-mono` - cursive font
+
+- ### [zsh-completions](https://github.com/zsh-users/zsh-completions)
+
+  ```sh
+  brew install zsh-completions
+  ```
+
+  - ### Not sure if really needed or `Prezto` comes with it out of the box
+
+- ### [coreutils(Homebrew formula)](https://formulae.brew.sh/formula/coreutils#default)
+
+  ```sh
+  brew install coreutils
+  ```
+
+- ### [nvm](https://github.com/nvm-sh/nvm)
+
+  > _Optional_
+
+  ```sh
+  curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
+  ```
+
+- ### [Node](https://nodejs.org/en/)
+
+  - Via `Homebrew`
 
     ```sh
-    brew install zsh
+    brew install node
     ```
 
--   ### [Prezto](https://github.com/sorin-ionescu/prezto) - Instantly Awesome Zsh
+  - Via `nvm`
 
     ```sh
-    git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+    nvm install node # "node" is an alias for the latest version
     ```
 
--   ### [NerdFonts](https://github.com/ryanoasis/nerd-fonts)
+- ### [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
-    ```sh
-    brew tap homebrew/cask-fonts
-    ```
+  ```sh
+  npm install -g diff-so-fancy
+  ```
 
-    `brew install --cask font-caskaydia-cove-nerd-font` - also a good option, set horizontal spacing to 101 inside iTerm2
+- ### [prettierd](https://github.com/fsouza/prettierd)
 
-    `brew install --cask font-hasklig-nerd-font` - alternative font
+  ```sh
+  npm install -g @fsouza/prettierd
+  ```
 
-    `brew install --cask font-victor-mono` - cursive font
+- ### [eslint_d](https://github.com/mantoni/eslint_d.js)
 
--   ### [zsh-completions](https://github.com/zsh-users/zsh-completions)
+  ```sh
+  npm install -g eslint_d
+  ```
 
-    ```sh
-    brew install zsh-completions
-    ```
+- ### [Neovim](https://neovim.io/)
 
-    - ### Not sure if really needed or `Prezto` comes with it out of the box
+  ```sh
+  brew install neovim
+  ```
 
--   ### [coreutils(Homebrew formula)](https://formulae.brew.sh/formula/coreutils#default)
+- ### [HTTPie](https://httpie.org/) _optional_
 
-    ```sh
-    brew install coreutils
-    ```
+  ```sh
+  brew install httpie
+  ```
 
--   ### [nvm](https://github.com/nvm-sh/nvm)
-    > _Optional_
+- ### [lsd](https://github.com/Peltoche/lsd)
 
-    ```sh
-    curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
-    ```
+  ```sh
+  brew install lsd
+  ```
 
--   ### [Node](https://nodejs.org/en/)
-    -   Via `Homebrew`
+  - [How to install config](./lsd/README.md)
 
-        ```sh
-        brew install node
-        ```
+  - [Color configuration](./lscolors/README.md)
 
-    - Via `nvm`
+- ### [bat](https://github.com/sharkdp/bat)
 
-        ```sh
-        nvm install node # "node" is an alias for the latest version
-        ```
+  ```sh
+  brew install bat
+  ```
 
--   ### [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
+- ### [fd](https://github.com/sharkdp/fd)
 
-    ```sh
-    npm install -g diff-so-fancy
-    ```
+  ```sh
+  brew install fd
+  ```
 
--   ### [prettierd](https://github.com/fsouza/prettierd)
+- ### [ripgrep](https://github.com/BurntSushi/ripgrep)
 
-    ```sh
-    npm install -g @fsouza/prettierd
-    ```
+  ```sh
+  brew install ripgrep
+  ```
 
--   ### [eslint_d](https://github.com/mantoni/eslint_d.js)
+- ### [stylua](https://github.com/JohnnyMorganz/StyLua)
 
-    ```sh
-    npm install -g eslint_d
-    ```
-
--   ### [Neovim](https://neovim.io/)
-
-    ```sh
-    brew install neovim
-    ```
-
--   ### [HTTPie](https://httpie.org/) _optional_
-
-    ```sh
-    brew install httpie
-    ```
-
--   ### [lsd](https://github.com/Peltoche/lsd)
-
-    ```sh
-    brew install lsd
-    ```
-
-    - [How to install config](./lsd/README.md)
-
-    - [Color configuration](./lscolors/README.md)
-
--   ### [bat](https://github.com/sharkdp/bat)
-
-    ```sh
-    brew install bat
-    ```
-
--   ### [fd](https://github.com/sharkdp/fd)
-
-    ```sh
-    brew install fd
-    ```
-
--   ### [ripgrep](https://github.com/BurntSushi/ripgrep)
-
-    ```sh
-    brew install ripgrep
-    ```
-
--   ### [stylua](https://github.com/JohnnyMorganz/StyLua)
-
-    ```sh
-    brew install stylua
-    ```
+  ```sh
+  brew install stylua
+  ```
