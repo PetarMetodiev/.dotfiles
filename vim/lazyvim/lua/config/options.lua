@@ -2,6 +2,9 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+-- The way to tell LazyVim to not autoformat my code
+vim.g.autoformat = true
+
 local opt = vim.opt
 
 -- Make NeoVim support 24bit colors (pretty terminal 🤩)
