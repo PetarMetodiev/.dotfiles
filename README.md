@@ -1,5 +1,22 @@
 # Installation instructions
 
+## Configure commit-msg hook
+
+1. Rename `./.git/hooks/commit-msg.sample` to `./.git/hooks/commit-msg`.
+2. Replace the contents of `./.git/hooks/commit-msg` with this:
+
+```sh
+check=$(head -1 $1 | grep -w "nvim:\|kitty:\|docs:\|git:\|tmux:\|shell:")
+if [ "" = "$check" ]; then
+	echo "Commit message should start with nvim, kitty, docs, git, tmux or shell." 1>&2
+	echo "Required format:" 1>&2
+	echo "    [prefix]: <description>" 1>&2
+	exit 1
+fi
+```
+
+3. Save and exit.
+
 ## Needed software
 
 - ### [kitty](https://sw.kovidgoyal.net/kitty/)
