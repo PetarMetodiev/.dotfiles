@@ -3,7 +3,7 @@
 -- Add any additional options here
 
 -- The way to tell LazyVim to not autoformat my code
-vim.g.autoformat = true
+vim.g.autoformat = false
 
 local opt = vim.opt
 
