@@ -3,26 +3,64 @@
 ## Configure commit-msg hook
 
 1. Rename `./.git/hooks/commit-msg.sample` to `./.git/hooks/commit-msg`.
-2. Replace the contents of `./.git/hooks/commit-msg` with this:
+1. Replace the contents of `./.git/hooks/commit-msg` with this:
 
 ```sh
 check=$(head -1 $1 | grep -w "nvim:\|kitty:\|docs:\|git:\|tmux:\|shell:")
 if [ "" = "$check" ]; then
-	echo "Commit message should start with nvim, kitty, docs, git, tmux or shell." 1>&2
-	echo "Required format:" 1>&2
-	echo "    [prefix]: <description>" 1>&2
-	exit 1
+  echo "Commit message should start with nvim, kitty, docs, git, tmux or shell." 1>&2
+  echo "Required format:" 1>&2
+  echo "    [prefix]: <description>" 1>&2
+  exit 1
 fi
 ```
 
-3. Save and exit.
+1. Save and exit.
 
 ## Needed software
 
+- ### Chrome extensions
+
+  - [Stardust cookie cutter](https://chrome.google.com/webstore/detail/stardust-cookie-cutter/knliaomflpbgdhnlhomjmmoahdfhnhae) - automatically close (most) cookie consent popups
+  - [JSONVue](https://chrome.google.com/webstore/detail/jsonvue/chklaanhfefbnpoihckbnefhakgolnmc) - nice JSON viewer.
+  - [Momentum](https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca) - pretty default page.
+  - [Refined github](https://github.com/refined-github/refined-github) - add cool stuff for github. Config is in `./Refined GitHub/Refined GitHub options.json`
+  - [Octolinker](https://octolinker.vercel.app/) - working links inside GitHub.
+  - [Video Speed Controller](https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk) - control the speed of all videos.
+  - [VisBug](https://chrome.google.com/webstore/detail/visbug/cdockenadnadldjbbgcallicgledbeoc) - Open source web design debug tools built with JavaScript.
+
+- ### [HotKey](https://codenuts.de/en/posts/hotkey/)
+
+  Define keyboard shortcuts to launch Applications or to open folders in Finder. Another way is to open the Apps by selecting them from the Status-Menu in Your Mac’s menu bar.
+
+  Config is in `./HotKey/HotKey.config`
+
+- ### [PurePaste](https://sindresorhus.com/pure-paste)
+
+  Paste as plain text by default
+
+- ### [BetterTouchTool](https://folivora.ai/downloads)
+
+  App that allows you to customize various input devices on your Mac.
+
+  Config is in `./BetterTouchTool/Main.bttpreset`.
+
+- ### [TinkerTool](https://www.bresink.com/osx/TinkerTool.html)
+
+  Application that gives you access to additional preference settings Apple has built into macOS.
+
+- ### [Karabiner Elements](https://karabiner-elements.pqrs.org/)
+  [Vim navigation](https://ke-complex-modifications.pqrs.org/#capslock_vim_movements)
 - ### [kitty](https://sw.kovidgoyal.net/kitty/)
 
   ```sh
   curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+  ```
+
+- ### [Homebrew](https://brew.sh/)
+
+  ```sh
+  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   ```
 
 - ### [maccy](https://maccy.app/) - clipboard manager
@@ -31,10 +69,10 @@ fi
   brew install --cask maccy
   ```
 
-- ### [Homebrew](https://brew.sh/)
+- ### [MeetingBar](https://meetingbar.app/)
 
   ```sh
-  /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  brew install meetingbar
   ```
 
 - ### [git(Homebrew formula)](https://formulae.brew.sh/formula/git#default)
@@ -109,7 +147,7 @@ fi
 
 - ### [Node](https://nodejs.org/en/)
 
-  - Via `Homebrew`
+  - Via `Homebrew` - please don't
 
     ```sh
     brew install node
@@ -129,11 +167,15 @@ fi
 
 - ### [prettierd](https://github.com/fsouza/prettierd)
 
+  > Should be handled by LazyVim. No need to install it.
+
   ```sh
   npm install -g @fsouza/prettierd
   ```
 
 - ### [eslint_d](https://github.com/mantoni/eslint_d.js)
+
+  > Should be handled by LazyVim. No need to install it.
 
   ```sh
   npm install -g eslint_d
