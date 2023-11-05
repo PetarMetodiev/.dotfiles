@@ -3,7 +3,7 @@
 ## Configure commit-msg hook
 
 1. Rename `./.git/hooks/commit-msg.sample` to `./.git/hooks/commit-msg`.
-1. Replace the contents of `./.git/hooks/commit-msg` with this:
+2. Replace the contents of `./.git/hooks/commit-msg` with this:
 
 ```sh
 check=$(head -1 $1 | grep -w "nvim:\|kitty:\|docs:\|git:\|tmux:\|shell:")
@@ -15,7 +15,7 @@ if [ "" = "$check" ]; then
 fi
 ```
 
-1. Save and exit.
+3. Save and exit.
 
 ## Needed software
 
