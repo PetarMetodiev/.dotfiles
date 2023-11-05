@@ -87,13 +87,13 @@ return {
       for _, bracket in pairs(brackets) do
         npairs.add_rules({
           Rule(bracket[1] .. " ", " " .. bracket[2])
-            :with_pair(function()
-              return false
-            end)
-            :with_move(function(opts)
-              return opts.prev_char:match(".%" .. bracket[2]) ~= nil
-            end)
-            :use_key(bracket[2]),
+              :with_pair(function()
+                return false
+              end)
+              :with_move(function(opts)
+                return opts.prev_char:match(".%" .. bracket[2]) ~= nil
+              end)
+              :use_key(bracket[2]),
         })
       end
     end,
@@ -312,18 +312,18 @@ return {
         documentation = cmp.config.window.bordered(),
       }
       opts.completion.completeopt = "menu,menuone,noselect"
-      opts.sorting = {
-        -- source https://github.com/tjdevries/config_manager/blob/78608334a7803a0de1a08a9a4bd1b03ad2a5eb11/xdg_config/nvim/after/plugin/completion.lua#L129
-        comparators = {
-          cmp.config.compare.offset,
-          cmp.config.compare.exact,
-          cmp.config.compare.score,
-          cmp.config.compare.kind,
-          cmp.config.compare.sort_text,
-          cmp.config.compare.length,
-          cmp.config.compare.order,
-        },
-      }
+      -- opts.sorting = {
+      --   -- source https://github.com/tjdevries/config_manager/blob/78608334a7803a0de1a08a9a4bd1b03ad2a5eb11/xdg_config/nvim/after/plugin/completion.lua#L129
+      --   comparators = {
+      --     cmp.config.compare.offset,
+      --     cmp.config.compare.exact,
+      --     cmp.config.compare.score,
+      --     cmp.config.compare.kind,
+      --     cmp.config.compare.sort_text,
+      --     cmp.config.compare.length,
+      --     cmp.config.compare.order,
+      --   },
+      -- }
       opts.sources = cmp.config.sources({
         { name = "nvim_lsp" },
         { name = "luasnip" },
