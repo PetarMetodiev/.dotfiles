@@ -344,18 +344,6 @@ return {
   },
 
   {
-    "SmiteshP/nvim-navic",
-    opts = function()
-      return {
-        separator = "  ",
-        highlight = false,
-        depth_limit = 6,
-        icons = require("lazyvim.config").icons.kinds,
-      }
-    end,
-  },
-
-  {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     opts = function()
@@ -392,14 +380,8 @@ return {
       }
       local diagnostics = {
         "diagnostics",
-        colored = false, -- Displays diagnostics status in color if set to true.
+        colored = false,       -- Displays diagnostics status in color if set to true.
         always_visible = true, -- Show diagnostics even if there are none.
-        -- symbols = {
-        --   error = icons.diagnostics.Error,
-        --   warn = icons.diagnostics.Warn,
-        --   info = icons.diagnostics.Info,
-        --   hint = icons.diagnostics.Hint,
-        -- },
       }
 
       local get_scroll_position = function(percent, scroll_positions)
@@ -490,25 +472,16 @@ return {
           lualine_b = {},
           lualine_c = {},
           lualine_x = {},
-          lualine_y = {},
-          lualine_z = {},
+          lualine_y = { simple_filename },
+          lualine_z = { diagnostics },
         },
         winbar = {
           lualine_a = {},
           lualine_b = {},
-          lualine_c = {
-            {
-              function()
-                return require("nvim-navic").get_location()
-              end,
-              cond = function()
-                return package.loaded["nvim-navic"] and require("nvim-navic").is_available()
-              end,
-            },
-          },
+          lualine_c = {},
           lualine_x = {},
-          lualine_y = { simple_filename },
-          lualine_z = { diagnostics },
+          lualine_y = {},
+          lualine_z = {},
         },
         inactive_winbar = {
           lualine_a = {},
