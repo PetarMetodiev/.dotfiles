@@ -87,13 +87,13 @@ return {
       for _, bracket in pairs(brackets) do
         npairs.add_rules({
           Rule(bracket[1] .. " ", " " .. bracket[2])
-              :with_pair(function()
-                return false
-              end)
-              :with_move(function(opts)
-                return opts.prev_char:match(".%" .. bracket[2]) ~= nil
-              end)
-              :use_key(bracket[2]),
+            :with_pair(function()
+              return false
+            end)
+            :with_move(function(opts)
+              return opts.prev_char:match(".%" .. bracket[2]) ~= nil
+            end)
+            :use_key(bracket[2]),
         })
       end
     end,
@@ -380,7 +380,7 @@ return {
       }
       local diagnostics = {
         "diagnostics",
-        colored = false,       -- Displays diagnostics status in color if set to true.
+        colored = false, -- Displays diagnostics status in color if set to true.
         always_visible = true, -- Show diagnostics even if there are none.
       }
 
@@ -465,7 +465,7 @@ return {
               mode = 2,
               tabs_color = {
                 -- Same values as the general color option can be used here.
-                active = "lualine_a_normal",   -- Color for active tab.
+                active = "lualine_a_normal", -- Color for active tab.
                 inactive = "lualine_b_normal", -- Color for inactive tab.
               },
             },
@@ -692,6 +692,13 @@ return {
           jump_labels = true,
         },
       },
+    },
+  },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    opts = {
+      max_lines = 8,
+      separator = "-",
     },
   },
 }
