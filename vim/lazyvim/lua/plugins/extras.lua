@@ -125,25 +125,6 @@ return {
       }
 
       keys[#keys + 1] = {
-        "gf",
-        vim.lsp.buf.format,
-        noremap = true,
-        silent = true,
-        desc = "Format document",
-        has = "formatting",
-      }
-
-      keys[#keys + 1] = {
-        "gf",
-        vim.lsp.buf.format,
-        noremap = true,
-        silent = true,
-        desc = "Format range",
-        mode = "v",
-        has = "rangeFormatting",
-      }
-
-      keys[#keys + 1] = {
         "ga",
         vim.lsp.buf.code_action,
         noremap = true,

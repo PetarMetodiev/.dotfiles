@@ -1,3 +1,5 @@
+local Util = require("lazyvim.util")
+
 local function map(mode, lhs, rhs, opts)
   vim.keymap.set(mode, lhs, rhs, opts)
 end
@@ -91,6 +93,10 @@ map(
   "<cmd>Gitsigns blame_line<CR>",
   { noremap = true, silent = true, desc = "Blame Line (shortened)" }
 )
+
+map({ "n", "v" }, "gf", function()
+  Util.format({ force = true })
+end, { desc = "Format" })
 
 -- vim-tmux-navigator
 if os.getenv("TMUX") then
