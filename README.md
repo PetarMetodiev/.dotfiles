@@ -63,6 +63,12 @@ fi
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   ```
 
+- ### [hammerspoon](https://www.hammerspoon.org/) - a tool for powerful automation of macOS
+
+  ```sh
+  brew install hammerspoon --cask
+  ```
+
 - ### [maccy](https://maccy.app/) - clipboard manager
 
   ```sh
