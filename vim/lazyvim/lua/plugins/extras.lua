@@ -612,8 +612,9 @@ return {
       close_if_last_window = true,
       window = {
         mappings = {
-          ["s"] = "open_split",
-          ["v"] = "open_vsplit",
+          ["<c-s>"] = "open_split",
+          ["<c-v>"] = "open_vsplit",
+          ["s"] = "none",
           ["x"] = "close_node",
         },
       },
