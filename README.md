@@ -112,9 +112,10 @@ fi
   ```
 
 - ### [Prezto](https://github.com/sorin-ionescu/prezto) - Instantly Awesome Zsh
+  > From forked repo:
 
   ```sh
-  git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  git clone --recursive git@github.com:PetarMetodiev/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
   ```
 
 - ### [NerdFonts](https://github.com/ryanoasis/nerd-fonts)
