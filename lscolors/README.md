@@ -1,6 +1,12 @@
+## Quick install instructions
+```sh
+mkdir ~/.config/lscolors
+ln -s ~/.dotfiles/lscolors/lscolors.sh ~/.config/lscolors
+```
+
 This config is based on [trapd00r/LS_COLORS](https://github.com/trapd00r/LS_COLORS).
 
-# How to configure LS_COLORS easily(somewhat)
+## How to configure LS_COLORS easily(somewhat)
 
 ### 1. Open LS_COLORS
 ### 2. Modify/add new colors:
