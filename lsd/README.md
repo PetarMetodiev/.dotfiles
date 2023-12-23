@@ -1,2 +1,3 @@
-# How to install config
-Place `config.yaml` inside `~/.config/lsd`
+```sh
+ln -s ~/.dotfiles/lsd/config.yaml ~/.config/lsd
+```
