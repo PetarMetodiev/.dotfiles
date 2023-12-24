@@ -5,15 +5,17 @@ return {
     "christoomey/vim-tmux-navigator",
     event = "BufReadPre",
   },
+
   {
     "AckslD/nvim-neoclip.lua",
     dependencies = {
       "nvim-telescope/telescope.nvim",
-      "kkharji/sqlite.lua",
+      -- {"kkharji/sqlite.lua", enabled = not jit.os:find("Windows")},
     },
     init = function()
       require("neoclip").setup({
-        enable_persistent_history = true,
+        -- this throws an error because of reasons...
+        -- enable_persistent_history = true,
         continuous_sync = true,
         keys = {
           telescope = {
@@ -245,7 +247,6 @@ return {
   {
     "hrsh7th/nvim-cmp",
 
-    ---@param opts cmp.ConfigSchema
     opts = function(_, opts)
       local has_words_before = function()
         unpack = unpack or table.unpack
