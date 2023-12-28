@@ -11,15 +11,15 @@ vim.api.nvim_create_autocmd("BufEnter", {
   command = "set formatoptions-=o",
 })
 
-vim.api.nvim_create_autocmd("insertenter", {
-  group = augroup("match_parens_normal_mode"),
-  command = "NoMatchParen",
-})
+-- vim.api.nvim_create_autocmd("insertenter", {
+--   group = augroup("match_parens_normal_mode"),
+--   command = "NoMatchParen",
+-- })
 
-vim.api.nvim_create_autocmd("insertleave", {
-  group = augroup("match_parens_normal_mode"),
-  command = "DoMatchParen",
-})
+-- vim.api.nvim_create_autocmd("insertleave", {
+--   group = augroup("match_parens_normal_mode"),
+--   command = "DoMatchParen",
+-- })
 
 vim.api.nvim_create_autocmd({ "VimEnter", "WinEnter", "BufWinEnter" }, {
   group = augroup("enable_cursorline"),
