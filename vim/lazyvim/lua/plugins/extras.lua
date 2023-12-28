@@ -331,11 +331,13 @@ return {
           return str:sub(1, 1)
         end,
       }
+
       local simple_filename = {
         "filename",
         file_status = false,
         path = 0,
       }
+
       local filename = {
         "filename",
         file_status = true, -- Displays file status (readonly status, modified status)
@@ -351,15 +353,31 @@ return {
           unnamed = "[No Name]", -- Text to show for unnamed buffers.
         },
       }
+
       local filetype = {
         "filetype",
         icon_only = true, -- Display only an icon for filetype
         colored = false,
       }
+
       local diagnostics = {
         "diagnostics",
         colored = false, -- Displays diagnostics status in color if set to true.
         always_visible = true, -- Show diagnostics even if there are none.
+      }
+
+      local macro_mode_text = function()
+        local reg = vim.fn.reg_recording()
+        if reg == "" then
+          return ""
+        end -- not recording
+        return reg
+      end
+
+      local macro_mode = {
+        macro_mode_text,
+        color = { fg = "#ffffff", bg = "#ff0000", gui = "bold" },
+        icon = "[󰑊 REC]",
       }
 
       local get_scroll_position = function(percent, scroll_positions)
@@ -420,7 +438,9 @@ return {
           lualine_x = {
             filetype,
           },
-          lualine_y = {},
+          lualine_y = {
+            macro_mode,
+          },
           lualine_z = {
             rows,
           },
