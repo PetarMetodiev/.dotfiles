@@ -6,9 +6,9 @@
 2. Replace the contents of `./.git/hooks/commit-msg` with this:
 
 ```sh
-check=$(head -1 $1 | grep -w "nvim:\|kitty:\|docs:\|git:\|tmux:\|shell:\|hs:")
+check=$(head -1 $1 | grep -w "nvim:\|kitty:\|docs:\|git:\|tmux:\|karabiner:\|shell:\|hs:\|misc:")
 if [ "" = "$check" ]; then
-  echo "Commit message should start with nvim, kitty, docs, git, tmux, shell or hs(for hammerspoon)." 1>&2
+  echo "Commit message should start with nvim, kitty, docs, git, tmux, karabiner, shell, hs(for hammerspoon) or misc." 1>&2
   echo "Required format:" 1>&2
   echo "    [prefix]: <description>" 1>&2
   exit 1
