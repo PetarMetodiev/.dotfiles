@@ -6,6 +6,12 @@ return {
     event = "BufReadPre",
   },
 
+  -- Not sure if this is really needed
+  {
+    "NMAC427/guess-indent.nvim",
+    event = "VeryLazy"
+  },
+
   {
     "AckslD/nvim-neoclip.lua",
     dependencies = {
