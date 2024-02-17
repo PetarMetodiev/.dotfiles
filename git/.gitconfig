@@ -24,6 +24,7 @@
 [color "branch"]
     remote = yellow
 [alias]
+	aliases = config --get-regexp alias
 	tree = log --pretty=format:\"%C(cyan)|%h| %cr%Creset %C(yellow)%an:%Creset %C(magenta)%d%Creset %s\" --graph --color --all
 	iadd = add -i
 	unpushed = log @{u}.. --pretty=format:\"%C(cyan)|%h| %cr%Creset %C(yellow)%an:%Creset %C(magenta)%d%Creset %s\" --graph --color
