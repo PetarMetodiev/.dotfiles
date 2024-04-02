@@ -142,22 +142,15 @@ return {
         has = "codeAction",
       }
     end,
-    -- not sure if this was added because of old docs, keeping it here for reference if something breaks
-    -- opts = {
-    --   servers = { eslint = {} },
-    --   autoformat = false,
-    --   setup = {
-    --     eslint = function()
-    --       require("lazyvim.util").on_attach(function(client)
-    --         if client.name == "eslint" then
-    --           client.server_capabilities.documentFormattingProvider = true
-    --         elseif client.name == "tsserver" then
-    --           client.server_capabilities.documentFormattingProvider = false
-    --         end
-    --       end)
-    --     end,
-    --   },
-    -- },
+  },
+
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters_by_ft = {
+        scss = { "stylelint" },
+      },
+    },
   },
 
   {
