@@ -98,6 +98,8 @@ map({ "n", "v" }, "gf", function()
   Util.format({ force = true })
 end, { desc = "Format" })
 
+map("n", "<leader>o", "<cmd>only<CR>", { noremap = true, silent = true, desc = "Close other splits" })
+
 -- vim-tmux-navigator
 if os.getenv("TMUX") then
   map("n", "<C-h>", "<cmd>TmuxNavigateLeft<cr>")
