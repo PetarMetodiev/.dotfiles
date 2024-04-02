@@ -9,7 +9,7 @@ return {
   -- Not sure if this is really needed
   {
     "NMAC427/guess-indent.nvim",
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
 
   {
@@ -248,6 +248,8 @@ return {
 
   {
     "hrsh7th/nvim-cmp",
+
+    commit = "b356f2c80cb6c5bae2a65d7f9c82dd5c3fdd6038",
 
     opts = function(_, opts)
       local has_words_before = function()
