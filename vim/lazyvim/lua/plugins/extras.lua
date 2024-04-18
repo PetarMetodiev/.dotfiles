@@ -144,7 +144,18 @@ return {
     end,
     opts = {
       servers = {
-        stylelint_lsp = {},
+        stylelint_lsp = {
+          filetypes = {
+            "css",
+            "less",
+            "scss",
+            "sugarss",
+            "vue",
+            "wxss",
+            "javascriptreact",
+            "typescriptreact",
+          },
+        },
         cssls = {},
         css_variables = {},
       },
