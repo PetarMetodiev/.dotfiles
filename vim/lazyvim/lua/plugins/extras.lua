@@ -710,4 +710,14 @@ return {
       separator = "-",
     },
   },
+
+  {
+    "folke/tokyonight.nvim",
+    opts = {
+      on_highlights = function(hl)
+        hl.TelescopePromptBorder = hl.TelescopeBorder
+        hl.TelescopePromptTitle = hl.TelescopeNormal
+      end,
+    },
+  },
 }
