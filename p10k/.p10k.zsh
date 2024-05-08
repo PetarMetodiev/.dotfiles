@@ -381,7 +381,7 @@
   # Change the value of this parameter to show a different icon.
   # typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
   typeset -g POWERLEVEL9K_VCS_COMMITS_BEHIND_ICON='\uf01a'
-  typeset -g POWERLEVEL9K_VCS_COMMITS_AHEAD_ICON='\uf01b'
+  typeset -g POWERLEVEL9K_VCS_COMMITS_AHEAD_ICON='\uf0aa'
   typeset -g POWERLEVEL9K_VCS_PUSH_COMMITS_BEHIND_ICON='\uf190'
   typeset -g POWERLEVEL9K_VCS_PUSH_COMMITS_AHEAD_ICON='\uf18e'
   typeset -g POWERLEVEL9K_VCS_STASHES_ICON='\uf48d'
