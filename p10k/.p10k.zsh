@@ -367,6 +367,12 @@
   # typeset -g POWERLEVEL9K_DIR_PREFIX='in '
 
   #####################################[ vcs: git status ]######################################
+
+  # ----------------------------------ICON SIZE CAVEAT ----------------------------------
+  # By default kitty renders small icons if there is no space between the icon and the next character.
+  # Hence they look small in the file. p10k is smart enough to add spaces when rendering the icons so their size
+  # is ok.
+  typeset -g POWERLEVEL9K_VCS_GIT_GITLAB_ICON='󰮠'
   # Version control background colors.
   typeset -g POWERLEVEL9K_VCS_CLEAN_BACKGROUND=2
   typeset -g POWERLEVEL9K_VCS_MODIFIED_BACKGROUND=3
@@ -380,15 +386,15 @@
   # Untracked files icon. It's really a question mark, your font isn't broken.
   # Change the value of this parameter to show a different icon.
   # typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON='?'
-  typeset -g POWERLEVEL9K_VCS_COMMITS_BEHIND_ICON='\uf0ab'
-  typeset -g POWERLEVEL9K_VCS_COMMITS_AHEAD_ICON='\uf0aa'
-  typeset -g POWERLEVEL9K_VCS_PUSH_COMMITS_BEHIND_ICON='\uf190'
-  typeset -g POWERLEVEL9K_VCS_PUSH_COMMITS_AHEAD_ICON='\uf18e'
-  typeset -g POWERLEVEL9K_VCS_STASHES_ICON='\uf48d'
-  typeset -g POWERLEVEL9K_VCS_CONFLICTED_ICON='\uf468'
-  typeset -g POWERLEVEL9K_VCS_STAGED_ICON='\uf055'
-  typeset -g POWERLEVEL9K_VCS_UNSTAGED_ICON='\uf06a'
-  typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON='\uf059'
+  typeset -g POWERLEVEL9K_VCS_COMMITS_BEHIND_ICON=''
+  typeset -g POWERLEVEL9K_VCS_COMMITS_AHEAD_ICON=''
+  typeset -g POWERLEVEL9K_VCS_PUSH_COMMITS_BEHIND_ICON=''
+  typeset -g POWERLEVEL9K_VCS_PUSH_COMMITS_AHEAD_ICON=''
+  typeset -g POWERLEVEL9K_VCS_STASHES_ICON=''
+  typeset -g POWERLEVEL9K_VCS_CONFLICTED_ICON=''
+  typeset -g POWERLEVEL9K_VCS_STAGED_ICON=''
+  typeset -g POWERLEVEL9K_VCS_UNSTAGED_ICON=''
+  typeset -g POWERLEVEL9K_VCS_UNTRACKED_ICON=''
 
   # Formatter for Git status.
   #
