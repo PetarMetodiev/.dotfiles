@@ -201,7 +201,8 @@ return {
             -- You can use the capture groups defined in textobjects.scm
             ["af"] = "@function.outer",
             ["if"] = "@function.inner",
-            --[[ ['sc'] = '@comment.outer', ]]
+            ["ac"] = "@comment.outer",
+            ["ic"] = "@comment.inner",
             --[[ ['ic'] = '@conditional.inner', ]]
             --[[ ['ac'] = '@conditional.outer', ]]
             -- ["ac"] = "@conditional.outer",
