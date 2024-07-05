@@ -34,7 +34,9 @@ return {
       {
         '"',
         function()
-          return require("telescope").extensions.neoclip.default()
+          local opts = require("telescope.themes").get_dropdown(require("telescope.config").values)
+          opts.initial_mode = "normal"
+          return require("telescope").extensions.neoclip.default(opts)
         end,
         noremap = true,
         silent = true,
@@ -43,7 +45,9 @@ return {
       {
         "<C-r>",
         function()
-          return require("telescope").extensions.neoclip.default()
+          local opts = require("telescope.themes").get_dropdown(require("telescope.config").values)
+          opts.initial_mode = "normal"
+          return require("telescope").extensions.neoclip.default(opts)
         end,
         noremap = true,
         silent = true,
