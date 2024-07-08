@@ -156,6 +156,8 @@ return {
         },
         cssls = {},
         css_variables = {},
+        typos_lsp = {},
+        custom_elements_ls = {},
       },
     },
   },
