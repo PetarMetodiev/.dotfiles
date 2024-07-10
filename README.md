@@ -113,6 +113,12 @@ fi
   brew install zsh
   ```
 
+- ### [zoxide](https://github.com/ajeetdsouza/zoxide) - A smarter cd command. Supports all major shells
+
+  ```sh
+  brew install zoxide
+  ```
+
 - ### [Prezto](https://github.com/sorin-ionescu/prezto) - Instantly Awesome Zsh
 
   > From forked repo:
