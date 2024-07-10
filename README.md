@@ -95,12 +95,6 @@ fi
   brew install tmux
   ```
 
-  - ### With true color(not tested):
-
-    ```sh
-    brew install tmux --with-truecolor
-    ```
-
 - ### [tmux plugin manager](https://github.com/tmux-plugins/tpm)
 
   ```sh
