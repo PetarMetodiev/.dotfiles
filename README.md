@@ -6,7 +6,7 @@
 2. Replace the contents of `./.git/hooks/commit-msg` with this:
 
 ```sh
-check=$(head -1 $1 | grep -w "nvim:\|kitty:\|docs:\|git:\|tmux:\|karabiner:\|shell:\|hs:\|misc:")
+check=$(head -1 "$1" | grep -w "nvim:\|kitty:\|docs:\|git:\|tmux:\|karabiner:\|shell:\|hs:\|misc:")
 if [ "" = "$check" ]; then
   echo "Commit message should start with nvim, kitty, docs, git, tmux, karabiner, shell, hs(for hammerspoon) or misc." 1>&2
   echo "Required format:" 1>&2
@@ -50,7 +50,9 @@ fi
   Application that gives you access to additional preference settings Apple has built into macOS.
 
 - ### [Karabiner Elements](https://karabiner-elements.pqrs.org/)
+
   [Vim navigation](https://ke-complex-modifications.pqrs.org/#capslock_vim_movements)
+
 - ### [kitty](https://sw.kovidgoyal.net/kitty/)
 
   ```sh
@@ -112,6 +114,7 @@ fi
   ```
 
 - ### [Prezto](https://github.com/sorin-ionescu/prezto) - Instantly Awesome Zsh
+
   > From forked repo:
 
   ```sh
