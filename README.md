@@ -130,7 +130,16 @@ fi
   > From forked repo:
 
   ```sh
-  git clone --recursive git@github.com:PetarMetodiev/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
+  git clone --recursive https://github.com/PetarMetodiev/prezto.git "${ZDOTDIR:-$HOME}/.zprezto
+  ```
+
+  Then link all zsh configs:
+
+  ```sh
+  setopt EXTENDED_GLOB
+  for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
+    ln -s "$rcfile" "${ZDOTDIR:-$HOME}/.${rcfile:t}"
+  done
   ```
 
 - ### [NerdFonts](https://github.com/ryanoasis/nerd-fonts)
