@@ -101,6 +101,12 @@ fi
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   ```
 
+  And then install the plugins:
+
+  ```sh
+  ~/.tmux/plugins/tpm/bin/install_plugins
+  ```
+
 - ### [zsh(Homebrew formula)](https://formulae.brew.sh/formula/zsh#default)
 
   ```sh
