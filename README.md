@@ -189,22 +189,6 @@ fi
   npm install -g diff-so-fancy
   ```
 
-- ### [prettierd](https://github.com/fsouza/prettierd)
-
-  > Should be handled by LazyVim. No need to install it.
-
-  ```sh
-  npm install -g @fsouza/prettierd
-  ```
-
-- ### [eslint_d](https://github.com/mantoni/eslint_d.js)
-
-  > Should be handled by LazyVim. No need to install it.
-
-  ```sh
-  npm install -g eslint_d
-  ```
-
 - ### [Neovim](https://neovim.io/)
 
   ```sh
