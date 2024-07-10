@@ -144,15 +144,24 @@ fi
 
 - ### [NerdFonts](https://github.com/ryanoasis/nerd-fonts)
 
+  Main font:
+
   ```sh
-  brew tap homebrew/cask-fonts
+  brew install --cask font-caskaydia-cove-nerd-font
   ```
 
-  `brew install --cask font-caskaydia-cove-nerd-font` - also a good option, set horizontal spacing to 101 inside iTerm2
+  Cursive font
 
-  `brew install --cask font-hasklig-nerd-font` - alternative font
+  ```sh
+  brew install --cask font-victor-mono
+  ```
 
-  `brew install --cask font-victor-mono` - cursive font
+  Alternative font
+
+  ```sh
+  brew install --cask font-hasklig-nerd-font
+
+  ```
 
 - ### [coreutils(Homebrew formula)](https://formulae.brew.sh/formula/coreutils#default)
 
