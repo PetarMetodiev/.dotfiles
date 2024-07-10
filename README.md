@@ -133,14 +133,6 @@ fi
 
   `brew install --cask font-victor-mono` - cursive font
 
-- ### [zsh-completions](https://github.com/zsh-users/zsh-completions)
-
-  ```sh
-  brew install zsh-completions
-  ```
-
-  - ### Not sure if really needed or `Prezto` comes with it out of the box
-
 - ### [coreutils(Homebrew formula)](https://formulae.brew.sh/formula/coreutils#default)
 
   ```sh
