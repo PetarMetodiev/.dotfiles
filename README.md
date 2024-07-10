@@ -29,7 +29,7 @@ fi
   - [Video Speed Controller](https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk) - control the speed of all videos.
   - [VisBug](https://chrome.google.com/webstore/detail/visbug/cdockenadnadldjbbgcallicgledbeoc) - Open source web design debug tools built with JavaScript.
 
-- ### [HotKey](https://codenuts.de/en/posts/hotkey/)
+- ### [HotKey](https://apps.apple.com/us/app/hotkey-app/id975890633?mt=12)
 
   Define keyboard shortcuts to launch Applications or to open folders in Finder. Another way is to open the Apps by selecting them from the Status-Menu in Your Mac’s menu bar.
 
