@@ -171,25 +171,17 @@ fi
 
 - ### [nvm](https://github.com/nvm-sh/nvm)
 
-  > _Optional_
+  Install `nvm`:
 
   ```sh
   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.34.0/install.sh | bash
   ```
 
-- ### [Node](https://nodejs.org/en/)
+  Install latest `node`:
 
-  - Via `Homebrew` - please don't
-
-    ```sh
-    brew install node
-    ```
-
-  - Via `nvm`
-
-    ```sh
-    nvm install node # "node" is an alias for the latest version
-    ```
+  ```sh
+  nvm install node # "node" is an alias for the latest version
+  ```
 
 - ### [diff-so-fancy](https://github.com/so-fancy/diff-so-fancy)
 
