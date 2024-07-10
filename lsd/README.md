@@ -1,3 +1,4 @@
 ```sh
-ln -s ~/.dotfiles/lsd/config.yaml ~/.config/lsd
+mkdir ~/.config/lsd
+ln -s ~/.dotfiles/lsd/config.yaml ~/.config/lsd/config.yml
 ```
