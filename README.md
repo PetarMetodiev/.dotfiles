@@ -53,6 +53,12 @@ fi
 
   [Vim navigation](https://ke-complex-modifications.pqrs.org/#capslock_vim_movements)
 
+- ### [Obsidian](https://obsidian.md/) - Obsidian is the private and flexible writing app that adapts to the way you think
+
+  ```sh
+  brew install --cask obsidian
+  ```
+
 - ### [kitty](https://sw.kovidgoyal.net/kitty/)
 
   ```sh
