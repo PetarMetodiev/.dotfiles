@@ -675,4 +675,13 @@ return {
       draw = { animation = require("mini.indentscope").gen_animation.none() },
     },
   },
+
+  {
+    "mfussenegger/nvim-lint",
+    opts = {
+      linters_by_ft = {
+        markdown = {},
+      },
+    },
+  },
 }
