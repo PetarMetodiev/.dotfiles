@@ -684,4 +684,19 @@ return {
       },
     },
   },
+
+  {
+    "MeanderingProgrammer/markdown.nvim",
+    opts = {
+      code = {
+        sign = true,
+        width = "full",
+        right_pad = 0,
+      },
+      heading = {
+        sign = true,
+        icons = { "󰲡 ", "󰲣 ", "󰲥 ", "󰲧 ", "󰲩 ", "󰲫 " },
+      },
+    },
+  },
 }
