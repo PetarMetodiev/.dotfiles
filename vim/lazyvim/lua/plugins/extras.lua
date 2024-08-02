@@ -21,6 +21,9 @@ return {
         styles = {
           comments = "italic",
           types = "italic",
+          functions = "bold",
+          constants = "bold,italic",
+          keywords = "italic"
         },
       },
     },
