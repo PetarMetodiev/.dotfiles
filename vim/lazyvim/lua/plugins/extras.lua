@@ -23,7 +23,7 @@ return {
           types = "italic",
           functions = "bold",
           constants = "bold,italic",
-          keywords = "italic"
+          keywords = "italic",
         },
       },
     },
@@ -193,7 +193,13 @@ return {
         cssls = {},
         css_variables = {},
         typos_lsp = {},
-        custom_elements_ls = {},
+        custom_elements_ls = {
+          filetypes = {
+            "html",
+            "typescript",
+            "javascript",
+          },
+        },
       },
     },
   },
