@@ -532,49 +532,6 @@ return {
   },
 
   {
-    "rgroli/other.nvim",
-    config = function()
-      require("other-nvim").setup({
-        mappings = {
-          {
-            pattern = "/(.*).scss$",
-            target = "/%1.tsx",
-          },
-          {
-            pattern = "/(.*).css$",
-            target = "/%1.tsx",
-          },
-          {
-            pattern = "/(.*).tsx$",
-            target = "/%1.scss",
-          },
-          {
-            pattern = "/(.*).tsx$",
-            target = "/%1.css",
-            context = "css",
-          },
-        },
-      })
-    end,
-    keys = {
-      {
-        "<leader>fv",
-        "<cmd>OtherVSplit<CR>",
-        noremap = true,
-        silent = true,
-        desc = "Open alternative file in v-split",
-      },
-      {
-        "<leader>fs",
-        "<cmd>OtherSplit<CR>",
-        noremap = true,
-        silent = true,
-        desc = "Open alternative file in split",
-      },
-    },
-  },
-
-  {
     "nvim-telescope/telescope.nvim",
     opts = {
       defaults = {
