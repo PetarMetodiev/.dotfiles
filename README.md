@@ -53,12 +53,6 @@ fi
 
   [Vim navigation](https://ke-complex-modifications.pqrs.org/#capslock_vim_movements)
 
-- ### [Obsidian](https://obsidian.md/) - Obsidian is the private and flexible writing app that adapts to the way you think
-
-  ```sh
-  brew install --cask obsidian
-  ```
-
 - ### [kitty](https://sw.kovidgoyal.net/kitty/)
 
   ```sh
@@ -71,13 +65,22 @@ fi
   /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
   ```
 
-- ### [hammerspoon](https://www.hammerspoon.org/) - a tool for powerful automation of macOS
+- ### [Obsidian](https://obsidian.md/)
+  Obsidian is the private and flexible writing app that adapts to the way you think
+
+  ```sh
+  brew install --cask obsidian
+  ```
+
+- ### [hammerspoon](https://www.hammerspoon.org/)
+  A tool for powerful automation of macOS
 
   ```sh
   brew install hammerspoon --cask
   ```
 
-- ### [maccy](https://maccy.app/) - clipboard manager
+- ### [maccy](https://maccy.app/)
+  Clipboard manager
 
   ```sh
   brew install --cask maccy
@@ -126,13 +129,15 @@ fi
   brew install zsh
   ```
 
-- ### [zoxide](https://github.com/ajeetdsouza/zoxide) - A smarter cd command. Supports all major shells
+- ### [zoxide](https://github.com/ajeetdsouza/zoxide)
+  A smarter cd command. Supports all major shells
 
   ```sh
   brew install zoxide
   ```
 
-- ### [Prezto](https://github.com/sorin-ionescu/prezto) - Instantly Awesome Zsh
+- ### [Prezto](https://github.com/sorin-ionescu/prezto)
+  Instantly Awesome Zsh
 
   > From forked repo:
 
