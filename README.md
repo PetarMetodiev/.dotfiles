@@ -89,6 +89,13 @@ fi
   brew install meetingbar
   ```
 
+- ### [Ice](https://github.com/jordanbaird/Ice)
+  A powerful menu bar management tool
+
+  ```sh
+  brew install jordanbaird-ice
+  ```
+
 - ### [git(Homebrew formula)](https://formulae.brew.sh/formula/git#default)
 
   ```sh
