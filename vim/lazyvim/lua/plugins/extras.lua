@@ -698,4 +698,18 @@ return {
       },
     },
   },
+
+  {
+    "rachartier/tiny-glimmer.nvim",
+    event = "TextYankPost",
+    opts = {
+      enable = true,
+      animations = {
+        fade = {
+          max_duration = 200,
+          from_color = "@text.warning",
+        },
+      },
+    },
+  },
 }
