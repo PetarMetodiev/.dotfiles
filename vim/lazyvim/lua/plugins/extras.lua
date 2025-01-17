@@ -472,7 +472,7 @@ return {
           lualine_c = {},
           lualine_x = {},
           lualine_y = { simple_filename },
-          lualine_z = { diagnostics },
+          lualine_z = {},
         },
         winbar = {
           lualine_a = {},
@@ -480,7 +480,7 @@ return {
           lualine_c = {},
           lualine_x = {},
           lualine_y = {},
-          lualine_z = {},
+          lualine_z = { diagnostics },
         },
         inactive_winbar = {
           lualine_a = {},
