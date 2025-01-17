@@ -20,3 +20,11 @@ vim.api.nvim_create_autocmd("WinLeave", {
   group = augroup("disable_cursorline"),
   command = "setlocal nocursorline",
 })
+
+vim.api.nvim_create_autocmd({ "InsertEnter", "CmdlineEnter" }, {
+  desc = "Remove hl search when enter Insert",
+  group = augroup("hl_search"),
+  callback = vim.schedule_wrap(function()
+    vim.cmd.nohlsearch()
+  end),
+})
