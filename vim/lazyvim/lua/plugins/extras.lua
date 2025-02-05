@@ -178,6 +178,8 @@ return {
     opts = {
       inlay_hints = { enabled = false },
       servers = {
+        docker_compose_language_service = {},
+        dockerls = {},
         stylelint_lsp = {
           filetypes = {
             "css",
