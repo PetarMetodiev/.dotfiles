@@ -178,8 +178,6 @@ return {
     opts = {
       inlay_hints = { enabled = false },
       servers = {
-        docker_compose_language_service = {},
-        dockerls = {},
         stylelint_lsp = {
           filetypes = {
             "css",
@@ -192,7 +190,22 @@ return {
             "typescriptreact",
           },
         },
-        cssls = {},
+        cssls = {
+          settings = {
+            css = {
+              validate = true,
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+            scss = {
+              validate = true,
+              lint = {
+                unknownAtRules = "ignore",
+              },
+            },
+          },
+        },
         css_variables = {},
         typos_lsp = {},
         custom_elements_ls = {
