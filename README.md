@@ -21,7 +21,7 @@ fi
 
 - ### Chrome extensions
 
-  - [Stardust cookie cutter](https://chrome.google.com/webstore/detail/stardust-cookie-cutter/knliaomflpbgdhnlhomjmmoahdfhnhae) - automatically close (most) cookie consent popups
+  - ~~[Stardust cookie cutter](https://chrome.google.com/webstore/detail/stardust-cookie-cutter/knliaomflpbgdhnlhomjmmoahdfhnhae) - automatically close (most) cookie consent popups~~ ___deprecated___
   - [JSONVue](https://chrome.google.com/webstore/detail/jsonvue/chklaanhfefbnpoihckbnefhakgolnmc) - nice JSON viewer.
   - [Momentum](https://chrome.google.com/webstore/detail/momentum/laookkfknpbbblfpciffpaejjkokdgca) - pretty default page.
   - [Refined github](https://github.com/refined-github/refined-github) - add cool stuff for github. Config is in `./Refined GitHub/Refined GitHub options.json`
