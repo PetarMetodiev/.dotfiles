@@ -59,3 +59,90 @@ hs.hotkey.bind({}, "F17", function()
 		end)
 	end
 end)
+
+local escapePressed = false
+local keyPressedWhileHeld = false
+
+local navigationMappings = {
+	h = "left",
+	j = "down",
+	k = "up",
+	l = "right",
+	d = "pagedown",
+	u = "pageup",
+	delete = "forwarddelete",
+}
+
+local mainEventTap = hs.eventtap.new({ hs.eventtap.event.types.keyDown, hs.eventtap.event.types.keyUp }, function(event)
+	local keyCode = event:getKeyCode()
+	local char = hs.keycodes.map[keyCode]
+	local isDown = event:getType() == hs.eventtap.event.types.keyDown
+	local flags = event:getFlags()
+
+	-- Escape key (53)
+	if keyCode == 53 then
+		if isDown then
+			escapePressed = true
+			keyPressedWhileHeld = false
+		else
+			escapePressed = false
+			if not keyPressedWhileHeld then
+				hs.eventtap.keyStroke({}, "escape", 0)
+			end
+			keyPressedWhileHeld = false
+		end
+		return true
+	end
+
+	-- § to ` remapping (only on keyDown, consume keyUp too)
+	if char == "non_us_backslash" or keyCode == 10 then
+		if isDown then
+			local mods = {}
+			if flags.shift then
+				table.insert(mods, "shift")
+			end
+			if flags.cmd then
+				table.insert(mods, "cmd")
+			end
+			if flags.alt then
+				table.insert(mods, "alt")
+			end
+			if flags.ctrl then
+				table.insert(mods, "ctrl")
+			end
+
+			hs.eventtap.keyStroke(mods, "`", 0)
+		end
+		return true
+	end
+
+	-- Navigation with modifiers
+	if escapePressed and navigationMappings[char] and isDown then
+		keyPressedWhileHeld = true
+
+		local mods = {}
+		if flags.shift then
+			table.insert(mods, "shift")
+		end
+		if flags.cmd then
+			table.insert(mods, "cmd")
+		end
+		if flags.alt then
+			table.insert(mods, "alt")
+		end
+		if flags.ctrl then
+			table.insert(mods, "ctrl")
+		end
+
+		hs.eventtap.keyStroke(mods, navigationMappings[char], 0)
+		return true
+	end
+
+	if escapePressed and navigationMappings[char] and not isDown then
+		return true
+	end
+
+	return false
+end)
+
+mainEventTap:start()
