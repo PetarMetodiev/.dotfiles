@@ -1,16 +1,14 @@
 #!/bin/sh
 
 # tools-popup.sh toggles a popup view into a shared tmux "tools" session (named
-# "~tools" so it sorts last in the session chooser). Note: in zsh, remember to
-# quote or escape "~tools" in tmux commands (e.g. -t '~tools') to avoid ~user
-# expansion.
+# "{tools}" so it sorts last in the session chooser).
 # provides a popup view into the full tools window. It ensures the tools
 # session/window exist on first use, then attaches the full window inside a
 # tmux display-popup. Tools are created lazily when invoked (C-d), not
 # precreated on session start.
 
 TOOLS_SESSION="$(tmux show-option -gqv @tools_session 2>/dev/null)"
-[ -n "$TOOLS_SESSION" ] || TOOLS_SESSION="~tools"
+[ -n "$TOOLS_SESSION" ] || TOOLS_SESSION="{tools}"
 SCRIPT_PATH="${HOME}/.dotfiles/tmux/scripts/tools-popup.sh"
 
 ensure_tools_session() {
