@@ -14,8 +14,8 @@ SCRIPT_PATH="${HOME}/.dotfiles/tmux/scripts/tools-popup.sh"
 ensure_tools_session() {
   if ! tmux has-session -t "$TOOLS_SESSION" 2>/dev/null; then
     tmux new-session -d -s "$TOOLS_SESSION"
-    tmux set-option -t "$TOOLS_SESSION" status off
   fi
+  tmux set-option -t "$TOOLS_SESSION" status off
 }
 
 ensure_tools_window() {
