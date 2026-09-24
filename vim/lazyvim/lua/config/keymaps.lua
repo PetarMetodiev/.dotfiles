@@ -20,6 +20,7 @@ map({ "n", "v" }, "0", "^", { noremap = true, silent = true, desc = "Move to the
 -- -- Insert new line without entering insert mode
 map("n", "<CR>", "o<Esc>", { noremap = true, silent = true, desc = "Add new line below in normal mode" })
 map("n", "<S-CR>", "O<Esc>", { noremap = true, silent = true, desc = "Add new line above in normal mode" })
+map("o", "<CR>", "}", { noremap = true, silent = true, desc = "Move to next paragraph" })
 
 -- Use Ctrl+q to switch between last used buffer(Ctrl+TAB is not reliable in
 -- all terminals)
