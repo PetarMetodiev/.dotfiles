@@ -6,9 +6,9 @@
 [core]
 	pager = diff-so-fancy | less --tabs=4 -RXS
 	editor = nvim
-	excludesfile = /Users/twick/.gitignore
 [color]
-	ui = always
+	# Use colors in the terminal and pager, but not redirected output.
+	ui = auto
 [color "diff"]
 	meta = yellow bold
 	commit = green bold
@@ -27,7 +27,19 @@
 	aliases = config --get-regexp alias
 	tree = log --pretty=format:\"%C(cyan)|%h| %cr%Creset %C(yellow)%an:%Creset %C(magenta)%d%Creset %s\" --graph --color --all
 	iadd = add -i
-	unpushed = log @{u}.. --pretty=format:\"%C(cyan)|%h| %cr%Creset %C(yellow)%an:%Creset %C(magenta)%d%Creset %s\" --graph --color
-	all-unpushed = log @{u}.. --pretty=format:\"%C(cyan)|%h| %cr%Creset %C(yellow)%an:%Creset %C(magenta)%d%Creset %s\" --graph --color --all
 [http]
 	sslVerify = true
+[rerere]
+  # Remember conflict resolutions and reuse them when the same conflicts recur.
+  enabled = true
+  # Leave reused resolutions unstaged so they can be reviewed before git add.
+  autoUpdate = false
+[fetch]
+  # Remove remote-tracking branches deleted on the remote; keep local branches.
+  prune = true
+[merge]
+  # Show the common ancestor in conflicts, trimming redundant context.
+  conflictStyle = zdiff3
+[push]
+  # Set the upstream on the first default push when the branch has none.
+  autoSetupRemote = true
