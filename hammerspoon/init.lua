@@ -82,3 +82,7 @@ end)
 hs.hotkey.bind(super_key, "V", function()
 	sendTeamsShortcut("v")
 end)
+
+hs.hotkey.bind(super_key, "H", function()
+	sendTeamsShortcut("h")
+end)
