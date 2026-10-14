@@ -75,14 +75,19 @@ local function sendTeamsShortcut(key)
 	hs.eventtap.keyStroke(super_key, key, 0, app)
 end
 
-hs.hotkey.bind(super_key, "A", function()
-	sendTeamsShortcut("a")
+-- Fixed macOS keycodes keep these shortcuts independent of the input source.
+hs.hotkey.bind(super_key, 0, function() -- A: microphone
+	sendTeamsShortcut(0)
 end)
 
-hs.hotkey.bind(super_key, "V", function()
-	sendTeamsShortcut("v")
+hs.hotkey.bind(super_key, 9, function() -- V: camera
+	sendTeamsShortcut(9)
 end)
 
-hs.hotkey.bind(super_key, "H", function()
-	sendTeamsShortcut("h")
+hs.hotkey.bind(super_key, 4, function() -- H: leave call
+	sendTeamsShortcut(4)
+end)
+
+hs.hotkey.bind(super_key, 40, function() -- K: raise/lower hand
+	sendTeamsShortcut(40)
 end)
